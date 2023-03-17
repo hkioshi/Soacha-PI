@@ -52,7 +52,7 @@ namespace Cartagena___Soacha
             string dataPartida = itens[2];
             string status = itens[3];
 
-            lblStatus.Text = $" Id: {idPartida}\n Nome: {nomePartida} \n status: {status}";
+            lblStatus.Text = $" Id: {idPartida}\n Nome: {nomePartida}\n Data: {dataPartida} \n status: {status}";
 
         }
 
@@ -90,7 +90,7 @@ namespace Cartagena___Soacha
         private void btnCad_Click(object sender, EventArgs e)
         {
             //Aqui vai cadastrar o jogador e mostrar o id, o nome, a senha, e a cor
-            //falta tratameto de erro se os campos estiverem nulos
+            //falta tratameto de erro se os campos estiverem nulos e colocar retorno em lista com variaveis
             string retorno = Jogo.EntrarPartida(idPartida, txtNomeJogador.Text, txtSenhaJogador.Text);
             lblStatusJogador.Text = retorno;
         }
