@@ -17,14 +17,13 @@ namespace Cartagena___Soacha
         {
             InitializeComponent();
         }
-        int idPartida;
-        int oi = 0;
+        int idPartida; // id da partida escolhida
+        int oi = 0; // Nada Importante
         private void button1_Click(object sender, EventArgs e)
         {
+            //O botao um vai listar as partidas
+            //Oq falta: se clicar 2 ou mais vezes tem que apagar a lista e escrever denovo;
             string retorno = Jogo.ListarPartidas("T");
-            
-
-
             retorno = retorno.Replace("\r", "");
 
 
@@ -38,11 +37,13 @@ namespace Cartagena___Soacha
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            //num sei se da problema apagar isso aq, entao, NAO MEXA
         }
 
         private void btnSelecionarPartida_Click(object sender, EventArgs e)
         {
+            //O botao vai pegar a partida q foi selecionada e mostrar coisas como id, nome,data de criaçao e se esta aberta
+            //Oq falta: tratameto de erro na hora de clicar o botao e nao ter nenhuma partida selecionada
             string partidas = lstPartidas.SelectedItem.ToString();
             string[] itens = partidas.Split(new char[] {',' });
 
@@ -57,16 +58,18 @@ namespace Cartagena___Soacha
 
         private void label1_Click(object sender, EventArgs e)
         {
-            
+            //num sei se da problema apagar isso aq, entao, NAO MEXA
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            //num sei se da problema apagar isso aq, entao, NAO MEXA
         }
 
         private void btnCriarPartida_Click(object sender, EventArgs e)
         {
+            //Cria partida;
+            //falta tratamento de erro melhor que esse aq em baixo
             if(txtNome.Text== null || txtSenha == null)
             {
                 MessageBox.Show("Sem nome ou senha");
@@ -81,17 +84,20 @@ namespace Cartagena___Soacha
 
         private void lblCriacaoDePartidas_Click(object sender, EventArgs e)
         {
-
+            //num sei se da problema apagar isso aq, entao, NAO MEXA
         }
 
         private void btnCad_Click(object sender, EventArgs e)
         {
+            //Aqui vai cadastrar o jogador e mostrar o id, o nome, a senha, e a cor
+            //falta tratameto de erro se os campos estiverem nulos
             string retorno = Jogo.EntrarPartida(idPartida, txtNomeJogador.Text, txtSenhaJogador.Text);
             lblStatusJogador.Text = retorno;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            //Nada importante
             switch(oi)
             {
           
