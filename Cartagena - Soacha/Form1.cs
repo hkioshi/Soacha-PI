@@ -17,7 +17,7 @@ namespace Cartagena___Soacha
         {
             InitializeComponent();
         }
-
+        int idPartida;
         private void button1_Click(object sender, EventArgs e)
         {
             string retorno = Jogo.ListarPartidas("T");
@@ -45,7 +45,7 @@ namespace Cartagena___Soacha
             string partidas = lstPartidas.SelectedItem.ToString();
             string[] itens = partidas.Split(new char[] {',' });
 
-            int idPartida = Convert.ToInt32(itens[0]);
+            idPartida = Convert.ToInt32(itens[0]);
             string nomePartida = itens[1];
             string dataPartida = itens[2];
             string status = itens[3];
@@ -60,6 +60,25 @@ namespace Cartagena___Soacha
         }
 
         private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCriarPartida_Click(object sender, EventArgs e)
+        {
+            if(txtNome.Text== null || txtSenha == null)
+            {
+                MessageBox.Show("Sem nome ou senha");
+            }
+            else
+            {
+                string retorno = Jogo.CriarPartida(txtNome.Text, txtSenha.Text);
+                lblResultCriacao.Text = $"Sua partida foi criada com id {retorno}";
+            }
+            
+        }
+
+        private void lblCriacaoDePartidas_Click(object sender, EventArgs e)
         {
 
         }
