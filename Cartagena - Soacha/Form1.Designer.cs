@@ -1,6 +1,6 @@
 ﻿namespace Cartagena___Soacha
 {
-    partial class Form1
+    partial class formsSoacha
     {
         /// <summary>
         /// Variável de designer necessária.
@@ -37,6 +37,12 @@
             this.txtSenha = new System.Windows.Forms.TextBox();
             this.lblCriacaoDePartidas = new System.Windows.Forms.Label();
             this.lblResultCriacao = new System.Windows.Forms.Label();
+            this.btnCad = new System.Windows.Forms.Button();
+            this.txtSenhaJogador = new System.Windows.Forms.TextBox();
+            this.txtNomeJogador = new System.Windows.Forms.TextBox();
+            this.lblCadPartida = new System.Windows.Forms.Label();
+            this.lblStatusJogador = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnListarPartidas
@@ -118,17 +124,77 @@
             // lblResultCriacao
             // 
             this.lblResultCriacao.AutoSize = true;
-            this.lblResultCriacao.Location = new System.Drawing.Point(665, 161);
+            this.lblResultCriacao.Location = new System.Drawing.Point(599, 161);
             this.lblResultCriacao.Name = "lblResultCriacao";
-            this.lblResultCriacao.Size = new System.Drawing.Size(44, 16);
+            this.lblResultCriacao.Size = new System.Drawing.Size(15, 16);
             this.lblResultCriacao.TabIndex = 10;
-            this.lblResultCriacao.Text = "label1";
+            this.lblResultCriacao.Text = "b";
             // 
-            // Form1
+            // btnCad
+            // 
+            this.btnCad.Location = new System.Drawing.Point(582, 355);
+            this.btnCad.Name = "btnCad";
+            this.btnCad.Size = new System.Drawing.Size(208, 56);
+            this.btnCad.TabIndex = 11;
+            this.btnCad.Text = "Cadastrar";
+            this.btnCad.UseVisualStyleBackColor = true;
+            this.btnCad.Click += new System.EventHandler(this.btnCad_Click);
+            // 
+            // txtSenhaJogador
+            // 
+            this.txtSenhaJogador.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.txtSenhaJogador.Location = new System.Drawing.Point(582, 317);
+            this.txtSenhaJogador.Name = "txtSenhaJogador";
+            this.txtSenhaJogador.Size = new System.Drawing.Size(208, 26);
+            this.txtSenhaJogador.TabIndex = 13;
+            // 
+            // txtNomeJogador
+            // 
+            this.txtNomeJogador.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.txtNomeJogador.Location = new System.Drawing.Point(582, 285);
+            this.txtNomeJogador.Name = "txtNomeJogador";
+            this.txtNomeJogador.Size = new System.Drawing.Size(208, 26);
+            this.txtNomeJogador.TabIndex = 12;
+            // 
+            // lblCadPartida
+            // 
+            this.lblCadPartida.AutoSize = true;
+            this.lblCadPartida.Location = new System.Drawing.Point(648, 253);
+            this.lblCadPartida.Name = "lblCadPartida";
+            this.lblCadPartida.Size = new System.Drawing.Size(109, 16);
+            this.lblCadPartida.TabIndex = 14;
+            this.lblCadPartida.Text = "CadastrarPartida";
+            // 
+            // lblStatusJogador
+            // 
+            this.lblStatusJogador.AutoSize = true;
+            this.lblStatusJogador.Location = new System.Drawing.Point(599, 419);
+            this.lblStatusJogador.Name = "lblStatusJogador";
+            this.lblStatusJogador.Size = new System.Drawing.Size(14, 16);
+            this.lblStatusJogador.TabIndex = 15;
+            this.lblStatusJogador.Text = "c";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(764, 417);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(26, 28);
+            this.button2.TabIndex = 16;
+            this.button2.Text = "?";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // formsSoacha
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.lblStatusJogador);
+            this.Controls.Add(this.lblCadPartida);
+            this.Controls.Add(this.txtSenhaJogador);
+            this.Controls.Add(this.txtNomeJogador);
+            this.Controls.Add(this.btnCad);
             this.Controls.Add(this.lblResultCriacao);
             this.Controls.Add(this.lblCriacaoDePartidas);
             this.Controls.Add(this.txtSenha);
@@ -138,8 +204,8 @@
             this.Controls.Add(this.btnSelecionarPartida);
             this.Controls.Add(this.lstPartidas);
             this.Controls.Add(this.btnListarPartidas);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "formsSoacha";
+            this.Text = "Soacha - Cartagena";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -157,6 +223,12 @@
         private System.Windows.Forms.TextBox txtSenha;
         private System.Windows.Forms.Label lblCriacaoDePartidas;
         private System.Windows.Forms.Label lblResultCriacao;
+        private System.Windows.Forms.Button btnCad;
+        private System.Windows.Forms.TextBox txtSenhaJogador;
+        private System.Windows.Forms.TextBox txtNomeJogador;
+        private System.Windows.Forms.Label lblCadPartida;
+        private System.Windows.Forms.Label lblStatusJogador;
+        private System.Windows.Forms.Button button2;
     }
 }
 

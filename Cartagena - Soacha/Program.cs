@@ -16,7 +16,7 @@ namespace Cartagena___Soacha
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new formsSoacha());
         }
     }
 }
