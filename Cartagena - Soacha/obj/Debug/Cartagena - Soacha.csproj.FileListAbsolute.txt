@@ -1,0 +1,14 @@
+C:\Users\2hkio\source\repos\Cartagena - Soacha\Cartagena - Soacha\bin\Debug\Cartagena - Soacha.exe.config
+C:\Users\2hkio\source\repos\Cartagena - Soacha\Cartagena - Soacha\bin\Debug\Cartagena - Soacha.exe
+C:\Users\2hkio\source\repos\Cartagena - Soacha\Cartagena - Soacha\bin\Debug\Cartagena - Soacha.pdb
+C:\Users\2hkio\source\repos\Cartagena - Soacha\Cartagena - Soacha\bin\Debug\CartagenaServer.dll
+C:\Users\2hkio\source\repos\Cartagena - Soacha\Cartagena - Soacha\bin\Debug\CartagenaServer.xml
+C:\Users\2hkio\source\repos\Cartagena - Soacha\Cartagena - Soacha\obj\Debug\Cartagena - Soacha.csproj.AssemblyReference.cache
+C:\Users\2hkio\source\repos\Cartagena - Soacha\Cartagena - Soacha\obj\Debug\Cartagena - Soacha.csproj.SuggestedBindingRedirects.cache
+C:\Users\2hkio\source\repos\Cartagena - Soacha\Cartagena - Soacha\obj\Debug\Cartagena___Soacha.Form1.resources
+C:\Users\2hkio\source\repos\Cartagena - Soacha\Cartagena - Soacha\obj\Debug\Cartagena___Soacha.Properties.Resources.resources
+C:\Users\2hkio\source\repos\Cartagena - Soacha\Cartagena - Soacha\obj\Debug\Cartagena - Soacha.csproj.GenerateResource.cache
+C:\Users\2hkio\source\repos\Cartagena - Soacha\Cartagena - Soacha\obj\Debug\Cartagena - Soacha.csproj.CoreCompileInputs.cache
+C:\Users\2hkio\source\repos\Cartagena - Soacha\Cartagena - Soacha\obj\Debug\Cartagena - Soacha.csproj.CopyComplete
+C:\Users\2hkio\source\repos\Cartagena - Soacha\Cartagena - Soacha\obj\Debug\Cartagena - Soacha.exe
+C:\Users\2hkio\source\repos\Cartagena - Soacha\Cartagena - Soacha\obj\Debug\Cartagena - Soacha.pdb

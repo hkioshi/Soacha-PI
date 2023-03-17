@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CartagenaServer</name>
+    </assembly>
+    <members>
+        <member name="M:CartagenaServer.Jogo.ListarPartidas(System.String)">
+            <summary>
+            Retorna a lista de partidas do tipo solicitado
+            </summary>
+            <param name="status">Envie um caracter: (T)odas, (A)bertas, (J)ogando, (E)ncerradas</param>
+            <returns>Id, nome, data de criação e status</returns>
+        </member>
+        <member name="M:CartagenaServer.Jogo.CriarPartida(System.String,System.String)">
+            <summary>
+            Cria uma nova partida
+            </summary>
+            <param name="nome">Nome da partida (deve ser único)</param>
+            <param name="senha">Senha da partida (até 10 caracteres)</param>
+            <returns>Id da partida criada</returns>
+        </member>
+        <member name="M:CartagenaServer.Jogo.ListarJogadores(System.Int32)">
+            <summary>
+            Lista de jogadores de uma determinada partida
+            </summary>
+            <param name="idPartida">Id da partida</param>
+            <returns></returns>
+        </member>
+        <member name="M:CartagenaServer.Jogo.EntrarPartida(System.Int32,System.String,System.String)">
+            <summary>
+            Cria um jogador e entra em uma partida
+            </summary>
+            <param name="idPartida">Id da partida</param>
+            <param name="nome">Nome do Jogador</param>
+            <param name="senha">Senha da Partida</param>
+            <returns>Id do jogador criado, senha gerada, cor atribuída</returns>
+        </member>
+        <member name="M:CartagenaServer.Jogo.IniciarPartida(System.Int32,System.String)">
+            <summary>
+            Inicia uma partida, mudando seu status para J
+            </summary>
+            <param name="idJogador">Id do jogador</param>
+            <param name="senha">Senha do jogador</param>
+            <returns>Id do jogador que vai iniciar jogando</returns>
+        </member>
+        <member name="M:CartagenaServer.Jogo.Jogar(System.Int32,System.String)">
+            <summary>
+            Jogar pulando a vez
+            </summary>
+            <param name="idJogador">Id do jogador</param>
+            <param name="senha">Senha do jogador</param>
+            <returns></returns>
+        </member>
+        <member name="M:CartagenaServer.Jogo.Jogar(System.Int32,System.String,System.Int32)">
+            <summary>
+            Jogar voltando um pirata
+            </summary>
+            <param name="idJogador">Id do jogador</param>
+            <param name="senha">Senha do jogador</param>
+            <param name="posicao">Posição do pirata que será retornado</param>
+            <returns></returns>
+        </member>
+        <member name="M:CartagenaServer.Jogo.Jogar(System.Int32,System.String,System.Int32,System.String)">
+            <summary>
+            Jogar enviando uma carta e movendo um pirata para frente
+            </summary>
+            <param name="idJogador">Id do jogador</param>
+            <param name="senha">Senha do jogador</param>
+            <param name="posicao">Posição do pirata a ser movido</param>
+            <param name="simbolo">Carta jogada</param>
+            <returns></returns>
+        </member>
+        <member name="M:CartagenaServer.Jogo.ExibirTabuleiro(System.Int32)">
+            <summary>
+            Retorna a configuração do tabuleiro nesta partida
+            </summary>
+            <param name="idPartida">Id da Partida</param>
+            <returns>Posição, Símbolo</returns>
+        </member>
+        <member name="M:CartagenaServer.Jogo.ConsultarMao(System.Int32,System.String)">
+            <summary>
+            As cartas que o jogador possui atualmente
+            </summary>
+            <param name="idJogador">Id do jogador</param>
+            <param name="senha">Senha do jogador</param>
+            <returns>Símbolo, Quantidade</returns>
+        </member>
+        <member name="M:CartagenaServer.Jogo.VerificarVez(System.Int32)">
+            <summary>
+            Exibe todas informações do momento do jogo.
+            </summary>
+            <param name="idPartida">Id da Partida</param>
+            <returns>Status da Partida, Id do jogador da vez e a jogada atual. Situação do tabuleiro</returns>
+        </member>
+        <member name="M:CartagenaServer.Jogo.ExibirHistorico(System.Int32)">
+            <summary>
+            Retorna o que já aconteceu na partida
+            </summary>
+            <param name="idPartida">Id da Partida</param>
+            <returns>Id do Jogador, N° da jogada, Símbolo, Posição de origem, Posição de Destino</returns>
+        </member>
+    </members>
+</doc>
