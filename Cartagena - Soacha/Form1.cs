@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CartagenaServer;
@@ -22,70 +23,51 @@ namespace Cartagena___Soacha
         private void button1_Click(object sender, EventArgs e)
         {
             //O botao um vai listar as partidas
-            //Oq falta: se clicar 2 ou mais vezes tem que apagar a lista e escrever denovo;
+            lstPartidas.Items.Clear(); // esse botão serve para limpar a lista antes de listar novamente
             string retorno = Jogo.ListarPartidas("T");
             retorno = retorno.Replace("\r", "");
-
 
             string[] partidas = retorno.Split('\n');
             for(int i = 0;i < partidas.Length ;i++)
             {
                 lstPartidas.Items.Add(partidas[i]);
             }
-
         }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //num sei se da problema apagar isso aq, entao, NAO MEXA
-        }
-
         private void btnSelecionarPartida_Click(object sender, EventArgs e)
         {
             //O botao vai pegar a partida q foi selecionada e mostrar coisas como id, nome,data de criaçao e se esta aberta
-            //Oq falta: tratameto de erro na hora de clicar o botao e nao ter nenhuma partida selecionada
-            string partidas = lstPartidas.SelectedItem.ToString();
-            string[] itens = partidas.Split(new char[] {',' });
+            try
+            {
+                string partidas = lstPartidas.SelectedItem.ToString();
+                string[] itens = partidas.Split(new char[] { ',' });
+                idPartida = Convert.ToInt32(itens[0]);
+                string nomePartida = itens[1];
+                string dataPartida = itens[2];
+                string status = itens[3];
 
-            idPartida = Convert.ToInt32(itens[0]);
-            string nomePartida = itens[1];
-            string dataPartida = itens[2];
-            string status = itens[3];
-
-            lblStatus.Text = $" Id: {idPartida}\n Nome: {nomePartida}\n Data: {dataPartida} \n status: {status}";
-
+                lblStatus.Text = $" Id: {idPartida}\n Nome: {nomePartida}\n Data: {dataPartida} \n status: {status}";
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("Selecione alguma partida");
+            }
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-            //num sei se da problema apagar isso aq, entao, NAO MEXA
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            //num sei se da problema apagar isso aq, entao, NAO MEXA
-        }
-
         private void btnCriarPartida_Click(object sender, EventArgs e)
         {
             //Cria partida;
-            //falta tratamento de erro melhor que esse aq em baixo
-            if(txtNome.Text== null || txtSenha == null)
+            if(txtNome.Text=="" || txtSenha.Text == "")
             {
                 MessageBox.Show("Sem nome ou senha");
             }
             else
             {
+           
                 string retorno = Jogo.CriarPartida(txtNome.Text, txtSenha.Text);
                 lblResultCriacao.Text = $"Sua partida foi criada com id {retorno}";
             }
             
         }
 
-        private void lblCriacaoDePartidas_Click(object sender, EventArgs e)
-        {
-            //num sei se da problema apagar isso aq, entao, NAO MEXA
-        }
 
         private void btnCad_Click(object sender, EventArgs e)
         {
