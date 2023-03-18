@@ -63,7 +63,6 @@
             this.lstPartidas.Name = "lstPartidas";
             this.lstPartidas.Size = new System.Drawing.Size(194, 212);
             this.lstPartidas.TabIndex = 2;
-            
             // 
             // btnSelecionarPartida
             // 
@@ -83,7 +82,6 @@
             this.lblStatus.Size = new System.Drawing.Size(15, 16);
             this.lblStatus.TabIndex = 4;
             this.lblStatus.Text = "a";
-            
             // 
             // btnCriarPartida
             // 
@@ -119,12 +117,11 @@
             this.lblCriacaoDePartidas.Size = new System.Drawing.Size(81, 16);
             this.lblCriacaoDePartidas.TabIndex = 9;
             this.lblCriacaoDePartidas.Text = "Criar Partida";
-            
             // 
             // lblResultCriacao
             // 
             this.lblResultCriacao.AutoSize = true;
-            this.lblResultCriacao.Location = new System.Drawing.Point(599, 161);
+            this.lblResultCriacao.Location = new System.Drawing.Point(593, 161);
             this.lblResultCriacao.Name = "lblResultCriacao";
             this.lblResultCriacao.Size = new System.Drawing.Size(15, 16);
             this.lblResultCriacao.TabIndex = 10;
@@ -206,7 +203,6 @@
             this.Controls.Add(this.btnListarPartidas);
             this.Name = "formsSoacha";
             this.Text = "Soacha - Cartagena";
-            
             this.ResumeLayout(false);
             this.PerformLayout();
 
