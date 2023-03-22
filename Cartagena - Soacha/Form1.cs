@@ -86,8 +86,6 @@ namespace Cartagena___Soacha
             }
             
         }
-
-
         private void btnCad_Click(object sender, EventArgs e)
         {
             //Aqui vai cadastrar o jogador e mostrar o id, o nome, a senha, e a cor
@@ -107,6 +105,30 @@ namespace Cartagena___Soacha
             {
                 lstPartidas.Items.Add(partidas[i]);
             }
+        }
+
+        private void lstPartidas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnJogar_Click(object sender, EventArgs e)
+        {
+            string id = Jogo.IniciarPartida(idPartida, txtSenhaPartida.Text);
+            if(id == "ERRO:Id do Jogador" )
+            {
+                MessageBox.Show("selecione uma partida ou coloque um senha");
+            }
+            
+            {
+                MessageBox.Show($"{id} esta Jogando");
+            }
+            
+        }
+
+        private void formsSoacha_Load(object sender, EventArgs e)
+        {
+
         }
     }
 
