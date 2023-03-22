@@ -19,7 +19,6 @@ namespace Cartagena___Soacha
             InitializeComponent();
         }
         int idPartida; // id da partida escolhida
-        int oi = 0; // Nada Importante
         private void button1_Click(object sender, EventArgs e)
         {
             //O botao um vai listar as partidas
@@ -85,36 +84,17 @@ namespace Cartagena___Soacha
             lblStatusJogador.Text = retorno;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
         {
-            //Nada importante
-            switch(oi)
-            {
-          
-                case 0:
-                    MessageBox.Show("Não aperte novamente esse Botao");
-                    break;
-                    case 1:
-                    MessageBox.Show("To avisando, num clica denovo, senao seu computador explode");
-                    break;
-                    case 2:
-                    MessageBox.Show("3...");
-                    break;
-                    case 3:
-                    MessageBox.Show("2...");
-                    break;
-                    case 4:
-                    MessageBox.Show("1...");
-                    break;
-                    case 5:
-                    MessageBox.Show("PARABENS!!! VOCE ACHOU O EASTER EGG, SEU CABEÇA DURA");
-                    break;
-                    case 6:
-                    oi = 0;
-                    break;
-            }
-            oi++;
+            lstPartidas.Items.Clear(); // esse botão serve para limpar a lista antes de listar novamente
+            string retorno = Jogo.ListarJogadores(idPartida);
+            retorno = retorno.Replace("\r", "");
 
+            string[] partidas = retorno.Split('\n');
+            for (int i = 0; i < partidas.Length; i++)
+            {
+                lstPartidas.Items.Add(partidas[i]);
+            }
         }
     }
 
