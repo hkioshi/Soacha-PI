@@ -31,6 +31,8 @@ namespace Cartagena___Soacha
             {
                 lstPartidas.Items.Add(partidas[i]);
             }
+
+            
         }
         private void btnSelecionarPartida_Click(object sender, EventArgs e)
         {
@@ -50,6 +52,16 @@ namespace Cartagena___Soacha
             {
                 MessageBox.Show("Selecione alguma partida");
             }
+
+            lstJogador.Items.Clear(); // esse botão serve para limpar a lista antes de listar novamente
+            string retorno = Jogo.ListarJogadores(idPartida);
+            retorno = retorno.Replace("\r", "");
+
+            string[] jogadores = retorno.Split('\n');
+            for (int i = 0; i < jogadores.Length; i++)
+            {
+                lstJogador.Items.Add(jogadores[i]);
+            }
         }
         private void btnCriarPartida_Click(object sender, EventArgs e)
         {
@@ -68,7 +80,7 @@ namespace Cartagena___Soacha
                 }
                 else
                 {
-                    lblResultCriacao.Text = $"Sua partida foi criada com id {retorno}";
+                    lblResultCriacao.Text = $"Partida no id {retorno}";
                 }
                 
             }
