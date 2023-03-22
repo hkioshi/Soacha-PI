@@ -47,6 +47,7 @@
             this.txtSenhaPartida = new System.Windows.Forms.TextBox();
             this.lblSenha = new System.Windows.Forms.Label();
             this.grpEntrarJogo = new System.Windows.Forms.GroupBox();
+            this.btnSelecionarJogador = new System.Windows.Forms.Button();
             this.grpCadPartida.SuspendLayout();
             this.grpCadJogador.SuspendLayout();
             this.grpEntrarJogo.SuspendLayout();
@@ -76,9 +77,9 @@
             // 
             this.btnSelecionarPartida.Location = new System.Drawing.Point(212, 354);
             this.btnSelecionarPartida.Name = "btnSelecionarPartida";
-            this.btnSelecionarPartida.Size = new System.Drawing.Size(359, 59);
+            this.btnSelecionarPartida.Size = new System.Drawing.Size(194, 59);
             this.btnSelecionarPartida.TabIndex = 3;
-            this.btnSelecionarPartida.Text = "SelecionarPartida";
+            this.btnSelecionarPartida.Text = "Selecionar Partida";
             this.btnSelecionarPartida.UseVisualStyleBackColor = true;
             this.btnSelecionarPartida.Click += new System.EventHandler(this.btnSelecionarPartida_Click);
             // 
@@ -237,11 +238,22 @@
             this.grpEntrarJogo.TabStop = false;
             this.grpEntrarJogo.Text = "Entrar Jogo";
             // 
+            // btnSelecionarJogador
+            // 
+            this.btnSelecionarJogador.Location = new System.Drawing.Point(412, 354);
+            this.btnSelecionarJogador.Name = "btnSelecionarJogador";
+            this.btnSelecionarJogador.Size = new System.Drawing.Size(159, 59);
+            this.btnSelecionarJogador.TabIndex = 26;
+            this.btnSelecionarJogador.Text = "Selecionar Jogador";
+            this.btnSelecionarJogador.UseVisualStyleBackColor = true;
+            this.btnSelecionarJogador.Click += new System.EventHandler(this.btnSelecionarJogador_Click);
+            // 
             // formsSoacha
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(799, 442);
+            this.Controls.Add(this.btnSelecionarJogador);
             this.Controls.Add(this.grpEntrarJogo);
             this.Controls.Add(this.lstJogador);
             this.Controls.Add(this.grpCadJogador);
@@ -286,6 +298,7 @@
         private System.Windows.Forms.TextBox txtSenhaPartida;
         private System.Windows.Forms.Label lblSenha;
         private System.Windows.Forms.GroupBox grpEntrarJogo;
+        private System.Windows.Forms.Button btnSelecionarJogador;
     }
 }
 

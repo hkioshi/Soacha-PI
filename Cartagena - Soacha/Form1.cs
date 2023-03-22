@@ -9,6 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CartagenaServer;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Cartagena___Soacha
 {
@@ -19,6 +20,7 @@ namespace Cartagena___Soacha
             InitializeComponent();
         }
         int idPartida; // id da partida escolhida
+        int idJogador = -1; // id do jogador escolhido
         private void button1_Click(object sender, EventArgs e)
         {
             //O botao um vai listar as partidas
@@ -114,20 +116,33 @@ namespace Cartagena___Soacha
 
         private void btnJogar_Click(object sender, EventArgs e)
         {
-            string id = Jogo.IniciarPartida(idPartida, txtSenhaPartida.Text);
-            if(id == "ERRO:Id do Jogador" )
+            
+            if(idJogador == -1 || txtSenhaPartida.Text == "")
             {
                 MessageBox.Show("selecione uma partida ou coloque um senha");
             }
-            
+            else
             {
+                string id = Jogo.IniciarPartida(idJogador, txtSenhaPartida.Text);
                 MessageBox.Show($"{id} esta Jogando");
             }
             
         }
 
-        private void formsSoacha_Load(object sender, EventArgs e)
+        private void formsSoacha_Load(object sender, EventArgs e)   
         {
+
+        }
+
+        private void btnSelecionarJogador_Click(object sender, EventArgs e)
+        {
+            string jogador = lstJogador.SelectedItem.ToString();
+            string[] itens = jogador.Split(new char[] { ',' });
+            idJogador = Convert.ToInt32(itens[0]);
+            string nomeJogador = itens[1];
+            string cor = itens[2];
+
+            lblStatus.Text = $" Id: {idJogador}\n Nome: {nomeJogador} \n cor: {cor}";
 
         }
     }
