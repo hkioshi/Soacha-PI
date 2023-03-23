@@ -9,6 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CartagenaServer;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Cartagena___Soacha
 {
@@ -19,7 +20,7 @@ namespace Cartagena___Soacha
             InitializeComponent();
         }
         int idPartida; // id da partida escolhida
-        int oi = 0; // Nada Importante
+        int idJogador = -1; // id do jogador escolhido
         private void button1_Click(object sender, EventArgs e)
         {
             //O botao um vai listar as partidas
@@ -32,6 +33,8 @@ namespace Cartagena___Soacha
             {
                 lstPartidas.Items.Add(partidas[i]);
             }
+
+            
         }
         private void btnSelecionarPartida_Click(object sender, EventArgs e)
         {
@@ -51,6 +54,16 @@ namespace Cartagena___Soacha
             {
                 MessageBox.Show("Selecione alguma partida");
             }
+
+            lstJogador.Items.Clear(); // esse botão serve para limpar a lista antes de listar novamente
+            string retorno = Jogo.ListarJogadores(idPartida);
+            retorno = retorno.Replace("\r", "");
+
+            string[] jogadores = retorno.Split('\n');
+            for (int i = 0; i < jogadores.Length; i++)
+            {
+                lstJogador.Items.Add(jogadores[i]);
+            }
         }
         private void btnCriarPartida_Click(object sender, EventArgs e)
         {
@@ -69,14 +82,12 @@ namespace Cartagena___Soacha
                 }
                 else
                 {
-                    lblResultCriacao.Text = $"Sua partida foi criada com id {retorno}";
+                    lblResultCriacao.Text = $"Partida no id {retorno}";
                 }
                 
             }
             
         }
-
-
         private void btnCad_Click(object sender, EventArgs e)
         {
             //Aqui vai cadastrar o jogador e mostrar o id, o nome, a senha, e a cor
@@ -85,35 +96,53 @@ namespace Cartagena___Soacha
             lblStatusJogador.Text = retorno;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
         {
-            //Nada importante
-            switch(oi)
+            lstPartidas.Items.Clear(); // esse botão serve para limpar a lista antes de listar novamente
+            string retorno = Jogo.ListarJogadores(idPartida);
+            retorno = retorno.Replace("\r", "");
+
+            string[] partidas = retorno.Split('\n');
+            for (int i = 0; i < partidas.Length; i++)
             {
-          
-                case 0:
-                    MessageBox.Show("Não aperte novamente esse Botao");
-                    break;
-                    case 1:
-                    MessageBox.Show("To avisando, num clica denovo, senao seu computador explode");
-                    break;
-                    case 2:
-                    MessageBox.Show("3...");
-                    break;
-                    case 3:
-                    MessageBox.Show("2...");
-                    break;
-                    case 4:
-                    MessageBox.Show("1...");
-                    break;
-                    case 5:
-                    MessageBox.Show("PARABENS!!! VOCE ACHOU O EASTER EGG, SEU CABEÇA DURA");
-                    break;
-                    case 6:
-                    oi = 0;
-                    break;
+                lstPartidas.Items.Add(partidas[i]);
             }
-            oi++;
+        }
+
+        private void lstPartidas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnJogar_Click(object sender, EventArgs e)
+        {
+            
+            if(idJogador == -1 || txtSenhaPartida.Text == "")
+            {
+                MessageBox.Show("selecione uma partida ou coloque um senha");
+            }
+            else
+            {
+                string id = Jogo.IniciarPartida(idJogador, txtSenhaPartida.Text);
+                MessageBox.Show($"{id} esta Jogando");
+            }
+            
+        }
+
+        private void formsSoacha_Load(object sender, EventArgs e)   
+        {
+
+        }
+
+        private void btnSelecionarJogador_Click(object sender, EventArgs e)
+        {
+            string jogador = lstJogador.SelectedItem.ToString();
+            string[] itens = jogador.Split(new char[] { ',' });
+            idJogador = Convert.ToInt32(itens[0]);
+            string nomeJogador = itens[1];
+            string cor = itens[2];
+
+            lblStatus.Text = $" Id: {idJogador}\n Nome: {nomeJogador} \n cor: {cor}";
 
         }
     }
