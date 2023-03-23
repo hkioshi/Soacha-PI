@@ -37,20 +37,16 @@
             this.txtSenha = new System.Windows.Forms.TextBox();
             this.lblResultCriacao = new System.Windows.Forms.Label();
             this.btnCad = new System.Windows.Forms.Button();
-            this.txtSenhaJogador = new System.Windows.Forms.TextBox();
             this.txtNomeJogador = new System.Windows.Forms.TextBox();
             this.lblStatusJogador = new System.Windows.Forms.Label();
             this.btnJogar = new System.Windows.Forms.Button();
             this.grpCadPartida = new System.Windows.Forms.GroupBox();
             this.grpCadJogador = new System.Windows.Forms.GroupBox();
             this.lstJogador = new System.Windows.Forms.ListBox();
-            this.txtSenhaPartida = new System.Windows.Forms.TextBox();
-            this.lblSenha = new System.Windows.Forms.Label();
-            this.grpEntrarJogo = new System.Windows.Forms.GroupBox();
+            this.txtSenhaJogador = new System.Windows.Forms.TextBox();
             this.btnSelecionarJogador = new System.Windows.Forms.Button();
             this.grpCadPartida.SuspendLayout();
             this.grpCadJogador.SuspendLayout();
-            this.grpEntrarJogo.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnListarPartidas
@@ -137,14 +133,6 @@
             this.btnCad.UseVisualStyleBackColor = true;
             this.btnCad.Click += new System.EventHandler(this.btnCad_Click);
             // 
-            // txtSenhaJogador
-            // 
-            this.txtSenhaJogador.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.txtSenhaJogador.Location = new System.Drawing.Point(6, 64);
-            this.txtSenhaJogador.Name = "txtSenhaJogador";
-            this.txtSenhaJogador.Size = new System.Drawing.Size(208, 26);
-            this.txtSenhaJogador.TabIndex = 13;
-            // 
             // txtNomeJogador
             // 
             this.txtNomeJogador.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
@@ -164,11 +152,11 @@
             // 
             // btnJogar
             // 
-            this.btnJogar.Location = new System.Drawing.Point(212, 9);
+            this.btnJogar.Location = new System.Drawing.Point(15, 9);
             this.btnJogar.Name = "btnJogar";
-            this.btnJogar.Size = new System.Drawing.Size(359, 140);
+            this.btnJogar.Size = new System.Drawing.Size(556, 140);
             this.btnJogar.TabIndex = 17;
-            this.btnJogar.Text = "Jogar";
+            this.btnJogar.Text = "Iniciar Jogo";
             this.btnJogar.UseVisualStyleBackColor = true;
             this.btnJogar.Click += new System.EventHandler(this.btnJogar_Click);
             // 
@@ -208,35 +196,15 @@
             this.lstJogador.Name = "lstJogador";
             this.lstJogador.Size = new System.Drawing.Size(159, 196);
             this.lstJogador.TabIndex = 20;
+            this.lstJogador.SelectedIndexChanged += new System.EventHandler(this.lstJogador_SelectedIndexChanged);
             // 
-            // txtSenhaPartida
+            // txtSenhaJogador
             // 
-            this.txtSenhaPartida.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.txtSenhaPartida.Location = new System.Drawing.Point(6, 67);
-            this.txtSenhaPartida.Name = "txtSenhaPartida";
-            this.txtSenhaPartida.Size = new System.Drawing.Size(179, 26);
-            this.txtSenhaPartida.TabIndex = 21;
-            // 
-            // lblSenha
-            // 
-            this.lblSenha.AutoSize = true;
-            this.lblSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblSenha.Location = new System.Drawing.Point(6, 44);
-            this.lblSenha.Name = "lblSenha";
-            this.lblSenha.Size = new System.Drawing.Size(135, 20);
-            this.lblSenha.TabIndex = 22;
-            this.lblSenha.Text = "Senha da partida";
-            // 
-            // grpEntrarJogo
-            // 
-            this.grpEntrarJogo.Controls.Add(this.txtSenhaPartida);
-            this.grpEntrarJogo.Controls.Add(this.lblSenha);
-            this.grpEntrarJogo.Location = new System.Drawing.Point(15, 9);
-            this.grpEntrarJogo.Name = "grpEntrarJogo";
-            this.grpEntrarJogo.Size = new System.Drawing.Size(191, 137);
-            this.grpEntrarJogo.TabIndex = 25;
-            this.grpEntrarJogo.TabStop = false;
-            this.grpEntrarJogo.Text = "Entrar Jogo";
+            this.txtSenhaJogador.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.txtSenhaJogador.Location = new System.Drawing.Point(6, 64);
+            this.txtSenhaJogador.Name = "txtSenhaJogador";
+            this.txtSenhaJogador.Size = new System.Drawing.Size(208, 26);
+            this.txtSenhaJogador.TabIndex = 13;
             // 
             // btnSelecionarJogador
             // 
@@ -254,7 +222,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(799, 442);
             this.Controls.Add(this.btnSelecionarJogador);
-            this.Controls.Add(this.grpEntrarJogo);
             this.Controls.Add(this.lstJogador);
             this.Controls.Add(this.grpCadJogador);
             this.Controls.Add(this.grpCadPartida);
@@ -265,13 +232,10 @@
             this.Controls.Add(this.btnListarPartidas);
             this.Name = "formsSoacha";
             this.Text = "Soacha - Cartagena";
-            this.Load += new System.EventHandler(this.formsSoacha_Load);
             this.grpCadPartida.ResumeLayout(false);
             this.grpCadPartida.PerformLayout();
             this.grpCadJogador.ResumeLayout(false);
             this.grpCadJogador.PerformLayout();
-            this.grpEntrarJogo.ResumeLayout(false);
-            this.grpEntrarJogo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -288,16 +252,13 @@
         private System.Windows.Forms.TextBox txtSenha;
         private System.Windows.Forms.Label lblResultCriacao;
         private System.Windows.Forms.Button btnCad;
-        private System.Windows.Forms.TextBox txtSenhaJogador;
         private System.Windows.Forms.TextBox txtNomeJogador;
         private System.Windows.Forms.Label lblStatusJogador;
         private System.Windows.Forms.Button btnJogar;
         private System.Windows.Forms.GroupBox grpCadPartida;
         private System.Windows.Forms.GroupBox grpCadJogador;
         private System.Windows.Forms.ListBox lstJogador;
-        private System.Windows.Forms.TextBox txtSenhaPartida;
-        private System.Windows.Forms.Label lblSenha;
-        private System.Windows.Forms.GroupBox grpEntrarJogo;
+        private System.Windows.Forms.TextBox txtSenhaJogador;
         private System.Windows.Forms.Button btnSelecionarJogador;
     }
 }

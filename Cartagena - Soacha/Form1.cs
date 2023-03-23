@@ -15,12 +15,16 @@ namespace Cartagena___Soacha
 {
     public partial class formsSoacha : Form
     {
+        string senha; // Senha
+        int idPartida; // id da partida escolhida
+        int idJogador = -1; // id do jogador escolhido
+
+     
+
         public formsSoacha()
         {
             InitializeComponent();
         }
-        int idPartida; // id da partida escolhida
-        int idJogador = -1; // id do jogador escolhido
         private void button1_Click(object sender, EventArgs e)
         {
             //O botao um vai listar as partidas
@@ -94,6 +98,8 @@ namespace Cartagena___Soacha
             //falta tratameto de erro se os campos estiverem nulos e colocar retorno em lista com variaveis
             string retorno = Jogo.EntrarPartida(idPartida, txtNomeJogador.Text, txtSenhaJogador.Text);
             lblStatusJogador.Text = retorno;
+            string[] itens = retorno.Split(',');
+            senha = itens[1];
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -117,32 +123,46 @@ namespace Cartagena___Soacha
         private void btnJogar_Click(object sender, EventArgs e)
         {
             
-            if(idJogador == -1 || txtSenhaPartida.Text == "")
+            if(idJogador == -1 || senha == "")
             {
                 MessageBox.Show("selecione uma partida ou coloque um senha");
             }
             else
             {
-                string id = Jogo.IniciarPartida(idJogador, txtSenhaPartida.Text);
+                string id = Jogo.IniciarPartida(idJogador, senha);
                 MessageBox.Show($"{id} esta Jogando");
             }
+
+            Form2 f = new Form2();
+            f.idJogador = idJogador;  
+            f.senha = senha;
+            f.ShowDialog();
             
         }
 
-        private void formsSoacha_Load(object sender, EventArgs e)   
-        {
-
-        }
 
         private void btnSelecionarJogador_Click(object sender, EventArgs e)
         {
-            string jogador = lstJogador.SelectedItem.ToString();
-            string[] itens = jogador.Split(new char[] { ',' });
-            idJogador = Convert.ToInt32(itens[0]);
-            string nomeJogador = itens[1];
-            string cor = itens[2];
+            try
+            {
 
-            lblStatus.Text = $" Id: {idJogador}\n Nome: {nomeJogador} \n cor: {cor}";
+                string jogador = lstJogador.SelectedItem.ToString();
+                string[] itens = jogador.Split(new char[] { ',' });
+                idJogador = Convert.ToInt32(itens[0]);
+                string nomeJogador = itens[1];
+                string cor = itens[2];
+
+
+                lblStatus.Text = $" Id: {idJogador}\n Nome: {nomeJogador} \n cor: {cor}";
+            }
+            catch
+            {
+                MessageBox.Show("selecione uma jogador");
+            }
+        }
+
+        private void lstJogador_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }
