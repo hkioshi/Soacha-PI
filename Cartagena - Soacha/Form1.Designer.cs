@@ -42,8 +42,8 @@
             this.btnJogar = new System.Windows.Forms.Button();
             this.grpCadPartida = new System.Windows.Forms.GroupBox();
             this.grpCadJogador = new System.Windows.Forms.GroupBox();
-            this.lstJogador = new System.Windows.Forms.ListBox();
             this.txtSenhaJogador = new System.Windows.Forms.TextBox();
+            this.lstJogador = new System.Windows.Forms.ListBox();
             this.btnSelecionarJogador = new System.Windows.Forms.Button();
             this.grpCadPartida.SuspendLayout();
             this.grpCadJogador.SuspendLayout();
@@ -67,7 +67,6 @@
             this.lstPartidas.Name = "lstPartidas";
             this.lstPartidas.Size = new System.Drawing.Size(194, 196);
             this.lstPartidas.TabIndex = 2;
-            this.lstPartidas.SelectedIndexChanged += new System.EventHandler(this.lstPartidas_SelectedIndexChanged);
             // 
             // btnSelecionarPartida
             // 
@@ -122,6 +121,7 @@
             this.lblResultCriacao.Size = new System.Drawing.Size(16, 18);
             this.lblResultCriacao.TabIndex = 10;
             this.lblResultCriacao.Text = "b";
+            this.lblResultCriacao.Click += new System.EventHandler(this.lblResultCriacao_Click);
             // 
             // btnCad
             // 
@@ -188,6 +188,14 @@
             this.grpCadJogador.TabStop = false;
             this.grpCadJogador.Text = "Cadastrar Jogador";
             // 
+            // txtSenhaJogador
+            // 
+            this.txtSenhaJogador.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.txtSenhaJogador.Location = new System.Drawing.Point(6, 64);
+            this.txtSenhaJogador.Name = "txtSenhaJogador";
+            this.txtSenhaJogador.Size = new System.Drawing.Size(208, 26);
+            this.txtSenhaJogador.TabIndex = 13;
+            // 
             // lstJogador
             // 
             this.lstJogador.FormattingEnabled = true;
@@ -196,15 +204,6 @@
             this.lstJogador.Name = "lstJogador";
             this.lstJogador.Size = new System.Drawing.Size(159, 196);
             this.lstJogador.TabIndex = 20;
-            this.lstJogador.SelectedIndexChanged += new System.EventHandler(this.lstJogador_SelectedIndexChanged);
-            // 
-            // txtSenhaJogador
-            // 
-            this.txtSenhaJogador.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.txtSenhaJogador.Location = new System.Drawing.Point(6, 64);
-            this.txtSenhaJogador.Name = "txtSenhaJogador";
-            this.txtSenhaJogador.Size = new System.Drawing.Size(208, 26);
-            this.txtSenhaJogador.TabIndex = 13;
             // 
             // btnSelecionarJogador
             // 

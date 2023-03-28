@@ -58,6 +58,10 @@ namespace Cartagena___Soacha
             {
                 MessageBox.Show("Selecione alguma partida");
             }
+            catch(FormatException)
+            {
+                MessageBox.Show("Selecione uma partida valida");
+            }
 
             lstJogador.Items.Clear(); // esse botão serve para limpar a lista antes de listar novamente
             string retorno = Jogo.ListarJogadores(idPartida);
@@ -95,11 +99,28 @@ namespace Cartagena___Soacha
         private void btnCad_Click(object sender, EventArgs e)
         {
             //Aqui vai cadastrar o jogador e mostrar o id, o nome, a senha, e a cor
-            //falta tratameto de erro se os campos estiverem nulos e colocar retorno em lista com variaveis
-            string retorno = Jogo.EntrarPartida(idPartida, txtNomeJogador.Text, txtSenhaJogador.Text);
-            lblStatusJogador.Text = retorno;
-            string[] itens = retorno.Split(',');
-            senha = itens[1];
+            try
+            {
+                string retorno = Jogo.EntrarPartida(idPartida, txtNomeJogador.Text, txtSenhaJogador.Text);
+                string[] itens = retorno.Split(',');
+
+                string id = itens[0];
+                senha = itens[1];
+                string cor = itens[2];
+
+                lblStatusJogador.Text = $"ID: {id}, Cor: {cor}";
+
+            }
+            catch(IndexOutOfRangeException)
+            {
+                MessageBox.Show("Selecione uma Partida ou Preencha os campos");
+            }
+            catch(NullReferenceException)
+            {
+                MessageBox.Show("Selecione uma Partida ou Preencha os campos");
+            }
+            
+            
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -115,10 +136,6 @@ namespace Cartagena___Soacha
             }
         }
 
-        private void lstPartidas_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnJogar_Click(object sender, EventArgs e)
         {
@@ -130,13 +147,16 @@ namespace Cartagena___Soacha
             else
             {
                 string id = Jogo.IniciarPartida(idJogador, senha);
-                MessageBox.Show($"{id} esta Jogando");
-            }
+                Form2 f = new Form2();
+                f.idJogador = idJogador;
+                f.senha = senha;
+                f.idPartida = idPartida;
+                f.ShowDialog();
 
-            Form2 f = new Form2();
-            f.idJogador = idJogador;  
-            f.senha = senha;
-            f.ShowDialog();
+                MessageBox.Show($"{id} esta Jogando");
+
+            }
+    
             
         }
 
@@ -161,10 +181,12 @@ namespace Cartagena___Soacha
             }
         }
 
-        private void lstJogador_SelectedIndexChanged(object sender, EventArgs e)
+        private void lblResultCriacao_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("EasterEgg (1/5)");
         }
+
+        
     }
 
 }

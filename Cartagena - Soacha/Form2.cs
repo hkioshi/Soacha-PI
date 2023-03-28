@@ -16,6 +16,7 @@ namespace Cartagena___Soacha
 
         public int idJogador { get; set; }
         public string senha { get; set; }
+        public int idPartida { get; set; }
 
         public Form2()
         {
@@ -31,6 +32,35 @@ namespace Cartagena___Soacha
         {
             string retorno = Jogo.ConsultarMao(this.idJogador, this.senha);
             MessageBox.Show(retorno);
+            string[] partidas = retorno.Split('\n');
+            for (int i = 0; i < partidas.Length; i++)
+            {
+                lstCartas.Items.Add(partidas[i]);
+            }
+            MessageBox.Show($"{idPartida }");
+
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string retorno = Jogo.ExibirTabuleiro(idPartida);
+            MessageBox.Show(retorno);
+            
+        }
+
+        private void btnPularVez_Click(object sender, EventArgs e)
+        {
+            string retorno = Jogo.Jogar(idJogador, senha);
+        }
+
+        private void btnAndarFrente_Click(object sender, EventArgs e)
+        {
+            string retorno = Jogo.Jogar()
         }
     }
 }
