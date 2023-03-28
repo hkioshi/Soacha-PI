@@ -35,8 +35,9 @@
             this.btnAndarFrente = new System.Windows.Forms.Button();
             this.btnAndarTras = new System.Windows.Forms.Button();
             this.btnTesteVez = new System.Windows.Forms.Button();
-            this.txtFrente = new System.Windows.Forms.TextBox();
-            this.txtTras = new System.Windows.Forms.TextBox();
+            this.lstTab = new System.Windows.Forms.ListBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.lblCasa = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnMao
@@ -51,7 +52,7 @@
             // 
             // btnTab
             // 
-            this.btnTab.Location = new System.Drawing.Point(12, 276);
+            this.btnTab.Location = new System.Drawing.Point(12, 244);
             this.btnTab.Name = "btnTab";
             this.btnTab.Size = new System.Drawing.Size(215, 52);
             this.btnTab.TabIndex = 1;
@@ -65,15 +66,15 @@
             this.lstCartas.ItemHeight = 16;
             this.lstCartas.Location = new System.Drawing.Point(12, 74);
             this.lstCartas.Name = "lstCartas";
-            this.lstCartas.Size = new System.Drawing.Size(215, 196);
+            this.lstCartas.Size = new System.Drawing.Size(215, 164);
             this.lstCartas.TabIndex = 2;
             this.lstCartas.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // btnPularVez
             // 
-            this.btnPularVez.Location = new System.Drawing.Point(424, 38);
+            this.btnPularVez.Location = new System.Drawing.Point(587, 12);
             this.btnPularVez.Name = "btnPularVez";
-            this.btnPularVez.Size = new System.Drawing.Size(474, 113);
+            this.btnPularVez.Size = new System.Drawing.Size(474, 120);
             this.btnPularVez.TabIndex = 3;
             this.btnPularVez.Text = "Pular Vez";
             this.btnPularVez.UseVisualStyleBackColor = true;
@@ -81,9 +82,9 @@
             // 
             // btnAndarFrente
             // 
-            this.btnAndarFrente.Location = new System.Drawing.Point(424, 157);
+            this.btnAndarFrente.Location = new System.Drawing.Point(587, 173);
             this.btnAndarFrente.Name = "btnAndarFrente";
-            this.btnAndarFrente.Size = new System.Drawing.Size(474, 113);
+            this.btnAndarFrente.Size = new System.Drawing.Size(474, 156);
             this.btnAndarFrente.TabIndex = 4;
             this.btnAndarFrente.Text = "Andar Para Frente";
             this.btnAndarFrente.UseVisualStyleBackColor = true;
@@ -91,43 +92,61 @@
             // 
             // btnAndarTras
             // 
-            this.btnAndarTras.Location = new System.Drawing.Point(424, 276);
+            this.btnAndarTras.Location = new System.Drawing.Point(587, 366);
             this.btnAndarTras.Name = "btnAndarTras";
             this.btnAndarTras.Size = new System.Drawing.Size(474, 113);
             this.btnAndarTras.TabIndex = 5;
             this.btnAndarTras.Text = "Andar Para Tras";
             this.btnAndarTras.UseVisualStyleBackColor = true;
+            this.btnAndarTras.Click += new System.EventHandler(this.btnAndarTras_Click);
             // 
             // btnTesteVez
             // 
-            this.btnTesteVez.Location = new System.Drawing.Point(12, 334);
+            this.btnTesteVez.Location = new System.Drawing.Point(12, 381);
             this.btnTesteVez.Name = "btnTesteVez";
             this.btnTesteVez.Size = new System.Drawing.Size(215, 52);
             this.btnTesteVez.TabIndex = 6;
             this.btnTesteVez.Text = "Verifacar vez (teste)";
             this.btnTesteVez.UseVisualStyleBackColor = true;
+            this.btnTesteVez.Click += new System.EventHandler(this.btnTesteVez_Click);
             // 
-            // txtFrente
+            // lstTab
             // 
-            this.txtFrente.Location = new System.Drawing.Point(361, 202);
-            this.txtFrente.Name = "txtFrente";
-            this.txtFrente.Size = new System.Drawing.Size(35, 22);
-            this.txtFrente.TabIndex = 7;
+            this.lstTab.FormattingEnabled = true;
+            this.lstTab.ItemHeight = 16;
+            this.lstTab.Location = new System.Drawing.Point(233, 12);
+            this.lstTab.Name = "lstTab";
+            this.lstTab.Size = new System.Drawing.Size(348, 468);
+            this.lstTab.TabIndex = 7;
             // 
-            // txtTras
+            // button1
             // 
-            this.txtTras.Location = new System.Drawing.Point(361, 321);
-            this.txtTras.Name = "txtTras";
-            this.txtTras.Size = new System.Drawing.Size(35, 22);
-            this.txtTras.TabIndex = 8;
+            this.button1.Location = new System.Drawing.Point(12, 303);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(215, 72);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // lblCasa
+            // 
+            this.lblCasa.AutoSize = true;
+            this.lblCasa.Location = new System.Drawing.Point(12, 450);
+            this.lblCasa.Name = "lblCasa";
+            this.lblCasa.Size = new System.Drawing.Size(44, 16);
+            this.lblCasa.TabIndex = 9;
+            this.lblCasa.Text = "label1";
+            this.lblCasa.Click += new System.EventHandler(this.lblCasa_Click);
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1073, 491);
-            this.Controls.Add(this.txtTras);
-            this.Controls.Add(this.txtFrente);
+            this.Controls.Add(this.lblCasa);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.lstTab);
             this.Controls.Add(this.btnTesteVez);
             this.Controls.Add(this.btnAndarTras);
             this.Controls.Add(this.btnAndarFrente);
@@ -152,7 +171,8 @@
         private System.Windows.Forms.Button btnAndarFrente;
         private System.Windows.Forms.Button btnAndarTras;
         private System.Windows.Forms.Button btnTesteVez;
-        private System.Windows.Forms.TextBox txtFrente;
-        private System.Windows.Forms.TextBox txtTras;
+        private System.Windows.Forms.ListBox lstTab;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label lblCasa;
     }
 }

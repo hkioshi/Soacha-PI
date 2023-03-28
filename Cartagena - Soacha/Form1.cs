@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -43,11 +44,12 @@ namespace Cartagena___Soacha
         private void btnSelecionarPartida_Click(object sender, EventArgs e)
         {
             //O botao vai pegar a partida q foi selecionada e mostrar coisas como id, nome,data de criaçao e se esta aberta
+            //precisa melhorar o tratamento de erros
             try
             {
                 string partidas = lstPartidas.SelectedItem.ToString();
                 string[] itens = partidas.Split(new char[] { ',' });
-                idPartida = Convert.ToInt32(itens[0]);
+                idPartida = Convert.ToInt32(itens[0]); 
                 string nomePartida = itens[1];
                 string dataPartida = itens[2];
                 string status = itens[3];
@@ -139,21 +141,24 @@ namespace Cartagena___Soacha
 
         private void btnJogar_Click(object sender, EventArgs e)
         {
-            
+            //Botao vai mudar o status da partida de aberta para jogando
             if(idJogador == -1 || senha == "")
-            {
+            { //Aq é um mini tratamento de erro
                 MessageBox.Show("selecione uma partida ou coloque um senha");
             }
             else
             {
+                //aq vai iniciar o outro forms
                 string id = Jogo.IniciarPartida(idJogador, senha);
+                MessageBox.Show($"{id} esta Jogando");
+
                 Form2 f = new Form2();
                 f.idJogador = idJogador;
                 f.senha = senha;
                 f.idPartida = idPartida;
                 f.ShowDialog();
+                this.Hide();
 
-                MessageBox.Show($"{id} esta Jogando");
 
             }
     
@@ -163,6 +168,7 @@ namespace Cartagena___Soacha
 
         private void btnSelecionarJogador_Click(object sender, EventArgs e)
         {
+
             try
             {
 
