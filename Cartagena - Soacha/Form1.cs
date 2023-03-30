@@ -43,61 +43,9 @@ namespace Cartagena___Soacha
         }
         private void btnSelecionarPartida_Click(object sender, EventArgs e)
         {
-            //O botao vai pegar a partida q foi selecionada e mostrar coisas como id, nome,data de criaçao e se esta aberta
-            //precisa melhorar o tratamento de erros
-            try
-            {
-                string partidas = lstPartidas.SelectedItem.ToString();
-                string[] itens = partidas.Split(new char[] { ',' });
-                idPartida = Convert.ToInt32(itens[0]); 
-                string nomePartida = itens[1];
-                string dataPartida = itens[2];
-                string status = itens[3];
-
-                lblStatus.Text = $" Id: {idPartida}\n Nome: {nomePartida}\n Data: {dataPartida} \n status: {status}";
-            }
-            catch (NullReferenceException)
-            {
-                MessageBox.Show("Selecione alguma partida");
-            }
-            catch(FormatException)
-            {
-                MessageBox.Show("Selecione uma partida valida");
-            }
-
-            lstJogador.Items.Clear(); // esse botão serve para limpar a lista antes de listar novamente
-            string retorno = Jogo.ListarJogadores(idPartida);
-            retorno = retorno.Replace("\r", "");
-
-            string[] jogadores = retorno.Split('\n');
-            for (int i = 0; i < jogadores.Length; i++)
-            {
-                lstJogador.Items.Add(jogadores[i]);
-            }
-        }
-        private void btnCriarPartida_Click(object sender, EventArgs e)
-        {
-            //Cria partida;
-            if(txtNome.Text=="" || txtSenha.Text == "")
-            {
-                MessageBox.Show("Sem nome ou senha");
-            }
-            else
-            {
-           
-                string retorno = Jogo.CriarPartida(txtNome.Text, txtSenha.Text);
-                if(retorno == "ERRO: Partida já existente")
-                {
-                    lblResultCriacao.Text = "A partida já existe";
-                }
-                else
-                {
-                    lblResultCriacao.Text = $"Partida no id {retorno}";
-                }
-                
-            }
             
         }
+        
         private void btnCad_Click(object sender, EventArgs e)
         {
             //Aqui vai cadastrar o jogador e mostrar o id, o nome, a senha, e a cor
@@ -141,34 +89,76 @@ namespace Cartagena___Soacha
 
         private void btnJogar_Click(object sender, EventArgs e)
         {
-            //Botao vai mudar o status da partida de aberta para jogando
-            if(idJogador == -1 || senha == "")
-            { //Aq é um mini tratamento de erro
-                MessageBox.Show("selecione uma partida ou coloque um senha");
-            }
-            else
+            if(statusPartida == "J")
             {
-                //aq vai iniciar o outro forms
-                string id = Jogo.IniciarPartida(idJogador, senha);
-                MessageBox.Show($"{id} esta Jogando");
-
                 Form2 f = new Form2();
                 f.idJogador = idJogador;
                 f.senha = senha;
                 f.idPartida = idPartida;
                 f.ShowDialog();
                 this.Hide();
-
-
             }
-    
-            
+            else
+            {
+                MessageBox.Show("Selecione Uma partida que esteja jogando");
+            }
+           
+
+
         }
 
 
-        private void btnSelecionarJogador_Click(object sender, EventArgs e)
-        {
+        
 
+        private void lblResultCriacao_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("EasterEgg (1/5)");
+        }
+
+        private void zxcToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CadPartida o = new CadPartida();
+            o.Show();
+        }
+        string statusPartida;
+
+        private void lstPartidas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //O botao vai pegar a partida q foi selecionada e mostrar coisas como id, nome,data de criaçao e se esta aberta
+            //precisa melhorar o tratamento de erros
+            try
+            {
+                string partidas = lstPartidas.SelectedItem.ToString();
+                string[] itens = partidas.Split(new char[] { ',' });
+                idPartida = Convert.ToInt32(itens[0]);
+                string nomePartida = itens[1];
+                string dataPartida = itens[2];
+                statusPartida = itens[3];
+
+                lblStatus.Text = $" Id: {idPartida}\n Nome: {nomePartida}\n Data: {dataPartida} \n status: {statusPartida}";
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("Selecione alguma partida");
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Selecione uma partida valida");
+            }
+
+            lstJogador.Items.Clear(); // esse botão serve para limpar a lista antes de listar novamente
+            string retorno = Jogo.ListarJogadores(idPartida);
+            retorno = retorno.Replace("\r", "");
+
+            string[] jogadores = retorno.Split('\n');
+            for (int i = 0; i < jogadores.Length; i++)
+            {
+                lstJogador.Items.Add(jogadores[i]);
+            }
+        }
+
+        private void lstJogador_SelectedIndexChanged(object sender, EventArgs e)
+        {
             try
             {
 
@@ -187,12 +177,24 @@ namespace Cartagena___Soacha
             }
         }
 
-        private void lblResultCriacao_Click(object sender, EventArgs e)
+        private void button1_Click_2(object sender, EventArgs e)
         {
-            MessageBox.Show("EasterEgg (1/5)");
-        }
+            //Botao vai mudar o status da partida de aberta para jogando
+            if (idJogador == -1 || senha == "")
+            { //Aq é um mini tratamento de erro
+                MessageBox.Show("selecione uma partida ou coloque um senha");
+            }
+            else
+            {
+                //aq vai iniciar o outro forms
+                string id = Jogo.IniciarPartida(idJogador, senha);
+                MessageBox.Show($"{id} esta Jogando");
 
-        
+                
+
+
+            }
+        }
     }
 
 }

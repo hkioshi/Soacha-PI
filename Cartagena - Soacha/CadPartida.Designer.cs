@@ -28,59 +28,60 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.txtNome = new System.Windows.Forms.TextBox();
-            this.txtSenha = new System.Windows.Forms.TextBox();
             this.lblResultCriacao = new System.Windows.Forms.Label();
+            this.btnCadPart = new System.Windows.Forms.Button();
+            this.txtSenha = new System.Windows.Forms.TextBox();
+            this.txtNome = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(11, 120);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(139, 44);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // txtNome
-            // 
-            this.txtNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.txtNome.Location = new System.Drawing.Point(11, 31);
-            this.txtNome.Margin = new System.Windows.Forms.Padding(2);
-            this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(157, 23);
-            this.txtNome.TabIndex = 8;
-            // 
-            // txtSenha
-            // 
-            this.txtSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.txtSenha.Location = new System.Drawing.Point(11, 57);
-            this.txtSenha.Margin = new System.Windows.Forms.Padding(2);
-            this.txtSenha.Name = "txtSenha";
-            this.txtSenha.Size = new System.Drawing.Size(157, 23);
-            this.txtSenha.TabIndex = 9;
             // 
             // lblResultCriacao
             // 
             this.lblResultCriacao.AutoSize = true;
-            this.lblResultCriacao.Location = new System.Drawing.Point(11, 94);
+            this.lblResultCriacao.Location = new System.Drawing.Point(27, 122);
             this.lblResultCriacao.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblResultCriacao.Name = "lblResultCriacao";
             this.lblResultCriacao.Size = new System.Drawing.Size(13, 13);
             this.lblResultCriacao.TabIndex = 11;
             this.lblResultCriacao.Text = "b";
             // 
+            // btnCadPart
+            // 
+            this.btnCadPart.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.btnCadPart.Location = new System.Drawing.Point(14, 138);
+            this.btnCadPart.Name = "btnCadPart";
+            this.btnCadPart.Size = new System.Drawing.Size(202, 44);
+            this.btnCadPart.TabIndex = 0;
+            this.btnCadPart.Text = "Cadastrar Partida";
+            this.btnCadPart.UseVisualStyleBackColor = true;
+            this.btnCadPart.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // txtSenha
+            // 
+            this.txtSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.txtSenha.Location = new System.Drawing.Point(48, 86);
+            this.txtSenha.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSenha.Name = "txtSenha";
+            this.txtSenha.Size = new System.Drawing.Size(157, 23);
+            this.txtSenha.TabIndex = 9;
+            // 
+            // txtNome
+            // 
+            this.txtNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.txtNome.Location = new System.Drawing.Point(30, 23);
+            this.txtNome.Margin = new System.Windows.Forms.Padding(2);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(157, 23);
+            this.txtNome.TabIndex = 8;
+            // 
             // CadPartida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(201, 194);
+            this.ClientSize = new System.Drawing.Size(228, 194);
             this.Controls.Add(this.lblResultCriacao);
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.txtSenha);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnCadPart);
             this.Name = "CadPartida";
             this.Text = "CadPartida";
             this.ResumeLayout(false);
@@ -90,9 +91,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox txtNome;
-        private System.Windows.Forms.TextBox txtSenha;
         private System.Windows.Forms.Label lblResultCriacao;
+        private System.Windows.Forms.Button btnCadPart;
+        private System.Windows.Forms.TextBox txtSenha;
+        private System.Windows.Forms.TextBox txtNome;
     }
 }
