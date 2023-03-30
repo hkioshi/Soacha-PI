@@ -68,7 +68,7 @@
             this.lstPartidas.Location = new System.Drawing.Point(159, 124);
             this.lstPartidas.Margin = new System.Windows.Forms.Padding(2);
             this.lstPartidas.Name = "lstPartidas";
-            this.lstPartidas.Size = new System.Drawing.Size(175, 160);
+            this.lstPartidas.Size = new System.Drawing.Size(146, 160);
             this.lstPartidas.TabIndex = 2;
             // 
             // btnSelecionarPartida
@@ -164,7 +164,7 @@
             // 
             // btnJogar
             // 
-            this.btnJogar.Location = new System.Drawing.Point(11, 7);
+            this.btnJogar.Location = new System.Drawing.Point(9, 7);
             this.btnJogar.Margin = new System.Windows.Forms.Padding(2);
             this.btnJogar.Name = "btnJogar";
             this.btnJogar.Size = new System.Drawing.Size(417, 114);
@@ -217,10 +217,10 @@
             // lstJogador
             // 
             this.lstJogador.FormattingEnabled = true;
-            this.lstJogador.Location = new System.Drawing.Point(338, 124);
+            this.lstJogador.Location = new System.Drawing.Point(309, 125);
             this.lstJogador.Margin = new System.Windows.Forms.Padding(2);
             this.lstJogador.Name = "lstJogador";
-            this.lstJogador.Size = new System.Drawing.Size(91, 160);
+            this.lstJogador.Size = new System.Drawing.Size(117, 160);
             this.lstJogador.TabIndex = 20;
             // 
             // btnSelecionarJogador
