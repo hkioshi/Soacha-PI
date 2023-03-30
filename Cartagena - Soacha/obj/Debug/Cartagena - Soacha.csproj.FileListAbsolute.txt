@@ -41,3 +41,19 @@ C:\Users\renat\Source\Repos\Soacha-PI\Cartagena - Soacha\obj\Debug\Cartagena - S
 C:\Users\renat\Source\Repos\Soacha-PI\Cartagena - Soacha\obj\Debug\Cartagena - Soacha.exe
 C:\Users\renat\Source\Repos\Soacha-PI\Cartagena - Soacha\obj\Debug\Cartagena - Soacha.pdb
 C:\Users\2hkio\Source\Repos\Soacha-PI\Cartagena - Soacha\obj\Debug\Cartagena___Soacha.Form2.resources
+C:\Users\henrique.kyamauchi\source\repos\Soacha-PI\Cartagena - Soacha\obj\Debug\Cartagena - Soacha.csproj.AssemblyReference.cache
+C:\Users\henrique.kyamauchi\source\repos\Soacha-PI\Cartagena - Soacha\obj\Debug\Cartagena - Soacha.csproj.SuggestedBindingRedirects.cache
+C:\Users\henrique.kyamauchi\source\repos\Soacha-PI\Cartagena - Soacha\obj\Debug\Cartagena___Soacha.formsSoacha.resources
+C:\Users\henrique.kyamauchi\source\repos\Soacha-PI\Cartagena - Soacha\obj\Debug\Cartagena___Soacha.Form2.resources
+C:\Users\henrique.kyamauchi\source\repos\Soacha-PI\Cartagena - Soacha\obj\Debug\Cartagena___Soacha.Properties.Resources.resources
+C:\Users\henrique.kyamauchi\source\repos\Soacha-PI\Cartagena - Soacha\obj\Debug\Cartagena - Soacha.csproj.GenerateResource.cache
+C:\Users\henrique.kyamauchi\source\repos\Soacha-PI\Cartagena - Soacha\obj\Debug\Cartagena - Soacha.csproj.CoreCompileInputs.cache
+C:\Users\henrique.kyamauchi\source\repos\Soacha-PI\Cartagena - Soacha\obj\Debug\Cartagena - Soacha.exe
+C:\Users\henrique.kyamauchi\source\repos\Soacha-PI\Cartagena - Soacha\obj\Debug\Cartagena - Soacha.pdb
+C:\Users\henrique.kyamauchi\source\repos\Soacha-PI\Cartagena - Soacha\bin\Debug\Cartagena - Soacha.exe.config
+C:\Users\henrique.kyamauchi\source\repos\Soacha-PI\Cartagena - Soacha\bin\Debug\Cartagena - Soacha.exe
+C:\Users\henrique.kyamauchi\source\repos\Soacha-PI\Cartagena - Soacha\bin\Debug\Cartagena - Soacha.pdb
+C:\Users\henrique.kyamauchi\source\repos\Soacha-PI\Cartagena - Soacha\bin\Debug\CartagenaServer.dll
+C:\Users\henrique.kyamauchi\source\repos\Soacha-PI\Cartagena - Soacha\bin\Debug\CartagenaServer.xml
+C:\Users\henrique.kyamauchi\source\repos\Soacha-PI\Cartagena - Soacha\obj\Debug\Cartagena - Soacha.csproj.CopyComplete
+C:\Users\henrique.kyamauchi\source\repos\Soacha-PI\Cartagena - Soacha\obj\Debug\Cartagena___Soacha.CadPartida.resources

@@ -47,7 +47,11 @@ namespace Cartagena___Soacha
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            string partidas = lstCartas.SelectedItem.ToString();    
+            string[] itens = partidas.Split(new char[] { ',' });
+
+            simb = itens[0];
+            lblCasa.Text = $"pos: {pos}, Simbolo: {simb}";
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -81,13 +85,8 @@ namespace Cartagena___Soacha
         private void button1_Click_1(object sender, EventArgs e)
         {
             
-                string partidas = lstTab.SelectedItem.ToString();
-                string[] itens = partidas.Split(new char[] { ',' });
                 
-                simb = itens[0];
-                pos = Convert.ToInt32(itens[1]);
-            lblCasa.Text = $"pos: {pos}, Simbolo: {simb}";
-            
+       
       
         }
 
@@ -106,6 +105,21 @@ namespace Cartagena___Soacha
         {
             String retorno = Jogo.VerificarVez(idPartida);  
             MessageBox.Show(retorno);
+        }
+
+        private void listBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            pos = (int)numericUpDown1.Value;
+        }
+
+        private void lblPos_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("EasterEgg (2/5)");
         }
     }
 }
