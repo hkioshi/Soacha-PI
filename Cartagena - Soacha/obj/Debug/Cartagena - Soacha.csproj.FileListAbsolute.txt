@@ -57,3 +57,4 @@ C:\Users\henrique.kyamauchi\source\repos\Soacha-PI\Cartagena - Soacha\bin\Debug\
 C:\Users\henrique.kyamauchi\source\repos\Soacha-PI\Cartagena - Soacha\bin\Debug\CartagenaServer.xml
 C:\Users\henrique.kyamauchi\source\repos\Soacha-PI\Cartagena - Soacha\obj\Debug\Cartagena - Soacha.csproj.CopyComplete
 C:\Users\henrique.kyamauchi\source\repos\Soacha-PI\Cartagena - Soacha\obj\Debug\Cartagena___Soacha.CadPartida.resources
+C:\Users\2hkio\source\repos\Soacha-PI\Cartagena - Soacha\obj\Debug\Cartagena___Soacha.CadPartida.resources

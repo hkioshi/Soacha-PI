@@ -30,6 +30,7 @@ namespace Cartagena___Soacha
         {
             //O botao um vai listar as partidas
             lstPartidas.Items.Clear(); // esse botão serve para limpar a lista antes de listar novamente
+
             string retorno = Jogo.ListarPartidas("T");
             retorno = retorno.Replace("\r", "");
 
@@ -69,8 +70,17 @@ namespace Cartagena___Soacha
             {
                 MessageBox.Show("Selecione uma Partida ou Preencha os campos");
             }
-            
-            
+
+            lstJogador.Items.Clear(); // esse botão serve para limpar a lista antes de listar novamente
+            string r = Jogo.ListarJogadores(idPartida);
+            r = r.Replace("\r", "");
+
+            string[] jogadores = r.Split('\n');
+            for (int i = 0; i < jogadores.Length; i++)
+            {
+                lstJogador.Items.Add(jogadores[i]);
+            }
+
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -85,31 +95,7 @@ namespace Cartagena___Soacha
                 lstPartidas.Items.Add(partidas[i]);
             }
         }
-
-
-        private void btnJogar_Click(object sender, EventArgs e)
-        {
-            if(statusPartida == "J")
-            {
-                Form2 f = new Form2();
-                f.idJogador = idJogador;
-                f.senha = senha;
-                f.idPartida = idPartida;
-                f.ShowDialog();
-                this.Hide();
-            }
-            else
-            {
-                MessageBox.Show("Selecione Uma partida que esteja jogando");
-            }
-           
-
-
-        }
-
-
         
-
         private void lblResultCriacao_Click(object sender, EventArgs e)
         {
             MessageBox.Show("EasterEgg (1/5)");
@@ -186,13 +172,23 @@ namespace Cartagena___Soacha
             }
             else
             {
-                //aq vai iniciar o outro forms
-                string id = Jogo.IniciarPartida(idJogador, senha);
-                MessageBox.Show($"{id} esta Jogando");
+                try
+                {
+                    //aq vai iniciar o outro forms
+                    string id = Jogo.IniciarPartida(idJogador, senha);
+                    MessageBox.Show($"{id} esta Jogando");
 
+                    Form2 f = new Form2();
+                    f.idJogador = idJogador;
+                    f.senha = senha;
+                    f.idPartida = idPartida;
+                    f.ShowDialog();
+                } 
+                catch(NullReferenceException w)
+                {
+                    MessageBox.Show("Sem senha do Jogador");
+                }
                 
-
-
             }
         }
     }
