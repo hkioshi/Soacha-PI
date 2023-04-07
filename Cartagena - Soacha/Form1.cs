@@ -30,18 +30,65 @@ namespace Cartagena___Soacha
             //
             // LISTAR PARTIDAS
             //
-            lstGeral.Items.Clear(); // esse botão serve para limpar a lista antes de listar novamente
-
-            string retorno = Jogo.ListarPartidas("T");
-            retorno = retorno.Replace("\r", "");
-
-            string[] partidas = retorno.Split('\n');
-            for(int i = 0;i < partidas.Length ;i++)
+            if (cmbTipoPartida.Text == "Todas")
             {
-                lstGeral.Items.Add(partidas[i]);
+                //Listar Todas Partidas
+                lstGeral.Items.Clear(); 
+
+                string retorno = Jogo.ListarPartidas("T");
+                retorno = retorno.Replace("\r", "");
+
+                string[] partidas = retorno.Split('\n');
+                for (int i = 0; i < partidas.Length; i++)
+                {
+                    lstGeral.Items.Add(partidas[i]);
+                }
+            }
+            else if (cmbTipoPartida.Text == "Aberta")
+            {
+                //Listar Partidas Abertas
+                lstGeral.Items.Clear(); 
+
+                string retorno = Jogo.ListarPartidas("A");
+                retorno = retorno.Replace("\r", "");
+
+                string[] partidas = retorno.Split('\n');
+                for (int i = 0; i < partidas.Length; i++)
+                {
+                    lstGeral.Items.Add(partidas[i]);
+                }
+            }
+            else if (cmbTipoPartida.Text == "Jogando") 
+            {
+                //Listar Partidas Jogando
+                lstGeral.Items.Clear(); 
+
+                string retorno = Jogo.ListarPartidas("J");
+                retorno = retorno.Replace("\r", "");
+
+                string[] partidas = retorno.Split('\n');
+                for (int i = 0; i < partidas.Length; i++)
+                {
+                    lstGeral.Items.Add(partidas[i]);
+                }
+            }
+            else
+            {
+                //Listar Partidas Encerradas
+                lstGeral.Items.Clear(); 
+
+                string retorno = Jogo.ListarPartidas("E");
+                retorno = retorno.Replace("\r", "");
+
+                string[] partidas = retorno.Split('\n');
+                for (int i = 0; i < partidas.Length; i++)
+                {
+                    lstGeral.Items.Add(partidas[i]);
+                }
             }
 
-            
+
+
         }
         private void btnCad_Click(object sender, EventArgs e)
         {
@@ -163,6 +210,9 @@ namespace Cartagena___Soacha
             }
         }
 
-        
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
