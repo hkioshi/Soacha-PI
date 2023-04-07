@@ -29,14 +29,13 @@
         private void InitializeComponent()
         {
             this.btnListarPartidas = new System.Windows.Forms.Button();
-            this.lstPartidas = new System.Windows.Forms.ListBox();
+            this.lstGeral = new System.Windows.Forms.ListBox();
             this.lblStatus = new System.Windows.Forms.Label();
             this.btnCad = new System.Windows.Forms.Button();
             this.txtNomeJogador = new System.Windows.Forms.TextBox();
             this.lblStatusJogador = new System.Windows.Forms.Label();
             this.grpCadJogador = new System.Windows.Forms.GroupBox();
             this.txtSenhaJogador = new System.Windows.Forms.TextBox();
-            this.lstJogador = new System.Windows.Forms.ListBox();
             this.mnuCad = new System.Windows.Forms.MenuStrip();
             this.msiCadPartida = new System.Windows.Forms.ToolStripMenuItem();
             this.btnMudarStatus = new System.Windows.Forms.Button();
@@ -46,30 +45,30 @@
             // 
             // btnListarPartidas
             // 
-            this.btnListarPartidas.Location = new System.Drawing.Point(12, 39);
+            this.btnListarPartidas.Location = new System.Drawing.Point(12, 30);
             this.btnListarPartidas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnListarPartidas.Name = "btnListarPartidas";
-            this.btnListarPartidas.Size = new System.Drawing.Size(220, 33);
+            this.btnListarPartidas.Size = new System.Drawing.Size(219, 33);
             this.btnListarPartidas.TabIndex = 0;
             this.btnListarPartidas.Text = "Listar Partidas";
             this.btnListarPartidas.UseVisualStyleBackColor = true;
-            this.btnListarPartidas.Click += new System.EventHandler(this.button1_Click);
+            this.btnListarPartidas.Click += new System.EventHandler(this.btnListarPartidas_Click);
             // 
-            // lstPartidas
+            // lstGeral
             // 
-            this.lstPartidas.FormattingEnabled = true;
-            this.lstPartidas.ItemHeight = 16;
-            this.lstPartidas.Location = new System.Drawing.Point(12, 78);
-            this.lstPartidas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.lstPartidas.Name = "lstPartidas";
-            this.lstPartidas.Size = new System.Drawing.Size(219, 132);
-            this.lstPartidas.TabIndex = 2;
-            this.lstPartidas.SelectedIndexChanged += new System.EventHandler(this.lstPartidas_SelectedIndexChanged);
+            this.lstGeral.FormattingEnabled = true;
+            this.lstGeral.ItemHeight = 16;
+            this.lstGeral.Location = new System.Drawing.Point(12, 67);
+            this.lstGeral.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lstGeral.Name = "lstGeral";
+            this.lstGeral.Size = new System.Drawing.Size(219, 356);
+            this.lstGeral.TabIndex = 2;
+            this.lstGeral.SelectedIndexChanged += new System.EventHandler(this.lstPartidas_SelectedIndexChanged);
             // 
             // lblStatus
             // 
             this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(585, 219);
+            this.lblStatus.Location = new System.Drawing.Point(584, 203);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(15, 16);
             this.lblStatus.TabIndex = 4;
@@ -100,9 +99,8 @@
             this.lblStatusJogador.AutoSize = true;
             this.lblStatusJogador.Location = new System.Drawing.Point(12, 155);
             this.lblStatusJogador.Name = "lblStatusJogador";
-            this.lblStatusJogador.Size = new System.Drawing.Size(16, 18);
+            this.lblStatusJogador.Size = new System.Drawing.Size(0, 18);
             this.lblStatusJogador.TabIndex = 15;
-            this.lblStatusJogador.Text = "c";
             // 
             // grpCadJogador
             // 
@@ -111,11 +109,11 @@
             this.grpCadJogador.Controls.Add(this.btnCad);
             this.grpCadJogador.Controls.Add(this.lblStatusJogador);
             this.grpCadJogador.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.grpCadJogador.Location = new System.Drawing.Point(584, 39);
+            this.grpCadJogador.Location = new System.Drawing.Point(586, 30);
             this.grpCadJogador.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grpCadJogador.Name = "grpCadJogador";
             this.grpCadJogador.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.grpCadJogador.Size = new System.Drawing.Size(220, 177);
+            this.grpCadJogador.Size = new System.Drawing.Size(220, 171);
             this.grpCadJogador.TabIndex = 19;
             this.grpCadJogador.TabStop = false;
             this.grpCadJogador.Text = "Cadastrar Jogador";
@@ -128,17 +126,6 @@
             this.txtSenhaJogador.Name = "txtSenhaJogador";
             this.txtSenhaJogador.Size = new System.Drawing.Size(208, 26);
             this.txtSenhaJogador.TabIndex = 13;
-            // 
-            // lstJogador
-            // 
-            this.lstJogador.FormattingEnabled = true;
-            this.lstJogador.ItemHeight = 16;
-            this.lstJogador.Location = new System.Drawing.Point(12, 215);
-            this.lstJogador.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.lstJogador.Name = "lstJogador";
-            this.lstJogador.Size = new System.Drawing.Size(219, 148);
-            this.lstJogador.TabIndex = 20;
-            this.lstJogador.SelectedIndexChanged += new System.EventHandler(this.lstJogador_SelectedIndexChanged);
             // 
             // mnuCad
             // 
@@ -159,8 +146,8 @@
             // 
             // btnMudarStatus
             // 
-            this.btnMudarStatus.Location = new System.Drawing.Point(584, 266);
-            this.btnMudarStatus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMudarStatus.Location = new System.Drawing.Point(579, 309);
+            this.btnMudarStatus.Margin = new System.Windows.Forms.Padding(4);
             this.btnMudarStatus.Name = "btnMudarStatus";
             this.btnMudarStatus.Size = new System.Drawing.Size(220, 124);
             this.btnMudarStatus.TabIndex = 29;
@@ -174,10 +161,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(819, 446);
             this.Controls.Add(this.btnMudarStatus);
-            this.Controls.Add(this.lstJogador);
             this.Controls.Add(this.grpCadJogador);
             this.Controls.Add(this.lblStatus);
-            this.Controls.Add(this.lstPartidas);
+            this.Controls.Add(this.lstGeral);
             this.Controls.Add(this.btnListarPartidas);
             this.Controls.Add(this.mnuCad);
             this.MainMenuStrip = this.mnuCad;
@@ -196,13 +182,12 @@
         #endregion
 
         private System.Windows.Forms.Button btnListarPartidas;
-        private System.Windows.Forms.ListBox lstPartidas;
+        private System.Windows.Forms.ListBox lstGeral;
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Button btnCad;
         private System.Windows.Forms.TextBox txtNomeJogador;
         private System.Windows.Forms.Label lblStatusJogador;
         private System.Windows.Forms.GroupBox grpCadJogador;
-        private System.Windows.Forms.ListBox lstJogador;
         private System.Windows.Forms.TextBox txtSenhaJogador;
         private System.Windows.Forms.MenuStrip mnuCad;
         private System.Windows.Forms.ToolStripMenuItem msiCadPartida;

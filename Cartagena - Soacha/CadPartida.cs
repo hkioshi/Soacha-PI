@@ -31,14 +31,20 @@ namespace Cartagena___Soacha
                 string retorno = Jogo.CriarPartida(txtNome.Text, txtSenha.Text);
                 if (retorno == "ERRO: Partida já existente")
                 {
-                    lblResultCriacao.Text = "A partida já existe";
+                    MessageBox.Show("A partida já existe");
                 }
                 else
                 {
-                    lblResultCriacao.Text = $"Partida no id {retorno}";
+                    MessageBox.Show($"Partida no id {retorno}");
+                    this.Close();
                 }
 
             }
+        }
+
+        private void CadPartida_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
