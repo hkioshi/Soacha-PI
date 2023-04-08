@@ -214,5 +214,10 @@ namespace Cartagena___Soacha
         {
 
         }
+
+        private void lblStatus_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

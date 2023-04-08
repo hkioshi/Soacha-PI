@@ -23,12 +23,13 @@ namespace Cartagena___Soacha
 
         public Form2()
         {
-            InitializeComponent();
+            InitializeComponent(); 
         }
 
         private void Form2_Load(object sender, EventArgs e)
         {
-
+            Tabuleiro tab = new Tabuleiro();
+            tab.GerarTabuleiro(Jogo.ExibirTabuleiro(idPartida),this);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -57,14 +58,30 @@ namespace Cartagena___Soacha
         private void button2_Click(object sender, EventArgs e)
         {
             lstTab.Items.Clear();
-            string retorno = Jogo.ExibirTabuleiro(idPartida);
+            string retorno = Jogo.ExibirTabuleiro(this.idPartida);
             string[] partidas = retorno.Split('\n');
-            for (int i = 0; i < partidas.Length; i++)
+            for (int i = 1; i < partidas.Length; i++)
             {
-                lstTab.Items.Add(partidas[i]);
+                string[] strings = partidas[i].Split(',');
+                for (int j = 0; j < strings.Length; j++)
+                {
+                    lstTab.Items.Add(strings[j  ]);
+                }
+                
             }
             //MessageBox.Show(retorno);
-            
+
+            for(int i = 0; i < 38;i++)
+            {
+                Panel newPanel = new Panel();
+                this.Controls.Add(newPanel);
+                newPanel.Text = "Created Button";
+                newPanel.Location = new Point(70, 70*i);
+                newPanel.Size = new Size(50, 100);
+                newPanel.Location = new Point(20, 50);
+            }
+
+           
         }
 
         private void btnPularVez_Click(object sender, EventArgs e)
@@ -120,6 +137,11 @@ namespace Cartagena___Soacha
         private void lblPos_Click(object sender, EventArgs e)
         {
             MessageBox.Show("EasterEgg (2/5)");
+        }
+
+        private void lstTab_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

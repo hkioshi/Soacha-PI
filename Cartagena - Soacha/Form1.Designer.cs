@@ -40,16 +40,19 @@
             this.msiCadPartida = new System.Windows.Forms.ToolStripMenuItem();
             this.btnMudarStatus = new System.Windows.Forms.Button();
             this.cmbTipoPartida = new System.Windows.Forms.ComboBox();
+            this.lblNomeJogador = new System.Windows.Forms.Label();
+            this.lblSenhaPartida = new System.Windows.Forms.Label();
             this.grpCadJogador.SuspendLayout();
             this.mnuCad.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnListarPartidas
             // 
-            this.btnListarPartidas.Location = new System.Drawing.Point(115, 29);
+            this.btnListarPartidas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btnListarPartidas.Location = new System.Drawing.Point(115, 36);
             this.btnListarPartidas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnListarPartidas.Name = "btnListarPartidas";
-            this.btnListarPartidas.Size = new System.Drawing.Size(141, 33);
+            this.btnListarPartidas.Size = new System.Drawing.Size(162, 37);
             this.btnListarPartidas.TabIndex = 0;
             this.btnListarPartidas.Text = "Listar Partidas";
             this.btnListarPartidas.UseVisualStyleBackColor = true;
@@ -59,28 +62,30 @@
             // 
             this.lstGeral.FormattingEnabled = true;
             this.lstGeral.ItemHeight = 16;
-            this.lstGeral.Location = new System.Drawing.Point(12, 64);
+            this.lstGeral.Location = new System.Drawing.Point(12, 77);
             this.lstGeral.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lstGeral.Name = "lstGeral";
-            this.lstGeral.Size = new System.Drawing.Size(244, 180);
+            this.lstGeral.Size = new System.Drawing.Size(265, 180);
             this.lstGeral.TabIndex = 2;
             this.lstGeral.SelectedIndexChanged += new System.EventHandler(this.lstPartidas_SelectedIndexChanged);
             // 
             // lblStatus
             // 
             this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(262, 358);
+            this.lblStatus.Location = new System.Drawing.Point(283, 68);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(15, 16);
             this.lblStatus.TabIndex = 4;
             this.lblStatus.Text = "a";
+            this.lblStatus.Click += new System.EventHandler(this.lblStatus_Click);
             // 
             // btnCad
             // 
-            this.btnCad.Location = new System.Drawing.Point(5, 96);
+            this.btnCad.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btnCad.Location = new System.Drawing.Point(186, 19);
             this.btnCad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCad.Name = "btnCad";
-            this.btnCad.Size = new System.Drawing.Size(233, 57);
+            this.btnCad.Size = new System.Drawing.Size(137, 115);
             this.btnCad.TabIndex = 11;
             this.btnCad.Text = "Cadastrar";
             this.btnCad.UseVisualStyleBackColor = true;
@@ -89,10 +94,10 @@
             // txtNomeJogador
             // 
             this.txtNomeJogador.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.txtNomeJogador.Location = new System.Drawing.Point(6, 34);
+            this.txtNomeJogador.Location = new System.Drawing.Point(6, 41);
             this.txtNomeJogador.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNomeJogador.Name = "txtNomeJogador";
-            this.txtNomeJogador.Size = new System.Drawing.Size(232, 26);
+            this.txtNomeJogador.Size = new System.Drawing.Size(174, 26);
             this.txtNomeJogador.TabIndex = 12;
             // 
             // lblStatusJogador
@@ -105,16 +110,18 @@
             // 
             // grpCadJogador
             // 
+            this.grpCadJogador.Controls.Add(this.lblSenhaPartida);
+            this.grpCadJogador.Controls.Add(this.lblNomeJogador);
             this.grpCadJogador.Controls.Add(this.txtNomeJogador);
             this.grpCadJogador.Controls.Add(this.txtSenhaJogador);
             this.grpCadJogador.Controls.Add(this.btnCad);
             this.grpCadJogador.Controls.Add(this.lblStatusJogador);
             this.grpCadJogador.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.grpCadJogador.Location = new System.Drawing.Point(12, 262);
+            this.grpCadJogador.Location = new System.Drawing.Point(568, 36);
             this.grpCadJogador.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grpCadJogador.Name = "grpCadJogador";
             this.grpCadJogador.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.grpCadJogador.Size = new System.Drawing.Size(244, 171);
+            this.grpCadJogador.Size = new System.Drawing.Size(339, 140);
             this.grpCadJogador.TabIndex = 19;
             this.grpCadJogador.TabStop = false;
             this.grpCadJogador.Text = "Cadastrar Jogador";
@@ -122,10 +129,10 @@
             // txtSenhaJogador
             // 
             this.txtSenhaJogador.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.txtSenhaJogador.Location = new System.Drawing.Point(5, 64);
+            this.txtSenhaJogador.Location = new System.Drawing.Point(6, 96);
             this.txtSenhaJogador.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSenhaJogador.Name = "txtSenhaJogador";
-            this.txtSenhaJogador.Size = new System.Drawing.Size(233, 26);
+            this.txtSenhaJogador.Size = new System.Drawing.Size(174, 26);
             this.txtSenhaJogador.TabIndex = 13;
             // 
             // mnuCad
@@ -135,22 +142,24 @@
             this.msiCadPartida});
             this.mnuCad.Location = new System.Drawing.Point(0, 0);
             this.mnuCad.Name = "mnuCad";
-            this.mnuCad.Size = new System.Drawing.Size(819, 30);
+            this.mnuCad.Size = new System.Drawing.Size(938, 31);
             this.mnuCad.TabIndex = 28;
             // 
             // msiCadPartida
             // 
+            this.msiCadPartida.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.msiCadPartida.Name = "msiCadPartida";
-            this.msiCadPartida.Size = new System.Drawing.Size(136, 26);
+            this.msiCadPartida.Size = new System.Drawing.Size(155, 27);
             this.msiCadPartida.Text = "Cadastrar Partida";
             this.msiCadPartida.Click += new System.EventHandler(this.zxcToolStripMenuItem_Click);
             // 
             // btnMudarStatus
             // 
-            this.btnMudarStatus.Location = new System.Drawing.Point(495, 168);
-            this.btnMudarStatus.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMudarStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.btnMudarStatus.Location = new System.Drawing.Point(568, 197);
+            this.btnMudarStatus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnMudarStatus.Name = "btnMudarStatus";
-            this.btnMudarStatus.Size = new System.Drawing.Size(220, 124);
+            this.btnMudarStatus.Size = new System.Drawing.Size(339, 60);
             this.btnMudarStatus.TabIndex = 29;
             this.btnMudarStatus.Text = "Iniciar Jogo";
             this.btnMudarStatus.UseVisualStyleBackColor = true;
@@ -158,23 +167,44 @@
             // 
             // cmbTipoPartida
             // 
-            this.cmbTipoPartida.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.cmbTipoPartida.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cmbTipoPartida.FormattingEnabled = true;
             this.cmbTipoPartida.Items.AddRange(new object[] {
             "Todas",
             "Aberta",
-            "Jogando"});
-            this.cmbTipoPartida.Location = new System.Drawing.Point(12, 31);
+            "Jogando",
+            "Encerrada"});
+            this.cmbTipoPartida.Location = new System.Drawing.Point(12, 36);
             this.cmbTipoPartida.Name = "cmbTipoPartida";
-            this.cmbTipoPartida.Size = new System.Drawing.Size(97, 28);
+            this.cmbTipoPartida.Size = new System.Drawing.Size(97, 33);
             this.cmbTipoPartida.TabIndex = 30;
             this.cmbTipoPartida.Text = "Todas";
+            // 
+            // lblNomeJogador
+            // 
+            this.lblNomeJogador.AutoSize = true;
+            this.lblNomeJogador.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblNomeJogador.Location = new System.Drawing.Point(6, 19);
+            this.lblNomeJogador.Name = "lblNomeJogador";
+            this.lblNomeJogador.Size = new System.Drawing.Size(141, 20);
+            this.lblNomeJogador.TabIndex = 16;
+            this.lblNomeJogador.Text = "Nome do Jogador";
+            // 
+            // lblSenhaPartida
+            // 
+            this.lblSenhaPartida.AutoSize = true;
+            this.lblSenhaPartida.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblSenhaPartida.Location = new System.Drawing.Point(6, 74);
+            this.lblSenhaPartida.Name = "lblSenhaPartida";
+            this.lblSenhaPartida.Size = new System.Drawing.Size(137, 20);
+            this.lblSenhaPartida.TabIndex = 17;
+            this.lblSenhaPartida.Text = "Senha da Partida";
             // 
             // formsSoacha
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(819, 446);
+            this.ClientSize = new System.Drawing.Size(938, 475);
             this.Controls.Add(this.cmbTipoPartida);
             this.Controls.Add(this.btnMudarStatus);
             this.Controls.Add(this.grpCadJogador);
@@ -209,6 +239,8 @@
         private System.Windows.Forms.ToolStripMenuItem msiCadPartida;
         private System.Windows.Forms.Button btnMudarStatus;
         private System.Windows.Forms.ComboBox cmbTipoPartida;
+        private System.Windows.Forms.Label lblSenhaPartida;
+        private System.Windows.Forms.Label lblNomeJogador;
     }
 }
 
