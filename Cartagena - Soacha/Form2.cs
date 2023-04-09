@@ -28,8 +28,15 @@ namespace Cartagena___Soacha
 
         private void Form2_Load(object sender, EventArgs e)
         {
+            List<Image> list = new List<Image>();
+                list.Add(Image.FromFile("C:\\Users\\2hkio\\source\\repos\\teste\\imagens\\DaggerStatic.png"));
+                list.Add(Image.FromFile("C:\\Users\\2hkio\\source\\repos\\teste\\imagens\\GunStatic.png"));
+                list.Add(Image.FromFile("C:\\Users\\2hkio\\source\\repos\\teste\\imagens\\HatStatic.png"));
+                list.Add(Image.FromFile("C:\\Users\\2hkio\\source\\repos\\teste\\imagens\\KeyStatic.png"));
+                list.Add(Image.FromFile("C:\\Users\\2hkio\\source\\repos\\teste\\imagens\\RumStatic.png"));
+                list.Add(Image.FromFile("C:\\Users\\2hkio\\source\\repos\\teste\\imagens\\SkullStatic.png"));
             Tabuleiro tab = new Tabuleiro();
-            tab.GerarTabuleiro(Jogo.ExibirTabuleiro(idPartida),this);
+            tab.GerarTabuleiro(Jogo.ExibirTabuleiro(idPartida),this,list);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -55,34 +62,7 @@ namespace Cartagena___Soacha
             lblCasa.Text = $"pos: {pos}, Simbolo: {simb}";
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            lstTab.Items.Clear();
-            string retorno = Jogo.ExibirTabuleiro(this.idPartida);
-            string[] partidas = retorno.Split('\n');
-            for (int i = 1; i < partidas.Length; i++)
-            {
-                string[] strings = partidas[i].Split(',');
-                for (int j = 0; j < strings.Length; j++)
-                {
-                    lstTab.Items.Add(strings[j  ]);
-                }
-                
-            }
-            //MessageBox.Show(retorno);
-
-            for(int i = 0; i < 38;i++)
-            {
-                Panel newPanel = new Panel();
-                this.Controls.Add(newPanel);
-                newPanel.Text = "Created Button";
-                newPanel.Location = new Point(70, 70*i);
-                newPanel.Size = new Size(50, 100);
-                newPanel.Location = new Point(20, 50);
-            }
-
-           
-        }
+      
 
         private void btnPularVez_Click(object sender, EventArgs e)
         {

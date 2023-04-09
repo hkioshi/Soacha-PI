@@ -11,36 +11,24 @@ namespace Cartagena___Soacha
 {
     public class Casa
     {
-
         public int id ;
         public string simbolo;
-        
-        
-        List<Image> list = new List<Image>();
         Panel newButton = new Panel();
-
 
         public Casa(int id, string simb)
         {
             this.id = id;
             this.simbolo = simb;
             
-                list.Add(Image.FromFile("C:\\Users\\2hkio\\source\\repos\\teste\\imagens\\DaggerStatic.png"));
-                list.Add(Image.FromFile("C:\\Users\\2hkio\\source\\repos\\teste\\imagens\\GunStatic.png"));
-                list.Add(Image.FromFile("C:\\Users\\2hkio\\source\\repos\\teste\\imagens\\HatStatic.png"));
-                list.Add(Image.FromFile("C:\\Users\\2hkio\\source\\repos\\teste\\imagens\\KeyStatic.png"));
-                list.Add(Image.FromFile("C:\\Users\\2hkio\\source\\repos\\teste\\imagens\\RumStatic.png"));
-                list.Add(Image.FromFile("C:\\Users\\2hkio\\source\\repos\\teste\\imagens\\SkullStatic.png"));
-            
-            
         }
-        public void Montar(Form2 form, int x, int y)
+        public void Montar(Form2 form, int x, int y, List<Image> list)
         {
             form.Controls.Add(newButton);
             newButton.Location = new Point(x, y);
             newButton.Size = new Size(50, 50);
             newButton.BorderStyle = BorderStyle.FixedSingle;
-            
+            newButton.BackgroundImageLayout = ImageLayout.Stretch;
+
             if (this.simbolo == "F")
             {
                 newButton.BackgroundImage = list[0];
@@ -65,11 +53,6 @@ namespace Cartagena___Soacha
             {
                 newButton.BackgroundImage = list[5];
             }
-
-
-            newButton.BackgroundImageLayout = ImageLayout.Stretch;
-            
-           
         }
     }
 }
