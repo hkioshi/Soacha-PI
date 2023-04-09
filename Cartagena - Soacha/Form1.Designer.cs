@@ -35,13 +35,13 @@
             this.txtNomeJogador = new System.Windows.Forms.TextBox();
             this.lblStatusJogador = new System.Windows.Forms.Label();
             this.grpCadJogador = new System.Windows.Forms.GroupBox();
+            this.lblSenhaPartida = new System.Windows.Forms.Label();
+            this.lblNomeJogador = new System.Windows.Forms.Label();
             this.txtSenhaJogador = new System.Windows.Forms.TextBox();
             this.mnuCad = new System.Windows.Forms.MenuStrip();
             this.msiCadPartida = new System.Windows.Forms.ToolStripMenuItem();
             this.btnMudarStatus = new System.Windows.Forms.Button();
             this.cmbTipoPartida = new System.Windows.Forms.ComboBox();
-            this.lblNomeJogador = new System.Windows.Forms.Label();
-            this.lblSenhaPartida = new System.Windows.Forms.Label();
             this.grpCadJogador.SuspendLayout();
             this.mnuCad.SuspendLayout();
             this.SuspendLayout();
@@ -77,7 +77,6 @@
             this.lblStatus.Size = new System.Drawing.Size(15, 16);
             this.lblStatus.TabIndex = 4;
             this.lblStatus.Text = "a";
-            this.lblStatus.Click += new System.EventHandler(this.lblStatus_Click);
             // 
             // btnCad
             // 
@@ -126,6 +125,26 @@
             this.grpCadJogador.TabStop = false;
             this.grpCadJogador.Text = "Cadastrar Jogador";
             // 
+            // lblSenhaPartida
+            // 
+            this.lblSenhaPartida.AutoSize = true;
+            this.lblSenhaPartida.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblSenhaPartida.Location = new System.Drawing.Point(6, 74);
+            this.lblSenhaPartida.Name = "lblSenhaPartida";
+            this.lblSenhaPartida.Size = new System.Drawing.Size(137, 20);
+            this.lblSenhaPartida.TabIndex = 17;
+            this.lblSenhaPartida.Text = "Senha da Partida";
+            // 
+            // lblNomeJogador
+            // 
+            this.lblNomeJogador.AutoSize = true;
+            this.lblNomeJogador.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblNomeJogador.Location = new System.Drawing.Point(6, 19);
+            this.lblNomeJogador.Name = "lblNomeJogador";
+            this.lblNomeJogador.Size = new System.Drawing.Size(141, 20);
+            this.lblNomeJogador.TabIndex = 16;
+            this.lblNomeJogador.Text = "Nome do Jogador";
+            // 
             // txtSenhaJogador
             // 
             this.txtSenhaJogador.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
@@ -157,7 +176,7 @@
             // 
             this.btnMudarStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.btnMudarStatus.Location = new System.Drawing.Point(568, 197);
-            this.btnMudarStatus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMudarStatus.Margin = new System.Windows.Forms.Padding(4);
             this.btnMudarStatus.Name = "btnMudarStatus";
             this.btnMudarStatus.Size = new System.Drawing.Size(339, 60);
             this.btnMudarStatus.TabIndex = 29;
@@ -179,26 +198,6 @@
             this.cmbTipoPartida.Size = new System.Drawing.Size(97, 33);
             this.cmbTipoPartida.TabIndex = 30;
             this.cmbTipoPartida.Text = "Todas";
-            // 
-            // lblNomeJogador
-            // 
-            this.lblNomeJogador.AutoSize = true;
-            this.lblNomeJogador.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblNomeJogador.Location = new System.Drawing.Point(6, 19);
-            this.lblNomeJogador.Name = "lblNomeJogador";
-            this.lblNomeJogador.Size = new System.Drawing.Size(141, 20);
-            this.lblNomeJogador.TabIndex = 16;
-            this.lblNomeJogador.Text = "Nome do Jogador";
-            // 
-            // lblSenhaPartida
-            // 
-            this.lblSenhaPartida.AutoSize = true;
-            this.lblSenhaPartida.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblSenhaPartida.Location = new System.Drawing.Point(6, 74);
-            this.lblSenhaPartida.Name = "lblSenhaPartida";
-            this.lblSenhaPartida.Size = new System.Drawing.Size(137, 20);
-            this.lblSenhaPartida.TabIndex = 17;
-            this.lblSenhaPartida.Text = "Senha da Partida";
             // 
             // formsSoacha
             // 

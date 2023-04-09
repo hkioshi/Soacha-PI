@@ -12,52 +12,62 @@ namespace Cartagena___Soacha
 {
     public class Tabuleiro
     {
+        //
+        //Construtor do Tabuleiro
+        //
+
         List<Casa> casas = new List<Casa>();
-        int x = 210, y = 70;
-        bool ir = true, desce =false, desce2 = false;
+        int x = 70, y = 20; // coordenadas do tabuleiro
+        bool ir = true, desce =false, desce2 = false;// coisas pra fazer o tabuleiro serpentiar
 
         public void GerarTabuleiro(string retorno, Form2 form, List<Image> list)
         {
+            //
+            //Isso vai colocar os paineis na tela
+            //
+
             int id;
             string simb;
             string[] partidas = retorno.Split('\n');
-            for (int i = 0; i < partidas.Length-2 ; i++)
+            for (int i = 0; i < partidas.Length-1 ; i++)
             {
                 string[] strings = partidas[i].Split(',','\r');
                 if(i == 0)
                 {
                     id = Convert.ToInt32(strings[0]);
-                    simb = "inicio";
+                    simb = "inicio";//se for o primeiro
 
                 }
                 else if(i == 37)
                 {
                     id = Convert.ToInt32(strings[0]);
-                    simb = "barco";
+                    simb = "barco";//se for o ultimo
                 }
                 else
                 {
                     id = Convert.ToInt32(strings[0]);
-                    simb = strings[1];
+                    simb = strings[1];//entre o primeiro e ultimo
                 }
-
+                //Aqui vai colocar os paineis ja com as imagens na tela
                 casas.Add(new Casa(id, simb));
                 casas[i].Montar(form, x,y,list);
 
-
-                if (ir && x - 140 != 70 * 12)
+                //
+                //Essa bizarrice aq é pra fazer o tabuleiro sepentiar
+                //
+                if (ir && x != 70 * 13)
                 {
                     x += 70;
-                    if (x - 140 == 70 * 12)
+                    if (x == 70 * 13)
                     {
                         desce = true;
                         ir = false;
                     }
                 }
-                else if (!ir && x != 210)
+                else if (!ir && x != 70 )
                 {
                     x -= 70;
-                    if (x == 210)
+                    if (x == 70 )
                     {
                         desce = true;
                         ir = true;
