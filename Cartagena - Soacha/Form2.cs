@@ -14,25 +14,46 @@ namespace Cartagena___Soacha
     public partial class Form2 : Form
     {
 
-        public int idJogador { get; set; }
-        public string senha { get; set; }
-        public int idPartida { get; set; }
+        public int idJogador { get; set; }//Variavel enviada do form principar
+        public string senha { get; set; }//Variavel enviada do form principar
+        public int idPartida { get; set; }//Variavel enviada do form principar
 
-        int pos;
+        //
+        int pos; 
         String simb;
 
         public Form2()
         {
-            InitializeComponent();
+            InitializeComponent(); 
         }
 
         private void Form2_Load(object sender, EventArgs e)
         {
+            //
+            //Aqui vai colocar as imagens em uma lista e inicar o tabuleiro
+            //
 
+            //
+            //Me digam se eu devo manter isso eu colocar os paineis e so mudar as imagens dentro
+            //
+
+            List<Image> list = new List<Image>();
+                list.Add(Image.FromFile("C:\\Users\\2hkio\\source\\repos\\teste\\imagens\\DaggerStatic.png"));
+                list.Add(Image.FromFile("C:\\Users\\2hkio\\source\\repos\\teste\\imagens\\GunStatic.png"));
+                list.Add(Image.FromFile("C:\\Users\\2hkio\\source\\repos\\teste\\imagens\\HatStatic.png"));
+                list.Add(Image.FromFile("C:\\Users\\2hkio\\source\\repos\\teste\\imagens\\KeyStatic.png"));
+                list.Add(Image.FromFile("C:\\Users\\2hkio\\source\\repos\\teste\\imagens\\RumStatic.png"));
+                list.Add(Image.FromFile("C:\\Users\\2hkio\\source\\repos\\teste\\imagens\\SkullStatic.png"));
+            //Cria tabuleiro
+            Tabuleiro tab = new Tabuleiro();
+            tab.GerarTabuleiro(Jogo.ExibirTabuleiro(idPartida),this,list);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //
+            //Aqui vai pegar as cartas na mao e colocar na listBox lstCartas
+            //
             lstCartas.Items.Clear();
             string retorno = Jogo.ConsultarMao(this.idJogador, this.senha);
             MessageBox.Show(retorno);
@@ -41,71 +62,79 @@ namespace Cartagena___Soacha
             {
                 lstCartas.Items.Add(partidas[i]);
             }
-            MessageBox.Show($"{idPartida }");
+            MessageBox.Show($"{idPartida }");//Essa deve mbox deve ser deletada depois
 
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            //
+            //Vai colocar posição e simbolo nas variaveis globais
+            //
+            string partidas = lstCartas.SelectedItem.ToString();    
+            string[] itens = partidas.Split(new char[] { ',' });
+
+            simb = itens[0];
+            lblCasa.Text = $"pos: {pos}, Simbolo: {simb}";//Talvez essa lbl deva ser deletada depois
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            lstTab.Items.Clear();
-            string retorno = Jogo.ExibirTabuleiro(idPartida);
-            string[] partidas = retorno.Split('\n');
-            for (int i = 0; i < partidas.Length; i++)
-            {
-                lstTab.Items.Add(partidas[i]);
-            }
-            //MessageBox.Show(retorno);
-            
-        }
+      
 
         private void btnPularVez_Click(object sender, EventArgs e)
         {
+            //
+            //Botão para Pular Vez
+            //
             string retorno = Jogo.Jogar(idJogador, senha);
             MessageBox.Show(retorno);
         }
 
         private void btnAndarFrente_Click(object sender, EventArgs e)
         {
+            //
+            //Botão para Andar para frente
+            //
             String retorno = Jogo.Jogar(idJogador, senha, pos, simb);
             MessageBox.Show(retorno);
             
         }
-
-       
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            
-                string partidas = lstTab.SelectedItem.ToString();
-                string[] itens = partidas.Split(new char[] { ',' });
-                
-                simb = itens[0];
-                pos = Convert.ToInt32(itens[1]);
-            lblCasa.Text = $"pos: {pos}, Simbolo: {simb}";
-            
-      
-        }
-
-        private void lblCasa_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnAndarTras_Click(object sender, EventArgs e)
         {
+            //
+            //Botão para Andar para tras
+            //
             String retorno = Jogo.Jogar(idJogador, senha, pos);
             MessageBox.Show(retorno);
         }
 
         private void btnTesteVez_Click(object sender, EventArgs e)
         {
+            //
+            //Botão ver se é a vez
+            //
+
+            //
+            //Esse botao deve ser substituido por um timer e as peças no jogo
+            // 
             String retorno = Jogo.VerificarVez(idPartida);  
             MessageBox.Show(retorno);
         }
+
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            //
+            //Aqui vai colocar o valor da coisa para a variavel global da posição
+            //
+            pos = (int)numericUpDown1.Value;
+        }
+
+        private void lblPos_Click(object sender, EventArgs e)
+        {
+            //Segredo?? Devo Fazer mais?
+            MessageBox.Show("EasterEgg (2/5)");
+        }
+
+        
     }
 }
