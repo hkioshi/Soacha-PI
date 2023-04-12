@@ -190,6 +190,8 @@ namespace Cartagena___Soacha
                 string id = Jogo.IniciarPartida(idJogador, senha);//iniciar partida
                 MessageBox.Show($"{id} esta Jogando"); //depois essa mbox deve ser retirada
 
+                string retorno = Jogo.ListarJogadores(idPartida);
+
                 //Abrir forms
                 Form2 f = new Form2();
                 f.idJogador = idJogador;
@@ -201,6 +203,11 @@ namespace Cartagena___Soacha
             {
                 MessageBox.Show("Sem senha nem Jogador Selecionado");
             }
+        }
+
+        private void formsSoacha_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

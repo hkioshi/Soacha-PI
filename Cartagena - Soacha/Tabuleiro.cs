@@ -19,8 +19,14 @@ namespace Cartagena___Soacha
         List<Casa> casas = new List<Casa>();
         int x = 70, y = 20; // coordenadas do tabuleiro
         bool ir = true, desce =false, desce2 = false;// coisas pra fazer o tabuleiro serpentiar
+        Form2 form;
 
-        public void GerarTabuleiro(string retorno, Form2 form, List<Image> list)
+        public Tabuleiro(Form2 form)
+        {
+            this.form = form;
+        }
+
+        public void GerarTabuleiro(string retorno, List<Image> list)
         {
             //
             //Isso vai colocar os paineis na tela
@@ -49,7 +55,7 @@ namespace Cartagena___Soacha
                     simb = strings[1];//entre o primeiro e ultimo
                 }
                 //Aqui vai colocar os paineis ja com as imagens na tela
-                casas.Add(new Casa(id, simb));
+                casas.Add(new Casa(id, simb, form));
                 casas[i].Montar(form, x,y,list);
 
                 //

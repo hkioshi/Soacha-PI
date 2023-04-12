@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Cartagena___Soacha;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace Cartagena___Soacha
 {
@@ -14,8 +16,10 @@ namespace Cartagena___Soacha
         public int id ;
         public string simbolo;
         Panel newButton = new Panel();
+        Form2 form;
+        
 
-        public Casa(int id, string simb)
+        public Casa(int id, string simb, Form2 form)
         {
             //
             //Construtor
@@ -23,7 +27,12 @@ namespace Cartagena___Soacha
 
             this.id = id;
             this.simbolo = simb;
-            
+            this.form = form;
+        }
+
+        public void VerPropriedades(object sender, EventArgs e)
+        {
+            form.ColocarVariaveis(id);
         }
         public void Montar(Form2 form, int x, int y, List<Image> list)
         {
@@ -36,6 +45,7 @@ namespace Cartagena___Soacha
             
             newButton.BorderStyle = BorderStyle.FixedSingle;
             newButton.BackgroundImageLayout = ImageLayout.Stretch;
+            newButton.Click += new System.EventHandler(this.VerPropriedades);
 
             if (this.simbolo == "F")
             {

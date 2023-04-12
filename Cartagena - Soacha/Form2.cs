@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,8 +20,8 @@ namespace Cartagena___Soacha
         public int idPartida { get; set; }//Variavel enviada do form principar
 
         //
-        int pos; 
-        String simb;
+        int pos { get; set; }
+         String simb;
 
         public Form2()
         {
@@ -38,15 +39,21 @@ namespace Cartagena___Soacha
             //
 
             List<Image> list = new List<Image>();
-                list.Add(Image.FromFile("C:\\Users\\2hkio\\source\\repos\\teste\\imagens\\DaggerStatic.png"));
-                list.Add(Image.FromFile("C:\\Users\\2hkio\\source\\repos\\teste\\imagens\\GunStatic.png"));
-                list.Add(Image.FromFile("C:\\Users\\2hkio\\source\\repos\\teste\\imagens\\HatStatic.png"));
-                list.Add(Image.FromFile("C:\\Users\\2hkio\\source\\repos\\teste\\imagens\\KeyStatic.png"));
-                list.Add(Image.FromFile("C:\\Users\\2hkio\\source\\repos\\teste\\imagens\\RumStatic.png"));
-                list.Add(Image.FromFile("C:\\Users\\2hkio\\source\\repos\\teste\\imagens\\SkullStatic.png"));
+                list.Add(Image.FromFile("C:\\Users\\2hkio\\source\\repos\\Soacha-PI\\imagens\\DaggerStatic.png"));
+                list.Add(Image.FromFile("C:\\Users\\2hkio\\source\\repos\\Soacha-PI\\imagens\\GunStatic.png"));
+                list.Add(Image.FromFile("C:\\Users\\2hkio\\source\\repos\\Soacha-PI\\imagens\\HatStatic.png"));
+                list.Add(Image.FromFile("C:\\Users\\2hkio\\source\\repos\\Soacha-PI\\imagens\\KeyStatic.png"));
+                list.Add(Image.FromFile("C:\\Users\\2hkio\\source\\repos\\Soacha-PI\\imagens\\RumStatic.png"));
+                list.Add(Image.FromFile("C:\\Users\\2hkio\\source\\repos\\Soacha-PI\\imagens\\SkullStatic.png"));
+                list.Add(Image.FromFile("C:\\Users\\2hkio\\source\\repos\\Soacha-PI\\imagens\\DaggerStatic.png"));
+                list.Add(Image.FromFile("C:\\Users\\2hkio\\source\\repos\\Soacha-PI\\imagens\\Thing.png"));
+                list.Add(Image.FromFile("C:\\Users\\2hkio\\source\\repos\\Soacha-PI\\imagens\\Thing2.png"));
+                list.Add(Image.FromFile("C:\\Users\\2hkio\\source\\repos\\Soacha-PI\\imagens\\Thing3AndKnuckles.png"));
+                list.Add(Image.FromFile("C:\\Users\\2hkio\\source\\repos\\Soacha-PI\\imagens\\ThingCD.png"));
+                list.Add(Image.FromFile("C:\\Users\\2hkio\\source\\repos\\Soacha-PI\\imagens\\ThingAdventure.png"));
             //Cria tabuleiro
-            Tabuleiro tab = new Tabuleiro();
-            tab.GerarTabuleiro(Jogo.ExibirTabuleiro(idPartida),this,list);
+            Tabuleiro tab = new Tabuleiro(this);
+            tab.GerarTabuleiro(Jogo.ExibirTabuleiro(idPartida),list);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -135,6 +142,10 @@ namespace Cartagena___Soacha
             MessageBox.Show("EasterEgg (2/5)");
         }
 
+        public void ColocarVariaveis(int posicao)
+        {
+            pos = posicao;
+        }
         
     }
 }

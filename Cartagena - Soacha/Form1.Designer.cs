@@ -215,6 +215,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "formsSoacha";
             this.Text = "Soacha - Cartagena";
+            this.Load += new System.EventHandler(this.formsSoacha_Load);
             this.grpCadJogador.ResumeLayout(false);
             this.grpCadJogador.PerformLayout();
             this.mnuCad.ResumeLayout(false);
