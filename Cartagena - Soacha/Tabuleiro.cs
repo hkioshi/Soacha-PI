@@ -16,10 +16,12 @@ namespace Cartagena___Soacha
         //Construtor do Tabuleiro
         //
 
-        List<Casa> casas = new List<Casa>();
+        public List<Casa> casas = new List<Casa>();
+        public List<Peca> peca = new List<Peca>();
         int x = 70, y = 20; // coordenadas do tabuleiro
         bool ir = true, desce =false, desce2 = false;// coisas pra fazer o tabuleiro serpentiar
         Form2 form;
+       
 
         public Tabuleiro(Form2 form)
         {
@@ -94,7 +96,26 @@ namespace Cartagena___Soacha
             }
         }
 
-        
+        public void GerarPecas(string retorno, List<Image> list)
+        {
+            string cor;
+            int njog;
+            retorno = retorno.Replace("\r", "");
+            string[] jogadores = retorno.Split('\n');
+            for (int i = 0; i < jogadores.Length- 1; i++)
+            {
+                string[] a = jogadores[i].Split(',');
+                cor = a[2];
+                cor = cor.Replace("\r", "");
+                cor = cor.Replace("\n", "");
+                njog = jogadores.Length-1;
+                peca.Add(new Peca(form, cor));
+                peca[i].Montar(cor, list, form,70,20);
+                //cor, list, casas, njog, form,70,20
+
+            }
+        }
+
             
 
     }

@@ -15,7 +15,7 @@ namespace Cartagena___Soacha
     {
         public int id ;
         public string simbolo;
-        Panel newButton = new Panel();
+        public Panel newButton = new Panel();
         Form2 form;
         
 
@@ -30,10 +30,6 @@ namespace Cartagena___Soacha
             this.form = form;
         }
 
-        public void VerPropriedades(object sender, EventArgs e)
-        {
-            form.ColocarVariaveis(id);
-        }
         public void Montar(Form2 form, int x, int y, List<Image> list)
         {
             //
@@ -45,7 +41,6 @@ namespace Cartagena___Soacha
             
             newButton.BorderStyle = BorderStyle.FixedSingle;
             newButton.BackgroundImageLayout = ImageLayout.Stretch;
-            newButton.Click += new System.EventHandler(this.VerPropriedades);
 
             if (this.simbolo == "F")
             {
