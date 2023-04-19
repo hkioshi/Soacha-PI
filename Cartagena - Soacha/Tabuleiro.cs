@@ -7,6 +7,7 @@ using CartagenaServer;
 using Cartagena___Soacha;
 using System.Drawing;
 using System.Security.Cryptography;
+using System.Runtime.ConstrainedExecution;
 
 namespace Cartagena___Soacha
 {
@@ -21,6 +22,7 @@ namespace Cartagena___Soacha
         int x = 70, y = 20; // coordenadas do tabuleiro
         bool ir = true, desce =false, desce2 = false;// coisas pra fazer o tabuleiro serpentiar
         Form2 form;
+        Mao mao = new Mao(); 
        
 
         public Tabuleiro(Form2 form)
@@ -116,7 +118,7 @@ namespace Cartagena___Soacha
             }
         }
 
-            
+        
 
     }
 }

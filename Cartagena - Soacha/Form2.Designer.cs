@@ -40,7 +40,7 @@
             // 
             // btnMao
             // 
-            this.btnMao.Location = new System.Drawing.Point(190, 665);
+            this.btnMao.Location = new System.Drawing.Point(12, 682);
             this.btnMao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnMao.Name = "btnMao";
             this.btnMao.Size = new System.Drawing.Size(78, 68);
@@ -53,7 +53,7 @@
             // 
             this.lstCartas.FormattingEnabled = true;
             this.lstCartas.ItemHeight = 16;
-            this.lstCartas.Location = new System.Drawing.Point(23, 665);
+            this.lstCartas.Location = new System.Drawing.Point(1140, 618);
             this.lstCartas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lstCartas.Name = "lstCartas";
             this.lstCartas.Size = new System.Drawing.Size(161, 68);
@@ -62,7 +62,7 @@
             // 
             // btnPularVez
             // 
-            this.btnPularVez.Location = new System.Drawing.Point(888, 675);
+            this.btnPularVez.Location = new System.Drawing.Point(888, 688);
             this.btnPularVez.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnPularVez.Name = "btnPularVez";
             this.btnPularVez.Size = new System.Drawing.Size(137, 56);
@@ -73,7 +73,7 @@
             // 
             // btnAndarFrente
             // 
-            this.btnAndarFrente.Location = new System.Drawing.Point(745, 673);
+            this.btnAndarFrente.Location = new System.Drawing.Point(745, 686);
             this.btnAndarFrente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAndarFrente.Name = "btnAndarFrente";
             this.btnAndarFrente.Size = new System.Drawing.Size(137, 60);
@@ -84,7 +84,7 @@
             // 
             // btnAndarTras
             // 
-            this.btnAndarTras.Location = new System.Drawing.Point(602, 673);
+            this.btnAndarTras.Location = new System.Drawing.Point(602, 686);
             this.btnAndarTras.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAndarTras.Name = "btnAndarTras";
             this.btnAndarTras.Size = new System.Drawing.Size(137, 60);
@@ -95,7 +95,7 @@
             // 
             // btnTesteVez
             // 
-            this.btnTesteVez.Location = new System.Drawing.Point(1031, 677);
+            this.btnTesteVez.Location = new System.Drawing.Point(1031, 690);
             this.btnTesteVez.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTesteVez.Name = "btnTesteVez";
             this.btnTesteVez.Size = new System.Drawing.Size(339, 52);
@@ -107,7 +107,7 @@
             // lblCasa
             // 
             this.lblCasa.AutoSize = true;
-            this.lblCasa.Location = new System.Drawing.Point(275, 701);
+            this.lblCasa.Location = new System.Drawing.Point(663, 655);
             this.lblCasa.Name = "lblCasa";
             this.lblCasa.Size = new System.Drawing.Size(44, 16);
             this.lblCasa.TabIndex = 9;
@@ -116,7 +116,7 @@
             // lblPos
             // 
             this.lblPos.AutoSize = true;
-            this.lblPos.Location = new System.Drawing.Point(275, 685);
+            this.lblPos.Location = new System.Drawing.Point(599, 655);
             this.lblPos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPos.Name = "lblPos";
             this.lblPos.Size = new System.Drawing.Size(57, 16);

@@ -31,6 +31,7 @@ namespace Cartagena___Soacha
         public int pos = -1;
         String simb;
         public Peca peca = null;
+        Mao mao = new Mao();
 
 
         private void Form2_Load(object sender, EventArgs e)
@@ -57,8 +58,10 @@ namespace Cartagena___Soacha
                 list.Add(Image.FromFile("C:\\Users\\2hkio\\source\\repos\\Soacha-PI\\imagens\\ThingAdventure.png"));
             //Cria tabuleiro
             tab = new Tabuleiro(this);
-            tab.GerarTabuleiro(Jogo.ExibirTabuleiro(idPartida),list);
-            tab.GerarPecas(Jogo.ListarJogadores(idPartida), list);
+            //tab.GerarTabuleiro(Jogo.ExibirTabuleiro(idPartida),list);
+            //tab.GerarPecas(Jogo.ListarJogadores(idPartida), list);
+            mao.GerarCartas(Jogo.ConsultarMao(idJogador, senha), list, this);
+
         }
 
         private void button1_Click(object sender, EventArgs e)
