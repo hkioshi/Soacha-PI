@@ -27,6 +27,8 @@ namespace Cartagena___Soacha
             form.Controls.Add(newPanel);
             newPanel.Location = new Point(x+60*i, y);
             newPanel.BackgroundImageLayout = ImageLayout.Stretch;
+            newPanel.Click += new System.EventHandler(this.coisa);
+            newPanel.BorderStyle = BorderStyle.FixedSingle;
             newPanel.BringToFront();
 
             if (this.simbolo == "F")
@@ -59,6 +61,11 @@ namespace Cartagena___Soacha
                 newPanel.BackgroundImage = list[5];
                 newPanel.Size = new Size(50, 50);
             }
+        }
+        
+        public void Coisa(object sender, EventArgs e)
+        {
+            MessageBox.Show("Test");
         }
 
     }

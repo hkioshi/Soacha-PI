@@ -31,34 +31,12 @@ namespace Cartagena___Soacha
                 while(copias > 0)
                 {
                     cartas.Add(new Carta(form, simb));
-                    cartas[i].Montar(form, 20, 0, list, i);
+                    cartas[i].Montar(form, 20, form.Size.Height - 110, list, i);
                     copias--;
                     i++;
                 }
                 tipo++;
             }
-
-
-
-            /*for(int i = 0; i < cards.Length - 1; i++)
-            {
-                string[] nc = cards[i].Split(',');
-
-                nCartas = nCartas + Convert.ToInt32(nc[1]);
-            }
-            
-            for (int i = 0; i < nCartas; i++)
-            {
-                string[] a = cards[i].Split(',');
-                simb = a[0];
-                
-                simb = simb.Replace("\r", "");
-                simb = simb.Replace("\n", ""); 
-                int copias = Convert.ToInt32(a[1]);
-                cartas.Add(new Carta(form, simb));
-                cartas[i].Montar(form, 20, 0,list,i);
-
-            }*/
         }
         
 

@@ -36,6 +36,8 @@
             this.btnTesteVez = new System.Windows.Forms.Button();
             this.lblCasa = new System.Windows.Forms.Label();
             this.lblPos = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnMao
@@ -124,11 +126,19 @@
             this.lblPos.Text = "Posição";
             this.lblPos.Click += new System.EventHandler(this.lblPos_Click);
             // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(807, 648);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(120, 22);
+            this.numericUpDown1.TabIndex = 14;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1382, 761);
+            this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.lblPos);
             this.Controls.Add(this.lblCasa);
             this.Controls.Add(this.btnTesteVez);
@@ -141,6 +151,7 @@
             this.Name = "Form2";
             this.Text = "Em Jogo - Soacha";
             this.Load += new System.EventHandler(this.Form2_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -156,5 +167,6 @@
         private System.Windows.Forms.Button btnTesteVez;
         private System.Windows.Forms.Label lblCasa;
         private System.Windows.Forms.Label lblPos;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
     }
 }
