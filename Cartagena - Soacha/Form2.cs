@@ -46,25 +46,25 @@ namespace Cartagena___Soacha
             //Me digam se eu devo manter isso eu colocar os paineis e so mudar as imagens dentro
             //
 
-            string path = Directory.GetCurrentDirectory();
+            string path = Directory.GetCurrentDirectory();//Colocar em Path o caminho C:\Users\2hkio\source\repos\Soacha-PI\Cartagena - Soacha\bin\Debug
 
-            List<Image> list = new List<Image>();
-                list.Add(Image.FromFile($"{path}\\imagens\\DaggerStatic.png"));
-                list.Add(Image.FromFile("C:\\Users\\2hkio\\source\\repos\\Soacha-PI\\imagens\\GunStatic.png"));
-                list.Add(Image.FromFile("C:\\Users\\2hkio\\source\\repos\\Soacha-PI\\imagens\\HatStatic.png"));
-                list.Add(Image.FromFile("C:\\Users\\2hkio\\source\\repos\\Soacha-PI\\imagens\\KeyStatic.png"));
-                list.Add(Image.FromFile("C:\\Users\\2hkio\\source\\repos\\Soacha-PI\\imagens\\RumStatic.png"));
-                list.Add(Image.FromFile("C:\\Users\\2hkio\\source\\repos\\Soacha-PI\\imagens\\SkullStatic.png"));
-                list.Add(Image.FromFile("C:\\Users\\2hkio\\source\\repos\\Soacha-PI\\imagens\\Thing.png"));
-                list.Add(Image.FromFile("C:\\Users\\2hkio\\source\\repos\\Soacha-PI\\imagens\\Thing2.png"));
-                list.Add(Image.FromFile("C:\\Users\\2hkio\\source\\repos\\Soacha-PI\\imagens\\Thing3AndKnuckles.png"));
-                list.Add(Image.FromFile("C:\\Users\\2hkio\\source\\repos\\Soacha-PI\\imagens\\ThingCD.png"));
-                list.Add(Image.FromFile("C:\\Users\\2hkio\\source\\repos\\Soacha-PI\\imagens\\ThingAdventure.png"));
-            //Cria tabuleiro
-            tab = new Tabuleiro(this);
-            tab.GerarTabuleiro(Jogo.ExibirTabuleiro(idPartida),list);
-            tab.GerarPecas(Jogo.ListarJogadores(idPartida), list);
-            mao.GerarCartas(Jogo.ConsultarMao(idJogador, senha), list, this);
+            List<Image> list = new List<Image>();// Lista de imagens
+                list.Add(Image.FromFile($"{path}\\imagens\\DaggerStatic.png"));// Faca
+                list.Add(Image.FromFile($"{path}\\imagens\\GunStatic.png"));//Arma
+                list.Add(Image.FromFile($"{path}\\imagens\\HatStatic.png"));//Chapeu
+                list.Add(Image.FromFile($"{path}\\imagens\\KeyStatic.png"));//Chave
+                list.Add(Image.FromFile($"{path}\\imagens\\RumStatic.png"));//Garrafa
+                list.Add(Image.FromFile($"{path}\\imagens\\SkullStatic.png"));//Caveira
+                list.Add(Image.FromFile($"{path}\\imagens\\Thing.png"));//Peça 1
+                list.Add(Image.FromFile($"{path}\\imagens\\Thing2.png"));//Peça 2
+                list.Add(Image.FromFile($"{path}\\imagens\\Thing3AndKnuckles.png"));//Peça 3
+                list.Add(Image.FromFile($"{path}\\imagens\\ThingCD.png"));//Peça 4
+                list.Add(Image.FromFile($"{path}\\imagens\\ThingAdventure.png"));//Peça 5
+
+            tab = new Tabuleiro(this);//Cria tabuleiro
+            tab.GerarTabuleiro(Jogo.ExibirTabuleiro(idPartida),list);//Cria o Tabuleiro
+            tab.GerarPecas(Jogo.ListarJogadores(idPartida), list);//Cria as Peças
+            mao.GerarCartas(Jogo.ConsultarMao(idJogador, senha), list, this);//Cria as Cartas
 
         }
 
@@ -128,8 +128,6 @@ namespace Cartagena___Soacha
                     if (this.peca != null)
                     {
                         peca.Mover(cor, tab.casas, posicao, this.peca);
-                        this.peca.casa = posicao;
-                        MessageBox.Show("Test");
                     }
                     else
                     {
@@ -149,7 +147,7 @@ namespace Cartagena___Soacha
             //
             if (pos != -1|| this.peca != null)
             {
-                String retorno = Jogo.Jogar(idJogador, senha, pos, simb);
+                String retorno = Jogo.Jogar(idJogador, senha, pos);
                 if (retorno.Contains("ERRO:"))
                 {
                     MessageBox.Show(retorno);

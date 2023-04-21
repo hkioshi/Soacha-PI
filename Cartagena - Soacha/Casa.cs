@@ -38,7 +38,6 @@ namespace Cartagena___Soacha
 
             form.Controls.Add(newButton);
             newButton.Location = new Point(x, y);
-            
             newButton.BorderStyle = BorderStyle.FixedSingle;
             newButton.BackgroundImageLayout = ImageLayout.Stretch;
 
