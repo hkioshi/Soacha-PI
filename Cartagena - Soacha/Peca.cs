@@ -102,6 +102,7 @@ namespace Cartagena___Soacha
         {
             form.peca = this;
             form.pos = casa;
+            form.DefinirPos(casa);
         }
     }
 }

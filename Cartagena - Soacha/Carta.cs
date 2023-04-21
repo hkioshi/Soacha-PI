@@ -63,7 +63,7 @@ namespace Cartagena___Soacha
         public void SelecionarSimbolo(object sender, EventArgs e)
         {
             form2.simb = this.simbolo;
-
+            form2.DefinirSimb(this.simbolo);
         }
 
         public void Desmontar(Form2 form)

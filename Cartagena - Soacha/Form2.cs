@@ -64,35 +64,6 @@ namespace Cartagena___Soacha
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //
-            //Aqui vai pegar as cartas na mao e colocar na listBox lstCartas
-            //
-            lstCartas.Items.Clear();
-            string retorno = Jogo.ConsultarMao(this.idJogador, this.senha);
-            MessageBox.Show(retorno);
-            string[] partidas = retorno.Split('\n');
-            for (int i = 0; i < partidas.Length; i++)
-            {
-                lstCartas.Items.Add(partidas[i]);
-            }
-            MessageBox.Show($"{idPartida }");//Essa deve mbox deve ser deletada depois
-
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //
-            //Vai colocar posição e simbolo nas variaveis globais
-            //
-            string partidas = lstCartas.SelectedItem.ToString();    
-            string[] itens = partidas.Split(new char[] { ',' });
-
-            simb = itens[0];
-            lblCasa.Text = $"pos: {pos}, Simbolo: {simb}";//Talvez essa lbl deva ser deletada depois
-        }
-
         private void btnPularVez_Click(object sender, EventArgs e)
         {
             //
@@ -185,7 +156,15 @@ namespace Cartagena___Soacha
             MessageBox.Show("EasterEgg (2/5)");
         }
 
-        
+        public void DefinirPos(int pos)
+        {
+            lblPos.Text = $"Posição: {Convert.ToString(pos)}";
+        }
+
+        public void DefinirSimb(string simb)
+        {
+            lblSimb.Text = $"Simbolo: {simb}";
+        }
         
     }
 }
