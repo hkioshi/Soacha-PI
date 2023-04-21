@@ -7,6 +7,7 @@ using CartagenaServer;
 using Cartagena___Soacha;
 using System.Drawing;
 using System.Security.Cryptography;
+using System.Runtime.ConstrainedExecution;
 
 namespace Cartagena___Soacha
 {
@@ -16,11 +17,20 @@ namespace Cartagena___Soacha
         //Construtor do Tabuleiro
         //
 
-        List<Casa> casas = new List<Casa>();
+        public List<Casa> casas = new List<Casa>();
+        public List<Peca> pecas = new List<Peca>();
         int x = 70, y = 20; // coordenadas do tabuleiro
         bool ir = true, desce =false, desce2 = false;// coisas pra fazer o tabuleiro serpentiar
+        Form2 form;
+        Mao mao = new Mao(); 
+       
 
-        public void GerarTabuleiro(string retorno, Form2 form, List<Image> list)
+        public Tabuleiro(Form2 form)
+        {
+            this.form = form;
+        }
+
+        public void GerarTabuleiro(string retorno, List<Image> list)
         {
             //
             //Isso vai colocar os paineis na tela
@@ -49,7 +59,7 @@ namespace Cartagena___Soacha
                     simb = strings[1];//entre o primeiro e ultimo
                 }
                 //Aqui vai colocar os paineis ja com as imagens na tela
-                casas.Add(new Casa(id, simb));
+                casas.Add(new Casa(id, simb, form));
                 casas[i].Montar(form, x,y,list);
 
                 //
@@ -88,8 +98,29 @@ namespace Cartagena___Soacha
             }
         }
 
+        public void GerarPecas(string retorno, List<Image> list)
+        {
+            string cor;
+            int nPeca = 0;
+            retorno = retorno.Replace("\r", "");
+            string[] jogadores = retorno.Split('\n');
+            for (int i = 0; i < jogadores.Length- 1; i++)
+            {
+                for(int j = 0;j<6;j++) 
+                {
+                    string[] a = jogadores[i].Split(',');
+                    cor = a[2];
+                    cor = cor.Replace("\r", "");
+                    cor = cor.Replace("\n", "");
+                    pecas.Add(new Peca(form, cor));
+                    pecas[nPeca].Montar(cor, list, form, 70, 20);
+                    nPeca++;
+                    //cor, list, casas, njog, form,70,20
+                }
+            }
+        }
+
         
-            
 
     }
 }

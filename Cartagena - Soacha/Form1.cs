@@ -25,6 +25,7 @@ namespace Cartagena___Soacha
         int idPartida; // id da partida escolhida
         int idJogador ; // id do jogador escolhido
         string statusPartida; //status da partida
+        string cor;// cor do jogador
 
 
         private void btnListarPartidas_Click(object sender, EventArgs e)
@@ -114,7 +115,9 @@ namespace Cartagena___Soacha
 
                 idJogador = Convert.ToInt32(itens[0]);
                 senha = itens[1];
-                string cor = itens[2];
+                cor = itens[2];
+                cor = cor.Replace("\r", "");
+                cor = cor.Replace("\n", "");
                 MessageBox.Show(retorno);
                 lblStatus.Text = $"ID: {idJogador}\nCor: {cor}";
 
@@ -156,14 +159,12 @@ namespace Cartagena___Soacha
 
                 lblStatus.Text = $" Id: {idPartida}\n  Nome: {nomePartida}\n Data: {dataPartida} \n status: {statusPartida}";
             }
-            catch (NullReferenceException)//Esse tratamento deve ser consertado
+            catch (Exception)//Esse tratamento deve ser consertado
             {
                 MessageBox.Show("Selecione alguma partida ou Jogador valido");
             }
-            catch (FormatException)//Esse tratamento deve ser consertado
-            {
-                MessageBox.Show("Selecione uma partida valida");
-            }
+            
+
 
             //Aqui vai limpar e listar a lista de JOGADORES
             lstGeral.Items.Clear();
@@ -190,17 +191,25 @@ namespace Cartagena___Soacha
                 string id = Jogo.IniciarPartida(idJogador, senha);//iniciar partida
                 MessageBox.Show($"{id} esta Jogando"); //depois essa mbox deve ser retirada
 
+                string retorno = Jogo.ListarJogadores(idPartida);
+
                 //Abrir forms
                 Form2 f = new Form2();
                 f.idJogador = idJogador;
                 f.senha = senha;
                 f.idPartida = idPartida;
+                f.cor = cor;
                 f.ShowDialog();
             }
             else
             {
                 MessageBox.Show("Sem senha nem Jogador Selecionado");
             }
+        }
+
+        private void formsSoacha_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
