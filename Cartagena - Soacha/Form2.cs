@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Dynamic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,7 +37,7 @@ namespace Cartagena___Soacha
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            
+
             //
             //Aqui vai colocar as imagens em uma lista e inicar o tabuleiro
             //
@@ -45,8 +46,10 @@ namespace Cartagena___Soacha
             //Me digam se eu devo manter isso eu colocar os paineis e so mudar as imagens dentro
             //
 
+            string path = Directory.GetCurrentDirectory();
+
             List<Image> list = new List<Image>();
-                list.Add(Image.FromFile("C:\\Users\\2hkio\\source\\repos\\Soacha-PI\\imagens\\DaggerStatic.png"));
+                list.Add(Image.FromFile($"{path}\\imagens\\DaggerStatic.png"));
                 list.Add(Image.FromFile("C:\\Users\\2hkio\\source\\repos\\Soacha-PI\\imagens\\GunStatic.png"));
                 list.Add(Image.FromFile("C:\\Users\\2hkio\\source\\repos\\Soacha-PI\\imagens\\HatStatic.png"));
                 list.Add(Image.FromFile("C:\\Users\\2hkio\\source\\repos\\Soacha-PI\\imagens\\KeyStatic.png"));

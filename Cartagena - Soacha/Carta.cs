@@ -27,7 +27,7 @@ namespace Cartagena___Soacha
             form.Controls.Add(newPanel);
             newPanel.Location = new Point(x+60*i, y);
             newPanel.BackgroundImageLayout = ImageLayout.Stretch;
-            newPanel.Click += new System.EventHandler(this.coisa);
+            newPanel.Click += new System.EventHandler(this.Coisa);
             newPanel.BorderStyle = BorderStyle.FixedSingle;
             newPanel.BringToFront();
 
