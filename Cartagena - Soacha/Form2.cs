@@ -30,10 +30,10 @@ namespace Cartagena___Soacha
         }
         Tabuleiro tab;
         public int pos = -1;
-        string simb;
+        public string simb;
         public Peca peca = null;
         Mao mao = new Mao();
-
+        List<Image> list = new List<Image>();// Lista de imagens
 
         private void Form2_Load(object sender, EventArgs e)
         {
@@ -42,13 +42,9 @@ namespace Cartagena___Soacha
             //Aqui vai colocar as imagens em uma lista e inicar o tabuleiro
             //
 
-            //
-            //Me digam se eu devo manter isso eu colocar os paineis e so mudar as imagens dentro
-            //
-
             string path = Directory.GetCurrentDirectory();//Colocar em Path o caminho C:\Users\2hkio\source\repos\Soacha-PI\Cartagena - Soacha\bin\Debug
 
-            List<Image> list = new List<Image>();// Lista de imagens
+            
                 list.Add(Image.FromFile($"{path}\\imagens\\DaggerStatic.png"));// Faca
                 list.Add(Image.FromFile($"{path}\\imagens\\GunStatic.png"));//Arma
                 list.Add(Image.FromFile($"{path}\\imagens\\HatStatic.png"));//Chapeu
@@ -128,6 +124,7 @@ namespace Cartagena___Soacha
                     if (this.peca != null)
                     {
                         peca.Mover(cor, tab.casas, posicao, this.peca);
+                        mao.Remontar(this, list);
                     }
                     else
                     {
@@ -160,7 +157,6 @@ namespace Cartagena___Soacha
                     int posicao = Convert.ToInt32(retornos[0]);
                    
                     peca.Mover(cor, tab.casas, posicao, this.peca);
-                    MessageBox.Show("Test");
                 }
             }
             else

@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Cartagena___Soacha
+
 {
     public class Carta
     {
@@ -27,46 +28,50 @@ namespace Cartagena___Soacha
             form.Controls.Add(newPanel);
             newPanel.Location = new Point(x+60*i, y);
             newPanel.BackgroundImageLayout = ImageLayout.Stretch;
-            newPanel.Click += new System.EventHandler(this.Coisa);
+            newPanel.Click += new System.EventHandler(this.SelecionarSimbolo);
             newPanel.BorderStyle = BorderStyle.FixedSingle;
             newPanel.BringToFront();
-
-            if (this.simbolo == "F")
+            switch(this.simbolo)
             {
-                newPanel.BackgroundImage = list[0];
-                newPanel.Size = new Size(50, 50);
-            }
-            else if (this.simbolo == "P")
-            {
-                newPanel.BackgroundImage = list[1];
-                newPanel.Size = new Size(50, 50);
-            }
-            else if (this.simbolo == "T")
-            {
-                newPanel.BackgroundImage = list[2];
-                newPanel.Size = new Size(50, 50);
-            }
-            else if (this.simbolo == "C")
-            {
-                newPanel.BackgroundImage = list[3];
-                newPanel.Size = new Size(50, 50);
-            }
-            else if (this.simbolo == "G")
-            {
-                newPanel.BackgroundImage = list[4];
-                newPanel.Size = new Size(50, 50);
-            }
-            else if (this.simbolo == "E")
-            {
-                newPanel.BackgroundImage = list[5];
-                newPanel.Size = new Size(50, 50);
+                case "F":
+                    newPanel.BackgroundImage = list[0];
+                    newPanel.Size = new Size(50, 50);
+                    break;
+                case "P":
+                    newPanel.BackgroundImage = list[1];
+                    newPanel.Size = new Size(50, 50);
+                    break;
+                case "T":
+                    newPanel.BackgroundImage = list[2];
+                    newPanel.Size = new Size(50, 50);
+                    break;
+                case "C":
+                    newPanel.BackgroundImage = list[3];
+                    newPanel.Size = new Size(50, 50);
+                    break;
+                case "G":
+                    newPanel.BackgroundImage = list[4];
+                    newPanel.Size = new Size(50, 50);
+                    break;
+                case "E":
+                    newPanel.BackgroundImage = list[5];
+                    newPanel.Size = new Size(50, 50);
+                    break;
             }
         }
         
-        public void Coisa(object sender, EventArgs e)
+        public void SelecionarSimbolo(object sender, EventArgs e)
         {
-            MessageBox.Show("Test");
+            form2.simb = this.simbolo;
+
         }
+
+        public void Desmontar(Form2 form)
+        {
+            this.newPanel.Click -= new System.EventHandler(this.SelecionarSimbolo);
+            form.Controls.Remove(newPanel);
+        }
+
 
     }
 }
