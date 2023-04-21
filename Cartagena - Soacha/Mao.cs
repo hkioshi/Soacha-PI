@@ -81,8 +81,8 @@ namespace Cartagena___Soacha
             foreach(Carta carta in cartas)
             {
                 carta.Desmontar(form);
-                
             }
+            cartas.Clear();
             GerarCartas(Jogo.ConsultarMao(form.idJogador, form.senha), list, form);
 
         }
