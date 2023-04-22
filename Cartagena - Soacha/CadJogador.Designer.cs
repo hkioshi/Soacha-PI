@@ -47,11 +47,11 @@
             this.grpCadJogador.Controls.Add(this.btnCad);
             this.grpCadJogador.Controls.Add(this.lblStatusJogador);
             this.grpCadJogador.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.grpCadJogador.Location = new System.Drawing.Point(52, 59);
+            this.grpCadJogador.Location = new System.Drawing.Point(12, 11);
             this.grpCadJogador.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grpCadJogador.Name = "grpCadJogador";
             this.grpCadJogador.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.grpCadJogador.Size = new System.Drawing.Size(334, 140);
+            this.grpCadJogador.Size = new System.Drawing.Size(411, 252);
             this.grpCadJogador.TabIndex = 20;
             this.grpCadJogador.TabStop = false;
             this.grpCadJogador.Text = "Cadastrar Jogador";
@@ -60,7 +60,7 @@
             // 
             this.lblSenhaPartida.AutoSize = true;
             this.lblSenhaPartida.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblSenhaPartida.Location = new System.Drawing.Point(6, 74);
+            this.lblSenhaPartida.Location = new System.Drawing.Point(11, 135);
             this.lblSenhaPartida.Name = "lblSenhaPartida";
             this.lblSenhaPartida.Size = new System.Drawing.Size(137, 20);
             this.lblSenhaPartida.TabIndex = 17;
@@ -70,7 +70,7 @@
             // 
             this.lblNomeJogador.AutoSize = true;
             this.lblNomeJogador.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblNomeJogador.Location = new System.Drawing.Point(6, 19);
+            this.lblNomeJogador.Location = new System.Drawing.Point(11, 52);
             this.lblNomeJogador.Name = "lblNomeJogador";
             this.lblNomeJogador.Size = new System.Drawing.Size(141, 20);
             this.lblNomeJogador.TabIndex = 16;
@@ -79,7 +79,7 @@
             // txtNomeJogador
             // 
             this.txtNomeJogador.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.txtNomeJogador.Location = new System.Drawing.Point(6, 41);
+            this.txtNomeJogador.Location = new System.Drawing.Point(10, 78);
             this.txtNomeJogador.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNomeJogador.Name = "txtNomeJogador";
             this.txtNomeJogador.Size = new System.Drawing.Size(174, 26);
@@ -88,7 +88,7 @@
             // txtSenhaJogador
             // 
             this.txtSenhaJogador.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.txtSenhaJogador.Location = new System.Drawing.Point(6, 96);
+            this.txtSenhaJogador.Location = new System.Drawing.Point(10, 157);
             this.txtSenhaJogador.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSenhaJogador.Name = "txtSenhaJogador";
             this.txtSenhaJogador.Size = new System.Drawing.Size(174, 26);
@@ -97,10 +97,10 @@
             // btnCad
             // 
             this.btnCad.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnCad.Location = new System.Drawing.Point(186, 19);
+            this.btnCad.Location = new System.Drawing.Point(190, 63);
             this.btnCad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCad.Name = "btnCad";
-            this.btnCad.Size = new System.Drawing.Size(137, 115);
+            this.btnCad.Size = new System.Drawing.Size(215, 135);
             this.btnCad.TabIndex = 11;
             this.btnCad.Text = "Cadastrar";
             this.btnCad.UseVisualStyleBackColor = true;

@@ -40,11 +40,12 @@
             // 
             // btnListarPartidas
             // 
-            this.btnListarPartidas.Font = new System.Drawing.Font("Monotype Corsiva", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnListarPartidas.Location = new System.Drawing.Point(500, 141);
+            this.btnListarPartidas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnListarPartidas.Font = new System.Drawing.Font("Monotype Corsiva", 20F, System.Drawing.FontStyle.Italic);
+            this.btnListarPartidas.Location = new System.Drawing.Point(886, 41);
             this.btnListarPartidas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnListarPartidas.Name = "btnListarPartidas";
-            this.btnListarPartidas.Size = new System.Drawing.Size(150, 33);
+            this.btnListarPartidas.Size = new System.Drawing.Size(164, 48);
             this.btnListarPartidas.TabIndex = 0;
             this.btnListarPartidas.Text = "Listar Partidas";
             this.btnListarPartidas.UseVisualStyleBackColor = true;
@@ -52,16 +53,14 @@
             // 
             // lstGeral
             // 
-            this.lstGeral.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lstGeral.Font = new System.Drawing.Font("Monotype Corsiva", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstGeral.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lstGeral.Font = new System.Drawing.Font("Monotype Corsiva", 15.2F, System.Drawing.FontStyle.Italic);
             this.lstGeral.FormattingEnabled = true;
-            this.lstGeral.ItemHeight = 20;
-            this.lstGeral.Location = new System.Drawing.Point(385, 178);
+            this.lstGeral.ItemHeight = 29;
+            this.lstGeral.Location = new System.Drawing.Point(747, 94);
             this.lstGeral.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lstGeral.Name = "lstGeral";
-            this.lstGeral.Size = new System.Drawing.Size(266, 184);
+            this.lstGeral.Size = new System.Drawing.Size(303, 265);
             this.lstGeral.TabIndex = 2;
             this.lstGeral.SelectedIndexChanged += new System.EventHandler(this.lstPartidas_SelectedIndexChanged);
             // 
@@ -69,11 +68,10 @@
             // 
             this.lblStatus.AutoSize = true;
             this.lblStatus.Font = new System.Drawing.Font("Monotype Corsiva", 19.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatus.Location = new System.Drawing.Point(657, 178);
+            this.lblStatus.Location = new System.Drawing.Point(12, 49);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(31, 40);
+            this.lblStatus.Size = new System.Drawing.Size(0, 40);
             this.lblStatus.TabIndex = 4;
-            this.lblStatus.Text = "a";
             this.lblStatus.Click += new System.EventHandler(this.lblStatus_Click);
             // 
             // mnuCad
@@ -83,24 +81,25 @@
             this.msiCadPartida});
             this.mnuCad.Location = new System.Drawing.Point(0, 0);
             this.mnuCad.Name = "mnuCad";
-            this.mnuCad.Size = new System.Drawing.Size(1062, 28);
+            this.mnuCad.Size = new System.Drawing.Size(1062, 39);
             this.mnuCad.TabIndex = 28;
             // 
             // msiCadPartida
             // 
-            this.msiCadPartida.Font = new System.Drawing.Font("Monotype Corsiva", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.msiCadPartida.Font = new System.Drawing.Font("Monotype Corsiva", 15.2F, System.Drawing.FontStyle.Italic);
             this.msiCadPartida.Name = "msiCadPartida";
-            this.msiCadPartida.Size = new System.Drawing.Size(128, 24);
+            this.msiCadPartida.Size = new System.Drawing.Size(194, 35);
             this.msiCadPartida.Text = "Cadastrar Partida";
             this.msiCadPartida.Click += new System.EventHandler(this.zxcToolStripMenuItem_Click);
             // 
             // btnMudarStatus
             // 
-            this.btnMudarStatus.Font = new System.Drawing.Font("Monotype Corsiva", 13.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMudarStatus.Location = new System.Drawing.Point(385, 380);
+            this.btnMudarStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMudarStatus.Font = new System.Drawing.Font("Monotype Corsiva", 20.2F, System.Drawing.FontStyle.Italic);
+            this.btnMudarStatus.Location = new System.Drawing.Point(747, 475);
             this.btnMudarStatus.Margin = new System.Windows.Forms.Padding(4);
             this.btnMudarStatus.Name = "btnMudarStatus";
-            this.btnMudarStatus.Size = new System.Drawing.Size(265, 99);
+            this.btnMudarStatus.Size = new System.Drawing.Size(303, 185);
             this.btnMudarStatus.TabIndex = 29;
             this.btnMudarStatus.Text = "Iniciar Jogo";
             this.btnMudarStatus.UseVisualStyleBackColor = true;
@@ -109,16 +108,17 @@
             // 
             // cmbTipoPartida
             // 
-            this.cmbTipoPartida.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbTipoPartida.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbTipoPartida.Font = new System.Drawing.Font("Monotype Corsiva", 20F, System.Drawing.FontStyle.Italic);
             this.cmbTipoPartida.FormattingEnabled = true;
             this.cmbTipoPartida.Items.AddRange(new object[] {
             "Todas",
             "Aberta",
             "Jogando",
             "Encerrada"});
-            this.cmbTipoPartida.Location = new System.Drawing.Point(384, 141);
+            this.cmbTipoPartida.Location = new System.Drawing.Point(747, 41);
             this.cmbTipoPartida.Name = "cmbTipoPartida";
-            this.cmbTipoPartida.Size = new System.Drawing.Size(110, 32);
+            this.cmbTipoPartida.Size = new System.Drawing.Size(133, 48);
             this.cmbTipoPartida.TabIndex = 30;
             this.cmbTipoPartida.Text = "Todas";
             this.cmbTipoPartida.SelectedIndexChanged += new System.EventHandler(this.cmbTipoPartida_SelectedIndexChanged);
