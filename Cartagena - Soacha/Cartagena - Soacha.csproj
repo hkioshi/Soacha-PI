@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CadJogador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadJogador.Designer.cs">
+      <DependentUpon>CadJogador.cs</DependentUpon>
+    </Compile>
     <Compile Include="CadPartida.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +80,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tabuleiro.cs" />
+    <EmbeddedResource Include="CadJogador.resx">
+      <DependentUpon>CadJogador.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CadPartida.resx">
       <DependentUpon>CadPartida.cs</DependentUpon>
     </EmbeddedResource>

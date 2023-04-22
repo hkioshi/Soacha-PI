@@ -12,18 +12,25 @@ namespace Cartagena___Soacha
 {
     public class Carta
     {
-        public string simbolo { get; set; }
-        public Form2 form2 { get; set; }
-        public Panel newPanel = new Panel();
+        //
+        //Cartas  
+        //
+        public string simbolo { get; set; }//Simbolo
+        public Form2 form2 { get; set; }//form
+        public Panel newPanel = new Panel();//painel
 
-        public Carta(Form2 form,string simbolou)
+        public Carta(Form2 form,string simbolou)//construtor
         {
             form2 = form;
             simbolo = simbolou;
         }
 
+        //
+        //Aq Vai montar uma carta
+        //
         public void Montar(Form2 form, int x, int y, List<Image> list,int i)
         {
+            //Caracteristicas/funções do painel
             newPanel = new Panel();
             form.Controls.Add(newPanel);
             newPanel.Location = new Point(x+60*i, y);
@@ -31,6 +38,8 @@ namespace Cartagena___Soacha
             newPanel.Click += new System.EventHandler(this.SelecionarSimbolo);
             newPanel.BorderStyle = BorderStyle.FixedSingle;
             newPanel.BringToFront();
+
+            //fundo do painel
             switch(this.simbolo)
             {
                 case "F":
@@ -62,14 +71,14 @@ namespace Cartagena___Soacha
         
         public void SelecionarSimbolo(object sender, EventArgs e)
         {
-            form2.simb = this.simbolo;
-            form2.DefinirSimb(this.simbolo);
+            form2.simb = this.simbolo;//Aq ao clicar vai colocar o simbolo numa variavwl de simbolo no forms
+            form2.DefinirSimb(this.simbolo);//Aq vai colocar o simbolo no lblSimb
         }
 
         public void Desmontar(Form2 form)
         {
-            this.newPanel.Click -= new System.EventHandler(this.SelecionarSimbolo);
-            form.Controls.Remove(newPanel);
+            this.newPanel.Click -= new System.EventHandler(this.SelecionarSimbolo);//tirar a função do painel
+            form.Controls.Remove(newPanel);//Excluir painel do forms
         }
 
 

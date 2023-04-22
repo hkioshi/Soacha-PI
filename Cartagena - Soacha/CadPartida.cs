@@ -13,9 +13,11 @@ namespace Cartagena___Soacha
 {
     public partial class CadPartida : Form
     {
-        public CadPartida()
+        formsSoacha forms;
+        public CadPartida(formsSoacha forms)
         {
             InitializeComponent();
+            this.forms = forms;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -36,6 +38,7 @@ namespace Cartagena___Soacha
                 else
                 {
                     MessageBox.Show($"Partida no id {retorno}");
+                    forms.ListarPartidas();
                     this.Close();
                 }
 
