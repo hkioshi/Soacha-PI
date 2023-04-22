@@ -41,6 +41,7 @@ namespace Cartagena___Soacha
             newButton.BorderStyle = BorderStyle.FixedSingle;
             newButton.BackgroundImageLayout = ImageLayout.Stretch;
 
+            //fundo
             switch (this.simbolo)
             {
                 case "F":

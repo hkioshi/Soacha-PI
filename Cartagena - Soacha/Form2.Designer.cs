@@ -104,7 +104,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1382, 761);
+            this.ClientSize = new System.Drawing.Size(1382, 753);
             this.Controls.Add(this.lblPos);
             this.Controls.Add(this.lblSimb);
             this.Controls.Add(this.btnTesteVez);

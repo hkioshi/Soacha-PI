@@ -13,7 +13,7 @@ namespace Cartagena___Soacha
 {
     public class Mao
     {
-        public int nCartas;
+        public int nCartas;//Numero total de cartas
         public List<Carta> cartas = new List<Carta>();
         public void GerarCartas(string retorno, List<Image> list, Form2 form)
         {
@@ -76,6 +76,9 @@ namespace Cartagena___Soacha
             }*/
         }
 
+        //
+        //Desmonta e remonta a mão
+        //
         public void Remontar(Form2 form, List<Image> list)
         {
             foreach(Carta carta in cartas)

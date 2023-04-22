@@ -30,6 +30,7 @@ namespace Cartagena___Soacha
             this.form = form;
         }
 
+        //gera o tabuleiro
         public void GerarTabuleiro(string retorno, List<Image> list)
         {
             //
@@ -98,6 +99,7 @@ namespace Cartagena___Soacha
             }
         }
 
+        //gera as peças
         public void GerarPecas(string retorno, List<Image> list)
         {
             string cor;

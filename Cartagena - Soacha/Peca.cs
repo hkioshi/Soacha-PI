@@ -25,6 +25,9 @@ namespace Cartagena___Soacha
             casa = 0;
         }
 
+        //
+        //Aqui vai montar as peças
+        //
         public void Montar(string cores, List<Image> list, Form2 form, int x, int y) 
         {
             newPanel = new Panel();
@@ -58,6 +61,10 @@ namespace Cartagena___Soacha
                     break;   
             }
         }
+
+        //
+        //Move as peças pra frente e pra tras
+        //
         public void Mover(string cor,List<Casa> casas, int pos,Peca peca )
         {
             if(cor == peca.cor)
@@ -67,27 +74,27 @@ namespace Cartagena___Soacha
                 {
                     case "Vermelho":
                         a = casas[pos].newButton.Location.X; b = casas[pos].newButton.Location.Y;
-                        peca.newPanel.Location = new Point(a , b);
+                        peca.newPanel.Location = new Point(a , b);//canto superior esquerdo
                         this.casa = pos;
                         break;
                     case "Amarelo":
                         a = casas[pos].newButton.Location.X; b = casas[pos].newButton.Location.Y;
-                        peca.newPanel.Location = new Point(a+30, b);
+                        peca.newPanel.Location = new Point(a+30, b);//canto superior direito
                         this.casa = pos;
                         break;
                     case "Azul":
                         a = casas[pos].newButton.Location.X; b = casas[pos].newButton.Location.Y;
-                        peca.newPanel.Location = new Point(a, b+30);
+                        peca.newPanel.Location = new Point(a, b+30);//canto inferior esquerdo
                         this.casa = pos;
                         break;
                     case "Verde":
                         a = casas[pos].newButton.Location.X; b = casas[pos].newButton.Location.Y;
-                        peca.newPanel.Location = new Point(a + 30, b + 30);
+                        peca.newPanel.Location = new Point(a + 30, b + 30);//canto inferior direito
                         this.casa = pos;
                         break;
                     case "Marrom":
                         a = casas[pos].newButton.Location.X; b = casas[pos].newButton.Location.Y;
-                        peca.newPanel.Location = new Point(a + 15, b + 15);
+                        peca.newPanel.Location = new Point(a + 15, b + 15);//meio
                         this.casa = pos;
                         break;
                 }
@@ -101,8 +108,8 @@ namespace Cartagena___Soacha
         public void VerPos(object sender, EventArgs e)
         {
             form.peca = this;
-            form.pos = casa;
-            form.DefinirPos(casa);
+            form.pos = casa;//coloca pos na variavel de posição no form
+            form.DefinirPos(casa);//coloca a posição no lblPos
         }
     }
 }

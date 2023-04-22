@@ -21,11 +21,12 @@ namespace Cartagena___Soacha
             InitializeComponent();
         }
 
-        string senha; // Senha
-        int idPartida; // id da partida escolhida
-        int idJogador ; // id do jogador escolhido
-        string statusPartida; //status da partida
-        string cor;// cor do jogador
+        public string senha; // Senha
+        public int idPartida; // id da partida escolhida
+        public int idJogador ; // id do jogador escolhido
+        public string statusPartida; //status da partida
+        public string cor;// cor do jogador
+        bool ligado = true;
 
 
         private void btnListarPartidas_Click(object sender, EventArgs e)
@@ -33,10 +34,103 @@ namespace Cartagena___Soacha
             //
             // LISTAR PARTIDAS
             //
+            ListarPartidas();
+        }  
+        
+        private void lstPartidas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Vai Colocar em variaveis: id, nome,data de criaçao e se esta aberta 
+            //alem disso ja abre mostra os jogadores da partida
+
+            //
+            // !ARRUMAR O TRATAMENTO DE ERROS!
+            // 
+            if(ligado)
+            {
+                try
+                {
+                    //Aqui vai colocar em variaveis: id, nome,data de criaçao e se esta aberta
+                    string partidas = lstGeral.SelectedItem.ToString();
+                    string[] itens = partidas.Split(new char[] { ',' });
+                    idPartida = Convert.ToInt32(itens[0]);
+                    string nomePartida = itens[1];
+                    string dataPartida = itens[2];
+                    statusPartida = itens[3];
+
+                    CadJogador f = new CadJogador(this);
+                    f.idPartida = idPartida;
+                    f.ShowDialog();
+
+
+                    lblStatus.Text = $" Id: {idPartida}\n  Nome: {nomePartida}\n Data: {dataPartida} \n status: {statusPartida}";
+                }
+                catch (Exception)//Esse tratamento deve ser consertado
+                {
+                    MessageBox.Show("Selecione alguma partida ou Jogador valido");
+                }
+
+
+                //Aqui vai limpar e listar a lista de JOGADORES
+                lstGeral.Items.Clear();
+                string retorno = Jogo.ListarJogadores(idPartida);
+                retorno = retorno.Replace("\r", "");
+                string[] jogadores = retorno.Split('\n');
+                for (int i = 0; i < jogadores.Length; i++)
+                {
+                    lstGeral.Items.Add(jogadores[i]);
+                }
+                ligado = false;
+            }
+            
+        }  
+        private void zxcToolStripMenuItem_Click(object sender, EventArgs e)//Essa Aq é o botão da barra de cima
+        {
+            //Vai abrir nova aba para cadastrar partida
+            CadPartida o = new CadPartida(this);
+            o.Show();
+        }
+        
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            //aq vai iniciar o outro forms
+            if(senha != null && idJogador != 0)
+            {
+                string id = Jogo.IniciarPartida(idJogador, senha);//iniciar partida
+                MessageBox.Show($"{id} esta Jogando"); //depois essa mbox deve ser retirada
+
+                string retorno = Jogo.ListarJogadores(idPartida);
+
+                //Abrir forms
+                Form2 f = new Form2();
+                f.idJogador = idJogador;
+                f.senha = senha;
+                f.idPartida = idPartida;
+                f.cor = cor;
+                f.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Sem senha nem Jogador Selecionado");
+            }
+        }
+
+        private void formsSoacha_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        public void Retorno()
+        {
+            lblStatus.Text = $"ID: {idJogador}\nCor: {cor}";
+            btnMudarStatus.Visible = true;
+        }
+
+        public void ListarPartidas()
+        {
             if (cmbTipoPartida.Text == "Todas")//Para todas as partidas
             {
                 //Apagar lista
-                lstGeral.Items.Clear(); 
+                lstGeral.Items.Clear();
 
                 //Lista todas as Partidas e coloca na lista lstGeral
                 string retorno = Jogo.ListarPartidas("T");
@@ -92,124 +186,14 @@ namespace Cartagena___Soacha
                 {
                     lstGeral.Items.Add(partidas[i]);
                 }
+               
             }
-        }  
-        private void btnCad_Click(object sender, EventArgs e)
-        {
-            //
-            // CADASTRAR JOGADOR
-            //
-
-            //
-            // !ARRUMAR O TRATAMENTO DE ERROS!
-            // 
-
-            //
-            // Fazer isso em outra aba igual a de cadastrar jogador
-            //
-
-            try//Teste 
-            {   //Faz jogador entrar na partida e colocar 
-                string retorno = Jogo.EntrarPartida(idPartida, txtNomeJogador.Text, txtSenhaJogador.Text);
-                string[] itens = retorno.Split(',');
-
-                idJogador = Convert.ToInt32(itens[0]);
-                senha = itens[1];
-                cor = itens[2];
-                cor = cor.Replace("\r", "");
-                cor = cor.Replace("\n", "");
-                MessageBox.Show(retorno);
-                lblStatus.Text = $"ID: {idJogador}\nCor: {cor}";
-
-            }
-            catch(Exception ex) //Os erros devem ser descobertos e corrigidos por meio de tramento de erros
-            {
-                MessageBox.Show("o erro foi "+ ex);
-            }
-
-            // esse botão serve para limpar a lista antes de listar novamente
-            lstGeral.Items.Clear();
-            string r = Jogo.ListarJogadores(idPartida);
-            r = r.Replace("\r", "");
-
-            string[] jogadores = r.Split('\n');
-            for (int i = 0; i < jogadores.Length; i++)
-            {
-                lstGeral.Items.Add(jogadores[i]);
-            }
-        }
-        private void lstPartidas_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //Vai Colocar em variaveis: id, nome,data de criaçao e se esta aberta 
-            //alem disso ja abre mostra os jogadores da partida
-
-            //
-            // !ARRUMAR O TRATAMENTO DE ERROS!
-            // 
-            try
-            {
-                //Aqui vai colocar em variaveis: id, nome,data de criaçao e se esta aberta
-                string partidas = lstGeral.SelectedItem.ToString();
-                string[] itens = partidas.Split(new char[] { ',' });
-                idPartida = Convert.ToInt32(itens[0]);
-                string nomePartida = itens[1];
-                string dataPartida = itens[2];
-                statusPartida = itens[3];
-
-
-                lblStatus.Text = $" Id: {idPartida}\n  Nome: {nomePartida}\n Data: {dataPartida} \n status: {statusPartida}";
-            }
-            catch (Exception)//Esse tratamento deve ser consertado
-            {
-                MessageBox.Show("Selecione alguma partida ou Jogador valido");
-            }
-            
-
-
-            //Aqui vai limpar e listar a lista de JOGADORES
-            lstGeral.Items.Clear();
-            string retorno = Jogo.ListarJogadores(idPartida);
-            retorno = retorno.Replace("\r", "");
-            string[] jogadores = retorno.Split('\n');
-            for (int i = 0; i < jogadores.Length; i++)
-            {
-                lstGeral.Items.Add(jogadores[i]);
-            }
-        }  
-        private void zxcToolStripMenuItem_Click(object sender, EventArgs e)//Essa Aq é o botão da barra de cima
-        {
-            //Vai abrir nova aba para cadastrar partida
-            CadPartida o = new CadPartida();
-            o.Show();
-        }
-        
-        private void button1_Click_2(object sender, EventArgs e)
-        {
-            //aq vai iniciar o outro forms
-            if(senha != null && idJogador != 0)
-            {
-                string id = Jogo.IniciarPartida(idJogador, senha);//iniciar partida
-                MessageBox.Show($"{id} esta Jogando"); //depois essa mbox deve ser retirada
-
-                string retorno = Jogo.ListarJogadores(idPartida);
-
-                //Abrir forms
-                Form2 f = new Form2();
-                f.idJogador = idJogador;
-                f.senha = senha;
-                f.idPartida = idPartida;
-                f.cor = cor;
-                f.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Sem senha nem Jogador Selecionado");
-            }
+            ligado = true;
         }
 
-        private void formsSoacha_Load(object sender, EventArgs e)
+        private void cmbTipoPartida_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            ListarPartidas();
         }
     }
 }

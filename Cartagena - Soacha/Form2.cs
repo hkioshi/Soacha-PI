@@ -28,11 +28,11 @@ namespace Cartagena___Soacha
         {
             InitializeComponent(); 
         }
-        Tabuleiro tab;
-        public int pos = -1;
-        public string simb;
-        public Peca peca = null;
-        Mao mao = new Mao();
+        Tabuleiro tab;//cria tabuleiro
+        public int pos = -1;//posição do tabuleiro
+        public string simb;//Simbolo
+        public Peca peca = null;//peça selecionada
+        Mao mao = new Mao();//estancia a mao
         List<Image> list = new List<Image>();// Lista de imagens
 
         private void Form2_Load(object sender, EventArgs e)
@@ -95,7 +95,11 @@ namespace Cartagena___Soacha
                     if (this.peca != null)
                     {
                         peca.Mover(cor, tab.casas, posicao, this.peca);
-                        mao.Remontar(this, list);
+                        mao.Remontar(this, list);//vai remontar a mao
+
+                        //resentar o lblSimb
+                        simb = "";
+                        lblSimb.Text = "Simbolo: ";
                     }
                     else
                     {
@@ -128,6 +132,9 @@ namespace Cartagena___Soacha
                     int posicao = Convert.ToInt32(retornos[0]);
                    
                     peca.Mover(cor, tab.casas, posicao, this.peca);
+                    mao.Remontar(this, list);//remontar a mao
+
+
                 }
             }
             else
@@ -156,11 +163,13 @@ namespace Cartagena___Soacha
             MessageBox.Show("EasterEgg (2/5)");
         }
 
+        //colocar no lblPos a posição
         public void DefinirPos(int pos)
         {
             lblPos.Text = $"Posição: {Convert.ToString(pos)}";
         }
 
+        //colocar no lblSimb o Simbolo
         public void DefinirSimb(string simb)
         {
             lblSimb.Text = $"Simbolo: {simb}";
