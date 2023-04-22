@@ -41,10 +41,10 @@
             // btnListarPartidas
             // 
             this.btnListarPartidas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnListarPartidas.Location = new System.Drawing.Point(439, 59);
+            this.btnListarPartidas.Location = new System.Drawing.Point(500, 141);
             this.btnListarPartidas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnListarPartidas.Name = "btnListarPartidas";
-            this.btnListarPartidas.Size = new System.Drawing.Size(162, 37);
+            this.btnListarPartidas.Size = new System.Drawing.Size(150, 33);
             this.btnListarPartidas.TabIndex = 0;
             this.btnListarPartidas.Text = "Listar Partidas";
             this.btnListarPartidas.UseVisualStyleBackColor = true;
@@ -54,19 +54,20 @@
             // 
             this.lstGeral.FormattingEnabled = true;
             this.lstGeral.ItemHeight = 16;
-            this.lstGeral.Location = new System.Drawing.Point(336, 100);
+            this.lstGeral.Location = new System.Drawing.Point(384, 178);
             this.lstGeral.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lstGeral.Name = "lstGeral";
-            this.lstGeral.Size = new System.Drawing.Size(265, 196);
+            this.lstGeral.Size = new System.Drawing.Size(266, 196);
             this.lstGeral.TabIndex = 2;
             this.lstGeral.SelectedIndexChanged += new System.EventHandler(this.lstPartidas_SelectedIndexChanged);
             // 
             // lblStatus
             // 
             this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(607, 100);
+            this.lblStatus.Font = new System.Drawing.Font("Monotype Corsiva", 19.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus.Location = new System.Drawing.Point(665, 178);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(15, 16);
+            this.lblStatus.Size = new System.Drawing.Size(32, 41);
             this.lblStatus.TabIndex = 4;
             this.lblStatus.Text = "a";
             // 
@@ -77,7 +78,7 @@
             this.msiCadPartida});
             this.mnuCad.Location = new System.Drawing.Point(0, 0);
             this.mnuCad.Name = "mnuCad";
-            this.mnuCad.Size = new System.Drawing.Size(938, 31);
+            this.mnuCad.Size = new System.Drawing.Size(1062, 31);
             this.mnuCad.TabIndex = 28;
             // 
             // msiCadPartida
@@ -91,7 +92,7 @@
             // btnMudarStatus
             // 
             this.btnMudarStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.btnMudarStatus.Location = new System.Drawing.Point(336, 306);
+            this.btnMudarStatus.Location = new System.Drawing.Point(385, 380);
             this.btnMudarStatus.Margin = new System.Windows.Forms.Padding(4);
             this.btnMudarStatus.Name = "btnMudarStatus";
             this.btnMudarStatus.Size = new System.Drawing.Size(265, 99);
@@ -110,17 +111,18 @@
             "Aberta",
             "Jogando",
             "Encerrada"});
-            this.cmbTipoPartida.Location = new System.Drawing.Point(336, 63);
+            this.cmbTipoPartida.Location = new System.Drawing.Point(385, 140);
             this.cmbTipoPartida.Name = "cmbTipoPartida";
-            this.cmbTipoPartida.Size = new System.Drawing.Size(97, 33);
+            this.cmbTipoPartida.Size = new System.Drawing.Size(110, 33);
             this.cmbTipoPartida.TabIndex = 30;
             this.cmbTipoPartida.Text = "Todas";
+            this.cmbTipoPartida.SelectedIndexChanged += new System.EventHandler(this.cmbTipoPartida_SelectedIndexChanged);
             // 
             // formsSoacha
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(938, 475);
+            this.ClientSize = new System.Drawing.Size(1062, 673);
             this.Controls.Add(this.cmbTipoPartida);
             this.Controls.Add(this.btnMudarStatus);
             this.Controls.Add(this.lblStatus);

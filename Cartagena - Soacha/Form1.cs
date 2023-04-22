@@ -26,6 +26,7 @@ namespace Cartagena___Soacha
         public int idJogador ; // id do jogador escolhido
         public string statusPartida; //status da partida
         public string cor;// cor do jogador
+        bool ligado = true;
 
 
         private void btnListarPartidas_Click(object sender, EventArgs e)
@@ -44,38 +45,43 @@ namespace Cartagena___Soacha
             //
             // !ARRUMAR O TRATAMENTO DE ERROS!
             // 
-            try
+            if(ligado)
             {
-                //Aqui vai colocar em variaveis: id, nome,data de criaçao e se esta aberta
-                string partidas = lstGeral.SelectedItem.ToString();
-                string[] itens = partidas.Split(new char[] { ',' });
-                idPartida = Convert.ToInt32(itens[0]);
-                string nomePartida = itens[1];
-                string dataPartida = itens[2];
-                statusPartida = itens[3];
+                try
+                {
+                    //Aqui vai colocar em variaveis: id, nome,data de criaçao e se esta aberta
+                    string partidas = lstGeral.SelectedItem.ToString();
+                    string[] itens = partidas.Split(new char[] { ',' });
+                    idPartida = Convert.ToInt32(itens[0]);
+                    string nomePartida = itens[1];
+                    string dataPartida = itens[2];
+                    statusPartida = itens[3];
 
-                CadJogador f = new CadJogador(this);
-                f.idPartida = idPartida;
-                f.ShowDialog();
+                    CadJogador f = new CadJogador(this);
+                    f.idPartida = idPartida;
+                    f.ShowDialog();
 
 
-                lblStatus.Text = $" Id: {idPartida}\n  Nome: {nomePartida}\n Data: {dataPartida} \n status: {statusPartida}";
-            }
-            catch (Exception)//Esse tratamento deve ser consertado
-            {
-                MessageBox.Show("Selecione alguma partida ou Jogador valido");
+                    lblStatus.Text = $" Id: {idPartida}\n  Nome: {nomePartida}\n Data: {dataPartida} \n status: {statusPartida}";
+                }
+                catch (Exception)//Esse tratamento deve ser consertado
+                {
+                    MessageBox.Show("Selecione alguma partida ou Jogador valido");
+                }
+
+
+                //Aqui vai limpar e listar a lista de JOGADORES
+                lstGeral.Items.Clear();
+                string retorno = Jogo.ListarJogadores(idPartida);
+                retorno = retorno.Replace("\r", "");
+                string[] jogadores = retorno.Split('\n');
+                for (int i = 0; i < jogadores.Length; i++)
+                {
+                    lstGeral.Items.Add(jogadores[i]);
+                }
+                ligado = false;
             }
             
-
-            //Aqui vai limpar e listar a lista de JOGADORES
-            lstGeral.Items.Clear();
-            string retorno = Jogo.ListarJogadores(idPartida);
-            retorno = retorno.Replace("\r", "");
-            string[] jogadores = retorno.Split('\n');
-            for (int i = 0; i < jogadores.Length; i++)
-            {
-                lstGeral.Items.Add(jogadores[i]);
-            }
         }  
         private void zxcToolStripMenuItem_Click(object sender, EventArgs e)//Essa Aq é o botão da barra de cima
         {
@@ -180,7 +186,14 @@ namespace Cartagena___Soacha
                 {
                     lstGeral.Items.Add(partidas[i]);
                 }
+               
             }
+            ligado = true;
+        }
+
+        private void cmbTipoPartida_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ListarPartidas();
         }
     }
 }
