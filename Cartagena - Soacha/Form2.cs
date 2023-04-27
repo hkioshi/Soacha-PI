@@ -187,7 +187,9 @@ namespace Cartagena___Soacha
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            string retorno = Jogo.ExibirHistorico(idPartida);
+            string retorno = Jogo.VerificarVez(idPartida);
+            
+            
 
         }
     }

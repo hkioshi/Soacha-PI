@@ -36,6 +36,7 @@
             this.lblSimb = new System.Windows.Forms.Label();
             this.lblPos = new System.Windows.Forms.Label();
             this.tmrJogo = new System.Windows.Forms.Timer(this.components);
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // btnPularVez
@@ -107,11 +108,20 @@
             this.tmrJogo.Interval = 1000;
             this.tmrJogo.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(613, 526);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(185, 30);
+            this.listBox1.TabIndex = 14;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1036, 612);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.lblPos);
             this.Controls.Add(this.lblSimb);
             this.Controls.Add(this.btnTesteVez);
@@ -135,5 +145,6 @@
         private System.Windows.Forms.Label lblSimb;
         private System.Windows.Forms.Label lblPos;
         private System.Windows.Forms.Timer tmrJogo;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }
