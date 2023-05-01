@@ -22,11 +22,11 @@ namespace Cartagena___Soacha
         public string cor { get; set; }//Variavel enviada do form principar
 
         //
-        
+
 
         public Form2()
         {
-            InitializeComponent(); 
+            InitializeComponent();
         }
         Tabuleiro tab;//cria tabuleiro
         public int pos = -1;//posição do tabuleiro
@@ -44,22 +44,23 @@ namespace Cartagena___Soacha
 
             string path = Directory.GetCurrentDirectory();//Colocar em Path o caminho C:\Users\2hkio\source\repos\Soacha-PI\Cartagena - Soacha\bin\Debug
 
-            
-                list.Add(Image.FromFile($"{path}\\imagens\\DaggerStatic.png"));// Faca
-                list.Add(Image.FromFile($"{path}\\imagens\\GunStatic.png"));//Arma
-                list.Add(Image.FromFile($"{path}\\imagens\\HatStatic.png"));//Chapeu
-                list.Add(Image.FromFile($"{path}\\imagens\\KeyStatic.png"));//Chave
-                list.Add(Image.FromFile($"{path}\\imagens\\RumStatic.png"));//Garrafa
-                list.Add(Image.FromFile($"{path}\\imagens\\SkullStatic.png"));//Caveira
-                list.Add(Image.FromFile($"{path}\\imagens\\Thing.png"));//Peça 1
-                list.Add(Image.FromFile($"{path}\\imagens\\Thing2.png"));//Peça 2
-                list.Add(Image.FromFile($"{path}\\imagens\\Thing3AndKnuckles.png"));//Peça 3
-                list.Add(Image.FromFile($"{path}\\imagens\\ThingCD.png"));//Peça 4
-                list.Add(Image.FromFile($"{path}\\imagens\\ThingAdventure.png"));//Peça 5
+
+            list.Add(Image.FromFile($"{path}\\imagens\\DaggerStatic.png"));// Faca
+            list.Add(Image.FromFile($"{path}\\imagens\\GunStatic.png"));//Arma
+            list.Add(Image.FromFile($"{path}\\imagens\\HatStatic.png"));//Chapeu
+            list.Add(Image.FromFile($"{path}\\imagens\\KeyStatic.png"));//Chave
+            list.Add(Image.FromFile($"{path}\\imagens\\RumStatic.png"));//Garrafa
+            list.Add(Image.FromFile($"{path}\\imagens\\SkullStatic.png"));//Caveira
+            list.Add(Image.FromFile($"{path}\\imagens\\Thing.png"));//Peça 1
+            list.Add(Image.FromFile($"{path}\\imagens\\Thing2.png"));//Peça 2
+            list.Add(Image.FromFile($"{path}\\imagens\\Thing3AndKnuckles.png"));//Peça 3
+            list.Add(Image.FromFile($"{path}\\imagens\\ThingCD.png"));//Peça 4
+            list.Add(Image.FromFile($"{path}\\imagens\\ThingAdventure.png"));//Peça 5
 
             tab = new Tabuleiro(this);//Cria tabuleiro
-            tab.GerarTabuleiro(Jogo.ExibirTabuleiro(idPartida),list);//Cria o Tabuleiro
-            tab.GerarPecas(Jogo.ListarJogadores(idPartida), list);//Cria as Peças
+            tab.ListarJogadores(idPartida);
+            tab.GerarTabuleiro(Jogo.ExibirTabuleiro(idPartida), list);//Cria o Tabuleiro
+            tab.GerarPecas(list);//Cria as Peças
             mao.GerarCartas(Jogo.ConsultarMao(idJogador, senha), list, this);//Cria as Cartas
 
         }
@@ -78,7 +79,7 @@ namespace Cartagena___Soacha
             //
             //Botão para Andar para frente
             //
-            if(pos != -1)
+            if (pos != -1)
             {
                 String retorno = Jogo.Jogar(idJogador, senha, pos, simb);
                 if (retorno.Contains("ERRO:"))
@@ -87,24 +88,19 @@ namespace Cartagena___Soacha
                 }
                 else
                 {
-                    retorno = Jogo.ExibirHistorico(idPartida);
                     retorno = retorno.Replace("\r", "");
                     string[] retornos = retorno.Split('\n');
-                    retornos = retornos[retornos.Length -2].Split(',');
-                    int posicao = Convert.ToInt32(retornos[4]);
+                    retornos = retornos[retornos.Length - 2].Split(',');
+                    int posicao = Convert.ToInt32(retornos[0]);
 
                     if (this.peca != null)
                     {
-                        peca.Mover(cor, tab.casas, posicao, this.peca);
+                        peca.Mover(cor, tab.casas, posicao);
                         mao.Remontar(this, list);//vai remontar a mao
 
                         //resentar o lblSimb
                         simb = "";
                         lblSimb.Text = "Simbolo: ";
-
-                        //setar nova pos
-                        pos = posicao;
-                        lblPos.Text = $"Posição: {posicao}";
                     }
                     else
                     {
@@ -122,7 +118,7 @@ namespace Cartagena___Soacha
             //
             //Botão para Andar para tras
             //
-            if (pos != -1|| this.peca != null)
+            if (pos != -1 || this.peca != null)
             {
                 String retorno = Jogo.Jogar(idJogador, senha, pos);
                 if (retorno.Contains("ERRO:"))
@@ -131,13 +127,12 @@ namespace Cartagena___Soacha
                 }
                 else
                 {
-                    retorno = Jogo.ExibirHistorico(idPartida);
                     retorno = retorno.Replace("\r", "");
                     string[] retornos = retorno.Split('\n');
                     retornos = retornos[retornos.Length - 2].Split(',');
-                    int posicao = Convert.ToInt32(retornos[4]);
+                    int posicao = Convert.ToInt32(retornos[0]);
 
-                    peca.Mover(cor, tab.casas, posicao, this.peca);
+                    peca.Mover(cor, tab.casas, posicao);
                     mao.Remontar(this, list);//remontar a mao
 
 
@@ -148,7 +143,7 @@ namespace Cartagena___Soacha
                 MessageBox.Show("Selecione uma peça");
             }
 
-        } 
+        }
 
         private void btnTesteVez_Click(object sender, EventArgs e)
         {
@@ -159,11 +154,11 @@ namespace Cartagena___Soacha
             //
             //Esse botao deve ser substituido por um timer e as peças no jogo
             // 
-            String retorno = Jogo.VerificarVez(idPartida);  
+            String retorno = Jogo.VerificarVez(idPartida);
             MessageBox.Show(retorno);
 
-            string retorno2 = Jogo.ExibirHistorico(idPartida);
-            MessageBox.Show(retorno2);
+            String retorno1 = Jogo.ExibirHistorico(idPartida);
+            MessageBox.Show(retorno1);
         }
 
         private void lblPos_Click(object sender, EventArgs e)
@@ -175,7 +170,6 @@ namespace Cartagena___Soacha
         //colocar no lblPos a posição
         public void DefinirPos(int pos)
         {
-            this.pos = pos;
             lblPos.Text = $"Posição: {Convert.ToString(pos)}";
         }
 
@@ -185,11 +179,14 @@ namespace Cartagena___Soacha
             lblSimb.Text = $"Simbolo: {simb}";
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void tmrJogo_Tick(object sender, EventArgs e)
         {
-            string retorno = Jogo.VerificarVez(idPartida);
-            
-            
+            lblStatus.Text = tab.VerVez(idPartida);
+            tab.AtualizarTabuleiro(idPartida);
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
 
         }
     }

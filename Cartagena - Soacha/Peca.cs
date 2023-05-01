@@ -65,36 +65,36 @@ namespace Cartagena___Soacha
         //
         //Move as peças pra frente e pra tras
         //
-        public void Mover(string cor,List<Casa> casas, int pos,Peca peca )
+        public void Mover(string cor,List<Casa> casas, int pos )
         {
-            if(cor == peca.cor)
+            if(cor == this.cor)
             {
                 int a, b;
                 switch(cor)
                 {
                     case "Vermelho":
                         a = casas[pos].newButton.Location.X; b = casas[pos].newButton.Location.Y;
-                        peca.newPanel.Location = new Point(a , b);//canto superior esquerdo
+                        this.newPanel.Location = new Point(a , b);//canto superior esquerdo
                         this.casa = pos;
                         break;
                     case "Amarelo":
                         a = casas[pos].newButton.Location.X; b = casas[pos].newButton.Location.Y;
-                        peca.newPanel.Location = new Point(a+30, b);//canto superior direito
+                        this.newPanel.Location = new Point(a+30, b);//canto superior direito
                         this.casa = pos;
                         break;
                     case "Azul":
                         a = casas[pos].newButton.Location.X; b = casas[pos].newButton.Location.Y;
-                        peca.newPanel.Location = new Point(a, b+30);//canto inferior esquerdo
+                        this.newPanel.Location = new Point(a, b+30);//canto inferior esquerdo
                         this.casa = pos;
                         break;
                     case "Verde":
                         a = casas[pos].newButton.Location.X; b = casas[pos].newButton.Location.Y;
-                        peca.newPanel.Location = new Point(a + 30, b + 30);//canto inferior direito
+                        this.newPanel.Location = new Point(a + 30, b + 30);//canto inferior direito
                         this.casa = pos;
                         break;
                     case "Marrom":
                         a = casas[pos].newButton.Location.X; b = casas[pos].newButton.Location.Y;
-                        peca.newPanel.Location = new Point(a + 15, b + 15);//meio
+                        this.newPanel.Location = new Point(a + 15, b + 15);//meio
                         this.casa = pos;
                         break;
                 }
