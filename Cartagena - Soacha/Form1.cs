@@ -62,7 +62,7 @@ namespace Cartagena___Soacha
                     f.ShowDialog();
 
 
-                    lblStatus.Text = $" Id: {idPartida}\n  Nome: {nomePartida}\n Data: {dataPartida} \n status: {statusPartida}";
+                    lblStatus.Text = $" Id: {idPartida}\n Nome: {nomePartida}\n Data: {dataPartida} \n status: {statusPartida}";
                 }
                 catch (Exception)//Esse tratamento deve ser consertado
                 {
@@ -194,6 +194,11 @@ namespace Cartagena___Soacha
         private void cmbTipoPartida_SelectedIndexChanged(object sender, EventArgs e)
         {
             ListarPartidas();
+        }
+
+        private void lblStatus_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("EasterEgg(1/5)");
         }
     }
 }

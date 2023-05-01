@@ -20,7 +20,6 @@ namespace Cartagena___Soacha
             InitializeComponent();
             this.form = form;
         }
-        formsSoacha formsSoacha;
         public int idPartida;
 
         private void btnCad_Click(object sender, EventArgs e)

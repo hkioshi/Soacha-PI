@@ -87,10 +87,11 @@ namespace Cartagena___Soacha
                 }
                 else
                 {
+                    retorno = Jogo.ExibirHistorico(idPartida);
                     retorno = retorno.Replace("\r", "");
                     string[] retornos = retorno.Split('\n');
-                    retornos = retornos[retornos.Length - 2].Split(',');
-                    int posicao = Convert.ToInt32(retornos[0]);
+                    retornos = retornos[retornos.Length -2].Split(',');
+                    int posicao = Convert.ToInt32(retornos[4]);
 
                     if (this.peca != null)
                     {
@@ -100,6 +101,10 @@ namespace Cartagena___Soacha
                         //resentar o lblSimb
                         simb = "";
                         lblSimb.Text = "Simbolo: ";
+
+                        //setar nova pos
+                        pos = posicao;
+                        lblPos.Text = $"Posição: {posicao}";
                     }
                     else
                     {
@@ -126,11 +131,12 @@ namespace Cartagena___Soacha
                 }
                 else
                 {
+                    retorno = Jogo.ExibirHistorico(idPartida);
                     retorno = retorno.Replace("\r", "");
                     string[] retornos = retorno.Split('\n');
                     retornos = retornos[retornos.Length - 2].Split(',');
-                    int posicao = Convert.ToInt32(retornos[0]);
-                   
+                    int posicao = Convert.ToInt32(retornos[4]);
+
                     peca.Mover(cor, tab.casas, posicao, this.peca);
                     mao.Remontar(this, list);//remontar a mao
 
@@ -155,6 +161,9 @@ namespace Cartagena___Soacha
             // 
             String retorno = Jogo.VerificarVez(idPartida);  
             MessageBox.Show(retorno);
+
+            string retorno2 = Jogo.ExibirHistorico(idPartida);
+            MessageBox.Show(retorno2);
         }
 
         private void lblPos_Click(object sender, EventArgs e)
@@ -166,6 +175,7 @@ namespace Cartagena___Soacha
         //colocar no lblPos a posição
         public void DefinirPos(int pos)
         {
+            this.pos = pos;
             lblPos.Text = $"Posição: {Convert.ToString(pos)}";
         }
 
@@ -174,6 +184,13 @@ namespace Cartagena___Soacha
         {
             lblSimb.Text = $"Simbolo: {simb}";
         }
-        
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            string retorno = Jogo.VerificarVez(idPartida);
+            
+            
+
+        }
     }
 }

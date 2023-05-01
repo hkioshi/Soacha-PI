@@ -39,6 +39,7 @@ namespace Cartagena___Soacha
                 {
                     MessageBox.Show($"Partida no id {retorno}");
                     forms.ListarPartidas();
+
                     this.Close();
                 }
 
