@@ -156,7 +156,7 @@ namespace Cartagena___Soacha
             retorno = retorno.Replace("\r", "");
             string[] retornos = retorno.Split('\n');
 
-
+            int a = 0;
             foreach (Jogador jogador in jogadores)
             {
                 string[] retorno1 = retornos.Where(nome => nome.Contains(jogador.id) && !nome.Contains("J")).ToArray();
@@ -165,14 +165,12 @@ namespace Cartagena___Soacha
                     string[] retorno2 = retorno1[0].Split(',');
                     for (int j = 0; j < Convert.ToInt32(retorno2[2]); j++)
                     {
-                        jogador.pecas[i].Mover(jogador.cor, casas, Convert.ToInt32(retorno2[0]));
+                        jogador.pecas[a].Mover(jogador.cor, casas, Convert.ToInt32(retorno2[0]));
+                        a++;
                     }
-
-
                 }
+                a = 0;
             }
-
-
         }
     }
 }

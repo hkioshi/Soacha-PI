@@ -44,22 +44,26 @@ namespace Cartagena___Soacha
                     newPanel.Location = new Point(x, y);
                     break;
                 case "Verde":
-                    newPanel.BackgroundImage = list[7];
+                    newPanel.BackgroundImage = list[10];
                     newPanel.Location = new Point(x + 30, y);
                     break;
                 case "Amarelo":
-                    newPanel.BackgroundImage = list[8];
+                    newPanel.BackgroundImage = list[7];
                     newPanel.Location = new Point(x, y + 30);
                     break;
                 case "Azul":
-                    newPanel.BackgroundImage = list[9];
+                    newPanel.BackgroundImage = list[8];
                     newPanel.Location = new Point(x + 30, y + 30);
                     break;
                 case "Marrom":
-                    newPanel.BackgroundImage = list[10];
+                    newPanel.BackgroundImage = list[9];
                     newPanel.Location = new Point(x + 15, y + 15);
                     break;   
             }
+            
+
+
+
         }
 
         //
@@ -77,17 +81,17 @@ namespace Cartagena___Soacha
                         this.newPanel.Location = new Point(a , b);//canto superior esquerdo
                         this.casa = pos;
                         break;
-                    case "Amarelo":
+                    case "Verde":
                         a = casas[pos].newButton.Location.X; b = casas[pos].newButton.Location.Y;
                         this.newPanel.Location = new Point(a+30, b);//canto superior direito
                         this.casa = pos;
                         break;
-                    case "Azul":
+                    case "Amarelo":
                         a = casas[pos].newButton.Location.X; b = casas[pos].newButton.Location.Y;
                         this.newPanel.Location = new Point(a, b+30);//canto inferior esquerdo
                         this.casa = pos;
                         break;
-                    case "Verde":
+                    case "Azul":
                         a = casas[pos].newButton.Location.X; b = casas[pos].newButton.Location.Y;
                         this.newPanel.Location = new Point(a + 30, b + 30);//canto inferior direito
                         this.casa = pos;
@@ -99,6 +103,7 @@ namespace Cartagena___Soacha
                         break;
                 }
             }
+            
             else
             {
                 MessageBox.Show("Esta Nao é sua peça");
