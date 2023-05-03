@@ -162,7 +162,7 @@ namespace Cartagena___Soacha
                 string[] retorno1 = retornos.Where(nome => nome.Contains(jogador.id) && !nome.Contains("J")).ToArray();
                 for (int i = 0; i < retorno1.Length; i++)
                 {
-                    string[] retorno2 = retorno1[0].Split(',');
+                    string[] retorno2 = retorno1[i].Split(',');
                     for (int j = 0; j < Convert.ToInt32(retorno2[2]); j++)
                     {
                         jogador.pecas[a].Mover(jogador.cor, casas, Convert.ToInt32(retorno2[0]));

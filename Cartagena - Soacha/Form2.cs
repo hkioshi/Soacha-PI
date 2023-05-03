@@ -55,7 +55,7 @@ namespace Cartagena___Soacha
             list.Add(Image.FromFile($"{path}\\imagens\\Thing2.png"));//Peça 2
             list.Add(Image.FromFile($"{path}\\imagens\\Thing3AndKnuckles.png"));//Peça 3
             list.Add(Image.FromFile($"{path}\\imagens\\ThingAdventure.png"));//Peça 4
-            list.Add(Image.FromFile($"{path}\\imagens\\ThingCD.png"));//Peça 5
+            list.Add(Image.FromFile($"{path}\\imagens\\ThingCD.png"));//Peça 5  
 
             tab = new Tabuleiro(this);//Cria tabuleiro
             tab.ListarJogadores(idPartida);
