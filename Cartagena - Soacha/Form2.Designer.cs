@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.btnPularVez = new System.Windows.Forms.Button();
             this.btnAndarFrente = new System.Windows.Forms.Button();
             this.btnAndarTras = new System.Windows.Forms.Button();
@@ -130,6 +131,7 @@
             this.Controls.Add(this.btnAndarTras);
             this.Controls.Add(this.btnAndarFrente);
             this.Controls.Add(this.btnPularVez);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form2";
             this.Text = "Em Jogo - Soacha";

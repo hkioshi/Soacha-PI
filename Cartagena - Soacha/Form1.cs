@@ -64,6 +64,10 @@ namespace Cartagena___Soacha
 
                     lblStatus.Text = $" Id: {idPartida}\n Nome: {nomePartida}\n Data: {dataPartida} \n status: {statusPartida}";
                 }
+                catch (FormatException)//Esse tratamento deve ser consertado
+                {
+                    MessageBox.Show("Selecione uma partida valida");
+                }
                 catch (Exception)//Esse tratamento deve ser consertado
                 {
                     MessageBox.Show("Selecione alguma partida ou Jogador valido");
@@ -106,7 +110,9 @@ namespace Cartagena___Soacha
                 f.senha = senha;
                 f.idPartida = idPartida;
                 f.cor = cor;
+                this.Hide();
                 f.ShowDialog();
+                
             }
             else
             {

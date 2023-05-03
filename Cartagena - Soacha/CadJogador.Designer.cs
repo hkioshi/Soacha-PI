@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadJogador));
             this.grpCadJogador = new System.Windows.Forms.GroupBox();
             this.lblSenhaPartida = new System.Windows.Forms.Label();
             this.lblNomeJogador = new System.Windows.Forms.Label();
@@ -120,6 +121,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(435, 274);
             this.Controls.Add(this.grpCadJogador);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CadJogador";
             this.Text = "CadJogador";
             this.grpCadJogador.ResumeLayout(false);

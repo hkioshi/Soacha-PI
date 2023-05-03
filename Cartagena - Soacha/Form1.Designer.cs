@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formsSoacha));
             this.btnListarPartidas = new System.Windows.Forms.Button();
             this.lstGeral = new System.Windows.Forms.ListBox();
             this.lblStatus = new System.Windows.Forms.Label();
@@ -134,6 +135,7 @@
             this.Controls.Add(this.lstGeral);
             this.Controls.Add(this.btnListarPartidas);
             this.Controls.Add(this.mnuCad);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mnuCad;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "formsSoacha";

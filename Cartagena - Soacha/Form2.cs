@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Dynamic;
 using System.IO;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -57,8 +58,11 @@ namespace Cartagena___Soacha
             list.Add(Image.FromFile($"{path}\\imagens\\ThingAdventure.png"));//Peça 4
             list.Add(Image.FromFile($"{path}\\imagens\\ThingCD.png"));//Peça 5  
 
+            SoundPlayer soundPlayer = new SoundPlayer($"{path}\\mw.wav");
+            soundPlayer.Play();
+
             tab = new Tabuleiro(this);//Cria tabuleiro
-            tab.ListarJogadores(idPartida);
+            tab.ListarJogadores(idPartida);//Cria Jogadores
             tab.GerarTabuleiro(Jogo.ExibirTabuleiro(idPartida), list);//Cria o Tabuleiro
             tab.GerarPecas(list);//Cria as Peças
             mao.GerarCartas(Jogo.ConsultarMao(idJogador, senha), list, this);//Cria as Cartas
@@ -70,8 +74,7 @@ namespace Cartagena___Soacha
             //
             //Botão para Pular Vez
             //
-            string retorno = Jogo.Jogar(idJogador, senha);
-            MessageBox.Show(retorno);
+            MessageBox.Show(Jogo.Jogar(idJogador, senha));
         }
 
         private void btnAndarFrente_Click(object sender, EventArgs e)
@@ -124,6 +127,7 @@ namespace Cartagena___Soacha
                 if (retorno.Contains("ERRO:"))
                 {
                     MessageBox.Show(retorno);
+                    throw new Exception(retorno);
                 }
                 else
                 {
@@ -134,8 +138,6 @@ namespace Cartagena___Soacha
 
                     peca.Mover(cor, tab.casas, posicao);
                     mao.Remontar(this, list);//remontar a mao
-
-
                 }
             }
             else
@@ -154,11 +156,8 @@ namespace Cartagena___Soacha
             //
             //Esse botao deve ser substituido por um timer e as peças no jogo
             // 
-            String retorno = Jogo.VerificarVez(idPartida);
-            MessageBox.Show(retorno);
-
-            String retorno1 = Jogo.ExibirHistorico(idPartida);
-            MessageBox.Show(retorno1);
+            MessageBox.Show(Jogo.VerificarVez(idPartida));
+            MessageBox.Show(Jogo.ExibirHistorico(idPartida));
         }
 
         private void lblPos_Click(object sender, EventArgs e)
