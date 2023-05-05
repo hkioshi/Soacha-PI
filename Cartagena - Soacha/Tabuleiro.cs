@@ -102,18 +102,35 @@ namespace Cartagena___Soacha
         }
 
         //gera as peças
-        public void GerarPecas(List<Image> list)
+        public void GerarPecas(List<Image> list, int idJogador,Suporte suporte)
         {
             string cor;
             foreach (Jogador jogador in jogadores)
             {
-                for (int i = 0; i < 6; i++)
+                if (jogador.id == Convert.ToString(idJogador))
                 {
-                    cor = jogador.cor;
-                    jogador.pecas.Add(new Peca(form, cor));
-                    jogador.pecas[i].Montar(cor, list, form, 70, 20);
-                    //cor, list, casas, njog, form,70,20
+                    for (int i = 0; i < 6; i++)
+                    {
+
+                        cor = jogador.cor;
+                        jogador.pecas.Add(new Peca(form, cor));
+                        suporte.jogador(jogador);
+                        jogador.pecas[i].Montar(cor, list, form, 70, 20);
+                        //cor, list, casas, njog, form,70,20
+                    }
                 }
+                else
+                {
+                    for (int i = 0; i < 6; i++)
+                    {
+
+                        cor = jogador.cor;
+                        jogador.pecas.Add(new Peca(form, cor));
+                        jogador.pecas[i].Montar(cor, list, form, 70, 20);
+                        //cor, list, casas, njog, form,70,20
+                    }
+                }
+                
             }
         }
 
@@ -179,14 +196,7 @@ namespace Cartagena___Soacha
                 }
                 
             }
-            
-
-
-            
-            
-
-
-
+    
             /*
             string retorno = Jogo.VerificarVez(idPartida);
             retorno = retorno.Replace("\r", "");

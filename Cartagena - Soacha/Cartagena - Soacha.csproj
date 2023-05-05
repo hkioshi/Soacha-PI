@@ -78,6 +78,8 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Inteligencia.cs" />
+    <Compile Include="Suporte.cs" />
     <Compile Include="Jogador.cs" />
     <Compile Include="Mao.cs" />
     <Compile Include="Peca.cs" />

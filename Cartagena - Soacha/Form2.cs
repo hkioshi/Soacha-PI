@@ -35,6 +35,9 @@ namespace Cartagena___Soacha
         public Peca peca = null;//peça selecionada
         Mao mao = new Mao();//estancia a mao
         List<Image> list = new List<Image>();// Lista de imagens
+        Suporte suporte;
+
+
 
         private void Form2_Load(object sender, EventArgs e)
         {
@@ -58,12 +61,14 @@ namespace Cartagena___Soacha
             list.Add(Image.FromFile($"{path}\\imagens\\ThingAdventure.png"));//Peça 4
             list.Add(Image.FromFile($"{path}\\imagens\\ThingCD.png"));//Peça 5              
 
+            
             tab = new Tabuleiro(this);//Cria tabuleiro
             tab.ListarJogadores(idPartida);//Cria Jogadores
             tab.GerarTabuleiro(Jogo.ExibirTabuleiro(idPartida), list);//Cria o Tabuleiro
-            tab.GerarPecas(list);//Cria as Peças
+            tab.GerarPecas(list,idJogador,suporte);//Cria as Peças
             mao.GerarCartas(Jogo.ConsultarMao(idJogador, senha), list, this);//Cria as Cartas
-
+            suporte = new Suporte(idJogador, senha, mao);
+            Inteligencia inteligencia = new Inteligencia(suporte);
         }
 
         private void btnPularVez_Click(object sender, EventArgs e)
@@ -86,7 +91,6 @@ namespace Cartagena___Soacha
                 if (retorno.Contains("ERRO:"))
                 {
                     MessageBox.Show(retorno);
-                    throw new Exception(retorno);
                 }
                 else
                 {
@@ -114,7 +118,6 @@ namespace Cartagena___Soacha
                 if (retorno.Contains("ERRO:"))
                 {
                     MessageBox.Show(retorno);
-                    throw new Exception(retorno);
                 }
                 else
                 {
