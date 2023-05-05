@@ -9,6 +9,7 @@ using System.Drawing;
 using System.Security.Cryptography;
 using System.Runtime.ConstrainedExecution;
 using System.Security.Principal;
+using System.Runtime.InteropServices;
 
 namespace Cartagena___Soacha
 {
@@ -24,7 +25,7 @@ namespace Cartagena___Soacha
         bool ir = true, desce = false, desce2 = false;// coisas pra fazer o tabuleiro serpentiar
         Form2 form;
         Mao mao = new Mao();
-
+        int turno = 0;
 
         public Tabuleiro(Form2 form)
         {
@@ -152,6 +153,41 @@ namespace Cartagena___Soacha
 
         public void AtualizarTabuleiro(int idPartida)
         {
+            string retorno = Jogo.ExibirHistorico(idPartida);
+            retorno = retorno.Replace("\r", "");
+            string[] retorno1 = retorno.Split('\n');
+
+            while (turno < retorno1.Length-1)
+            {
+               
+                string[] atualizar = retorno1[turno].Split(',');
+                foreach(Jogador jogador in jogadores)
+                {
+                    if (atualizar[0] == jogador.id)
+                    {
+                        foreach(Peca peca in jogador.pecas)
+                        {
+                            if (peca.casa == Convert.ToInt32(atualizar[3]))
+                            {
+                                peca.Mover(peca.cor, casas, Convert.ToInt32(atualizar[4]));
+                                turno++;
+                                break;
+                            }
+                        }
+                        break;
+                    }
+                }
+                
+            }
+            
+
+
+            
+            
+
+
+
+            /*
             string retorno = Jogo.VerificarVez(idPartida);
             retorno = retorno.Replace("\r", "");
             string[] retornos = retorno.Split('\n');
@@ -170,7 +206,7 @@ namespace Cartagena___Soacha
                     }
                 }
                 a = 0;
-            }
+            }*/
         }
     }
 }

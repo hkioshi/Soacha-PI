@@ -56,10 +56,7 @@ namespace Cartagena___Soacha
             list.Add(Image.FromFile($"{path}\\imagens\\Thing2.png"));//Peça 2
             list.Add(Image.FromFile($"{path}\\imagens\\Thing3AndKnuckles.png"));//Peça 3
             list.Add(Image.FromFile($"{path}\\imagens\\ThingAdventure.png"));//Peça 4
-            list.Add(Image.FromFile($"{path}\\imagens\\ThingCD.png"));//Peça 5  
-
-            SoundPlayer soundPlayer = new SoundPlayer($"{path}\\mw.wav");
-            soundPlayer.Play();
+            list.Add(Image.FromFile($"{path}\\imagens\\ThingCD.png"));//Peça 5              
 
             tab = new Tabuleiro(this);//Cria tabuleiro
             tab.ListarJogadores(idPartida);//Cria Jogadores
@@ -81,40 +78,30 @@ namespace Cartagena___Soacha
         {
             //
             //Botão para Andar para frente
-            //
-            if (pos != -1)
+            // 
+                
+            if (pos != -1 || this.peca != null)
             {
                 String retorno = Jogo.Jogar(idJogador, senha, pos, simb);
                 if (retorno.Contains("ERRO:"))
                 {
                     MessageBox.Show(retorno);
+                    throw new Exception(retorno);
                 }
                 else
                 {
-                    retorno = retorno.Replace("\r", "");
-                    string[] retornos = retorno.Split('\n');
-                    retornos = retornos[retornos.Length - 2].Split(',');
-                    int posicao = Convert.ToInt32(retornos[0]);
-
-                    if (this.peca != null)
-                    {
-                        peca.Mover(cor, tab.casas, posicao);
-                        mao.Remontar(this, list);//vai remontar a mao
-
-                        //resentar o lblSimb
-                        simb = "";
-                        lblSimb.Text = "Simbolo: ";
-                    }
-                    else
-                    {
-                        MessageBox.Show("Selecione uma peça");
-                    }
+                    mao.Remontar(this, list);//remontar a mao
                 }
             }
-            else
+            else if (pos == -1)
             {
                 MessageBox.Show("Selecione uma peça");
             }
+            else if (this.peca == null)
+            {
+                MessageBox.Show("Selecione uma Carta");
+            }
+
         }
         private void btnAndarTras_Click(object sender, EventArgs e)
         {
@@ -131,18 +118,16 @@ namespace Cartagena___Soacha
                 }
                 else
                 {
-                    retorno = retorno.Replace("\r", "");
-                    string[] retornos = retorno.Split('\n');
-                    retornos = retornos[retornos.Length - 2].Split(',');
-                    int posicao = Convert.ToInt32(retornos[0]);
-
-                    peca.Mover(cor, tab.casas, posicao);
                     mao.Remontar(this, list);//remontar a mao
                 }
             }
-            else
+            else if(pos == -1)
             {
                 MessageBox.Show("Selecione uma peça");
+            }
+            else if(this.peca == null)
+            {
+                MessageBox.Show("Selecione uma Carta");
             }
 
         }
@@ -156,8 +141,7 @@ namespace Cartagena___Soacha
             //
             //Esse botao deve ser substituido por um timer e as peças no jogo
             // 
-            MessageBox.Show(Jogo.VerificarVez(idPartida));
-            MessageBox.Show(Jogo.ExibirHistorico(idPartida));
+            tab.AtualizarTabuleiro(idPartida);
         }
 
         private void lblPos_Click(object sender, EventArgs e)
@@ -181,6 +165,7 @@ namespace Cartagena___Soacha
         private void tmrJogo_Tick(object sender, EventArgs e)
         {
             lblStatus.Text = tab.VerVez(idPartida);
+            //MessageBox.Show(Jogo.ExibirTabuleiro(idPartida));
             tab.AtualizarTabuleiro(idPartida);
         }
 
@@ -189,4 +174,5 @@ namespace Cartagena___Soacha
 
         }
     }
+
 }
