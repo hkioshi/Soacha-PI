@@ -76,7 +76,7 @@ namespace Cartagena___Soacha
             //
             //Botão para Pular Vez
             //
-            MessageBox.Show(Jogo.Jogar(idJogador, senha));
+            string d = Jogo.Jogar(idJogador, senha);
         }
 
         private void btnAndarFrente_Click(object sender, EventArgs e)

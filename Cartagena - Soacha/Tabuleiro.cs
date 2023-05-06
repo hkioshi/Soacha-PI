@@ -187,33 +187,36 @@ namespace Cartagena___Soacha
 
             while (turno < retorno1.Length-1)
             {
-               
+                
                 string[] atualizar = retorno1[turno].Split(',');
-                foreach(Jogador jogador in jogadores)
+                if (atualizar[3]!="")
                 {
-                    if (atualizar[0] == jogador.id)
+                    foreach (Jogador jogador in jogadores)
                     {
-                        foreach(Peca peca in jogador.pecas)
+                        if (atualizar[0] == jogador.id)
                         {
-                            if (atualizar[3] != null)
+                            foreach (Peca peca in jogador.pecas)
                             {
+
                                 if (peca.casa == Convert.ToInt32(atualizar[3]))
                                 {
                                     peca.Mover(peca.cor, casas, Convert.ToInt32(atualizar[4]));
                                     turno++;
                                     break;
                                 }
+
+                                
+
                             }
-                            else
-                            {
-                                turno++;
-                            }
-                            
+                            break;
                         }
-                        break;
                     }
                 }
-                
+                else
+                {
+                    turno++;
+                }
+
             }
     
             /*
