@@ -118,6 +118,7 @@ namespace Cartagena___Soacha
                         jogador.pecas[i].Montar(cor, list, form, 70, 20);
                         //cor, list, casas, njog, form,70,20
                     }
+                    casas[0].numeroDePecas += 6;
                 }
                 else
                 {
@@ -146,7 +147,7 @@ namespace Cartagena___Soacha
             }
         }
 
-        public string VerVez(int idPartida)
+        public string VerVez(int idPartida, int jogadorId, Suporte suporte)
         {
             string Tudo;
 
@@ -157,12 +158,22 @@ namespace Cartagena___Soacha
 
             foreach (Jogador jogador in jogadores)
             {
+                if (Convert.ToInt32(retornos[1]) == jogadorId)
+                {
+                    suporte.vez = true;
+
+                }
+                else
+                {
+                    suporte.vez = false;
+                }
+
                 if (jogador.id == retornos[1])
                 {
                     Tudo = $"{jogador.nome} - {jogador.cor} - {retornos[2]}";
                     return Tudo;
                 }
-
+                
             }
             return "erro, Jogador Nao encontrado";
 

@@ -67,7 +67,7 @@ namespace Cartagena___Soacha
             tab.GerarTabuleiro(Jogo.ExibirTabuleiro(idPartida), list);//Cria o Tabuleiro
             tab.GerarPecas(list,idJogador,suporte);//Cria as Peças
             mao.GerarCartas(Jogo.ConsultarMao(idJogador, senha), list, this);//Cria as Cartas
-            suporte = new Suporte(idJogador, senha, mao);
+            suporte = new Suporte(idJogador, senha, mao, tab,senha,list,this);
             Inteligencia inteligencia = new Inteligencia(suporte);
         }
 
@@ -167,8 +167,7 @@ namespace Cartagena___Soacha
 
         private void tmrJogo_Tick(object sender, EventArgs e)
         {
-            lblStatus.Text = tab.VerVez(idPartida);
-            //MessageBox.Show(Jogo.ExibirTabuleiro(idPartida));
+            lblStatus.Text = tab.VerVez(idPartida,idJogador,suporte);
             tab.AtualizarTabuleiro(idPartida);
         }
 

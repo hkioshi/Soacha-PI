@@ -15,6 +15,7 @@ namespace Cartagena___Soacha
     {
         public int id ;
         public string simbolo;
+        public int numeroDePecas =0 ;
         public Panel newButton = new Panel();
         Form2 form;
         

@@ -79,27 +79,37 @@ namespace Cartagena___Soacha
                     case "Vermelho":
                         a = casas[pos].newButton.Location.X; b = casas[pos].newButton.Location.Y;
                         this.newPanel.Location = new Point(a , b);//canto superior esquerdo
+                        casas[casa].numeroDePecas -= 1;
                         this.casa = pos;
+                        casas[casa].numeroDePecas += 1;
                         break;
                     case "Verde":
                         a = casas[pos].newButton.Location.X; b = casas[pos].newButton.Location.Y;
                         this.newPanel.Location = new Point(a+30, b);//canto superior direito
+                        casas[casa].numeroDePecas -= 1;
                         this.casa = pos;
+                        casas[casa].numeroDePecas += 1;
                         break;
                     case "Amarelo":
                         a = casas[pos].newButton.Location.X; b = casas[pos].newButton.Location.Y;
                         this.newPanel.Location = new Point(a, b+30);//canto inferior esquerdo
+                        casas[casa].numeroDePecas -= 1;
                         this.casa = pos;
+                        casas[casa].numeroDePecas += 1;
                         break;
                     case "Azul":
                         a = casas[pos].newButton.Location.X; b = casas[pos].newButton.Location.Y;
                         this.newPanel.Location = new Point(a + 30, b + 30);//canto inferior direito
+                        casas[casa].numeroDePecas -= 1;
                         this.casa = pos;
+                        casas[casa].numeroDePecas += 1;
                         break;
                     case "Marrom":
                         a = casas[pos].newButton.Location.X; b = casas[pos].newButton.Location.Y;
                         this.newPanel.Location = new Point(a + 15, b + 15);//meio
+                        casas[casa].numeroDePecas -= 1;
                         this.casa = pos;
+                        casas[casa].numeroDePecas += 1;
                         break;
                 }
             }
