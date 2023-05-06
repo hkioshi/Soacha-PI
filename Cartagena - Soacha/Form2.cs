@@ -65,7 +65,7 @@ namespace Cartagena___Soacha
             tab = new Tabuleiro(this);//Cria tabuleiro
             tab.ListarJogadores(idPartida);//Cria Jogadores
             tab.GerarTabuleiro(Jogo.ExibirTabuleiro(idPartida), list);//Cria o Tabuleiro
-            tab.GerarPecas(list,idJogador,suporte);//Cria as Peças
+            
             mao.GerarCartas(Jogo.ConsultarMao(idJogador, senha), list, this);//Cria as Cartas 
             suporte = new Suporte(idJogador, senha, mao, tab, senha, list, this);
             tab.GerarPecas(list, idJogador, suporte);//Cria as Peças
