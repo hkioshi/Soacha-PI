@@ -19,6 +19,10 @@ namespace Cartagena___Soacha
         public Form2 form2 { get; set; }//form
         public Panel newPanel = new Panel();//painel
 
+        //
+        // Construtor
+        //
+
         public Carta(Form2 form,string simbolou)//construtor
         {
             form2 = form;
@@ -69,6 +73,9 @@ namespace Cartagena___Soacha
             }
         }
         
+        //
+        // Colocar simbolo selecionado em variavel
+        //
         public void SelecionarSimbolo(object sender, EventArgs e)
         {
             form2.simb = this.simbolo;//Aq ao clicar vai colocar o simbolo numa variavwl de simbolo no forms

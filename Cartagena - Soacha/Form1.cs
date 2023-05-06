@@ -86,17 +86,23 @@ namespace Cartagena___Soacha
                 ligado = false;
             }
             
-        }  
-        private void zxcToolStripMenuItem_Click(object sender, EventArgs e)//Essa Aq é o botão da barra de cima
+        }
+        //
+        // Essa Aq é o botão da barra de cima
+        //
+        private void zxcToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //Vai abrir nova aba para cadastrar partida
             CadPartida o = new CadPartida(this);
             o.Show();
         }
-        
+
+        //
+        //aq vai iniciar o outro forms
+        //
         private void button1_Click_2(object sender, EventArgs e)
         {
-            //aq vai iniciar o outro forms
+            
             if(senha != null && idJogador != 0)
             {
                 string id = Jogo.IniciarPartida(idJogador, senha);//iniciar partida

@@ -8,11 +8,13 @@ namespace Cartagena___Soacha
 {
     public class Inteligencia
     {
-        Suporte Suporte;
+        Suporte suporte;
         public Inteligencia(Suporte suporte) 
         {
-            this.Suporte = suporte;
+            this.suporte = suporte;
         }
+
+        
 
         
 

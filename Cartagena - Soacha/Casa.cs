@@ -18,14 +18,12 @@ namespace Cartagena___Soacha
         public int numeroDePecas =0 ;
         public Panel newButton = new Panel();
         Form2 form;
-        
 
+        //
+        //Construtor
+        //
         public Casa(int id, string simb, Form2 form)
         {
-            //
-            //Construtor
-            //
-
             this.id = id;
             this.simbolo = simb;
             this.form = form;
@@ -42,7 +40,7 @@ namespace Cartagena___Soacha
             newButton.BorderStyle = BorderStyle.FixedSingle;
             newButton.BackgroundImageLayout = ImageLayout.Stretch;
 
-            //fundo
+            //Definir os simbolos das casas
             switch (this.simbolo)
             {
                 case "F":

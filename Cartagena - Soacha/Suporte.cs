@@ -37,14 +37,10 @@ namespace Cartagena___Soacha
         {
             this.Jogador = jogador;
         }
-
-
         public Peca SelecionarPeca(int numero)
         {
             return Jogador.pecas[numero];
         }
-
-        
         public void Pular()
         {
             //
@@ -52,14 +48,11 @@ namespace Cartagena___Soacha
             //
             Jogo.Jogar(jogadorID, senha);
         }
-
         public void MoverFrente(int pos, string simb)
         {
             //
             //Botão para Andar para frente
             // 
-
-           
             String retorno = Jogo.Jogar(this.jogadorID, senha, pos, simb);
             if (retorno.Contains("ERRO:"))
             {
@@ -69,9 +62,6 @@ namespace Cartagena___Soacha
             {
                 mao.Remontar(form, list);//remontar a mao
             }
-            
-           
-
         }
         private void MoverTras(int pos)
         {
@@ -87,7 +77,6 @@ namespace Cartagena___Soacha
             {
                 mao.Remontar(form, list);//remontar a mao
             }
-
         }
 
 
