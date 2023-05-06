@@ -195,12 +195,20 @@ namespace Cartagena___Soacha
                     {
                         foreach(Peca peca in jogador.pecas)
                         {
-                            if (peca.casa == Convert.ToInt32(atualizar[3]))
+                            if (atualizar[3] != null)
                             {
-                                peca.Mover(peca.cor, casas, Convert.ToInt32(atualizar[4]));
-                                turno++;
-                                break;
+                                if (peca.casa == Convert.ToInt32(atualizar[3]))
+                                {
+                                    peca.Mover(peca.cor, casas, Convert.ToInt32(atualizar[4]));
+                                    turno++;
+                                    break;
+                                }
                             }
+                            else
+                            {
+                                turno++;
+                            }
+                            
                         }
                         break;
                     }
