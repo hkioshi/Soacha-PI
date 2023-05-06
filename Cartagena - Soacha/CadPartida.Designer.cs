@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadPartida));
             this.btnCadPart = new System.Windows.Forms.Button();
             this.txtSenha = new System.Windows.Forms.TextBox();
             this.txtNome = new System.Windows.Forms.TextBox();
@@ -39,7 +40,7 @@
             // 
             this.btnCadPart.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.btnCadPart.Location = new System.Drawing.Point(12, 172);
-            this.btnCadPart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCadPart.Margin = new System.Windows.Forms.Padding(4);
             this.btnCadPart.Name = "btnCadPart";
             this.btnCadPart.Size = new System.Drawing.Size(279, 54);
             this.btnCadPart.TabIndex = 0;
@@ -95,7 +96,8 @@
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.txtSenha);
             this.Controls.Add(this.btnCadPart);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CadPartida";

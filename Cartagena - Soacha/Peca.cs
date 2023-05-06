@@ -44,61 +44,76 @@ namespace Cartagena___Soacha
                     newPanel.Location = new Point(x, y);
                     break;
                 case "Verde":
-                    newPanel.BackgroundImage = list[7];
+                    newPanel.BackgroundImage = list[10];
                     newPanel.Location = new Point(x + 30, y);
                     break;
                 case "Amarelo":
-                    newPanel.BackgroundImage = list[8];
+                    newPanel.BackgroundImage = list[7];
                     newPanel.Location = new Point(x, y + 30);
                     break;
                 case "Azul":
-                    newPanel.BackgroundImage = list[9];
+                    newPanel.BackgroundImage = list[8];
                     newPanel.Location = new Point(x + 30, y + 30);
                     break;
                 case "Marrom":
-                    newPanel.BackgroundImage = list[10];
+                    newPanel.BackgroundImage = list[9];
                     newPanel.Location = new Point(x + 15, y + 15);
                     break;   
             }
+            
+
+
+
         }
 
         //
         //Move as peças pra frente e pra tras
         //
-        public void Mover(string cor,List<Casa> casas, int pos,Peca peca )
+        public void Mover(string cor,List<Casa> casas, int pos )
         {
-            if(cor == peca.cor)
+            if(cor == this.cor)
             {
                 int a, b;
                 switch(cor)
                 {
                     case "Vermelho":
                         a = casas[pos].newButton.Location.X; b = casas[pos].newButton.Location.Y;
-                        peca.newPanel.Location = new Point(a , b);//canto superior esquerdo
+                        this.newPanel.Location = new Point(a , b);//canto superior esquerdo
+                        casas[casa].numeroDePecas -= 1;
                         this.casa = pos;
-                        break;
-                    case "Amarelo":
-                        a = casas[pos].newButton.Location.X; b = casas[pos].newButton.Location.Y;
-                        peca.newPanel.Location = new Point(a+30, b);//canto superior direito
-                        this.casa = pos;
-                        break;
-                    case "Azul":
-                        a = casas[pos].newButton.Location.X; b = casas[pos].newButton.Location.Y;
-                        peca.newPanel.Location = new Point(a, b+30);//canto inferior esquerdo
-                        this.casa = pos;
+                        casas[casa].numeroDePecas += 1;
                         break;
                     case "Verde":
                         a = casas[pos].newButton.Location.X; b = casas[pos].newButton.Location.Y;
-                        peca.newPanel.Location = new Point(a + 30, b + 30);//canto inferior direito
+                        this.newPanel.Location = new Point(a+30, b);//canto superior direito
+                        casas[casa].numeroDePecas -= 1;
                         this.casa = pos;
+                        casas[casa].numeroDePecas += 1;
+                        break;
+                    case "Amarelo":
+                        a = casas[pos].newButton.Location.X; b = casas[pos].newButton.Location.Y;
+                        this.newPanel.Location = new Point(a, b+30);//canto inferior esquerdo
+                        casas[casa].numeroDePecas -= 1;
+                        this.casa = pos;
+                        casas[casa].numeroDePecas += 1;
+                        break;
+                    case "Azul":
+                        a = casas[pos].newButton.Location.X; b = casas[pos].newButton.Location.Y;
+                        this.newPanel.Location = new Point(a + 30, b + 30);//canto inferior direito
+                        casas[casa].numeroDePecas -= 1;
+                        this.casa = pos;
+                        casas[casa].numeroDePecas += 1;
                         break;
                     case "Marrom":
                         a = casas[pos].newButton.Location.X; b = casas[pos].newButton.Location.Y;
-                        peca.newPanel.Location = new Point(a + 15, b + 15);//meio
+                        this.newPanel.Location = new Point(a + 15, b + 15);//meio
+                        casas[casa].numeroDePecas -= 1;
                         this.casa = pos;
+                        casas[casa].numeroDePecas += 1;
                         break;
                 }
             }
+            
             else
             {
                 MessageBox.Show("Esta Nao é sua peça");
