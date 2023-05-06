@@ -36,7 +36,9 @@ namespace Cartagena___Soacha
             newPanel.BackgroundImageLayout = ImageLayout.Stretch;
             newPanel.BringToFront();
             newPanel.Click += new System.EventHandler(this.VerPos);
-                    
+            
+            //oi
+            
             switch(cores)
             {
                 case "Vermelho":
