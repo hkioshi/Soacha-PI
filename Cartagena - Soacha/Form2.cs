@@ -83,6 +83,70 @@ namespace Cartagena___Soacha
         {
             //
             //Botão para Andar para frente
+            //
+            if (pos != -1)
+            {
+                String retorno = Jogo.Jogar(idJogador, senha, pos, simb);
+                if (retorno.Contains("ERRO:"))
+                {
+                    MessageBox.Show(retorno);
+                }
+                else
+                {
+                    retorno = retorno.Replace("\r", "");
+                    string[] retornos = retorno.Split('\n');
+                    retornos = retornos[retornos.Length - 2].Split(',');
+                    int posicao = Convert.ToInt32(retornos[0]);
+
+                    if (this.peca != null)
+                    {
+                        peca.Mover(cor, tab.casas, posicao);
+                        mao.Remontar(this, list);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Selecione uma peça");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecione uma peça");
+            }
+        }
+        private void btnAndarTras_Click(object sender, EventArgs e)
+        {
+            //
+            //Botão para Andar para tras
+            //
+            if (pos != -1 || this.peca != null)
+            {
+                String retorno = Jogo.Jogar(idJogador, senha, pos);
+                if (retorno.Contains("ERRO:"))
+                {
+                    MessageBox.Show(retorno);
+                }
+                else
+                {
+                    retorno = retorno.Replace("\r", "");
+                    string[] retornos = retorno.Split('\n');
+                    retornos = retornos[retornos.Length - 2].Split(',');
+                    int posicao = Convert.ToInt32(retornos[0]);
+
+                    peca.Mover(cor, tab.casas, posicao);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecione uma peça");
+            }
+
+        }
+
+        /*private void btnAndarFrente_Click(object sender, EventArgs e)
+        {
+            //
+            //Botão para Andar para frente
             // 
                 
             if (pos != -1 || this.peca != null)
@@ -133,7 +197,7 @@ namespace Cartagena___Soacha
                 MessageBox.Show("Selecione uma Carta");
             }
 
-        }
+        }*/
 
         private void btnTesteVez_Click(object sender, EventArgs e)
         {
@@ -167,8 +231,8 @@ namespace Cartagena___Soacha
 
         private void tmrJogo_Tick(object sender, EventArgs e)
         {
-            lblStatus.Text = tab.VerVez(idPartida,idJogador,suporte);
-            tab.AtualizarTabuleiro(idPartida);
+           // lblStatus.Text = tab.VerVez(idPartida,idJogador,suporte);
+           tab.AtualizarTabuleiro(idPartida);
         }
 
         private void label1_Click(object sender, EventArgs e)
