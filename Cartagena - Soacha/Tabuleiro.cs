@@ -204,9 +204,6 @@ namespace Cartagena___Soacha
                                     turno++;
                                     break;
                                 }
-
-                                
-
                             }
                             break;
                         }
