@@ -57,9 +57,19 @@ namespace Cartagena___Soacha
                     string dataPartida = itens[2];
                     statusPartida = itens[3];
 
-                    CadJogador f = new CadJogador(this);
-                    f.idPartida = idPartida;
-                    f.ShowDialog();
+                    if(statusPartida == "A")
+                    {
+                        CadJogador f = new CadJogador(this);
+                        f.idPartida = idPartida;
+                        f.ShowDialog();
+                    }
+                    else if(statusPartida == "J")
+                    {
+                        btnEntrar.Visible = true;
+                    }
+
+                    
+
 
 
                     lblStatus.Text = $" Id: {idPartida}\n Nome: {nomePartida}\n Data: {dataPartida} \n status: {statusPartida}";
@@ -97,22 +107,14 @@ namespace Cartagena___Soacha
         private void button1_Click_2(object sender, EventArgs e)
         {
             //aq vai iniciar o outro forms
-            if(senha != null && idJogador != 0)
+            if (senha != null && idJogador != 0)
             {
                 string id = Jogo.IniciarPartida(idJogador, senha);//iniciar partida
                 MessageBox.Show($"{id} esta Jogando"); //depois essa mbox deve ser retirada
 
                 string retorno = Jogo.ListarJogadores(idPartida);
-
-                //Abrir forms
-                Form2 f = new Form2();
-                f.idJogador = idJogador;
-                f.senha = senha;
-                f.idPartida = idPartida;
-                f.cor = cor;
-                this.Hide();
-                f.ShowDialog();
-                
+                btnEntrar.Visible = true;
+                statusPartida = "J";
             }
             else
             {
@@ -128,7 +130,16 @@ namespace Cartagena___Soacha
         public void Retorno()
         {
             lblStatus.Text = $"ID: {idJogador}\nCor: {cor}";
-            btnMudarStatus.Visible = true;
+            if (statusPartida == "A")
+            {
+                btnMudarStatus.Visible = true;
+            }
+            else if (statusPartida == "J" && senha != "")  
+            {
+                btnEntrar.Visible = false;
+
+            }
+            
         }
 
         public void ListarPartidas()
@@ -205,6 +216,27 @@ namespace Cartagena___Soacha
         private void lblStatus_Click(object sender, EventArgs e)
         {
             MessageBox.Show("EasterEgg(1/5)");
+        }
+
+        private void btnEntrar_Click(object sender, EventArgs e)
+        {
+            if (senha != null && idJogador != 0 && statusPartida == "J")
+
+            {
+                //Abrir forms
+                Form2 f = new Form2();
+                f.idJogador = idJogador;
+                f.senha = senha;
+                f.idPartida = idPartida;
+                f.cor = cor;
+                this.Hide();
+                f.ShowDialog();
+
+            }
+            else
+            {
+                MessageBox.Show("Sem senha nem Jogador Selecionado");
+            }
         }
     }
 }
