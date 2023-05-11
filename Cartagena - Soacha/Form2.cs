@@ -129,7 +129,7 @@ namespace Cartagena___Soacha
         private void tmrJogo_Tick(object sender, EventArgs e)
         {
            lblStatus.Text = tab.VerVez(idPartida,idJogador,suporte);
-           tab.AtualizarTabuleiro(idPartida);
+           //tab.AtualizarTabuleiro(idPartida);
         }
 
         private void label1_Click(object sender, EventArgs e)
