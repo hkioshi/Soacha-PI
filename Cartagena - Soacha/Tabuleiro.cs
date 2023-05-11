@@ -114,7 +114,8 @@ namespace Cartagena___Soacha
 
                         cor = jogador.cor;
                         jogador.pecas.Add(new Peca(form, cor));
-                        suporte.jogador(jogador);
+                        if(cor == jogador.cor)
+                        suporte.Jogador(jogador);
                         jogador.pecas[i].Montar(cor, list, form, 70, 20);
                         //cor, list, casas, njog, form,70,20
                     }
@@ -161,7 +162,6 @@ namespace Cartagena___Soacha
                 if (Convert.ToInt32(retornos[1]) == jogadorId)
                 {
                     suporte.vez = true;
-
                 }
                 else
                 {

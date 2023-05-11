@@ -66,7 +66,7 @@ namespace Cartagena___Soacha
             tab.ListarJogadores(idPartida);//Cria Jogadores
             tab.GerarTabuleiro(Jogo.ExibirTabuleiro(idPartida), list);//Cria o Tabuleiro
             mao.GerarCartas(Jogo.ConsultarMao(idJogador, senha), list, this);//Cria as Cartas 
-            suporte = new Suporte(idJogador, senha, mao, tab, senha, list, this);
+            suporte = new Suporte(idJogador, mao, tab, senha, list, this);
             tab.GerarPecas(list, idJogador, suporte);//Cria as Peças
             Inteligencia inteligencia = new Inteligencia(suporte);
         }
@@ -76,7 +76,7 @@ namespace Cartagena___Soacha
             //
             //Botão para Pular Vez
             //
-            string d = Jogo.Jogar(idJogador, senha);
+            suporte.Mover();
         }
 
         private void btnAndarFrente_Click(object sender, EventArgs e)
@@ -84,120 +84,16 @@ namespace Cartagena___Soacha
             //
             //Botão para Andar para frente
             //
-            if (pos != -1)
-            {
-                String retorno = Jogo.Jogar(idJogador, senha, pos, simb);
-                if (retorno.Contains("ERRO:"))
-                {
-                    MessageBox.Show(retorno);
-                }
-                else
-                {
-                    retorno = retorno.Replace("\r", "");
-                    string[] retornos = retorno.Split('\n');
-                    retornos = retornos[retornos.Length - 2].Split(',');
-                    int posicao = Convert.ToInt32(retornos[0]);
-
-                    if (this.peca != null)
-                    {
-                        peca.Mover(cor, tab.casas, posicao);
-                        mao.Remontar(this, list);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Selecione uma peça");
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("Selecione uma peça");
-            }
+            suporte.Mover(pos, simb, peca);
         }
         private void btnAndarTras_Click(object sender, EventArgs e)
         {
             //
             //Botão para Andar para tras
             //
-            if (pos != -1 || this.peca != null)
-            {
-                String retorno = Jogo.Jogar(idJogador, senha, pos);
-                if (retorno.Contains("ERRO:"))
-                {
-                    MessageBox.Show(retorno);
-                }
-                else
-                {
-                    retorno = retorno.Replace("\r", "");
-                    string[] retornos = retorno.Split('\n');
-                    retornos = retornos[retornos.Length - 2].Split(',');
-                    int posicao = Convert.ToInt32(retornos[0]);
-
-                    peca.Mover(cor, tab.casas, posicao);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Selecione uma peça");
-            }
+            suporte.Mover(pos, simb, peca);
 
         }
-
-        /*private void btnAndarFrente_Click(object sender, EventArgs e)
-        {
-            //
-            //Botão para Andar para frente
-            // 
-                
-            if (pos != -1 || this.peca != null)
-            {
-                String retorno = Jogo.Jogar(idJogador, senha, pos, simb);
-                if (retorno.Contains("ERRO:"))
-                {
-                    MessageBox.Show(retorno);
-                }
-                else
-                {
-                    mao.Remontar(this, list);//remontar a mao
-                }
-            }
-            else if (pos == -1)
-            {
-                MessageBox.Show("Selecione uma peça");
-            }
-            else if (this.peca == null)
-            {
-                MessageBox.Show("Selecione uma Carta");
-            }
-
-        }
-        private void btnAndarTras_Click(object sender, EventArgs e)
-        {
-            //
-            //Botão para Andar para tras
-            //
-            if (pos != -1 || this.peca != null)
-            {
-                String retorno = Jogo.Jogar(idJogador, senha, pos);
-                if (retorno.Contains("ERRO:"))
-                {
-                    MessageBox.Show(retorno);
-                }
-                else
-                {
-                    mao.Remontar(this, list);//remontar a mao
-                }
-            }
-            else if(pos == -1)
-            {
-                MessageBox.Show("Selecione uma peça");
-            }
-            else if(this.peca == null)
-            {
-                MessageBox.Show("Selecione uma Carta");
-            }
-
-        }*/
 
         private void btnTesteVez_Click(object sender, EventArgs e)
         {
@@ -208,7 +104,8 @@ namespace Cartagena___Soacha
             //
             //Esse botao deve ser substituido por um timer e as peças no jogo
             // 
-            tab.AtualizarTabuleiro(idPartida);
+            MessageBox.Show(Jogo.VerificarVez(idPartida));
+
         }
 
         private void lblPos_Click(object sender, EventArgs e)
@@ -231,7 +128,7 @@ namespace Cartagena___Soacha
 
         private void tmrJogo_Tick(object sender, EventArgs e)
         {
-           // lblStatus.Text = tab.VerVez(idPartida,idJogador,suporte);
+           lblStatus.Text = tab.VerVez(idPartida,idJogador,suporte);
            tab.AtualizarTabuleiro(idPartida);
         }
 
