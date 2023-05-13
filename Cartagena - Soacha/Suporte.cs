@@ -4,15 +4,17 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Net.Mail;
+using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Cartagena___Soacha
 {
     public class Suporte
     {
-        public Jogador Jogador;
+        public Jogador jogador;
         public Mao mao;
         public int jogadorID;
         string senha { get; }
@@ -22,10 +24,9 @@ namespace Cartagena___Soacha
         public List<Image> list;
         public Form2 form;
         public bool vez = false;
-        public Suporte( int jogadorID, string jogadorSenha, Mao mao, Tabuleiro tabuleiro, string senha, List<Image> list, Form2 form2)
+        public Suporte( int jogadorID, Mao mao, Tabuleiro tabuleiro, string senha, List<Image> list, Form2 form2)
         {
             this.jogadorID = jogadorID;
-            this.jogadorSenha = jogadorSenha;
             this.mao = mao;
             this.tabuleiro = tabuleiro;
             this.senha = senha;
@@ -33,15 +34,15 @@ namespace Cartagena___Soacha
             this.form = form2;
         }
 
-        public void jogador(Jogador jogador)
+        public void Jogador(Jogador jogador)
         {
-            this.Jogador = jogador;
+            this.jogador = jogador;
         }
 
 
         public Peca SelecionarPeca(int numero)
         {
-            return Jogador.pecas[numero];
+            return jogador.pecas[numero];
         }
 
         
@@ -53,27 +54,36 @@ namespace Cartagena___Soacha
             Jogo.Jogar(jogadorID, senha);
         }
 
-        public void MoverFrente(int pos, string simb)
+        public void Mover(int pos, string simb, Peca peca)
         {
             //
             //Botão para Andar para frente
             // 
 
-           
-            String retorno = Jogo.Jogar(this.jogadorID, senha, pos, simb);
+            String retorno = Jogo.Jogar(jogadorID, senha,pos, simb);
             if (retorno.Contains("ERRO:"))
             {
                 MessageBox.Show(retorno);
             }
             else
             {
-                mao.Remontar(form, list);//remontar a mao
-            }
-            
-           
+                retorno = retorno.Replace("\r", "");
+                string[] retornos = retorno.Split('\n');
+                retornos = retornos[retornos.Length - 2].Split(',');
+                int posicao = Convert.ToInt32(retornos[0]);
 
+                if (peca != null)
+                {
+                    peca.Mover(jogador.cor, tabuleiro.casas, posicao);
+                    mao.Remontar(form, list);
+                }
+                else
+                {
+                    MessageBox.Show("Selecione uma peça");
+                }
+            }
         }
-        private void MoverTras(int pos)
+        public void Mover(int pos, Peca peca)
         {
             //
             //Botão para Andar para tras
@@ -86,14 +96,19 @@ namespace Cartagena___Soacha
             else
             {
                 mao.Remontar(form, list);//remontar a mao
+                retorno = retorno.Replace("\r", "");
+                string[] retornos = retorno.Split('\n');
+                retornos = retornos[retornos.Length - 2].Split(',');
+                int posicao = Convert.ToInt32(retornos[0]);
+
+                peca.Mover(jogador.cor, tabuleiro.casas, posicao);
             }
 
         }
 
-
-
-
-
-
+        public void Mover()
+        {
+            string retorno = Jogo.Jogar(PartidaID, senha);
+        }
     }
 }

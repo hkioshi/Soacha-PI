@@ -114,7 +114,8 @@ namespace Cartagena___Soacha
 
                         cor = jogador.cor;
                         jogador.pecas.Add(new Peca(form, cor));
-                        suporte.jogador(jogador);
+                        if(cor == jogador.cor)
+                        suporte.Jogador(jogador);
                         jogador.pecas[i].Montar(cor, list, form, 70, 20);
                         //cor, list, casas, njog, form,70,20
                     }
@@ -161,7 +162,6 @@ namespace Cartagena___Soacha
                 if (Convert.ToInt32(retornos[1]) == jogadorId)
                 {
                     suporte.vez = true;
-
                 }
                 else
                 {
@@ -187,25 +187,33 @@ namespace Cartagena___Soacha
 
             while (turno < retorno1.Length-1)
             {
-               
+                
                 string[] atualizar = retorno1[turno].Split(',');
-                foreach(Jogador jogador in jogadores)
+                if (atualizar[3]!="")
                 {
-                    if (atualizar[0] == jogador.id)
+                    foreach (Jogador jogador in jogadores)
                     {
-                        foreach(Peca peca in jogador.pecas)
+                        if (atualizar[0] == jogador.id)
                         {
-                            if (peca.casa == Convert.ToInt32(atualizar[3]))
+                            foreach (Peca peca in jogador.pecas)
                             {
-                                peca.Mover(peca.cor, casas, Convert.ToInt32(atualizar[4]));
-                                turno++;
-                                break;
+
+                                if (peca.casa == Convert.ToInt32(atualizar[3]))
+                                {
+                                    peca.Mover(peca.cor, casas, Convert.ToInt32(atualizar[4]));
+                                    turno++;
+                                    break;
+                                }
                             }
+                            break;
                         }
-                        break;
                     }
                 }
-                
+                else
+                {
+                    turno++;
+                }
+
             }
     
             /*

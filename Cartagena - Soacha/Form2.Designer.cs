@@ -107,7 +107,7 @@
             // tmrJogo
             // 
             this.tmrJogo.Enabled = true;
-            this.tmrJogo.Interval = 1000;
+            this.tmrJogo.Interval = 5000;
             this.tmrJogo.Tick += new System.EventHandler(this.tmrJogo_Tick);
             // 
             // lblStatus
