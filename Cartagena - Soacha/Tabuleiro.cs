@@ -102,37 +102,24 @@ namespace Cartagena___Soacha
         }
 
         //gera as peças
-        public void GerarPecas(List<Image> list, int idJogador,Suporte suporte)
+        public void GerarPecas(List<Image> list, int idJogador, Suporte suporte)
         {
             string cor;
             foreach (Jogador jogador in jogadores)
             {
                 if (jogador.id == Convert.ToString(idJogador))
                 {
-                    for (int i = 0; i < 6; i++)
-                    {
-
-                        cor = jogador.cor;
-                        jogador.pecas.Add(new Peca(form, cor));
-                        if(cor == jogador.cor)
-                        suporte.Jogador(jogador);
-                        jogador.pecas[i].Montar(cor, list, form, 70, 20);
-                        //cor, list, casas, njog, form,70,20
-                    }
-                    casas[0].numeroDePecas += 6;
+                    suporte.Jogador(jogador);
                 }
-                else
+                for (int i = 0; i < 6; i++)
                 {
-                    for (int i = 0; i < 6; i++)
-                    {
 
-                        cor = jogador.cor;
-                        jogador.pecas.Add(new Peca(form, cor));
-                        jogador.pecas[i].Montar(cor, list, form, 70, 20);
-                        //cor, list, casas, njog, form,70,20
-                    }
+                    cor = jogador.cor;
+                    casas[0].pecas.Add(new Peca(form, cor));
+                    casas[0].pecas[i].Montar(cor, list, form, 70, 20);
+                    //cor, list, casas, njog, form,70,20
                 }
-                
+                casas[0].numeroDePecas += 6;
             }
         }
 
@@ -173,41 +160,34 @@ namespace Cartagena___Soacha
                     Tudo = $"{jogador.nome} - {jogador.cor} - {retornos[2]}";
                     return Tudo;
                 }
-                
+
             }
             return "erro, Jogador Nao encontrado";
 
         }
 
-        public void AtualizarTabuleiro(int idPartida)
+        public void AtualizarTabuleiro(int idPartida, Suporte suporte)
         {
             string retorno = Jogo.ExibirHistorico(idPartida);
             retorno = retorno.Replace("\r", "");
             string[] retorno1 = retorno.Split('\n');
 
-            while (turno < retorno1.Length-1)
+            while (turno < retorno1.Length - 1)
             {
-                
                 string[] atualizar = retorno1[turno].Split(',');
-                if (atualizar[3]!="")
+                if (atualizar[3] != "")
                 {
-                    foreach (Jogador jogador in jogadores)
+                    Jogador[] jogs = jogadores.Where(jogador => jogador.id.Contains(atualizar[0])).ToArray();
+                    foreach (Peca peca in casas[Convert.ToInt32(atualizar[3])].pecas)
                     {
-                        if (atualizar[0] == jogador.id)
+                        if (jogs[0].cor == peca.cor)
                         {
-                            foreach (Peca peca in jogador.pecas)
-                            {
-
-                                if (peca.casa == Convert.ToInt32(atualizar[3]))
-                                {
-                                    peca.Mover(peca.cor, casas, Convert.ToInt32(atualizar[4]));
-                                    turno++;
-                                    break;
-                                }
-                            }
+                            form.pos = peca.Mover(peca.cor, casas, Convert.ToInt32(atualizar[4]));
+                            turno++;
                             break;
                         }
                     }
+                    break;
                 }
                 else
                 {
@@ -215,7 +195,7 @@ namespace Cartagena___Soacha
                 }
 
             }
-    
+
             /*
             string retorno = Jogo.VerificarVez(idPartida);
             retorno = retorno.Replace("\r", "");
@@ -239,4 +219,3 @@ namespace Cartagena___Soacha
         }
     }
 }
-

@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -30,7 +32,7 @@ namespace Cartagena___Soacha
             InitializeComponent();
         }
         Tabuleiro tab;//cria tabuleiro
-        public int pos = -1;//posição do tabuleiro
+        public int pos = 0;//posição do tabuleiro
         public string simb;//Simbolo
         public Peca peca = null;//peça selecionada
         Mao mao = new Mao();//estancia a mao
@@ -61,12 +63,12 @@ namespace Cartagena___Soacha
             list.Add(Image.FromFile($"{path}\\imagens\\ThingAdventure.png"));//Peça 4
             list.Add(Image.FromFile($"{path}\\imagens\\ThingCD.png"));//Peça 5              
 
-            
+
             tab = new Tabuleiro(this);//Cria tabuleiro
             tab.ListarJogadores(idPartida);//Cria Jogadores
             tab.GerarTabuleiro(Jogo.ExibirTabuleiro(idPartida), list);//Cria o Tabuleiro
             mao.GerarCartas(Jogo.ConsultarMao(idJogador, senha), list, this);//Cria as Cartas 
-            suporte = new Suporte(idJogador, mao, tab, senha, list, this);
+            suporte = new Suporte( idPartida,idJogador, mao, tab, senha, list, this);
             tab.GerarPecas(list, idJogador, suporte);//Cria as Peças
             Inteligencia inteligencia = new Inteligencia(suporte);
         }
@@ -84,14 +86,16 @@ namespace Cartagena___Soacha
             //
             //Botão para Andar para frente
             //
-            suporte.Mover(pos, simb, peca);
+            suporte.Mover(pos, simb);
+            //MessageBox.Show(Jogo.Jogar(idJogador,senha,pos, simb) );
         }
         private void btnAndarTras_Click(object sender, EventArgs e)
         {
             //
             //Botão para Andar para tras
             //
-            suporte.Mover(pos, simb, peca);
+            suporte.Mover(pos);
+            //MessageBox.Show(Jogo.Jogar(idJogador, senha, pos, simb));
 
         }
 
@@ -104,8 +108,7 @@ namespace Cartagena___Soacha
             //
             //Esse botao deve ser substituido por um timer e as peças no jogo
             // 
-            MessageBox.Show(Jogo.VerificarVez(idPartida));
-
+            tab.AtualizarTabuleiro(idPartida, suporte);
         }
 
         private void lblPos_Click(object sender, EventArgs e)
@@ -114,27 +117,34 @@ namespace Cartagena___Soacha
             MessageBox.Show("EasterEgg (2/5)");
         }
 
-        //colocar no lblPos a posição
-        public void DefinirPos(int pos)
-        {
-            lblPos.Text = $"Posição: {Convert.ToString(pos)}";
-        }
 
-        //colocar no lblSimb o Simbolo
-        public void DefinirSimb(string simb)
-        {
-            lblSimb.Text = $"Simbolo: {simb}";
-        }
 
         private void tmrJogo_Tick(object sender, EventArgs e)
         {
-           lblStatus.Text = tab.VerVez(idPartida,idJogador,suporte);
-           //tab.AtualizarTabuleiro(idPartida);
+            lblStatus.Text = tab.VerVez(idPartida, idJogador, suporte);
+
+            tab.AtualizarTabuleiro(idPartida, suporte);
+            //MessageBox.Show(Jogo.ExibirHistorico(idPartida));
+            lblPos.Text = $"Posição: {Convert.ToString(pos)}";
+            lblSimb.Text = $"Simbolo: {simb}";
+
+
+
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        public void posicao(int p)
+        {
+            lblPos.Text = $"Posição: {Convert.ToString(pos)}";
+        }
+
+        public void simbolo(string s)
+        {
+            lblSimb.Text = $"Simbolo: {simb}";
         }
     }
 

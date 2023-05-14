@@ -13,12 +13,14 @@ namespace Cartagena___Soacha
 {
     public class Casa
     {
-        public int id ;
+        public int id;
         public string simbolo;
-        public int numeroDePecas =0 ;
+        public int numeroDePecas = 0;
         public Panel newButton = new Panel();
         Form2 form;
-        
+        public List<Peca> pecas = new List<Peca>();
+
+
 
         public Casa(int id, string simb, Form2 form)
         {

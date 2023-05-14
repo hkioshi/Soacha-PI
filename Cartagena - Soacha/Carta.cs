@@ -72,7 +72,7 @@ namespace Cartagena___Soacha
         public void SelecionarSimbolo(object sender, EventArgs e)
         {
             form2.simb = this.simbolo;//Aq ao clicar vai colocar o simbolo numa variavwl de simbolo no forms
-            form2.DefinirSimb(this.simbolo);//Aq vai colocar o simbolo no lblSimb
+            form2.simbolo(simbolo);
         }
 
         public void Desmontar(Form2 form)

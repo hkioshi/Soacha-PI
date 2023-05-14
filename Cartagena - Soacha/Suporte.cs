@@ -24,7 +24,8 @@ namespace Cartagena___Soacha
         public List<Image> list;
         public Form2 form;
         public bool vez = false;
-        public Suporte( int jogadorID, Mao mao, Tabuleiro tabuleiro, string senha, List<Image> list, Form2 form2)
+
+        public Suporte(int partidaId,int jogadorID, Mao mao, Tabuleiro tabuleiro, string senha, List<Image> list, Form2 form2)
         {
             this.jogadorID = jogadorID;
             this.mao = mao;
@@ -32,6 +33,7 @@ namespace Cartagena___Soacha
             this.senha = senha;
             this.list = list;
             this.form = form2;
+            this.PartidaID = partidaId;
         }
 
         public void Jogador(Jogador jogador)
@@ -40,12 +42,12 @@ namespace Cartagena___Soacha
         }
 
 
-        public Peca SelecionarPeca(int numero)
+        public void SelecionarPeca(int numero)
         {
-            return jogador.pecas[numero];
+
         }
 
-        
+
         public void Pular()
         {
             //
@@ -54,36 +56,24 @@ namespace Cartagena___Soacha
             Jogo.Jogar(jogadorID, senha);
         }
 
-        public void Mover(int pos, string simb, Peca peca)
+        public void Mover(int pos, string simb)
         {
             //
             //Botão para Andar para frente
             // 
 
-            String retorno = Jogo.Jogar(jogadorID, senha,pos, simb);
+            String retorno = Jogo.Jogar(jogadorID, senha, pos, simb);
             if (retorno.Contains("ERRO:"))
             {
                 MessageBox.Show(retorno);
             }
             else
             {
-                retorno = retorno.Replace("\r", "");
-                string[] retornos = retorno.Split('\n');
-                retornos = retornos[retornos.Length - 2].Split(',');
-                int posicao = Convert.ToInt32(retornos[0]);
-
-                if (peca != null)
-                {
-                    peca.Mover(jogador.cor, tabuleiro.casas, posicao);
-                    mao.Remontar(form, list);
-                }
-                else
-                {
-                    MessageBox.Show("Selecione uma peça");
-                }
+                mao.Remontar(form, list);
+                tabuleiro.AtualizarTabuleiro(PartidaID, this);
             }
         }
-        public void Mover(int pos, Peca peca)
+        public void Mover(int pos)
         {
             //
             //Botão para Andar para tras
@@ -96,12 +86,7 @@ namespace Cartagena___Soacha
             else
             {
                 mao.Remontar(form, list);//remontar a mao
-                retorno = retorno.Replace("\r", "");
-                string[] retornos = retorno.Split('\n');
-                retornos = retornos[retornos.Length - 2].Split(',');
-                int posicao = Convert.ToInt32(retornos[0]);
-
-                peca.Mover(jogador.cor, tabuleiro.casas, posicao);
+                tabuleiro.AtualizarTabuleiro(PartidaID, this);
             }
 
         }
