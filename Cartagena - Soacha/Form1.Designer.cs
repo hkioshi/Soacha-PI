@@ -37,12 +37,9 @@
             this.btnMudarStatus = new System.Windows.Forms.Button();
             this.cmbTipoPartida = new System.Windows.Forms.ComboBox();
             this.grpCreditos = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblCreditos = new System.Windows.Forms.Label();
             this.btnEntrar = new System.Windows.Forms.Button();
+            this.llblArtista = new System.Windows.Forms.LinkLabel();
             this.mnuCad.SuspendLayout();
             this.grpCreditos.SuspendLayout();
             this.SuspendLayout();
@@ -85,6 +82,8 @@
             // 
             // mnuCad
             // 
+            this.mnuCad.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("mnuCad.BackgroundImage")));
+            this.mnuCad.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.mnuCad.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.mnuCad.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.msiCadPartida});
@@ -134,62 +133,29 @@
             // 
             // grpCreditos
             // 
-            this.grpCreditos.Controls.Add(this.label5);
-            this.grpCreditos.Controls.Add(this.label3);
-            this.grpCreditos.Controls.Add(this.label2);
-            this.grpCreditos.Controls.Add(this.label1);
-            this.grpCreditos.Controls.Add(this.label4);
-            this.grpCreditos.Location = new System.Drawing.Point(12, 563);
+            this.grpCreditos.BackColor = System.Drawing.Color.Transparent;
+            this.grpCreditos.Controls.Add(this.lblCreditos);
+            this.grpCreditos.Font = new System.Drawing.Font("Monotype Corsiva", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpCreditos.Location = new System.Drawing.Point(12, 561);
             this.grpCreditos.Name = "grpCreditos";
-            this.grpCreditos.Size = new System.Drawing.Size(127, 98);
+            this.grpCreditos.Size = new System.Drawing.Size(162, 100);
             this.grpCreditos.TabIndex = 31;
             this.grpCreditos.TabStop = false;
             this.grpCreditos.Text = "Creditos";
             // 
-            // label5
+            // lblCreditos
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 79);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(76, 16);
-            this.label5.TabIndex = 36;
-            this.label5.Text = "Alessandra";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 16);
-            this.label1.TabIndex = 32;
-            this.label1.Text = "Henrique";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 63);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(89, 16);
-            this.label4.TabIndex = 35;
-            this.label4.Text = "Renato Jorge";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 31);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(85, 16);
-            this.label2.TabIndex = 33;
-            this.label2.Text = "Caio Troiano";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 47);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(91, 16);
-            this.label3.TabIndex = 34;
-            this.label3.Text = "Vinicius Viana";
+            this.lblCreditos.AutoSize = true;
+            this.lblCreditos.BackColor = System.Drawing.Color.Transparent;
+            this.lblCreditos.Font = new System.Drawing.Font("Monotype Corsiva", 7.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCreditos.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblCreditos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblCreditos.Location = new System.Drawing.Point(6, 18);
+            this.lblCreditos.Name = "lblCreditos";
+            this.lblCreditos.Size = new System.Drawing.Size(113, 75);
+            this.lblCreditos.TabIndex = 32;
+            this.lblCreditos.Text = "Henrique K . Yamauchi\r\nCaio Troiano\r\nVinicius Viana\r\nRenato Jorge\r\nAlessandra\r\n";
+            this.lblCreditos.Click += new System.EventHandler(this.lblCreditos_Click);
             // 
             // btnEntrar
             // 
@@ -203,11 +169,23 @@
             this.btnEntrar.Visible = false;
             this.btnEntrar.Click += new System.EventHandler(this.btnEntrar_Click);
             // 
+            // llblArtista
+            // 
+            this.llblArtista.AutoSize = true;
+            this.llblArtista.Location = new System.Drawing.Point(9, 528);
+            this.llblArtista.Name = "llblArtista";
+            this.llblArtista.Size = new System.Drawing.Size(0, 16);
+            this.llblArtista.TabIndex = 33;
+            // 
             // formsSoacha
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1062, 673);
+            this.Controls.Add(this.llblArtista);
             this.Controls.Add(this.btnEntrar);
             this.Controls.Add(this.grpCreditos);
             this.Controls.Add(this.cmbTipoPartida);
@@ -242,12 +220,9 @@
         private System.Windows.Forms.Button btnMudarStatus;
         private System.Windows.Forms.ComboBox cmbTipoPartida;
         private System.Windows.Forms.GroupBox grpCreditos;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblCreditos;
         private System.Windows.Forms.Button btnEntrar;
+        private System.Windows.Forms.LinkLabel llblArtista;
     }
 }
 

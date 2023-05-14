@@ -238,5 +238,10 @@ namespace Cartagena___Soacha
                 MessageBox.Show("Sem senha nem Jogador Selecionado");
             }
         }
+
+        private void lblCreditos_Click(object sender, EventArgs e)
+        {
+            llblArtista.Text = "Artista: Special Annon";
+        }
     }
 }
