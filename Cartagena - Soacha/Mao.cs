@@ -13,10 +13,11 @@ namespace Cartagena___Soacha
 {
     public class Mao
     {
-        public int nCartas;//Numero total de cartas
+        public int nCartas = 0;//Numero total de cartas
         public List<Carta> cartas = new List<Carta>();
         public void GerarCartas(string retorno, List<Image> list, Form2 form)
         {
+            nCartas = 0;
             retorno = retorno.Replace("\r", "");
             string[] cards = retorno.Split('\n');
 

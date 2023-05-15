@@ -183,6 +183,11 @@ namespace Cartagena___Soacha
                         if (jogs[0].cor == peca.cor)
                         {
                             form.pos = peca.Mover(peca.cor, casas, Convert.ToInt32(atualizar[4]));
+                            if(Convert.ToInt32(atualizar[4])> suporte.pecaMaisAfrente)
+                            {
+                                suporte.pecaMaisAfrente = Convert.ToInt32(atualizar[4]);
+                                
+                            }
                             turno++;
                             break;
                         }

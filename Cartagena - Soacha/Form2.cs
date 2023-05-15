@@ -38,6 +38,7 @@ namespace Cartagena___Soacha
         Mao mao = new Mao();//estancia a mao
         List<Image> list = new List<Image>();// Lista de imagens
         Suporte suporte;
+        Inteligencia inteligencia;
 
 
 
@@ -47,6 +48,7 @@ namespace Cartagena___Soacha
             //
             //Aqui vai colocar as imagens em uma lista e inicar o tabuleiro
             //
+            WindowState = FormWindowState.Maximized;
 
             string path = Directory.GetCurrentDirectory();//Colocar em Path o caminho C:\Users\2hkio\source\repos\Soacha-PI\Cartagena - Soacha\bin\Debug
 
@@ -70,7 +72,7 @@ namespace Cartagena___Soacha
             mao.GerarCartas(Jogo.ConsultarMao(idJogador, senha), list, this);//Cria as Cartas 
             suporte = new Suporte( idPartida,idJogador, mao, tab, senha, list, this);
             tab.GerarPecas(list, idJogador, suporte);//Cria as Peças
-            Inteligencia inteligencia = new Inteligencia(suporte);
+            inteligencia = new Inteligencia(suporte);
         }
 
         private void btnPularVez_Click(object sender, EventArgs e)
@@ -127,6 +129,8 @@ namespace Cartagena___Soacha
             //MessageBox.Show(Jogo.ExibirHistorico(idPartida));
             lblPos.Text = $"Posição: {Convert.ToString(pos)}";
             lblSimb.Text = $"Simbolo: {simb}";
+            inteligencia.Pensar(); 
+
 
 
 

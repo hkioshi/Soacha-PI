@@ -63,7 +63,7 @@
             this.lstGeral.Font = new System.Drawing.Font("Monotype Corsiva", 15.2F, System.Drawing.FontStyle.Italic);
             this.lstGeral.FormattingEnabled = true;
             this.lstGeral.ItemHeight = 29;
-            this.lstGeral.Location = new System.Drawing.Point(747, 94);
+            this.lstGeral.Location = new System.Drawing.Point(747, 93);
             this.lstGeral.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lstGeral.Name = "lstGeral";
             this.lstGeral.Size = new System.Drawing.Size(303, 265);
@@ -82,7 +82,7 @@
             // 
             // mnuCad
             // 
-            this.mnuCad.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("mnuCad.BackgroundImage")));
+            this.mnuCad.BackColor = System.Drawing.Color.Transparent;
             this.mnuCad.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.mnuCad.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.mnuCad.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {

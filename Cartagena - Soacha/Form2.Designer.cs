@@ -41,8 +41,10 @@
             // 
             // btnPularVez
             // 
+            this.btnPularVez.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPularVez.Font = new System.Drawing.Font("Monotype Corsiva", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPularVez.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnPularVez.Location = new System.Drawing.Point(1386, 855);
+            this.btnPularVez.Location = new System.Drawing.Point(1189, 574);
             this.btnPularVez.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnPularVez.Name = "btnPularVez";
             this.btnPularVez.Size = new System.Drawing.Size(154, 74);
@@ -53,8 +55,10 @@
             // 
             // btnAndarFrente
             // 
+            this.btnAndarFrente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAndarFrente.Font = new System.Drawing.Font("Monotype Corsiva", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAndarFrente.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnAndarFrente.Location = new System.Drawing.Point(1225, 855);
+            this.btnAndarFrente.Location = new System.Drawing.Point(1028, 574);
             this.btnAndarFrente.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnAndarFrente.Name = "btnAndarFrente";
             this.btnAndarFrente.Size = new System.Drawing.Size(154, 75);
@@ -65,9 +69,11 @@
             // 
             // btnAndarTras
             // 
+            this.btnAndarTras.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAndarTras.BackColor = System.Drawing.Color.Transparent;
+            this.btnAndarTras.Font = new System.Drawing.Font("Monotype Corsiva", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAndarTras.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnAndarTras.Location = new System.Drawing.Point(1063, 855);
+            this.btnAndarTras.Location = new System.Drawing.Point(866, 574);
             this.btnAndarTras.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnAndarTras.Name = "btnAndarTras";
             this.btnAndarTras.Size = new System.Drawing.Size(154, 75);
@@ -78,24 +84,28 @@
             // 
             // lblSimb
             // 
+            this.lblSimb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblSimb.AutoSize = true;
             this.lblSimb.BackColor = System.Drawing.Color.Transparent;
+            this.lblSimb.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSimb.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblSimb.Location = new System.Drawing.Point(1171, 817);
+            this.lblSimb.Location = new System.Drawing.Point(1001, 536);
             this.lblSimb.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSimb.Name = "lblSimb";
-            this.lblSimb.Size = new System.Drawing.Size(61, 20);
+            this.lblSimb.Size = new System.Drawing.Size(100, 34);
             this.lblSimb.TabIndex = 9;
             this.lblSimb.Text = "Simbolo:";
             // 
             // lblPos
             // 
+            this.lblPos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPos.AutoSize = true;
             this.lblPos.BackColor = System.Drawing.Color.Transparent;
-            this.lblPos.Location = new System.Drawing.Point(1061, 817);
+            this.lblPos.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPos.Location = new System.Drawing.Point(869, 536);
             this.lblPos.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblPos.Name = "lblPos";
-            this.lblPos.Size = new System.Drawing.Size(58, 20);
+            this.lblPos.Size = new System.Drawing.Size(97, 34);
             this.lblPos.TabIndex = 13;
             this.lblPos.Text = "Posição:";
             this.lblPos.Click += new System.EventHandler(this.lblPos_Click);
@@ -108,8 +118,9 @@
             // 
             // lblStatus
             // 
+            this.lblStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(1284, 817);
+            this.lblStatus.Location = new System.Drawing.Point(1087, 536);
             this.lblStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(0, 20);
@@ -120,9 +131,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1553, 941);
+            this.ClientSize = new System.Drawing.Size(1356, 660);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.lblPos);
             this.Controls.Add(this.lblSimb);

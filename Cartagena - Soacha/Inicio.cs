@@ -22,5 +22,15 @@ namespace Cartagena___Soacha
             formsSoacha f = new formsSoacha();
             f.ShowDialog();
         }
+
+        private void Inicio_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("EasterEgg(3/5)");
+        }
     }
 }

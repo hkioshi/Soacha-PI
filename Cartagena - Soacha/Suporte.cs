@@ -24,6 +24,7 @@ namespace Cartagena___Soacha
         public List<Image> list;
         public Form2 form;
         public bool vez = false;
+        public int pecaMaisAfrente = 0;
 
         public Suporte(int partidaId,int jogadorID, Mao mao, Tabuleiro tabuleiro, string senha, List<Image> list, Form2 form2)
         {
@@ -94,6 +95,6 @@ namespace Cartagena___Soacha
         public void Mover()
         {
             string retorno = Jogo.Jogar(PartidaID, senha);
-        }
+        }  
     }
 }
