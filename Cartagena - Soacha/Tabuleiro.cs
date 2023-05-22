@@ -81,7 +81,6 @@ namespace Cartagena___Soacha
                 }
                 else
                 {
-
                     DefY();
                 }
             }
@@ -132,8 +131,8 @@ namespace Cartagena___Soacha
     
 
 
-//gera as peças
-public void GerarPecas(List<Image> list, int idJogador, Suporte suporte)
+        //gera as peças
+        public void GerarPecas(List<Image> list, int idJogador, Suporte suporte)
         {
             string cor;
             foreach (Jogador jogador in jogadores)

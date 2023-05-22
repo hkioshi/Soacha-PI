@@ -47,6 +47,9 @@
             // btnListarPartidas
             // 
             this.btnListarPartidas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnListarPartidas.BackColor = System.Drawing.Color.Transparent;
+            this.btnListarPartidas.BackgroundImage = global::Cartagena___Soacha.Properties.Resources.madeira;
+            this.btnListarPartidas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnListarPartidas.Font = new System.Drawing.Font("Monotype Corsiva", 20F, System.Drawing.FontStyle.Italic);
             this.btnListarPartidas.Location = new System.Drawing.Point(886, 41);
             this.btnListarPartidas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -54,7 +57,7 @@
             this.btnListarPartidas.Size = new System.Drawing.Size(164, 48);
             this.btnListarPartidas.TabIndex = 0;
             this.btnListarPartidas.Text = "Listar Partidas";
-            this.btnListarPartidas.UseVisualStyleBackColor = true;
+            this.btnListarPartidas.UseVisualStyleBackColor = false;
             this.btnListarPartidas.Click += new System.EventHandler(this.btnListarPartidas_Click);
             // 
             // lstGeral

@@ -44,10 +44,10 @@
             this.btnPularVez.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPularVez.Font = new System.Drawing.Font("Monotype Corsiva", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPularVez.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnPularVez.Location = new System.Drawing.Point(1189, 574);
+            this.btnPularVez.Location = new System.Drawing.Point(1189, 556);
             this.btnPularVez.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnPularVez.Name = "btnPularVez";
-            this.btnPularVez.Size = new System.Drawing.Size(154, 74);
+            this.btnPularVez.Size = new System.Drawing.Size(154, 93);
             this.btnPularVez.TabIndex = 3;
             this.btnPularVez.Text = "Pular Vez";
             this.btnPularVez.UseVisualStyleBackColor = true;
@@ -58,10 +58,10 @@
             this.btnAndarFrente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAndarFrente.Font = new System.Drawing.Font("Monotype Corsiva", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAndarFrente.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnAndarFrente.Location = new System.Drawing.Point(1028, 574);
+            this.btnAndarFrente.Location = new System.Drawing.Point(1008, 556);
             this.btnAndarFrente.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnAndarFrente.Name = "btnAndarFrente";
-            this.btnAndarFrente.Size = new System.Drawing.Size(154, 75);
+            this.btnAndarFrente.Size = new System.Drawing.Size(173, 93);
             this.btnAndarFrente.TabIndex = 4;
             this.btnAndarFrente.Text = "Andar Para Frente";
             this.btnAndarFrente.UseVisualStyleBackColor = true;
@@ -73,10 +73,10 @@
             this.btnAndarTras.BackColor = System.Drawing.Color.Transparent;
             this.btnAndarTras.Font = new System.Drawing.Font("Monotype Corsiva", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAndarTras.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnAndarTras.Location = new System.Drawing.Point(866, 574);
+            this.btnAndarTras.Location = new System.Drawing.Point(822, 556);
             this.btnAndarTras.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnAndarTras.Name = "btnAndarTras";
-            this.btnAndarTras.Size = new System.Drawing.Size(154, 75);
+            this.btnAndarTras.Size = new System.Drawing.Size(178, 92);
             this.btnAndarTras.TabIndex = 5;
             this.btnAndarTras.Text = "Andar Para Tras";
             this.btnAndarTras.UseVisualStyleBackColor = false;
@@ -88,8 +88,8 @@
             this.lblSimb.AutoSize = true;
             this.lblSimb.BackColor = System.Drawing.Color.Transparent;
             this.lblSimb.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSimb.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblSimb.Location = new System.Drawing.Point(1001, 536);
+            this.lblSimb.ForeColor = System.Drawing.Color.Black;
+            this.lblSimb.Location = new System.Drawing.Point(1020, 519);
             this.lblSimb.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSimb.Name = "lblSimb";
             this.lblSimb.Size = new System.Drawing.Size(100, 34);
@@ -102,7 +102,8 @@
             this.lblPos.AutoSize = true;
             this.lblPos.BackColor = System.Drawing.Color.Transparent;
             this.lblPos.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPos.Location = new System.Drawing.Point(869, 536);
+            this.lblPos.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.lblPos.Location = new System.Drawing.Point(825, 519);
             this.lblPos.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblPos.Name = "lblPos";
             this.lblPos.Size = new System.Drawing.Size(97, 34);
@@ -120,7 +121,7 @@
             // 
             this.lblStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(1087, 536);
+            this.lblStatus.Location = new System.Drawing.Point(609, 602);
             this.lblStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(0, 20);
@@ -131,6 +132,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1356, 660);
             this.Controls.Add(this.lblStatus);
