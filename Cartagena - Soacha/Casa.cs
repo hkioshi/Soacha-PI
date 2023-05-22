@@ -33,7 +33,7 @@ namespace Cartagena___Soacha
             this.form = form;
         }
 
-        public void Montar(Form2 form, int x, int y, List<Image> list)
+        public void Montar(Form2 form, int x, int y,int fixo, List<Image> list)
         {
             //
             //Aqui vai fazer o painel e colocar as imagens
@@ -43,37 +43,38 @@ namespace Cartagena___Soacha
             newButton.Location = new Point(x, y);
             newButton.BorderStyle = BorderStyle.FixedSingle;
             newButton.BackgroundImageLayout = ImageLayout.Stretch;
+            newButton.BackColor = System.Drawing.Color.Transparent;
 
             //fundo
             switch (this.simbolo)
             {
                 case "F":
                     newButton.BackgroundImage = list[0];
-                    newButton.Size = new Size(50, 50);
+                    newButton.Size = new Size(fixo-20, fixo-20);
                     break;
                 case "P":
                     newButton.BackgroundImage = list[1];
-                    newButton.Size = new Size(50, 50);
+                    newButton.Size = new Size(fixo - 20, fixo - 20);
                     break;
                 case "T":
                     newButton.BackgroundImage = list[2];
-                    newButton.Size = new Size(50, 50);
+                    newButton.Size = new Size(fixo - 20, fixo - 20);
                     break;
                 case "C":
                     newButton.BackgroundImage = list[3];
-                    newButton.Size = new Size(50, 50);
+                    newButton.Size = new Size(fixo - 20, fixo - 20);
                     break;
                 case "G":
                     newButton.BackgroundImage = list[4];
-                    newButton.Size = new Size(50, 50);
+                    newButton.Size = new Size(fixo - 20, fixo - 20);
                     break;
                 case "E":
                     newButton.BackgroundImage = list[5];
-                    newButton.Size = new Size(50, 50);
+                    newButton.Size = new Size(fixo - 20, fixo - 20);
                     break;
                 case "inicio":
                     newButton.BackColor = Color.Aqua;
-                    newButton.Size = new Size(50, 50);
+                    newButton.Size = new Size(fixo - 20, fixo - 20);
                     break;
                 case "barco":
                     newButton.BackColor = Color.Brown;

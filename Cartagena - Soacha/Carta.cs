@@ -37,6 +37,7 @@ namespace Cartagena___Soacha
             newPanel.BackgroundImageLayout = ImageLayout.Stretch;
             newPanel.Click += new System.EventHandler(this.SelecionarSimbolo);
             newPanel.BorderStyle = BorderStyle.FixedSingle;
+            newPanel.BackColor = System.Drawing.Color.Transparent;
             newPanel.BringToFront();
 
             //fundo do painel

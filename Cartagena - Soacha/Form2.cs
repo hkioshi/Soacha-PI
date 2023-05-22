@@ -131,9 +131,6 @@ namespace Cartagena___Soacha
             lblSimb.Text = $"Simbolo: {simb}";
             inteligencia.Pensar(); 
 
-
-
-
         }
 
         private void label1_Click(object sender, EventArgs e)

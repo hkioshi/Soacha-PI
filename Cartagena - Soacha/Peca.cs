@@ -13,6 +13,7 @@ namespace Cartagena___Soacha
 {
     public class Peca
     {
+        int fixo = 30;
         public string cor;
         public int casa;
         public Panel newPanel;
@@ -32,40 +33,37 @@ namespace Cartagena___Soacha
         {
             newPanel = new Panel();
             form.Controls.Add(newPanel);
-            newPanel.Size = new Size(20, 20);
+            newPanel.Size = new Size(fixo, fixo);
             newPanel.BackgroundImageLayout = ImageLayout.Stretch;
             newPanel.BringToFront();
             newPanel.Click += new System.EventHandler(this.VerPos);
+            newPanel.BackColor = System.Drawing.Color.Transparent;
 
             switch (cores)
             {
                 case "Vermelho":
                     newPanel.BackgroundImage = list[6];
                     newPanel.Location = new Point(x, y);
+                    
                     break;
                 case "Verde":
                     newPanel.BackgroundImage = list[10];
-                    newPanel.Location = new Point(x + 30, y);
+                    newPanel.Location = new Point(x + fixo +10 , y);
                     break;
                 case "Amarelo":
                     newPanel.BackgroundImage = list[7];
-                    newPanel.Location = new Point(x, y + 30);
+                    newPanel.Location = new Point(x, fixo + 10);
                     break;
                 case "Azul":
                     newPanel.BackgroundImage = list[8];
-                    newPanel.Location = new Point(x + 30, y + 30);
+                    newPanel.Location = new Point(x+ fixo + 10, fixo + 10);
                     break;
                 case "Marrom":
                     newPanel.BackgroundImage = list[9];
-                    newPanel.Location = new Point(x + 15, y + 15);
+                    newPanel.Location = new Point(x + fixo/2+10, fixo/2+10);
                     break;
             }
-
-
-
-
         }
-
         //
         //Move as peças pra frente e pra tras
         //
@@ -82,8 +80,13 @@ namespace Cartagena___Soacha
                         casas[casa].numeroDePecas -= 1;
                         casas[casa].pecas.Remove(this);
                         this.casa = pos;
+
+                        //Muda Numero de peças na casa
                         casas[casa].numeroDePecas += 1;
                         casas[casa].pecas.Add(this);
+                        newPanel.BringToFront();
+
+
 
                         return casa;
                     case "Verde":
@@ -92,8 +95,13 @@ namespace Cartagena___Soacha
                         casas[casa].numeroDePecas -= 1;
                         casas[casa].pecas.Remove(this);
                         this.casa = pos;
+
+                        //Muda Numero de peças na casa
                         casas[casa].numeroDePecas += 1;
                         casas[casa].pecas.Add(this);
+                        newPanel.BringToFront();
+
+
 
                         return casa;
                     case "Amarelo":
@@ -102,18 +110,26 @@ namespace Cartagena___Soacha
                         casas[casa].numeroDePecas -= 1;
                         casas[casa].pecas.Remove(this);
                         this.casa = pos;
+
+                        //Muda Numero de peças na casa
                         casas[casa].numeroDePecas += 1;
                         casas[casa].pecas.Add(this);
+                        newPanel.BringToFront();
+
 
                         return casa;
-                    case "Azul":
+                    case "Azul": 
                         a = casas[pos].newButton.Location.X; b = casas[pos].newButton.Location.Y;
                         this.newPanel.Location = new Point(a + 30, b + 30);//canto inferior direito
                         casas[casa].numeroDePecas -= 1;
                         casas[casa].pecas.Remove(this);
                         this.casa = pos;
+                        newPanel.BringToFront();
+
+                        //Muda Numero de peças na casa
                         casas[casa].numeroDePecas += 1;
                         casas[casa].pecas.Add(this);
+                        newPanel.BringToFront();
 
                         return casa;
 
@@ -123,9 +139,11 @@ namespace Cartagena___Soacha
                         casas[casa].numeroDePecas -= 1;
                         casas[casa].pecas.Remove(this);
                         this.casa = pos;
+
+                        //Muda Numero de peças na casa
                         casas[casa].numeroDePecas += 1;
                         casas[casa].pecas.Add(this);
-
+                        newPanel.BringToFront();
                         return casa;
 
                 }

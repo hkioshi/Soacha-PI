@@ -73,6 +73,7 @@
             // lblStatus
             // 
             this.lblStatus.AutoSize = true;
+            this.lblStatus.BackColor = System.Drawing.Color.Transparent;
             this.lblStatus.Font = new System.Drawing.Font("Monotype Corsiva", 19.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStatus.Location = new System.Drawing.Point(12, 49);
             this.lblStatus.Name = "lblStatus";

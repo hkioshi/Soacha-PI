@@ -49,6 +49,7 @@ namespace Cartagena___Soacha
                     cor = cor.Replace("\r", "");
                     cor = cor.Replace("\n", "");
                     form.cor = cor;
+                    
                     form.Retorno();
                     this.Close();
                 }
