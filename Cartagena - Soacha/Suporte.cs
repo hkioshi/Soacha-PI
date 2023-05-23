@@ -111,8 +111,9 @@ namespace Cartagena___Soacha
             cartas = new string[cards.Length - 1,2];
             for(int i = 0; i<cards.Length-1; i++) 
             {
-                cartas[i, 0] = cards[0];
-                cartas[i, 1] = cards[1];
+                string[] aux = cards[i].Split(',');
+                cartas[i, 0] = aux[0];
+                cartas[i, 1] = aux[1];
             }
         }
 
