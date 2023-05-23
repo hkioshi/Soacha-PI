@@ -25,6 +25,8 @@ namespace Cartagena___Soacha
         public Form2 form;
         public bool vez = false;
         public int pecaMaisAfrente = 0;
+        public int cartasNaMao;
+        public string[,] cartas ;
 
         public Suporte(int partidaId,int jogadorID, Mao mao, Tabuleiro tabuleiro, string senha, List<Image> list, Form2 form2)
         {
@@ -35,6 +37,9 @@ namespace Cartagena___Soacha
             this.list = list;
             this.form = form2;
             this.PartidaID = partidaId;
+            this.cartasNaMao = mao.nCartas;
+            DefCartas();
+
         }
 
         public void Jogador(Jogador jogador)
@@ -96,5 +101,24 @@ namespace Cartagena___Soacha
         {
             string retorno = Jogo.Jogar(PartidaID, senha);
         }  
+
+        public void DefCartas()
+        {
+            string retorno = Jogo.ConsultarMao(jogadorID, senha);
+            retorno = retorno.Replace("\r", "");
+            
+            string[] cards = retorno.Split('\n');
+            cartas = new string[cards.Length - 1,2];
+            for(int i = 0; i<cards.Length-1; i++) 
+            {
+                cartas[i, 0] = cards[0];
+                cartas[i, 1] = cards[1];
+            }
+        }
+
+        public void DefPecas()
+        {
+
+        }
     }
 }

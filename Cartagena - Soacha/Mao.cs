@@ -20,7 +20,7 @@ namespace Cartagena___Soacha
             nCartas = 0;
             retorno = retorno.Replace("\r", "");
             string[] cards = retorno.Split('\n');
-
+            
             //Este for serve para definir o numero de cartas que tem na mao
             for(int i= 0; i < cards.Length -1;i++) 
             {
