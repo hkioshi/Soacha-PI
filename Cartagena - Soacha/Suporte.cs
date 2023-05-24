@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace Cartagena___Soacha
 {
@@ -27,6 +28,8 @@ namespace Cartagena___Soacha
         public int pecaMaisAfrente = 0;
         public int cartasNaMao;
         public string[,] cartas ;
+        public string[] pecas;
+        public int turno = 1;
 
         public Suporte(int partidaId,int jogadorID, Mao mao, Tabuleiro tabuleiro, string senha, List<Image> list, Form2 form2)
         {
@@ -53,15 +56,6 @@ namespace Cartagena___Soacha
 
         }
 
-
-        public void Pular()
-        {
-            //
-            //Botão para Pular Vez
-            //
-            Jogo.Jogar(jogadorID, senha);
-        }
-
         public void Mover(int pos, string simb)
         {
             //
@@ -77,6 +71,10 @@ namespace Cartagena___Soacha
             {
                 mao.Remontar(form, list);
                 tabuleiro.AtualizarTabuleiro(PartidaID, this);
+                if (turno < 3)
+                    turno++;
+                else
+                    turno = 1;
             }
         }
         public void Mover(int pos)
@@ -93,6 +91,10 @@ namespace Cartagena___Soacha
             {
                 mao.Remontar(form, list);//remontar a mao
                 tabuleiro.AtualizarTabuleiro(PartidaID, this);
+                if (turno < 3)
+                    turno++;
+                else
+                    turno = 1;
             }
 
         }
@@ -100,6 +102,10 @@ namespace Cartagena___Soacha
         public void Mover()
         {
             string retorno = Jogo.Jogar(PartidaID, senha);
+            if (turno < 3)
+                turno++;
+            else
+                turno = 1;
         }  
 
         public void DefCartas()
@@ -119,7 +125,32 @@ namespace Cartagena___Soacha
 
         public void DefPecas()
         {
+            int total = 0;
+            string retorno = Jogo.VerificarVez(PartidaID);
+            retorno.Replace("\r", "");
+            string[] aux = retorno.Split('\n');
+            string[] pos = aux.Where(lolo => lolo.Contains(Convert.ToString(jogadorID))).ToArray();
+            pecas = new string[6];
 
+            while(total < 6)
+            {
+                
+            }
+
+        }
+
+        public string CartaCmMaisCopias()
+        {
+            int s = 0;
+            string sf = "";
+            for (int i = 0; i < 6; i++)
+            {
+                if (Convert.ToInt32(cartas[i, 1]) > s)
+                {
+                    sf = cartas[i, 0];
+                }
+            }
+            return sf;
         }
     }
 }

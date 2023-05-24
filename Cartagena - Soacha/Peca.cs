@@ -86,8 +86,6 @@ namespace Cartagena___Soacha
                         casas[casa].pecas.Add(this);
                         newPanel.BringToFront();
 
-
-
                         return casa;
                     case "Verde":
                         a = casas[pos].newButton.Location.X; b = casas[pos].newButton.Location.Y;

@@ -25,7 +25,16 @@ namespace Cartagena___Soacha
 
         public void Pensar()
         {
-            
+            string s = "s";
+            string copias;
+           for(int i = 0; i < 6; i++) 
+            {
+                if (Convert.ToInt32(suporte.cartas[i,1]) > 2)
+                {
+                    s = suporte.cartas[i,0];
+                }
+
+            }
             
         }
     }

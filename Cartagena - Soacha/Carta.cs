@@ -19,6 +19,7 @@ namespace Cartagena___Soacha
         public Form2 form2 { get; set; }//form
         public Panel newPanel = new Panel();//painel
 
+
         public Carta(Form2 form,string simbolou)//construtor
         {
             form2 = form;
