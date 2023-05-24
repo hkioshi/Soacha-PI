@@ -128,15 +128,26 @@ namespace Cartagena___Soacha
         public void DefPecas()
         {
             int total = 0;
+            int copias;
             string retorno = Jogo.VerificarVez(PartidaID);
             retorno.Replace("\r", "");
             string[] aux = retorno.Split('\n');
             string[] pos = aux.Where(lolo => lolo.Contains(Convert.ToString(jogadorID))).ToArray();
             pecas = new string[6];
-
+            
             while(total < 6)
             {
-                
+                copias = pos.Length;
+                for(int i = 0; i<copias;i++)
+                {
+                    string[] a = pos[i].Split(',');
+                    for (int j = 0; j < Convert.ToInt32(a[2]);i++)
+                    {
+                        pecas[total] = a[0];
+                        total++;
+                    }
+
+                }
             }
 
         }
