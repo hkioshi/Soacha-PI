@@ -13,10 +13,11 @@ namespace Cartagena___Soacha
         Suporte suporte;
         int turno = 1 ;
         int contador = 0;
-        bool movimentoInicial = false;
-        bool compraDeCartas;
+        bool movimentoInicial = true;
+        bool compraDeCartas = false;
+        string[] cartaComMaisCopias;
 
-         
+
         public Inteligencia(Suporte suporte) 
         {
             this.suporte = suporte;
@@ -25,15 +26,26 @@ namespace Cartagena___Soacha
 
         public void Pensar()
         {
-            string s = "s";
-            string copias;
-           for(int i = 0; i < 6; i++) 
+            if(suporte.vez)
             {
-                if (Convert.ToInt32(suporte.cartas[i,1]) > 2)
+                if(movimentoInicial) 
                 {
-                    s = suporte.cartas[i,0];
+                    if(turno== 1)
+                    {
+                        cartaComMaisCopias = suporte.CartaCmMaisCopias();
+                        suporte.Mover();
+                    }
                 }
+                if (suporte.mao.nCartas > 3 && !compraDeCartas)
+                {
 
+                     cartaComMaisCopias = suporte.CartaCmMaisCopias();
+
+                }
+                else
+                {
+                    
+                }
             }
             
         }

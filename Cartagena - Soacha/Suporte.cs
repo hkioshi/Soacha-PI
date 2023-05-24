@@ -30,6 +30,7 @@ namespace Cartagena___Soacha
         public string[,] cartas ;
         public string[] pecas;
         public int turno = 1;
+        int s;
 
         public Suporte(int partidaId,int jogadorID, Mao mao, Tabuleiro tabuleiro, string senha, List<Image> list, Form2 form2)
         {
@@ -114,6 +115,7 @@ namespace Cartagena___Soacha
             retorno = retorno.Replace("\r", "");
             
             string[] cards = retorno.Split('\n');
+            s = cards.Length - 1;
             cartas = new string[cards.Length - 1,2];
             for(int i = 0; i<cards.Length-1; i++) 
             {
@@ -139,15 +141,17 @@ namespace Cartagena___Soacha
 
         }
 
-        public string CartaCmMaisCopias()
+        public string[] CartaCmMaisCopias()
         {
             int s = 0;
-            string sf = "";
-            for (int i = 0; i < 6; i++)
+            string[] sf = new string[2];
+            for (int i = 0; i < s; i++)
             {
                 if (Convert.ToInt32(cartas[i, 1]) > s)
                 {
-                    sf = cartas[i, 0];
+                    sf[0] = cartas[i, 0];
+                    sf[1] = cartas[i, 1];
+
                 }
             }
             return sf;
