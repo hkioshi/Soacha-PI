@@ -118,6 +118,10 @@ namespace Cartagena___Soacha
             if(dest == 37)
             {
                 pecasEmJogo--;
+                if(pecasEmJogo == 0)
+                {
+                    form.End();
+                }
             }
             int i = 0;
             foreach(string s in pecas)
@@ -180,15 +184,15 @@ namespace Cartagena___Soacha
 
         public string[] CartaCmMaisCopias()
         {
-            int s = 0;
+            int q= 0;
             string[] sf = new string[2];
             for (int i = 0; i < s; i++)
             {
-                if (Convert.ToInt32(cartas[i, 1]) > s)
+                if (Convert.ToInt32(cartas[i, 1]) > q)
                 {
                     sf[0] = cartas[i, 0];
                     sf[1] = cartas[i, 1];
-
+                    q = Convert.ToInt32(cartas[i, 1]);
                 }
             }
             return sf;
@@ -196,14 +200,15 @@ namespace Cartagena___Soacha
 
         public string[] CartaCmMenosCopias()
         {
-            int s = 10000;
+            int q = 100;
             string[] sf = new string[2];
             for (int i = 0; i < s; i++)
             {
-                if (Convert.ToInt32(cartas[i, 1]) < s)
+                if (Convert.ToInt32(cartas[i, 1]) < q)
                 {
                     sf[0] = cartas[i, 0];
                     sf[1] = cartas[i, 1];
+                    q = Convert.ToInt32(cartas[i, 1]);
 
                 }
             }

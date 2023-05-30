@@ -147,6 +147,14 @@ namespace Cartagena___Soacha
         {
             lblSimb.Text = $"Simbolo: {simb}";
         }
+
+        public void End()
+        {
+
+            tmrJogo.Stop();
+            MessageBox.Show("Fim De jogo");
+            this.Close();
+        }
     }
 
 }
