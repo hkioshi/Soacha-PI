@@ -31,6 +31,7 @@ namespace Cartagena___Soacha
         public string[] pecas;
         public int turno = 1;
         int s;
+        public int pecasEmJogo = 6;
 
         public Suporte(int partidaId,int jogadorID, Mao mao, Tabuleiro tabuleiro, string senha, List<Image> list, Form2 form2)
         {
@@ -114,8 +115,18 @@ namespace Cartagena___Soacha
 
         public void Atualizar(int pos, int dest)
         {
-            int a = Array.IndexOf(pecas, pos);
-            pecas[a] = dest.ToString();
+            if(dest == 37)
+            {
+                pecasEmJogo--;
+            }
+            int i = 0;
+            foreach(string s in pecas)
+            {
+                if (s == Convert.ToString(pos))
+                    pecas[Convert.ToInt32(i)] = Convert.ToString(dest);
+                i++;
+                break;
+            }
             Array.Sort(pecas);
         }
 
@@ -174,6 +185,22 @@ namespace Cartagena___Soacha
             for (int i = 0; i < s; i++)
             {
                 if (Convert.ToInt32(cartas[i, 1]) > s)
+                {
+                    sf[0] = cartas[i, 0];
+                    sf[1] = cartas[i, 1];
+
+                }
+            }
+            return sf;
+        }
+
+        public string[] CartaCmMenosCopias()
+        {
+            int s = 10000;
+            string[] sf = new string[2];
+            for (int i = 0; i < s; i++)
+            {
+                if (Convert.ToInt32(cartas[i, 1]) < s)
                 {
                     sf[0] = cartas[i, 0];
                     sf[1] = cartas[i, 1];
