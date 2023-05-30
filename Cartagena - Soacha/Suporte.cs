@@ -43,6 +43,7 @@ namespace Cartagena___Soacha
             this.PartidaID = partidaId;
             this.cartasNaMao = mao.nCartas;
             DefCartas();
+            DefPecas();
 
         }
 
@@ -71,11 +72,12 @@ namespace Cartagena___Soacha
             else
             {
                 mao.Remontar(form, list);
-                tabuleiro.AtualizarTabuleiro(PartidaID, this);
+                Atualizar(pos, Convert.ToInt32(tabuleiro.AtualizarTabuleiro(PartidaID, this)));
                 if (turno < 3)
                     turno++;
                 else
                     turno = 1;
+                DefCartas();
             }
         }
         public void Mover(int pos)
@@ -91,11 +93,12 @@ namespace Cartagena___Soacha
             else
             {
                 mao.Remontar(form, list);//remontar a mao
-                tabuleiro.AtualizarTabuleiro(PartidaID, this);
+                Atualizar(pos,Convert.ToInt32( tabuleiro.AtualizarTabuleiro(PartidaID, this)));
                 if (turno < 3)
                     turno++;
                 else
                     turno = 1;
+                DefCartas();
             }
 
         }
@@ -107,7 +110,14 @@ namespace Cartagena___Soacha
                 turno++;
             else
                 turno = 1;
-        }  
+          }  
+
+        public void Atualizar(int pos, int dest)
+        {
+            int a = Array.IndexOf(pecas, pos);
+            pecas[a] = dest.ToString();
+            Array.Sort(pecas);
+        }
 
         public void DefCartas()
         {
@@ -122,7 +132,10 @@ namespace Cartagena___Soacha
                 string[] aux = cards[i].Split(',');
                 cartas[i, 0] = aux[0];
                 cartas[i, 1] = aux[1];
+
             }
+            
+            
         }
 
         public void DefPecas()
@@ -132,16 +145,16 @@ namespace Cartagena___Soacha
             string retorno = Jogo.VerificarVez(PartidaID);
             retorno.Replace("\r", "");
             string[] aux = retorno.Split('\n');
-            string[] pos = aux.Where(lolo => lolo.Contains(Convert.ToString(jogadorID))).ToArray();
+            string[] pos = aux.Where(temp => temp.Contains(Convert.ToString(jogadorID))).ToArray();
             pecas = new string[6];
-            
-            while(total < 6)
+            copias = pos.Length;
+
+            while (total < 6)
             {
-                copias = pos.Length;
-                for(int i = 0; i<copias;i++)
+                for(int i = 1; i<copias;i++)
                 {
                     string[] a = pos[i].Split(',');
-                    for (int j = 0; j < Convert.ToInt32(a[2]);i++)
+                    for (int j = 0; j < Convert.ToInt32(a[2]);j++)
                     {
                         pecas[total] = a[0];
                         total++;
@@ -149,6 +162,8 @@ namespace Cartagena___Soacha
 
                 }
             }
+            Array.Sort(pecas);
+
 
         }
 

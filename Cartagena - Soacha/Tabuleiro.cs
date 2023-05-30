@@ -186,7 +186,6 @@ namespace Cartagena___Soacha
             retorno = retorno.Replace("\r", "");
             string[] retornos = retorno.Split('\n');
             retornos = retornos[0].Split(',');
-
             foreach (Jogador jogador in jogadores)
             {
                 if (Convert.ToInt32(retornos[1]) == jogadorId)
@@ -209,8 +208,9 @@ namespace Cartagena___Soacha
 
         }
 
-        public void AtualizarTabuleiro(int idPartida, Suporte suporte)
+        public string AtualizarTabuleiro(int idPartida, Suporte suporte)
         {
+            int ret;
             string retorno = Jogo.ExibirHistorico(idPartida);
             retorno = retorno.Replace("\r", "");
             string[] retorno1 = retorno.Split('\n');
@@ -225,9 +225,10 @@ namespace Cartagena___Soacha
                     {
                         if (jogs[0].cor == peca.cor)
                         {
-                            suporte.pecaMaisAfrente = peca.Mover(peca.cor, casas, Convert.ToInt32(atualizar[4]));
+                            ret = peca.Mover(peca.cor, casas, Convert.ToInt32(atualizar[4]));
+                            suporte.pecaMaisAfrente = ret;
                             turno++;
-                            break;
+                            return ret.ToString();
                         }
                     }
                     break;
@@ -238,6 +239,7 @@ namespace Cartagena___Soacha
                 }
 
             }
+            return "erro";
 
             /*
             string retorno = Jogo.VerificarVez(idPartida);
