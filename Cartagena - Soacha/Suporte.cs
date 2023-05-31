@@ -1,5 +1,6 @@
 ﻿using CartagenaServer;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -33,6 +34,7 @@ namespace Cartagena___Soacha
         public int turno = 1;
         int s;
         public int pecasEmJogo = 6;
+        int cont;
 
         public Suporte(int partidaId,int jogadorID, Mao mao, Tabuleiro tabuleiro, string senha, List<Image> list, Form2 form2)
         {
@@ -146,13 +148,17 @@ namespace Cartagena___Soacha
             {
                 if (pecas[i] != 37)
                 {
-                    var lista = pecas.ToList(); // cria um objeto do tipo List<string> a partir do vetor
-                    lista.RemoveAt(i); // remove o item na posição 1
-                    pecas = lista.ToArray(); // recria o vetor a partir da lista
+                    pecaMaisAfrente = Convert.ToInt32(pecas[i]);
                     ok = false;
                 }
                 else
+                {
+                    var lista = pecas.ToList(); // cria um objeto do tipo List<string> a partir do vetor
+                    lista.RemoveAt(i); // remove o item na posição 1
+                    pecas = lista.ToArray(); // recria o vetor a partir da lista
                     i--;
+                }
+                    
                 if (i == -1)
                     form.End();
             }

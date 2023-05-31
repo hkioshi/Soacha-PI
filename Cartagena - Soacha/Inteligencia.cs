@@ -81,7 +81,7 @@ namespace Cartagena___Soacha
 
         public void Compra()
         {
-            suporte.Mover(suporte.pecas.Last());
+            suporte.Mover(suporte.pecaMaisAfrente);
         }
 
     }
