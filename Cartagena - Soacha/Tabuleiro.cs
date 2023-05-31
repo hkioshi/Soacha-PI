@@ -226,7 +226,6 @@ namespace Cartagena___Soacha
                         if (jogs[0].cor == peca.cor)
                         {
                             ret = peca.Mover(peca.cor, casas, Convert.ToInt32(atualizar[4]));
-                            suporte.pecaMaisAfrente = ret;
                             turno++;
                             return ret.ToString();
                         }

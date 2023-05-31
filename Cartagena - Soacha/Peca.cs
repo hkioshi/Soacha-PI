@@ -42,24 +42,24 @@ namespace Cartagena___Soacha
             switch (cores)
             {
                 case "Vermelho":
-                    newPanel.BackgroundImage = list[6];
+                    newPanel.BackgroundImage = list[0];
                     newPanel.Location = new Point(x, y);
                     
                     break;
                 case "Verde":
-                    newPanel.BackgroundImage = list[10];
+                    newPanel.BackgroundImage = list[3];
                     newPanel.Location = new Point(x + fixo +10 , y);
                     break;
                 case "Amarelo":
-                    newPanel.BackgroundImage = list[7];
+                    newPanel.BackgroundImage = list[6];
                     newPanel.Location = new Point(x, fixo + 10);
                     break;
                 case "Azul":
-                    newPanel.BackgroundImage = list[8];
+                    newPanel.BackgroundImage = list[9];
                     newPanel.Location = new Point(x+ fixo + 10, fixo + 10);
                     break;
                 case "Marrom":
-                    newPanel.BackgroundImage = list[9];
+                    newPanel.BackgroundImage = list[12];
                     newPanel.Location = new Point(x + fixo/2+10, fixo/2+10);
                     break;
             }

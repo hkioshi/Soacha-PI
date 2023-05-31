@@ -9,6 +9,7 @@ using System.Dynamic;
 using System.IO;
 using System.Linq;
 using System.Media;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -37,6 +38,7 @@ namespace Cartagena___Soacha
         public Peca peca = null;//peça selecionada
         Mao mao = new Mao();//estancia a mao
         List<Image> list = new List<Image>();// Lista de imagens
+        List<Image> listP = new List<Image>();
         Suporte suporte;
         Inteligencia inteligencia;
 
@@ -59,11 +61,22 @@ namespace Cartagena___Soacha
             list.Add(Image.FromFile($"{path}\\imagens\\KeyStatic.png"));//Chave
             list.Add(Image.FromFile($"{path}\\imagens\\RumStatic.png"));//Garrafa
             list.Add(Image.FromFile($"{path}\\imagens\\SkullStatic.png"));//Caveira
-            list.Add(Image.FromFile($"{path}\\imagens\\Thing.png"));//Peça 1
-            list.Add(Image.FromFile($"{path}\\imagens\\Thing2.png"));//Peça 2
-            list.Add(Image.FromFile($"{path}\\imagens\\Thing3AndKnuckles.png"));//Peça 3
-            list.Add(Image.FromFile($"{path}\\imagens\\ThingAdventure.png"));//Peça 4
-            list.Add(Image.FromFile($"{path}\\imagens\\ThingCD.png"));//Peça 5              
+
+            listP.Add(Image.FromFile($"{path}\\pecas\\PAR1.png"));//Peça 1A
+            listP.Add(Image.FromFile($"{path}\\pecas\\PAR2.png"));//Peça 1B
+            listP.Add(Image.FromFile($"{path}\\pecas\\PAR3.png"));//Peça 1C
+            listP.Add(Image.FromFile($"{path}\\pecas\\PBR1.png"));//Peça 2A
+            listP.Add(Image.FromFile($"{path}\\pecas\\PBR2.png"));//Peça 2B
+            listP.Add(Image.FromFile($"{path}\\pecas\\PBR3.png"));//Peça 2C
+            listP.Add(Image.FromFile($"{path}\\pecas\\PCR1.png"));//Peça 3A
+            listP.Add(Image.FromFile($"{path}\\pecas\\PCR2.png"));//Peça 3B
+            listP.Add(Image.FromFile($"{path}\\pecas\\PCR3.png"));//Peça 3C
+            listP.Add(Image.FromFile($"{path}\\pecas\\PDR1.png"));//Peça 4A
+            listP.Add(Image.FromFile($"{path}\\pecas\\PDR2.png"));//Peça 4B
+            listP.Add(Image.FromFile($"{path}\\pecas\\PDR3.png"));//Peça 4C
+            listP.Add(Image.FromFile($"{path}\\pecas\\PER1.png"));//Peça 5A  
+            listP.Add(Image.FromFile($"{path}\\pecas\\PER2.png"));//Peça 5B
+            listP.Add(Image.FromFile($"{path}\\pecas\\PER3.png"));//Peça 5C  
 
 
             tab = new Tabuleiro(this);//Cria tabuleiro
@@ -71,7 +84,7 @@ namespace Cartagena___Soacha
             tab.GerarTabuleiro(Jogo.ExibirTabuleiro(idPartida), list);//Cria o Tabuleiro
              mao.GerarCartas(Jogo.ConsultarMao(idJogador, senha), list, this);//Cria as Cartas 
             suporte = new Suporte( idPartida,idJogador, mao, tab, senha, list, this);
-            tab.GerarPecas(list, idJogador, suporte);//Cria as Peças
+            tab.GerarPecas(listP, idJogador, suporte);//Cria as Peças
             inteligencia = new Inteligencia(suporte);
         }
 

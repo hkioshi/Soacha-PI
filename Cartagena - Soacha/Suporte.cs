@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net.Mail;
 using System.Runtime.ConstrainedExecution;
@@ -28,7 +29,7 @@ namespace Cartagena___Soacha
         public int pecaMaisAfrente = 0;
         public int cartasNaMao;
         public string[,] cartas ;
-        public string[] pecas;
+        public int[] pecas;
         public int turno = 1;
         int s;
         public int pecasEmJogo = 6;
@@ -73,6 +74,7 @@ namespace Cartagena___Soacha
             else
             {
                 mao.Remontar(form, list);
+                Array.Sort(pecas);
                 Atualizar(pos, Convert.ToInt32(tabuleiro.AtualizarTabuleiro(PartidaID, this)));
                 if (turno < 3)
                     turno++;
@@ -94,6 +96,7 @@ namespace Cartagena___Soacha
             else
             {
                 mao.Remontar(form, list);//remontar a mao
+                Array.Sort(pecas);
                 Atualizar(pos,Convert.ToInt32( tabuleiro.AtualizarTabuleiro(PartidaID, this)));
                 if (turno < 3)
                     turno++;
@@ -117,6 +120,7 @@ namespace Cartagena___Soacha
         {
             if(dest == 37)
             {
+
                 pecasEmJogo--;
                 if(pecasEmJogo == 0)
                 {
@@ -124,14 +128,34 @@ namespace Cartagena___Soacha
                 }
             }
             int i = 0;
-            foreach(string s in pecas)
+            foreach(int s in pecas)
             {
-                if (s == Convert.ToString(pos))
-                    pecas[Convert.ToInt32(i)] = Convert.ToString(dest);
-                i++;
-                break;
+                if (s == pos)
+                {
+                    pecas[i] = dest;
+                    break;
+                }  
+                else
+                    i++;
+                
             }
             Array.Sort(pecas);
+            i = 5;
+            bool ok = true;
+            while(ok)
+            {
+                if (pecas[i] != 37)
+                {
+                    pecaMaisAfrente = Convert.ToInt32(pecas[i]);
+                    ok = false;
+                }
+                else
+                    i--;
+                if (i == -1)
+                    form.End();
+            }
+
+            
         }
 
         public void DefCartas()
@@ -161,7 +185,7 @@ namespace Cartagena___Soacha
             retorno.Replace("\r", "");
             string[] aux = retorno.Split('\n');
             string[] pos = aux.Where(temp => temp.Contains(Convert.ToString(jogadorID))).ToArray();
-            pecas = new string[6];
+            pecas = new int[6];
             copias = pos.Length;
 
             while (total < 6)
@@ -171,7 +195,7 @@ namespace Cartagena___Soacha
                     string[] a = pos[i].Split(',');
                     for (int j = 0; j < Convert.ToInt32(a[2]);j++)
                     {
-                        pecas[total] = a[0];
+                        pecas[total] = Convert.ToInt32(a[0]);
                         total++;
                     }
 

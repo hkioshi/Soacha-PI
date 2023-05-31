@@ -11,10 +11,7 @@ namespace Cartagena___Soacha
     public class Inteligencia
     {
         Suporte suporte;
-        int turno = 1 ;
-        int contador = 0;
-        bool movimentoInicial = true;
-        bool compraDeCartas = false;
+        
         string[] cartaComMaisCopias, cartaComMenosCopias;
 
 
@@ -26,60 +23,58 @@ namespace Cartagena___Soacha
 
         public void Pensar()
         {
+            
             if (suporte.vez)
             {
-                if (movimentoInicial)
+                if ( suporte.mao.nCartas < 4)
                 {
-                    if (turno == 1)
-                    {
-                        cartaComMaisCopias = suporte.CartaCmMaisCopias();
-                        cartaComMenosCopias = suporte.CartaCmMenosCopias();
-                        suporte.Mover(suporte.pecaMaisAfrente, cartaComMenosCopias[0]);
-                        movimentoInicial = false;
-                    }
+                    Compra();
                 }
-                if (suporte.mao.nCartas > 3 && !compraDeCartas)
+                else 
                 {
                     cartaComMaisCopias = suporte.CartaCmMaisCopias();
-                    if (Convert.ToInt32(cartaComMaisCopias[1]) >= 3)
+                    cartaComMenosCopias = suporte.CartaCmMenosCopias();
+                    if (suporte.pecasEmJogo <= 2 && suporte.mao.nCartas < 3)
+                    {
+                        //nesse if ver quantas peças restam no tabuleiro
+                        suporte.Mover(Convert.ToInt32(suporte.pecas[0]), cartaComMaisCopias[0]);
+                    }
+                    else if (Convert.ToInt32(cartaComMaisCopias[1]) >= 3)
                     {
                         //cada if seria bom ter uma condição pra desconsiderar peças no barco como peça mais avançada
                         //pecaMenor é a peça mais atras 
-                        suporte.Mover(Convert.ToInt32( suporte.pecas[0]), cartaComMaisCopias[0]);
-                        //analis
+                        suporte.Mover(Convert.ToInt32(suporte.pecas[0]), cartaComMaisCopias[0]);
+                        //analisa
                     }
-
-                    if (Convert.ToInt32(cartaComMaisCopias[1]) == 2)
+                    else if (Convert.ToInt32(cartaComMaisCopias[1]) == 2)
                     {
-
-
                         suporte.Mover(Convert.ToInt32(suporte.pecas[0]), cartaComMenosCopias[0]);
 
 
                     }
-
-                    if (Convert.ToInt32(cartaComMaisCopias[1]) == 1)
+                    else if (Convert.ToInt32(cartaComMaisCopias[1]) == 1)
                     {
                         suporte.Mover(Convert.ToInt32(suporte.pecas[0]), cartaComMaisCopias[0]);
-                        
+
                         //analisa
                     }
-                }
-                else if (suporte.pecasEmJogo <= 2)
-                {
-                    //nesse if ver quantas peças restam no tabuleiro
-                    suporte.Mover(Convert.ToInt32(suporte.pecas[0]), cartaComMaisCopias[0]);
-                }
                 else
                 {
-                    suporte.Mover(suporte.pecaMaisAfrente);
-
+                    Compra();
                 }
-                
+                }
             }
 
         }
+
+        public void Compra()
+        {
+            suporte.Mover(suporte.pecaMaisAfrente);
+        }
+
     }
+
 }
+    
     
 
