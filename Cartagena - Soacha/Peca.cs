@@ -13,10 +13,11 @@ namespace Cartagena___Soacha
 {
     public class Peca
     {
+        
         int fixo = 30;
         public string cor;
         public int casa;
-        public Panel newPanel;
+        public Panel newPanel =new Panel();
         Form2 form;
 
         public Peca(Form2 form, string cor)
@@ -31,7 +32,7 @@ namespace Cartagena___Soacha
         //
         public void Montar(string cores, List<Image> list, Form2 form, int x, int y)
         {
-            newPanel = new Panel();
+            
             form.Controls.Add(newPanel);
             newPanel.Size = new Size(fixo, fixo);
             newPanel.BackgroundImageLayout = ImageLayout.Stretch;
