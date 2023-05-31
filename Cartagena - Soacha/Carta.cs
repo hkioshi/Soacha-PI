@@ -19,6 +19,7 @@ namespace Cartagena___Soacha
         public Form2 form2 { get; set; }//form
         public Panel newPanel = new Panel();//painel
 
+
         public Carta(Form2 form,string simbolou)//construtor
         {
             form2 = form;
@@ -37,6 +38,7 @@ namespace Cartagena___Soacha
             newPanel.BackgroundImageLayout = ImageLayout.Stretch;
             newPanel.Click += new System.EventHandler(this.SelecionarSimbolo);
             newPanel.BorderStyle = BorderStyle.FixedSingle;
+            newPanel.BackColor = System.Drawing.Color.Transparent;
             newPanel.BringToFront();
 
             //fundo do painel
@@ -72,7 +74,7 @@ namespace Cartagena___Soacha
         public void SelecionarSimbolo(object sender, EventArgs e)
         {
             form2.simb = this.simbolo;//Aq ao clicar vai colocar o simbolo numa variavwl de simbolo no forms
-            form2.DefinirSimb(this.simbolo);//Aq vai colocar o simbolo no lblSimb
+            form2.simbolo(simbolo);
         }
 
         public void Desmontar(Form2 form)

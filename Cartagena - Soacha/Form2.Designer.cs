@@ -33,7 +33,6 @@
             this.btnPularVez = new System.Windows.Forms.Button();
             this.btnAndarFrente = new System.Windows.Forms.Button();
             this.btnAndarTras = new System.Windows.Forms.Button();
-            this.btnTesteVez = new System.Windows.Forms.Button();
             this.lblSimb = new System.Windows.Forms.Label();
             this.lblPos = new System.Windows.Forms.Label();
             this.tmrJogo = new System.Windows.Forms.Timer(this.components);
@@ -42,10 +41,13 @@
             // 
             // btnPularVez
             // 
-            this.btnPularVez.Location = new System.Drawing.Point(888, 688);
-            this.btnPularVez.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnPularVez.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPularVez.Font = new System.Drawing.Font("Monotype Corsiva", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPularVez.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnPularVez.Location = new System.Drawing.Point(1189, 556);
+            this.btnPularVez.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnPularVez.Name = "btnPularVez";
-            this.btnPularVez.Size = new System.Drawing.Size(137, 57);
+            this.btnPularVez.Size = new System.Drawing.Size(154, 93);
             this.btnPularVez.TabIndex = 3;
             this.btnPularVez.Text = "Pular Vez";
             this.btnPularVez.UseVisualStyleBackColor = true;
@@ -53,10 +55,13 @@
             // 
             // btnAndarFrente
             // 
-            this.btnAndarFrente.Location = new System.Drawing.Point(745, 686);
-            this.btnAndarFrente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAndarFrente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAndarFrente.Font = new System.Drawing.Font("Monotype Corsiva", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAndarFrente.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnAndarFrente.Location = new System.Drawing.Point(1008, 556);
+            this.btnAndarFrente.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnAndarFrente.Name = "btnAndarFrente";
-            this.btnAndarFrente.Size = new System.Drawing.Size(137, 60);
+            this.btnAndarFrente.Size = new System.Drawing.Size(173, 93);
             this.btnAndarFrente.TabIndex = 4;
             this.btnAndarFrente.Text = "Andar Para Frente";
             this.btnAndarFrente.UseVisualStyleBackColor = true;
@@ -64,42 +69,44 @@
             // 
             // btnAndarTras
             // 
-            this.btnAndarTras.Location = new System.Drawing.Point(603, 686);
-            this.btnAndarTras.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAndarTras.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAndarTras.BackColor = System.Drawing.Color.Transparent;
+            this.btnAndarTras.Font = new System.Drawing.Font("Monotype Corsiva", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAndarTras.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnAndarTras.Location = new System.Drawing.Point(822, 556);
+            this.btnAndarTras.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnAndarTras.Name = "btnAndarTras";
-            this.btnAndarTras.Size = new System.Drawing.Size(137, 60);
+            this.btnAndarTras.Size = new System.Drawing.Size(178, 92);
             this.btnAndarTras.TabIndex = 5;
             this.btnAndarTras.Text = "Andar Para Tras";
-            this.btnAndarTras.UseVisualStyleBackColor = true;
+            this.btnAndarTras.UseVisualStyleBackColor = false;
             this.btnAndarTras.Click += new System.EventHandler(this.btnAndarTras_Click);
-            // 
-            // btnTesteVez
-            // 
-            this.btnTesteVez.Location = new System.Drawing.Point(1031, 690);
-            this.btnTesteVez.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnTesteVez.Name = "btnTesteVez";
-            this.btnTesteVez.Size = new System.Drawing.Size(339, 52);
-            this.btnTesteVez.TabIndex = 6;
-            this.btnTesteVez.Text = "Verifacar vez (teste)";
-            this.btnTesteVez.UseVisualStyleBackColor = true;
-            this.btnTesteVez.Click += new System.EventHandler(this.btnTesteVez_Click);
             // 
             // lblSimb
             // 
+            this.lblSimb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblSimb.AutoSize = true;
-            this.lblSimb.Location = new System.Drawing.Point(695, 655);
+            this.lblSimb.BackColor = System.Drawing.Color.Transparent;
+            this.lblSimb.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSimb.ForeColor = System.Drawing.Color.Black;
+            this.lblSimb.Location = new System.Drawing.Point(1020, 519);
+            this.lblSimb.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSimb.Name = "lblSimb";
-            this.lblSimb.Size = new System.Drawing.Size(60, 16);
+            this.lblSimb.Size = new System.Drawing.Size(100, 34);
             this.lblSimb.TabIndex = 9;
             this.lblSimb.Text = "Simbolo:";
             // 
             // lblPos
             // 
+            this.lblPos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPos.AutoSize = true;
-            this.lblPos.Location = new System.Drawing.Point(599, 655);
-            this.lblPos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPos.BackColor = System.Drawing.Color.Transparent;
+            this.lblPos.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPos.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.lblPos.Location = new System.Drawing.Point(825, 519);
+            this.lblPos.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblPos.Name = "lblPos";
-            this.lblPos.Size = new System.Drawing.Size(60, 16);
+            this.lblPos.Size = new System.Drawing.Size(97, 34);
             this.lblPos.TabIndex = 13;
             this.lblPos.Text = "Posição:";
             this.lblPos.Click += new System.EventHandler(this.lblPos_Click);
@@ -112,27 +119,34 @@
             // 
             // lblStatus
             // 
+            this.lblStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(798, 655);
+            this.lblStatus.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.lblStatus.Location = new System.Drawing.Point(818, 493);
+            this.lblStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(0, 16);
+            this.lblStatus.Size = new System.Drawing.Size(0, 20);
             this.lblStatus.TabIndex = 14;
             this.lblStatus.Click += new System.EventHandler(this.label1_Click);
             // 
             // Form2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1381, 753);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(1356, 660);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.lblPos);
             this.Controls.Add(this.lblSimb);
-            this.Controls.Add(this.btnTesteVez);
             this.Controls.Add(this.btnAndarTras);
             this.Controls.Add(this.btnAndarFrente);
             this.Controls.Add(this.btnPularVez);
+            this.DoubleBuffered = true;
+            this.Font = new System.Drawing.Font("Monotype Corsiva", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.SystemColors.Control;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "Form2";
             this.Text = "Em Jogo - Soacha";
             this.Load += new System.EventHandler(this.Form2_Load);
@@ -145,7 +159,6 @@
         private System.Windows.Forms.Button btnPularVez;
         private System.Windows.Forms.Button btnAndarFrente;
         private System.Windows.Forms.Button btnAndarTras;
-        private System.Windows.Forms.Button btnTesteVez;
         private System.Windows.Forms.Label lblSimb;
         private System.Windows.Forms.Label lblPos;
         private System.Windows.Forms.Timer tmrJogo;

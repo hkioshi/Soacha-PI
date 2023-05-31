@@ -4,6 +4,11 @@
         <name>CartagenaServer</name>
     </assembly>
     <members>
+        <member name="F:CartagenaServer.Jogo.Versao">
+            <summary>
+            Retorna a versão do servidor do jogo
+            </summary>
+        </member>
         <member name="M:CartagenaServer.Jogo.ListarPartidas(System.String)">
             <summary>
             Retorna a lista de partidas do tipo solicitado

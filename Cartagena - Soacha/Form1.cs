@@ -20,23 +20,20 @@ namespace Cartagena___Soacha
         {
             InitializeComponent();
         }
-
         public string senha; // Senha
         public int idPartida; // id da partida escolhida
         public int idJogador ; // id do jogador escolhido
         public string statusPartida; //status da partida
         public string cor;// cor do jogador
         bool ligado = true;
-
-
         private void btnListarPartidas_Click(object sender, EventArgs e)
         {
             //
             // LISTAR PARTIDAS
             //
             ListarPartidas();
+            btnEntrar.Visible = false;
         }  
-        
         private void lstPartidas_SelectedIndexChanged(object sender, EventArgs e)
         {
             //Vai Colocar em variaveis: id, nome,data de criaçao e se esta aberta 
@@ -63,24 +60,15 @@ namespace Cartagena___Soacha
                         f.idPartida = idPartida;
                         f.ShowDialog();
                     }
-                    else if(statusPartida == "J")
-                    {
-                        btnEntrar.Visible = true;
-                    }
-
-                    
-
-
-
                     lblStatus.Text = $" Id: {idPartida}\n Nome: {nomePartida}\n Data: {dataPartida} \n status: {statusPartida}";
                 }
-                catch (FormatException)//Esse tratamento deve ser consertado
+                catch (System.FormatException)//Esse tratamento deve ser consertado
                 {
                     MessageBox.Show("Selecione uma partida valida");
                 }
-                catch (Exception)//Esse tratamento deve ser consertado
+                catch (Exception ex)//Esse tratamento deve ser consertado
                 {
-                    MessageBox.Show("Selecione alguma partida ou Jogador valido");
+                    MessageBox.Show("Erro: "+ ex);
                 }
 
 
@@ -127,97 +115,97 @@ namespace Cartagena___Soacha
             
         }
 
+        //
+        //Retorno do Cadastrar Jogador
+        //
         public void Retorno()
         {
             lblStatus.Text = $"ID: {idJogador}\nCor: {cor}";
             if (statusPartida == "A")
             {
                 btnMudarStatus.Visible = true;
+                btnEntrar.Visible = false;
             }
             else if (statusPartida == "J" && senha != "")  
             {
-                btnEntrar.Visible = false;
-
+                btnEntrar.Visible = true;
+                btnMudarStatus.Visible = false;
             }
             
         }
-
         public void ListarPartidas()
         {
-            if (cmbTipoPartida.Text == "Todas")//Para todas as partidas
+            string retorno;
+            string[] partidas;
+            switch(cmbTipoPartida.Text)
             {
-                //Apagar lista
+                case "Todas":
+                    //Apagar lista
+                    lstGeral.Items.Clear();
+
+                    //Lista todas as Partidas e coloca na lista lstGeral
+                    retorno = Jogo.ListarPartidas("T");
+                    retorno = retorno.Replace("\r", "");
+
+                    partidas = retorno.Split('\n');
+                    for (int i = 0; i < partidas.Length; i++)
+                    {
+                        lstGeral.Items.Add(partidas[i]);
+                    }
+                    break;
+                case "Aberta":
+                    //Listar Partidas Abertas
+                    lstGeral.Items.Clear();
+
+                    //Lista todas as Partidas ABERTAS e coloca na lista lstGeral
+                    retorno = Jogo.ListarPartidas("A");
+                    retorno = retorno.Replace("\r", "");
+
+                    partidas = retorno.Split('\n');
+                    for (int i = 0; i < partidas.Length; i++)
+                    {
+                        lstGeral.Items.Add(partidas[i]);
+                    }
+                    break;
+                case "Jogando":
+                    //Listar Partidas Jogando
+                    lstGeral.Items.Clear();
+
+                    //Lista todas as Partidas EM JOGO e coloca na lista lstGeral
+                    retorno = Jogo.ListarPartidas("J");
+                    retorno = retorno.Replace("\r", "");
+
+                    partidas = retorno.Split('\n');
+                    for (int i = 0; i < partidas.Length; i++)
+                    {
+                        lstGeral.Items.Add(partidas[i]);
+                    }
+                    break;
+                case "Encerrada":
+                    //Listar Partidas Encerradas
                 lstGeral.Items.Clear();
-
-                //Lista todas as Partidas e coloca na lista lstGeral
-                string retorno = Jogo.ListarPartidas("T");
-                retorno = retorno.Replace("\r", "");
-
-                string[] partidas = retorno.Split('\n');
-                for (int i = 0; i < partidas.Length; i++)
-                {
-                    lstGeral.Items.Add(partidas[i]);
-                }
-            }
-            else if (cmbTipoPartida.Text == "Aberta")//Para todas as partidas abertas
-            {
-                //Listar Partidas Abertas
-                lstGeral.Items.Clear();
-
-                //Lista todas as Partidas ABERTAS e coloca na lista lstGeral
-                string retorno = Jogo.ListarPartidas("A");
-                retorno = retorno.Replace("\r", "");
-
-                string[] partidas = retorno.Split('\n');
-                for (int i = 0; i < partidas.Length; i++)
-                {
-                    lstGeral.Items.Add(partidas[i]);
-                }
-            }
-            else if (cmbTipoPartida.Text == "Jogando") //Para todas as partidas EM JOGO
-            {
-                //Listar Partidas Jogando
-                lstGeral.Items.Clear();
-
-                //Lista todas as Partidas EM JOGO e coloca na lista lstGeral
-                string retorno = Jogo.ListarPartidas("J");
-                retorno = retorno.Replace("\r", "");
-
-                string[] partidas = retorno.Split('\n');
-                for (int i = 0; i < partidas.Length; i++)
-                {
-                    lstGeral.Items.Add(partidas[i]);
-                }
-            }
-            else//Para todas as partidas ENCERRADAS
-            {
-                //Listar Partidas Encerradas
-                lstGeral.Items.Clear();
-
+                //Encerrada
                 //Lista todas as Partidas ENCERRADAS e coloca na lista lstGeral
-                string retorno = Jogo.ListarPartidas("E");
+                retorno = Jogo.ListarPartidas("E");
                 retorno = retorno.Replace("\r", "");
 
-                string[] partidas = retorno.Split('\n');
+                partidas = retorno.Split('\n');
                 for (int i = 0; i < partidas.Length; i++)
                 {
                     lstGeral.Items.Add(partidas[i]);
                 }
-               
+                    break;
             }
             ligado = true;
         }
-
         private void cmbTipoPartida_SelectedIndexChanged(object sender, EventArgs e)
         {
             ListarPartidas();
         }
-
         private void lblStatus_Click(object sender, EventArgs e)
         {
             MessageBox.Show("EasterEgg(1/5)");
         }
-
         private void btnEntrar_Click(object sender, EventArgs e)
         {
             if (senha != null && idJogador != 0 && statusPartida == "J")
@@ -231,12 +219,15 @@ namespace Cartagena___Soacha
                 f.cor = cor;
                 this.Hide();
                 f.ShowDialog();
-
             }
             else
             {
                 MessageBox.Show("Sem senha nem Jogador Selecionado");
             }
+        }
+        private void lblCreditos_Click(object sender, EventArgs e)
+        {
+            llblArtista.Text = "Artista: Special Annon";
         }
     }
 }

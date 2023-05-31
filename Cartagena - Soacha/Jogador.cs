@@ -11,7 +11,6 @@ namespace Cartagena___Soacha
         public string nome;
         public string id;
         public string cor;
-        public List<Peca> pecas = new List<Peca>();
 
         public Jogador(string id, string nome, string cor)
         {

@@ -59,5 +59,15 @@ namespace Cartagena___Soacha.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap madeira {
+            get {
+                object obj = ResourceManager.GetObject("madeira", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
