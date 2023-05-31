@@ -38,7 +38,7 @@ namespace Cartagena___Soacha
         public Peca peca = null;//peça selecionada
         Mao mao = new Mao();//estancia a mao
         List<Image> list = new List<Image>();// Lista de imagens
-        List<Image> listP = new List<Image>();
+        public List<Image> listP = new List<Image>();
         Suporte suporte;
         Inteligencia inteligencia;
 

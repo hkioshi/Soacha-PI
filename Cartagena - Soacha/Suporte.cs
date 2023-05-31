@@ -140,13 +140,15 @@ namespace Cartagena___Soacha
                 
             }
             Array.Sort(pecas);
-            i = 5;
+            i = pecas.Length -1;
             bool ok = true;
             while(ok)
             {
                 if (pecas[i] != 37)
                 {
-                    pecaMaisAfrente = Convert.ToInt32(pecas[i]);
+                    var lista = pecas.ToList(); // cria um objeto do tipo List<string> a partir do vetor
+                    lista.RemoveAt(i); // remove o item na posição 1
+                    pecas = lista.ToArray(); // recria o vetor a partir da lista
                     ok = false;
                 }
                 else
