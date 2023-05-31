@@ -13,6 +13,7 @@ namespace Cartagena___Soacha
         Suporte suporte;
         
         string[] cartaComMaisCopias, cartaComMenosCopias;
+        bool final = false;
 
 
         public Inteligencia(Suporte suporte) 
@@ -26,7 +27,7 @@ namespace Cartagena___Soacha
             
             if (suporte.vez)
             {
-                if ( suporte.mao.nCartas < 4)
+                if ( suporte.mao.nCartas < 4 && !final)
                 {
                     Compra();
                 }
@@ -34,10 +35,20 @@ namespace Cartagena___Soacha
                 {
                     cartaComMaisCopias = suporte.CartaCmMaisCopias();
                     cartaComMenosCopias = suporte.CartaCmMenosCopias();
-                    if (suporte.pecasEmJogo <= 2 && suporte.mao.nCartas < 3)
+                    if (suporte.pecasEmJogo <= 2 && suporte.mao.nCartas > 3)
                     {
                         //nesse if ver quantas peças restam no tabuleiro
                         suporte.Mover(Convert.ToInt32(suporte.pecas[0]), cartaComMaisCopias[0]);
+                        final = true;
+                    }
+                    else if(suporte.pecasEmJogo == 1 && final)
+                    {
+                        suporte.Mover(Convert.ToInt32(suporte.pecas[0]), cartaComMaisCopias[0]);
+                    }
+                    else if (suporte.tabuleiro.casas[suporte.pecas.Last()].pecas.Count() == 3 && suporte.tabuleiro.casas[suporte.pecas.First()].pecas.Count() == 2 && suporte.pecasEmJogo == 5)
+                    {
+                        suporte.Mover(Convert.ToInt32(suporte.pecas.Last()), cartaComMaisCopias[0]);
+
                     }
                     else if (Convert.ToInt32(cartaComMaisCopias[1]) >= 3)
                     {
@@ -58,6 +69,7 @@ namespace Cartagena___Soacha
 
                         //analisa
                     }
+                    
                 else
                 {
                     Compra();
@@ -69,7 +81,7 @@ namespace Cartagena___Soacha
 
         public void Compra()
         {
-            suporte.Mover(suporte.pecaMaisAfrente);
+            suporte.Mover(suporte.pecas.Last());
         }
 
     }

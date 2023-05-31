@@ -67,7 +67,7 @@ namespace Cartagena___Soacha
         //
         //Move as peças pra frente e pra tras
         //
-        public int Mover(string cor, List<Casa> casas, int pos)
+        public int Mover(string cor, List<Casa> casas, int pos, List<Image> PImage)
         {
             if (cor == this.cor)
             {
@@ -85,6 +85,20 @@ namespace Cartagena___Soacha
                         casas[casa].numeroDePecas += 1;
                         casas[casa].pecas.Add(this);
                         newPanel.BringToFront();
+
+                        Peca[] pecs = casas[casa].pecas.Where(temp => temp.cor == "Vermelho").ToArray();
+                        if(pecs.Length == 1) 
+                        {
+                            pecs[pecs.Length-1].newPanel.BackgroundImage = PImage[0];
+                        }
+                        else if(pecs.Length == 2) 
+                        {
+                            pecs[pecs.Length-1].newPanel.BackgroundImage = PImage[1];
+                        }
+                        else
+                        {
+                            pecs[pecs.Length-1].newPanel.BackgroundImage= PImage[2];
+                        }
 
                         return casa;
                     case "Verde":
