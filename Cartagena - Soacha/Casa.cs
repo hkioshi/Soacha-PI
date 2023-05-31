@@ -37,9 +37,7 @@ namespace Cartagena___Soacha
         {
             //
             //Aqui vai fazer o painel e colocar as imagens
-            //
-
-            form.Controls.Add(newButton);
+            //  
             newButton.Location = new Point(x, y);
             newButton.BorderStyle = BorderStyle.FixedSingle;
             newButton.BackgroundImageLayout = ImageLayout.Stretch;
@@ -49,38 +47,47 @@ namespace Cartagena___Soacha
             switch (this.simbolo)
             {
                 case "F":
+                    newButton.Size = new Size(fixo - 20, fixo - 20);
                     newButton.BackgroundImage = list[0];
-                    newButton.Size = new Size(fixo-20, fixo-20);
+                    
                     break;
                 case "P":
-                    newButton.BackgroundImage = list[1];
                     newButton.Size = new Size(fixo - 20, fixo - 20);
+                    newButton.BackgroundImage = list[1];
+                    
                     break;
                 case "T":
-                    newButton.BackgroundImage = list[2];
                     newButton.Size = new Size(fixo - 20, fixo - 20);
+                    newButton.BackgroundImage = list[2];
+                    
                     break;
                 case "C":
-                    newButton.BackgroundImage = list[3];
                     newButton.Size = new Size(fixo - 20, fixo - 20);
+                    newButton.BackgroundImage = list[3];
+                    
                     break;
                 case "G":
-                    newButton.BackgroundImage = list[4];
                     newButton.Size = new Size(fixo - 20, fixo - 20);
+                    newButton.BackgroundImage = list[4];
+                    
                     break;
                 case "E":
-                    newButton.BackgroundImage = list[5];
                     newButton.Size = new Size(fixo - 20, fixo - 20);
+                    newButton.BackgroundImage = list[5];
+                    
                     break;
                 case "inicio":
-                    newButton.BackColor = Color.Aqua;
                     newButton.Size = new Size(fixo - 20, fixo - 20);
+                    newButton.BackColor = Color.Aqua;
+                    
                     break;
                 case "barco":
-                    newButton.BackColor = Color.Brown;
                     newButton.Size = new Size(100, 75);
+                    newButton.BackColor = Color.Brown;
+                    
                     break;
             }
+            form.Controls.Add(newButton);
         }
     }
 }

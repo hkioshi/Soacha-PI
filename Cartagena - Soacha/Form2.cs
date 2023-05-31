@@ -82,10 +82,10 @@ namespace Cartagena___Soacha
             tab = new Tabuleiro(this);//Cria tabuleiro
             tab.ListarJogadores(idPartida);//Cria Jogadores
             tab.GerarTabuleiro(Jogo.ExibirTabuleiro(idPartida), list);//Cria o Tabuleiro
-             mao.GerarCartas(Jogo.ConsultarMao(idJogador, senha), list, this);//Cria as Cartas 
+            mao.GerarCartas(Jogo.ConsultarMao(idJogador, senha), list, this);//Cria as Cartas 
             suporte = new Suporte( idPartida,idJogador, mao, tab, senha, list, this);
             tab.GerarPecas(listP, idJogador, suporte);//Cria as Peças
-            inteligencia = new Inteligencia(suporte);
+            inteligencia = new Inteligencia(suporte); 
         }
 
         private void btnPularVez_Click(object sender, EventArgs e)

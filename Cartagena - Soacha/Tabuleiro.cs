@@ -166,6 +166,9 @@ namespace Cartagena___Soacha
             }
         }
 
+        //
+        // Aqui Onde Os Jogadores são listados
+        //
         public void ListarJogadores(int idPartida)
         {
             string retorno = Jogo.ListarJogadores(idPartida);

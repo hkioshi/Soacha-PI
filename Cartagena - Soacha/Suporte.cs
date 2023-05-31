@@ -83,6 +83,7 @@ namespace Cartagena___Soacha
                 else
                     turno = 1;
                 DefCartas();
+
             }
         }
         public void Mover(int pos)
@@ -148,9 +149,11 @@ namespace Cartagena___Soacha
             {
                 if (pecas[i] != 37)
                 {
-                    pecaMaisAfrente = Convert.ToInt32(pecas[i]);
+                    pecaMaisAfrente = pecas.Last();
                     ok = false;
                 }
+                else if (i == -1)
+                    form.End();
                 else
                 {
                     var lista = pecas.ToList(); // cria um objeto do tipo List<string> a partir do vetor
@@ -159,11 +162,39 @@ namespace Cartagena___Soacha
                     i--;
                 }
                     
-                if (i == -1)
-                    form.End();
+                
             }
 
             
+        }
+
+        public void DefPecas()
+        {
+            int total = 0;
+            int copias;
+            string retorno = Jogo.VerificarVez(PartidaID);
+            retorno.Replace("\r", "");
+            string[] aux = retorno.Split('\n');
+            string[] pos = aux.Where(temp => temp.Contains(Convert.ToString(jogadorID))).ToArray();
+            pecas = new int[6];
+            copias = pos.Length;
+
+            while (total < 6)
+            {
+                for (int i = 1; i < copias; i++)
+                {
+                    string[] a = pos[i].Split(',');
+                    for (int j = 0; j < Convert.ToInt32(a[2]); j++)
+                    {
+                        pecas[total] = Convert.ToInt32(a[0]);
+                        total++;
+                    }
+
+                }
+            }
+            Array.Sort(pecas);
+
+
         }
 
         public void DefCartas()
@@ -185,34 +216,7 @@ namespace Cartagena___Soacha
             
         }
 
-        public void DefPecas()
-        {
-            int total = 0;
-            int copias;
-            string retorno = Jogo.VerificarVez(PartidaID);
-            retorno.Replace("\r", "");
-            string[] aux = retorno.Split('\n');
-            string[] pos = aux.Where(temp => temp.Contains(Convert.ToString(jogadorID))).ToArray();
-            pecas = new int[6];
-            copias = pos.Length;
-
-            while (total < 6)
-            {
-                for(int i = 1; i<copias;i++)
-                {
-                    string[] a = pos[i].Split(',');
-                    for (int j = 0; j < Convert.ToInt32(a[2]);j++)
-                    {
-                        pecas[total] = Convert.ToInt32(a[0]);
-                        total++;
-                    }
-
-                }
-            }
-            Array.Sort(pecas);
-
-
-        }
+        
 
         public string[] CartaCmMaisCopias()
         {

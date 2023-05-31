@@ -87,6 +87,7 @@
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.btnJogo);
             this.DoubleBuffered = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Inicio";

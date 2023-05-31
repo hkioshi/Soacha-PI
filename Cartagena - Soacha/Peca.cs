@@ -17,7 +17,7 @@ namespace Cartagena___Soacha
         int fixo = 30;
         public string cor;
         public int casa;
-        public Panel newPanel =new Panel();
+        public Panel newPanel = new Panel();
         Form2 form;
 
         public Peca(Form2 form, string cor)
@@ -45,7 +45,6 @@ namespace Cartagena___Soacha
                 case "Vermelho":
                     newPanel.BackgroundImage = list[0];
                     newPanel.Location = new Point(x, y);
-                    
                     break;
                 case "Verde":
                     newPanel.BackgroundImage = list[3];
@@ -80,17 +79,33 @@ namespace Cartagena___Soacha
                         this.newPanel.Location = new Point(a, b);//canto superior esquerdo
                         casas[casa].numeroDePecas -= 1;
                         casas[casa].pecas.Remove(this);
-                        this.casa = pos;
+                        
 
+                        Peca[] pecs = casas[casa].pecas.Where(temp => temp.cor == "Vermelho").ToArray();
+                        if (pecs.Length == 1)
+                        {
+                            pecs[pecs.Length - 1].newPanel.BackgroundImage = PImage[0];
+
+                        }
+                        else if (pecs.Length == 2)
+                        {
+                            pecs[pecs.Length - 1].newPanel.BackgroundImage = PImage[1];
+                        }
+                        else if(pecs.Length == 1)
+                        {
+                            pecs[pecs.Length - 1].newPanel.BackgroundImage = PImage[2];
+                        }
+                        this.casa = pos;
                         //Muda Numero de peças na casa
                         casas[casa].numeroDePecas += 1;
                         casas[casa].pecas.Add(this);
                         newPanel.BringToFront();
 
-                        Peca[] pecs = casas[casa].pecas.Where(temp => temp.cor == "Vermelho").ToArray();
+                         pecs = casas[casa].pecas.Where(temp => temp.cor == "Vermelho").ToArray();
                         if(pecs.Length == 1) 
                         {
                             pecs[pecs.Length-1].newPanel.BackgroundImage = PImage[0];
+                            
                         }
                         else if(pecs.Length == 2) 
                         {
