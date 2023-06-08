@@ -15,7 +15,7 @@ namespace Cartagena___Soacha
     {
         public int nCartas = 0;//Numero total de cartas
         public List<Carta> cartas = new List<Carta>();
-        public void GerarCartas(string retorno, List<Image> list, Form2 form)
+        public void GerarCartas(string retorno, List<Image> list, Jogo form)
         {
             nCartas = 0;
             retorno = retorno.Replace("\r", "");
@@ -80,14 +80,14 @@ namespace Cartagena___Soacha
         //
         //Desmonta e remonta a mão
         //
-        public void Remontar(Form2 form, List<Image> list)
+        public void Remontar(Jogo form, List<Image> list)
         {
             foreach(Carta carta in cartas)
             {
                 carta.Desmontar(form);
             }
-            cartas.Clear(); 
-            GerarCartas(Jogo.ConsultarMao(form.idJogador, form.senha), list, form);
+            cartas.Clear();
+            GerarCartas(CartagenaServer.Jogo.ConsultarMao(form.idJogador, form.senha), list, form);
 
         }
 

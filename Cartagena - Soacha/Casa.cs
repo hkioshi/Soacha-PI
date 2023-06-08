@@ -38,56 +38,56 @@ namespace Cartagena___Soacha
             //
             //Aqui vai fazer o painel e colocar as imagens
             //  
-            newButton.Location = new Point(x, y);
-            newButton.BorderStyle = BorderStyle.FixedSingle;
-            newButton.BackgroundImageLayout = ImageLayout.Stretch;
-            newButton.BackColor = System.Drawing.Color.Transparent;
+            newButton.Location = new Point(x, y);//posicao
+            newButton.BorderStyle = BorderStyle.FixedSingle;//Borda
+            newButton.BackgroundImageLayout = ImageLayout.Stretch;//Deixar a imagem do background esticada
+            newButton.BackColor = System.Drawing.Color.Transparent;//cor do botao
 
-            //fundo
+            //Posição do peça em relação do simbolo
             switch (this.simbolo)
             {
-                case "F":
+                case "F"://Faca
                     newButton.Size = new Size(fixo - 20, fixo - 20);
                     newButton.BackgroundImage = list[0];
                     
                     break;
-                case "P":
+                case "P"://pistola
                     newButton.Size = new Size(fixo - 20, fixo - 20);
                     newButton.BackgroundImage = list[1];
                     
                     break;
-                case "T":
+                case "T"://Chapeu
                     newButton.Size = new Size(fixo - 20, fixo - 20);
                     newButton.BackgroundImage = list[2];
                     
                     break;
-                case "C":
+                case "C"://Chave
                     newButton.Size = new Size(fixo - 20, fixo - 20);
                     newButton.BackgroundImage = list[3];
                     
                     break;
-                case "G":
+                case "G"://Garrafa
                     newButton.Size = new Size(fixo - 20, fixo - 20);
                     newButton.BackgroundImage = list[4];
                     
                     break;
-                case "E":
+                case "E"://Esqueleto
                     newButton.Size = new Size(fixo - 20, fixo - 20);
                     newButton.BackgroundImage = list[5];
                     
                     break;
-                case "inicio":
+                case "inicio"://inicio
                     newButton.Size = new Size(fixo - 20, fixo - 20);
                     newButton.BackColor = Color.Aqua;
                     
                     break;
-                case "barco":
+                case "barco"://Barco
                     newButton.Size = new Size(100, 75);
                     newButton.BackColor = Color.Brown;
                     
                     break;
             }
-            form.Controls.Add(newButton);
+            form.Controls.Add(newButton);// Coloca em tela
         }
     }
 }

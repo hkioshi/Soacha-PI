@@ -44,27 +44,27 @@ namespace Cartagena___Soacha
             //fundo do painel
             switch(this.simbolo)
             {
-                case "F":
+                case "F"://Faca
                     newPanel.BackgroundImage = list[0];
                     newPanel.Size = new Size(50, 50);
                     break;
-                case "P":
+                case "P"://Pistola
                     newPanel.BackgroundImage = list[1];
                     newPanel.Size = new Size(50, 50);
                     break;
-                case "T":
+                case "T"://Chapéu 
                     newPanel.BackgroundImage = list[2];
                     newPanel.Size = new Size(50, 50);
                     break;
-                case "C":
+                case "C"://Chave
                     newPanel.BackgroundImage = list[3];
                     newPanel.Size = new Size(50, 50);
                     break;
-                case "G":
+                case "G"://Garrafa
                     newPanel.BackgroundImage = list[4];
                     newPanel.Size = new Size(50, 50);
                     break;
-                case "E":
+                case "E"://Esqueleto
                     newPanel.BackgroundImage = list[5];
                     newPanel.Size = new Size(50, 50);
                     break;

@@ -18,9 +18,9 @@ namespace Cartagena___Soacha
         public string cor;
         public int casa;
         public Panel newPanel = new Panel();
-        Form2 form;
+        Jogo form;
 
-        public Peca(Form2 form, string cor)
+        public Peca(Jogo form, string cor)
         {
             this.form = form;
             this.cor = cor;
@@ -30,7 +30,7 @@ namespace Cartagena___Soacha
         //
         //Aqui vai montar as peças
         //
-        public void Montar(string cores, List<Image> list, Form2 form, int x, int y)
+        public void Montar(string cores, List<Image> list, Jogo form, int x, int y)
         {
             
             form.Controls.Add(newPanel);

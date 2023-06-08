@@ -32,7 +32,7 @@ namespace Cartagena___Soacha
             // LISTAR PARTIDAS
             //
             ListarPartidas();
-            btnEntrar.Visible = false;
+            btnEntrar.Visible = false;//Desaparece com o botão entrar
         }  
         private void lstPartidas_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -62,13 +62,15 @@ namespace Cartagena___Soacha
                     }
                     lblStatus.Text = $" Id: {idPartida}\n Nome: {nomePartida}\n Data: {dataPartida} \n status: {statusPartida}";
                 }
-                catch (System.FormatException)//Esse tratamento deve ser consertado
+                catch (System.FormatException)
                 {
                     MessageBox.Show("Selecione uma partida valida");
+                    ListarPartidas();
                 }
                 catch (Exception ex)//Esse tratamento deve ser consertado
                 {
                     MessageBox.Show("Erro: "+ ex);
+                    ListarPartidas();
                 }
 
 
@@ -95,18 +97,20 @@ namespace Cartagena___Soacha
         private void button1_Click_2(object sender, EventArgs e)
         {
             //aq vai iniciar o outro forms
-            if (senha != null && idJogador != 0)
+            string retorno1 = Jogo.IniciarPartida(idJogador, senha);//iniciar partida
+            if (!retorno1.Contains("ERRO:"))
             {
                 string id = Jogo.IniciarPartida(idJogador, senha);//iniciar partida
-                MessageBox.Show($"{id} esta Jogando"); //depois essa mbox deve ser retirada
 
-                string retorno = Jogo.ListarJogadores(idPartida);
+                string retorno = Jogo.ListarJogadores(idPartida);//Atualiza lista de partidas
                 btnEntrar.Visible = true;
                 statusPartida = "J";
             }
             else
             {
-                MessageBox.Show("Sem senha nem Jogador Selecionado");
+                //se der erro, vem pra cá
+                string substr = retorno1.Substring(5);
+                MessageBox.Show(substr);
             }
         }
 
@@ -197,6 +201,7 @@ namespace Cartagena___Soacha
                     break;
             }
             ligado = true;
+            btnMudarStatus.Visible = false;
         }
         private void cmbTipoPartida_SelectedIndexChanged(object sender, EventArgs e)
         {

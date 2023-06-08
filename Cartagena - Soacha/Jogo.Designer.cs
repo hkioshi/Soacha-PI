@@ -1,6 +1,6 @@
 ﻿namespace Cartagena___Soacha
 {
-    partial class Form2
+    partial class Jogo
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Jogo));
             this.btnPularVez = new System.Windows.Forms.Button();
             this.btnAndarFrente = new System.Windows.Forms.Button();
             this.btnAndarTras = new System.Windows.Forms.Button();
