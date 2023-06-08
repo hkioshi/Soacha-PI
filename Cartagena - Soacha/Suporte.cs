@@ -46,8 +46,7 @@ namespace Cartagena___Soacha
             this.form = form2;
             this.PartidaID = partidaId;
             this.cartasNaMao = mao.nCartas;
-            DefCartas();
-            DefPecas();
+
 
         }
 
@@ -101,11 +100,10 @@ namespace Cartagena___Soacha
                 mao.Remontar(form, list);//remontar a mao
                 Array.Sort(pecas);
                 Atualizar(pos,Convert.ToInt32( tabuleiro.AtualizarTabuleiro(PartidaID, this)));
-                if (turno < 3)
+                if (turno < 3)  
                     turno++;
                 else
                     turno = 1;
-                DefCartas();
             }
 
         }
@@ -145,15 +143,13 @@ namespace Cartagena___Soacha
             Array.Sort(pecas);
             i = pecas.Length -1;
             bool ok = true;
-            while(ok)
+            while (ok)
             {
                 if (pecas[i] != 37)
                 {
                     pecaMaisAfrente = pecas.Last();
                     ok = false;
                 }
-                else if (i == -1)
-                    form.End();
                 else
                 {
                     var lista = pecas.ToList(); // cria um objeto do tipo List<string> a partir do vetor
@@ -161,13 +157,11 @@ namespace Cartagena___Soacha
                     pecas = lista.ToArray(); // recria o vetor a partir da lista
                     i--;
                 }
-                    
-                
+                if (i == -1)
+                    form.End();
+
             }
-
-            
         }
-
         public void DefPecas()
         {
             int total = 0;
@@ -175,13 +169,16 @@ namespace Cartagena___Soacha
             string retorno = Jogo.VerificarVez(PartidaID);
             retorno.Replace("\r", "");
             string[] aux = retorno.Split('\n');
+            var lista = aux.ToList(); // cria um objeto do tipo List<string> a partir do vetor
+            lista.RemoveAt(0); // remove o item na posição 1
+            aux = lista.ToArray(); // recria o vetor a partir da lista
             string[] pos = aux.Where(temp => temp.Contains(Convert.ToString(jogadorID))).ToArray();
             pecas = new int[6];
             copias = pos.Length;
 
             while (total < 6)
             {
-                for (int i = 1; i < copias; i++)
+                for (int i = 0; i < copias; i++)
                 {
                     string[] a = pos[i].Split(',');
                     for (int j = 0; j < Convert.ToInt32(a[2]); j++)
@@ -216,7 +213,11 @@ namespace Cartagena___Soacha
             
         }
 
-        
+        public void Defs()
+        {
+            DefPecas();
+            DefCartas();
+        }
 
         public string[] CartaCmMaisCopias()
         {

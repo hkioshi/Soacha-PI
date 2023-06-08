@@ -11,6 +11,7 @@ using System.Linq;
 using System.Media;
 using System.Net.Http.Headers;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CartagenaServer;
@@ -51,7 +52,6 @@ namespace Cartagena___Soacha
             //Aqui vai colocar as imagens em uma lista e inicar o tabuleiro
             //
             WindowState = FormWindowState.Maximized;
-
             string path = Directory.GetCurrentDirectory();//Colocar em Path o caminho C:\Users\2hkio\source\repos\Soacha-PI\Cartagena - Soacha\bin\Debug
 
 
@@ -78,16 +78,19 @@ namespace Cartagena___Soacha
             listP.Add(Image.FromFile($"{path}\\pecas\\PER2.png"));//Peça 5B
             listP.Add(Image.FromFile($"{path}\\pecas\\PER3.png"));//Peça 5C  
 
-
+            
             tab = new Tabuleiro(this);//Cria tabuleiro
             tab.ListarJogadores(idPartida);//Cria Jogadores
             tab.GerarTabuleiro(Jogo.ExibirTabuleiro(idPartida), list);//Cria o Tabuleiro
-            mao.GerarCartas(Jogo.ConsultarMao(idJogador, senha), list, this);//Cria as Cartas 
-            suporte = new Suporte( idPartida,idJogador, mao, tab, senha, list, this);
+            
+            mao.GerarCartas(Jogo.ConsultarMao(idJogador, senha), list, this);//Cria as Cartas
+            
+            suporte = new Suporte(idPartida, idJogador, mao, tab, senha, list, this);
             tab.GerarPecas(listP, idJogador, suporte);//Cria as Peças
-            inteligencia = new Inteligencia(suporte); 
-        }
+            inteligencia = new Inteligencia(suporte);
+            suporte.Defs();
 
+        }
         private void btnPularVez_Click(object sender, EventArgs e)
         {
             //

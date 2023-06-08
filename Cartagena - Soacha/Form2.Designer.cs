@@ -114,7 +114,7 @@
             // tmrJogo
             // 
             this.tmrJogo.Enabled = true;
-            this.tmrJogo.Interval = 5000;
+            this.tmrJogo.Interval = 3000;
             this.tmrJogo.Tick += new System.EventHandler(this.tmrJogo_Tick);
             // 
             // lblStatus
@@ -127,7 +127,7 @@
             this.lblStatus.Location = new System.Drawing.Point(963, 487);
             this.lblStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(0, 41);
+            this.lblStatus.Size = new System.Drawing.Size(0, 40);
             this.lblStatus.TabIndex = 14;
             this.lblStatus.Click += new System.EventHandler(this.label1_Click);
             // 
