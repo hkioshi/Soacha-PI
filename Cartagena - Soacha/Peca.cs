@@ -71,6 +71,10 @@ namespace Cartagena___Soacha
             }
             form.Controls.Add(newPanel);
             
+            foreach(Peca peca in casas[0].pecas)
+            {
+                casas[0].newButton.SendToBack();
+            }
         }
         //
         //Move as peças pra frente e pra tras

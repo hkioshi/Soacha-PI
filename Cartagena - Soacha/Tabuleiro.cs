@@ -137,7 +137,7 @@ namespace Cartagena___Soacha
         //
         public void GerarPecas(List<Image> list, int idJogador, Suporte suporte)
         {
-           // string cores;
+            // string cores;
             //for(int i  = 0; i < 5; i++)
             //{
             //    switch (i)
@@ -170,11 +170,11 @@ namespace Cartagena___Soacha
             //            break;
             //    }
             //}
-
+            int j= 0;
             string cor;
             foreach (Jogador jogador in jogadores)
             {
-
+               
                 if (jogador.id == Convert.ToString(idJogador))
                 {
                     suporte.Jogador(jogador);
@@ -184,13 +184,15 @@ namespace Cartagena___Soacha
                 {
                     cor = jogador.cor;
                     casas[0].pecas.Add(new Peca(form, cor));
-                    casas[0].pecas[i].Montar(cor, casas,list, form);
+                    casas[0].pecas[i+6*j].Montar(cor, casas,list, form);
 
                     //cor, list, casas, njog, form,70,20
+                    
                 }
+                j++;
                 casas[0].numeroDePecas += 6;
-                casas[0].newButton.SendToBack();
-                
+                for(int i = 0;i < 6;i++)
+                    casas[0].newButton.SendToBack();
 
             }
         }

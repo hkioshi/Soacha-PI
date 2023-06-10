@@ -34,7 +34,6 @@ namespace Cartagena___Soacha
         public int turno = 1;
         int s;
         public int pecasEmJogo = 6;
-        int cont;
 
         public Suporte(int partidaId,int jogadorID, Mao mao, Tabuleiro tabuleiro, string senha, List<Image> list, Jogo form2)
         {
