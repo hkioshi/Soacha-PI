@@ -137,39 +137,6 @@ namespace Cartagena___Soacha
         //
         public void GerarPecas(List<Image> list, int idJogador, Suporte suporte)
         {
-            // string cores;
-            //for(int i  = 0; i < 5; i++)
-            //{
-            //    switch (i)
-            //    {
-            //        case 0:
-            //            cores = "Vermelho";
-
-            //            casas[0].pecas.Add(new Peca(form, "Vermelho"));
-            //            casas[0].pecas[i].Montar("Vermelho", list, form, 100, 100);
-            //            break;
-            //        case 1:
-            //            cores = "Verde";
-            //            casas[0].pecas.Add(new Peca(form, "Verde"));
-            //            casas[0].pecas[i].Montar("Verde", list, form, 100, 100);
-            //            break;
-            //        case 2:
-            //            cores = "Amarelo";
-            //            casas[0].pecas.Add(new Peca(form, "Amarelo"));
-            //            casas[0].pecas[i].Montar("Amarelo", list, form, 100, 100);
-            //            break;
-            //        case 3:
-            //            cores = "Azul";
-            //            casas[0].pecas.Add(new Peca(form, "Azul"));
-            //            casas[0].pecas[i].Montar("Azul", list, form, 100, 100);
-            //            break;
-            //        case 4:
-            //            cores = "Marrom";
-            //            casas[0].pecas.Add(new Peca(form, "Marrom"));
-            //            casas[0].pecas[i].Montar("Marrom", list, form, 100, 100);
-            //            break;
-            //    }
-            //}
             int j= 0;
             string cor;
             foreach (Jogador jogador in jogadores)
@@ -185,9 +152,7 @@ namespace Cartagena___Soacha
                     cor = jogador.cor;
                     casas[0].pecas.Add(new Peca(form, cor));
                     casas[0].pecas[i+6*j].Montar(cor, casas,list, form);
-
-                    //cor, list, casas, njog, form,70,20
-                    
+                    //cor, list, casas, njog, form,70,20   
                 }
                 j++;
                 casas[0].numeroDePecas += 6;

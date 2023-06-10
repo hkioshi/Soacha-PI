@@ -131,7 +131,7 @@ namespace Cartagena___Soacha
                         return casa;
                     case "Verde":
                         a = casas[pos].newButton.Location.X; b = casas[pos].newButton.Location.Y;
-                        this.newPanel.Location = new Point(a + 30, b);//canto superior direito
+                        this.newPanel.Location = new Point(a + fixo +10, b);//canto superior direito
                         casas[casa].numeroDePecas -= 1;
                         casas[casa].pecas.Remove(this);
                         this.casa = pos;
@@ -146,7 +146,7 @@ namespace Cartagena___Soacha
                         return casa;
                     case "Amarelo":
                         a = casas[pos].newButton.Location.X; b = casas[pos].newButton.Location.Y;
-                        this.newPanel.Location = new Point(a, b + 30);//canto inferior esquerdo
+                        this.newPanel.Location = new Point(a, b + fixo + 10);//canto inferior esquerdo
                         casas[casa].numeroDePecas -= 1;
                         casas[casa].pecas.Remove(this);
                         this.casa = pos;
@@ -160,7 +160,7 @@ namespace Cartagena___Soacha
                         return casa;
                     case "Azul": 
                         a = casas[pos].newButton.Location.X; b = casas[pos].newButton.Location.Y;
-                        this.newPanel.Location = new Point(a + 30, b + 30);//canto inferior direito
+                        this.newPanel.Location = new Point(a + fixo + 10, b + fixo + 10);//canto inferior direito
                         casas[casa].numeroDePecas -= 1;
                         casas[casa].pecas.Remove(this);
                         this.casa = pos;
@@ -175,7 +175,7 @@ namespace Cartagena___Soacha
 
                     case "Marrom":
                         a = casas[pos].newButton.Location.X; b = casas[pos].newButton.Location.Y;
-                        this.newPanel.Location = new Point(a + 15, b + 15);//meio
+                        this.newPanel.Location = new Point(a + fixo / 2 + 10, b + fixo / 2 + 10);//meio
                         casas[casa].numeroDePecas -= 1;
                         casas[casa].pecas.Remove(this);
                         this.casa = pos;
