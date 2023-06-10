@@ -29,7 +29,7 @@ namespace Cartagena___Soacha
             // CADASTRAR JOGADOR
             //
             //Faz jogador entrar na partida e colocar 
-            string retorno = Jogo.EntrarPartida(idPartida, txtNomeJogador.Text, txtSenhaJogador.Text);
+            string retorno = CartagenaServer.Jogo.EntrarPartida(idPartida, txtNomeJogador.Text, txtSenhaJogador.Text);
             if(!retorno.Contains("ERRO:"))
             {
                 string[] itens = retorno.Split(',');

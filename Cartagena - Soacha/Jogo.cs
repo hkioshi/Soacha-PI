@@ -18,7 +18,7 @@ using CartagenaServer;
 
 namespace Cartagena___Soacha
 {
-    public partial class Form2 : Form
+    public partial class Jogo : Form
     {
 
         public int idJogador { get; set; }//Variavel enviada do form principar
@@ -29,7 +29,7 @@ namespace Cartagena___Soacha
         //
 
 
-        public Form2()
+        public Jogo()
         {
             InitializeComponent();
         }
@@ -51,7 +51,7 @@ namespace Cartagena___Soacha
             //
             //Aqui vai colocar as imagens em uma lista e inicar o tabuleiro
             //
-            WindowState = FormWindowState.Maximized;
+
             string path = Directory.GetCurrentDirectory();//Colocar em Path o caminho C:\Users\2hkio\source\repos\Soacha-PI\Cartagena - Soacha\bin\Debug
 
 
@@ -81,62 +81,54 @@ namespace Cartagena___Soacha
             
             tab = new Tabuleiro(this);//Cria tabuleiro
             tab.ListarJogadores(idPartida);//Cria Jogadores
-            tab.GerarTabuleiro(Jogo.ExibirTabuleiro(idPartida), list);//Cria o Tabuleiro
-            
-            mao.GerarCartas(Jogo.ConsultarMao(idJogador, senha), list, this);//Cria as Cartas
+            tab.GerarTabuleiro(CartagenaServer.Jogo.ExibirTabuleiro(idPartida), list);//Cria o Tabuleiro
+
+            mao.GerarCartas(CartagenaServer.Jogo.ConsultarMao(idJogador, senha), list, this);//Cria as Cartas
             
             suporte = new Suporte(idPartida, idJogador, mao, tab, senha, list, this);
-            tab.GerarPecas(listP, idJogador, suporte);//Cria as Peças
+             tab.GerarPecas(listP, idJogador, suporte);//Cria as Peças
             inteligencia = new Inteligencia(suporte);
             suporte.Defs();
 
         }
+
+        //
+        //Botão para Pular Vez
+        //
         private void btnPularVez_Click(object sender, EventArgs e)
         {
-            //
-            //Botão para Pular Vez
-            //
             suporte.Mover();
         }
 
+        //
+        //Botão para Andar para frente
+        //
         private void btnAndarFrente_Click(object sender, EventArgs e)
         {
-            //
-            //Botão para Andar para frente
-            //
             suporte.Mover(pos, simb);
             //MessageBox.Show(Jogo.Jogar(idJogador,senha,pos, simb) );
         }
+
+        //
+        //Botão para Andar para tras
+        //
         private void btnAndarTras_Click(object sender, EventArgs e)
         {
-            //
-            //Botão para Andar para tras
-            //
             suporte.Mover(pos);
             //MessageBox.Show(Jogo.Jogar(idJogador, senha, pos, simb));
 
         }
 
-        private void btnTesteVez_Click(object sender, EventArgs e)
-        {
-            //
-            //Botão ver se é a vez
-            //
-
-            //
-            //Esse botao deve ser substituido por um timer e as peças no jogo
-            // 
-            tab.AtualizarTabuleiro(idPartida, suporte);
-        }
-
+        //EasterEgg?
         private void lblPos_Click(object sender, EventArgs e)
         {
-            //Segredo?? Devo Fazer mais?
             MessageBox.Show("EasterEgg (2/5)");
         }
 
 
-
+        //
+        //Timer Do jogo
+        //
         private void tmrJogo_Tick(object sender, EventArgs e)
         {
             lblStatus.Text = tab.VerVez(idPartida, idJogador, suporte);
@@ -149,25 +141,28 @@ namespace Cartagena___Soacha
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        //
+        //Coloca posição no label
+        //
         public void posicao(int p)
         {
             lblPos.Text = $"Posição: {Convert.ToString(pos)}";
         }
 
+        //
+        //Coloca simblolo no label
+        //
         public void simbolo(string s)
         {
             lblSimb.Text = $"Simbolo: {simb}";
         }
 
+        //
+        //termina Jogo
+        //
         public void End()
         {
-
-            tmrJogo.Stop();
+            tmrJogo.Stop();//Para timer
             MessageBox.Show("Fim De jogo");
             this.Close();
         }

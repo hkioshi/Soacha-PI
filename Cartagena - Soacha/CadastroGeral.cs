@@ -40,7 +40,7 @@ namespace Cartagena___Soacha
             //alem disso ja abre mostra os jogadores da partida
 
             //
-            // !ARRUMAR O TRATAMENTO DE ERROS!
+            // Verificar Erros
             // 
             if(ligado)
             {
@@ -76,7 +76,7 @@ namespace Cartagena___Soacha
 
                 //Aqui vai limpar e listar a lista de JOGADORES
                 lstGeral.Items.Clear();
-                string retorno = Jogo.ListarJogadores(idPartida);
+                string retorno = CartagenaServer.Jogo.ListarJogadores(idPartida);
                 retorno = retorno.Replace("\r", "");
                 string[] jogadores = retorno.Split('\n');
                 for (int i = 0; i < jogadores.Length; i++)
@@ -86,8 +86,12 @@ namespace Cartagena___Soacha
                 ligado = false;
             }
             
-        }  
-        private void zxcToolStripMenuItem_Click(object sender, EventArgs e)//Essa Aq é o botão da barra de cima
+        }
+
+        //
+        //Essa Aq é o botão da barra de cima
+        //
+        private void zxcToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //Vai abrir nova aba para cadastrar partida
             CadPartida o = new CadPartida(this);
@@ -97,12 +101,12 @@ namespace Cartagena___Soacha
         private void button1_Click_2(object sender, EventArgs e)
         {
             //aq vai iniciar o outro forms
-            string retorno1 = Jogo.IniciarPartida(idJogador, senha);//iniciar partida
+            string retorno1 = CartagenaServer.Jogo.IniciarPartida(idJogador, senha);//iniciar partida
             if (!retorno1.Contains("ERRO:"))
             {
-                string id = Jogo.IniciarPartida(idJogador, senha);//iniciar partida
+                string id = CartagenaServer.Jogo.IniciarPartida(idJogador, senha);//iniciar partida
 
-                string retorno = Jogo.ListarJogadores(idPartida);//Atualiza lista de partidas
+                string retorno = CartagenaServer.Jogo.ListarJogadores(idPartida);//Atualiza lista de partidas
                 btnEntrar.Visible = true;
                 statusPartida = "J";
             }
@@ -137,6 +141,9 @@ namespace Cartagena___Soacha
             }
             
         }
+        //
+        //Atualiza a listBox das partidas
+        //
         public void ListarPartidas()
         {
             string retorno;
@@ -148,7 +155,7 @@ namespace Cartagena___Soacha
                     lstGeral.Items.Clear();
 
                     //Lista todas as Partidas e coloca na lista lstGeral
-                    retorno = Jogo.ListarPartidas("T");
+                    retorno = CartagenaServer.Jogo.ListarPartidas("T");
                     retorno = retorno.Replace("\r", "");
 
                     partidas = retorno.Split('\n');
@@ -156,13 +163,13 @@ namespace Cartagena___Soacha
                     {
                         lstGeral.Items.Add(partidas[i]);
                     }
-                    break;
+                break;
                 case "Aberta":
                     //Listar Partidas Abertas
                     lstGeral.Items.Clear();
 
                     //Lista todas as Partidas ABERTAS e coloca na lista lstGeral
-                    retorno = Jogo.ListarPartidas("A");
+                    retorno = CartagenaServer.Jogo.ListarPartidas("A");
                     retorno = retorno.Replace("\r", "");
 
                     partidas = retorno.Split('\n');
@@ -170,13 +177,13 @@ namespace Cartagena___Soacha
                     {
                         lstGeral.Items.Add(partidas[i]);
                     }
-                    break;
+                break;
                 case "Jogando":
                     //Listar Partidas Jogando
                     lstGeral.Items.Clear();
 
                     //Lista todas as Partidas EM JOGO e coloca na lista lstGeral
-                    retorno = Jogo.ListarPartidas("J");
+                    retorno = CartagenaServer.Jogo.ListarPartidas("J");
                     retorno = retorno.Replace("\r", "");
 
                     partidas = retorno.Split('\n');
@@ -184,40 +191,46 @@ namespace Cartagena___Soacha
                     {
                         lstGeral.Items.Add(partidas[i]);
                     }
-                    break;
+                break;
                 case "Encerrada":
                     //Listar Partidas Encerradas
-                lstGeral.Items.Clear();
-                //Encerrada
-                //Lista todas as Partidas ENCERRADAS e coloca na lista lstGeral
-                retorno = Jogo.ListarPartidas("E");
-                retorno = retorno.Replace("\r", "");
+                    lstGeral.Items.Clear();
+                    //Lista todas as Partidas ENCERRADAS e coloca na lista lstGeral
+                    retorno = CartagenaServer.Jogo.ListarPartidas("E");
+                    retorno = retorno.Replace("\r", "");
 
-                partidas = retorno.Split('\n');
-                for (int i = 0; i < partidas.Length; i++)
-                {
-                    lstGeral.Items.Add(partidas[i]);
-                }
-                    break;
+                    partidas = retorno.Split('\n');
+                    for (int i = 0; i < partidas.Length; i++)
+                    {
+                        lstGeral.Items.Add(partidas[i]);
+                    }
+                break;
             }
             ligado = true;
             btnMudarStatus.Visible = false;
         }
+
+        //Se mudar o tipo da partida Atualiza lista de partidas
         private void cmbTipoPartida_SelectedIndexChanged(object sender, EventArgs e)
         {
             ListarPartidas();
         }
+
+        //EasterEgg?
         private void lblStatus_Click(object sender, EventArgs e)
         {
             MessageBox.Show("EasterEgg(1/5)");
         }
+
+        //
+        //Entrar no form2
+        //
         private void btnEntrar_Click(object sender, EventArgs e)
         {
             if (senha != null && idJogador != 0 && statusPartida == "J")
-
             {
-                //Abrir forms
-                Form2 f = new Form2();
+                //Mandar variaveis e abrir forms
+                Jogo f = new Jogo();
                 f.idJogador = idJogador;
                 f.senha = senha;
                 f.idPartida = idPartida;
@@ -230,6 +243,10 @@ namespace Cartagena___Soacha
                 MessageBox.Show("Sem senha nem Jogador Selecionado");
             }
         }
+
+        //
+        //Creditos ao artista!!! :D
+        //
         private void lblCreditos_Click(object sender, EventArgs e)
         {
             llblArtista.Text = "Artista: Special Annon";

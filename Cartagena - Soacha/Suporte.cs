@@ -25,7 +25,7 @@ namespace Cartagena___Soacha
         public string jogadorSenha;
         public Tabuleiro tabuleiro;
         public List<Image> list;
-        public Form2 form;
+        public Jogo form;
         public bool vez = false;
         public int pecaMaisAfrente = 0;
         public int cartasNaMao;
@@ -36,7 +36,7 @@ namespace Cartagena___Soacha
         public int pecasEmJogo = 6;
         int cont;
 
-        public Suporte(int partidaId,int jogadorID, Mao mao, Tabuleiro tabuleiro, string senha, List<Image> list, Form2 form2)
+        public Suporte(int partidaId,int jogadorID, Mao mao, Tabuleiro tabuleiro, string senha, List<Image> list, Jogo form2)
         {
             this.jogadorID = jogadorID;
             this.mao = mao;
@@ -58,7 +58,7 @@ namespace Cartagena___Soacha
 
         public void SelecionarPeca(int numero)
         {
-
+           
         }
 
         public void Mover(int pos, string simb)
@@ -67,7 +67,7 @@ namespace Cartagena___Soacha
             //Botão para Andar para frente
             // 
 
-            String retorno = Jogo.Jogar(jogadorID, senha, pos, simb);
+            String retorno = CartagenaServer.Jogo.Jogar(jogadorID, senha, pos, simb);
             if (retorno.Contains("ERRO:"))
             {
                 MessageBox.Show(retorno);
@@ -90,7 +90,7 @@ namespace Cartagena___Soacha
             //
             //Botão para Andar para tras
             //
-            String retorno = Jogo.Jogar(this.jogadorID, senha, pos);
+            String retorno = CartagenaServer.Jogo.Jogar(this.jogadorID, senha, pos);
             if (retorno.Contains("ERRO:"))
             {
                 MessageBox.Show(retorno);
@@ -110,7 +110,7 @@ namespace Cartagena___Soacha
 
         public void Mover()
         {
-            string retorno = Jogo.Jogar(PartidaID, senha);
+            string retorno = CartagenaServer.Jogo.Jogar(PartidaID, senha);
             if (turno < 3)
                 turno++;
             else
@@ -166,7 +166,7 @@ namespace Cartagena___Soacha
         {
             int total = 0;
             int copias;
-            string retorno = Jogo.VerificarVez(PartidaID);
+            string retorno = CartagenaServer.Jogo.VerificarVez(PartidaID);
             retorno.Replace("\r", "");
             string[] aux = retorno.Split('\n');
             var lista = aux.ToList(); // cria um objeto do tipo List<string> a partir do vetor
@@ -196,7 +196,7 @@ namespace Cartagena___Soacha
 
         public void DefCartas()
         {
-            string retorno = Jogo.ConsultarMao(jogadorID, senha);
+            string retorno = CartagenaServer.Jogo.ConsultarMao(jogadorID, senha);
             retorno = retorno.Replace("\r", "");
             
             string[] cards = retorno.Split('\n');

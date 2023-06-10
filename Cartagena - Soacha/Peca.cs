@@ -30,39 +30,47 @@ namespace Cartagena___Soacha
         //
         //Aqui vai montar as peças
         //
-        public void Montar(string cores, List<Image> list, Jogo form, int x, int y)
+        public void Montar(string cores, List<Casa> casas, List<Image> list, Jogo form)
         {
-            
-            form.Controls.Add(newPanel);
+            int a, b;
+            a = casas[0].newButton.Location.X; b = casas[0].newButton.Location.Y;
+            this.newPanel.Location = new Point(a, b);//canto superior esquerdo
+
             newPanel.Size = new Size(fixo, fixo);
             newPanel.BackgroundImageLayout = ImageLayout.Stretch;
-            newPanel.BringToFront();
             newPanel.Click += new System.EventHandler(this.VerPos);
             newPanel.BackColor = System.Drawing.Color.Transparent;
 
             switch (cores)
             {
                 case "Vermelho":
+                    newPanel.Location = new Point(a, b);
                     newPanel.BackgroundImage = list[0];
-                    newPanel.Location = new Point(x, y);
+                    
                     break;
                 case "Verde":
+                    newPanel.Location = new Point(a + fixo + 10, b);
                     newPanel.BackgroundImage = list[3];
-                    newPanel.Location = new Point(x + fixo +10 , y);
+                    
                     break;
                 case "Amarelo":
+                    newPanel.Location = new Point(a, b + fixo + 10);
                     newPanel.BackgroundImage = list[6];
-                    newPanel.Location = new Point(x, fixo + 10);
+                    
                     break;
                 case "Azul":
+                    newPanel.Location = new Point( a + fixo + 10,b+ fixo + 10);
                     newPanel.BackgroundImage = list[9];
-                    newPanel.Location = new Point(x+ fixo + 10, fixo + 10);
+                    
                     break;
                 case "Marrom":
+                    newPanel.Location = new Point(a + fixo / 2 + 10, b+ fixo / 2 + 10);
                     newPanel.BackgroundImage = list[12];
-                    newPanel.Location = new Point(x + fixo/2+10, fixo/2+10);
+                 
                     break;
             }
+            form.Controls.Add(newPanel);
+            
         }
         //
         //Move as peças pra frente e pra tras

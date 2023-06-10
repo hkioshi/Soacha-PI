@@ -15,6 +15,10 @@ namespace Cartagena___Soacha
     {
         public int nCartas = 0;//Numero total de cartas
         public List<Carta> cartas = new List<Carta>();
+
+        //
+        //Gerar Cartas na mao
+        //
         public void GerarCartas(string retorno, List<Image> list, Jogo form)
         {
             nCartas = 0;
@@ -45,36 +49,6 @@ namespace Cartagena___Soacha
                     total++;
                 }
             }
-            /*string simb;
-            retorno = retorno.Replace("\r", "");
-            string[] cards = retorno.Split('\n');
-
-            int i = 0, tipo = 0, copias = 0;
-
-            for (int j = 0; j < cards.Length-1;j++)
-            {
-                string[] a = cards[tipo].Split(',');
-                copias += Convert.ToInt32(a[1]);
-                
-            }
-
-            while(i < 6) 
-            {
-                string[] a = cards[tipo].Split(',');
-                simb = a[0];
-
-                simb = simb.Replace("\r", "");
-                simb = simb.Replace("\n", "");
-                 copias = Convert.ToInt32(a[1]);
-                while(copias > 0)
-                {
-                    cartas.Add(new Carta(form, simb));
-                    cartas[i].Montar(form, 20, form.Size.Height - 110, list, i);
-                    copias--;
-                    i++;
-                }
-                tipo++;
-            }*/
         }
 
         //

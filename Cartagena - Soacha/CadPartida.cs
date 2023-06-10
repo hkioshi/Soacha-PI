@@ -26,7 +26,7 @@ namespace Cartagena___Soacha
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string retorno = Jogo.CriarPartida(txtNome.Text, txtSenha.Text);//Comando p/ criar partida
+            string retorno = CartagenaServer.Jogo.CriarPartida(txtNome.Text, txtSenha.Text);//Comando p/ criar partida
             if (!retorno.Contains("ERRO:"))//Detecção e tratamento de erros
             {
                 MessageBox.Show($"Partida no id {retorno}");//Mensagem p/ dizer qual o id da partida jogando

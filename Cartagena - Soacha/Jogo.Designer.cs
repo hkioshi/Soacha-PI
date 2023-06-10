@@ -129,7 +129,6 @@
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(0, 40);
             this.lblStatus.TabIndex = 14;
-            this.lblStatus.Click += new System.EventHandler(this.label1_Click);
             // 
             // Form2
             // 
