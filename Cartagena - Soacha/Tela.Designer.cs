@@ -114,7 +114,7 @@
             // tmrJogo
             // 
             this.tmrJogo.Enabled = true;
-            this.tmrJogo.Interval = 3000;
+            this.tmrJogo.Interval = 1000;
             this.tmrJogo.Tick += new System.EventHandler(this.tmrJogo_Tick);
             // 
             // lblStatus
@@ -130,7 +130,7 @@
             this.lblStatus.Size = new System.Drawing.Size(0, 40);
             this.lblStatus.TabIndex = 14;
             // 
-            // Form2
+            // Tela
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -148,7 +148,7 @@
             this.ForeColor = System.Drawing.SystemColors.Control;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.Name = "Form2";
+            this.Name = "Tela";
             this.Text = "Em Jogo - Soacha";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);

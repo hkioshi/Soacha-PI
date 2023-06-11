@@ -36,6 +36,7 @@ namespace Cartagena___Soacha
         int s;
         public int pecasEmJogo = 6;
         public int[,] todasPecas;
+        public int pecaCom3;
 
         public Suporte(int partidaId,int jogadorID, Mao mao, Tabuleiro tabuleiro, string senha, List<Image> list, Tela form2)
         {
@@ -162,13 +163,11 @@ namespace Cartagena___Soacha
 
             }
         }
-        public void DefPecas()
+        public void DefPecas(string[] aux)
         {
             int total = 0;
             int copias;
-            string retorno = Jogo.VerificarVez(PartidaID);
-            retorno.Replace("\r", "");
-            string[] aux = retorno.Split('\n');
+            
             var lista = aux.ToList(); // cria um objeto do tipo List<string> a partir do vetor
             lista.RemoveAt(0); // remove o item na posição 1
             aux = lista.ToArray(); // recria o vetor a partir da lista
@@ -212,9 +211,11 @@ namespace Cartagena___Soacha
 
         public void Defs()
         {
-            DefPecas();
+            string retorno = (Jogo.VerificarVez(PartidaID)).Replace("\r", "");
+            string[] retornos = retorno.Split('\n');
+            DefPecas(retornos);
             DefCartas();
-            Verifica1p2();
+            Verifica1p2(retornos);
         }
 
         public string[] CartaCmMaisCopias()
@@ -254,11 +255,14 @@ namespace Cartagena___Soacha
         {
             for(int i = 0; i< (todasPecas.Length/2)-1; i++)
             {
-                if (todasPecas[i, 1] > 1 && pecas.Contains(todasPecas[i + 1, 0]) && todasPecas[i, 0] != 0)
+                if (todasPecas[i, 1] > 1 && pecas.Contains(todasPecas[i + 1, 0]) && todasPecas[i, 0] != 0 && todasPecas[0,1] != 3)
                 {
                     Mover(todasPecas[i + 1, 0]);
+
+                    pecaCom3 = todasPecas[i,0];
                     return true;
                 }
+                
             }
            
             Mover(pecaMaisAfrente);
@@ -267,27 +271,21 @@ namespace Cartagena___Soacha
 
         }
 
-        public void Verifica1p2()
+        public void Verifica1p2(string[] retornos)
         {
             int j = -1, prox = -1;
-            string retorno = (Jogo.VerificarVez(PartidaID).Replace("\r",""));
-            string[] retornos = retorno.Split('\n');
+           
             todasPecas = new int[retornos.Length - 2, 2] ;
             for(int i = 1;i < retornos.Length -1;i++)
             {
                 string[] aux = retornos[i].Split(',');
-                if (Convert.ToInt32(aux[0]) == prox) 
+                if (Convert.ToInt32(aux[0]) != prox) 
                 {
-                    todasPecas[j,0] = (Convert.ToInt32(aux[0]));
-                    todasPecas[j,1] += (Convert.ToInt32(aux[2]));
-                }
-                else
-                {
-                    j++ ;
+                    j++;
                     prox = Convert.ToInt32(aux[0]);
-                    todasPecas[j, 0] = (Convert.ToInt32(aux[0]));
-                    todasPecas[j, 1] += (Convert.ToInt32(aux[2]));
-                }
+                }                   
+                todasPecas[j, 0] = (Convert.ToInt32(aux[0]));
+                todasPecas[j, 1] += (Convert.ToInt32(aux[2]));
             }
 
         }

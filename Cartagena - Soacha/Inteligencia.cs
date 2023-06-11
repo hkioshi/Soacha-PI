@@ -13,7 +13,7 @@ namespace Cartagena___Soacha
         Suporte suporte;
         
         string[] cartaComMaisCopias, cartaComMenosCopias;
-        bool final = false; int umPraDois;
+        bool final = false, tres; int umPraDois;
 
 
 
@@ -30,38 +30,44 @@ namespace Cartagena___Soacha
                 Verificar();
                 if (suporte.mao.nCartas < 3 && !final)
                 {
-                    suporte.Compra();
+                    tres = suporte.Compra();
                 }
                 else
                 {
-                    
-                    if (suporte.pecasEmJogo == 1 && final)
+                    if(tres)
                     {
-                        if (suporte.pecas.Count() == 0)
-                            suporte.form.End();
-                        else
-                            suporte.Mover(Convert.ToInt32(suporte.pecas[0]), cartaComMaisCopias[0]);
-                    }
-                    
-                    else if (Convert.ToInt32(cartaComMaisCopias[1]) >= 3)
-                    {
-                        //cada if seria bom ter uma condição pra desconsiderar peças no barco como peça mais avançada
-                        //pecaMenor é a peça mais atras 
-                        suporte.Mover(Convert.ToInt32(suporte.pecas[0]), cartaComMaisCopias[0]);
-                      
-                    }
-                    else if (Convert.ToInt32(cartaComMaisCopias[1]) == 2)
-                    {
-                        suporte.Mover(Convert.ToInt32(suporte.pecas[0]), cartaComMenosCopias[0]);
-                    }
-                    else if (Convert.ToInt32(cartaComMaisCopias[1]) == 1)
-                    {
-                        suporte.Mover(Convert.ToInt32(suporte.pecas[0]), cartaComMaisCopias[0]);
+                        suporte.Mover(suporte.pecaCom3, cartaComMenosCopias[0]);
+                        tres = false;
                     }
                     else
                     {
-                        suporte.Compra();
+                        if (suporte.pecasEmJogo == 1 && final)
+                        {
+                            if (suporte.pecas.Count() == 0)
+                                suporte.form.End();
+                            else
+                                suporte.Mover(Convert.ToInt32(suporte.pecas[0]), cartaComMaisCopias[0]);
+                        }
+                        else if (Convert.ToInt32(cartaComMaisCopias[1]) >= 3)
+                        {
+                            //cada if seria bom ter uma condição pra desconsiderar peças no barco como peça mais avançada
+                            //pecaMenor é a peça mais atras 
+                            suporte.Mover(Convert.ToInt32(suporte.pecas[0]), cartaComMaisCopias[0]);
+                        }
+                        else if (Convert.ToInt32(cartaComMaisCopias[1]) == 2)
+                        {
+                            suporte.Mover(Convert.ToInt32(suporte.pecas[0]), cartaComMenosCopias[0]);
+                        }
+                        else if (Convert.ToInt32(cartaComMaisCopias[1]) == 1)
+                        {
+                            suporte.Mover(Convert.ToInt32(suporte.pecas[0]), cartaComMaisCopias[0]);
+                        }
+                        else
+                        {
+                            tres = suporte.Compra();
+                        }
                     }
+                    
                 }
             }
 
