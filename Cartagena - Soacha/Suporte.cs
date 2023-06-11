@@ -10,6 +10,7 @@ using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
@@ -25,17 +26,18 @@ namespace Cartagena___Soacha
         public string jogadorSenha;
         public Tabuleiro tabuleiro;
         public List<Image> list;
-        public Jogo form;
+        public Tela form;
         public bool vez = false;
         public int pecaMaisAfrente = 0;
         public int cartasNaMao;
         public string[,] cartas ;
-        public int[] pecas;
+        public int[] pecas  ;
         public int turno = 1;
         int s;
         public int pecasEmJogo = 6;
+        public int[,] todasPecas;
 
-        public Suporte(int partidaId,int jogadorID, Mao mao, Tabuleiro tabuleiro, string senha, List<Image> list, Jogo form2)
+        public Suporte(int partidaId,int jogadorID, Mao mao, Tabuleiro tabuleiro, string senha, List<Image> list, Tela form2)
         {
             this.jogadorID = jogadorID;
             this.mao = mao;
@@ -45,7 +47,6 @@ namespace Cartagena___Soacha
             this.form = form2;
             this.PartidaID = partidaId;
             this.cartasNaMao = mao.nCartas;
-
 
         }
 
@@ -165,7 +166,7 @@ namespace Cartagena___Soacha
         {
             int total = 0;
             int copias;
-            string retorno = CartagenaServer.Jogo.VerificarVez(PartidaID);
+            string retorno = Jogo.VerificarVez(PartidaID);
             retorno.Replace("\r", "");
             string[] aux = retorno.Split('\n');
             var lista = aux.ToList(); // cria um objeto do tipo List<string> a partir do vetor
@@ -185,19 +186,18 @@ namespace Cartagena___Soacha
                         pecas[total] = Convert.ToInt32(a[0]);
                         total++;
                     }
-
                 }
             }
             Array.Sort(pecas);
 
+            
 
         }
 
         public void DefCartas()
         {
-            string retorno = CartagenaServer.Jogo.ConsultarMao(jogadorID, senha);
+            string retorno = Jogo.ConsultarMao(jogadorID, senha);
             retorno = retorno.Replace("\r", "");
-            
             string[] cards = retorno.Split('\n');
             s = cards.Length - 1;
             cartas = new string[cards.Length - 1,2];
@@ -208,19 +208,18 @@ namespace Cartagena___Soacha
                 cartas[i, 1] = aux[1];
 
             }
-            
-            
         }
 
         public void Defs()
         {
             DefPecas();
             DefCartas();
+            Verifica1p2();
         }
 
         public string[] CartaCmMaisCopias()
         {
-            int q= 0;
+            int q = 0;
             string[] sf = new string[2];
             for (int i = 0; i < s; i++)
             {
@@ -249,6 +248,48 @@ namespace Cartagena___Soacha
                 }
             }
             return sf;
+        }
+
+        public bool Compra()
+        {
+            for(int i = 0; i< (todasPecas.Length/2)-1; i++)
+            {
+                if (todasPecas[i, 1] > 1 && pecas.Contains(todasPecas[i + 1, 0]) && todasPecas[i, 0] != 0)
+                {
+                    Mover(todasPecas[i + 1, 0]);
+                    return true;
+                }
+            }
+           
+            Mover(pecaMaisAfrente);
+            return false;
+            
+
+        }
+
+        public void Verifica1p2()
+        {
+            int j = -1, prox = -1;
+            string retorno = (Jogo.VerificarVez(PartidaID).Replace("\r",""));
+            string[] retornos = retorno.Split('\n');
+            todasPecas = new int[retornos.Length - 2, 2] ;
+            for(int i = 1;i < retornos.Length -1;i++)
+            {
+                string[] aux = retornos[i].Split(',');
+                if (Convert.ToInt32(aux[0]) == prox) 
+                {
+                    todasPecas[j,0] = (Convert.ToInt32(aux[0]));
+                    todasPecas[j,1] += (Convert.ToInt32(aux[2]));
+                }
+                else
+                {
+                    j++ ;
+                    prox = Convert.ToInt32(aux[0]);
+                    todasPecas[j, 0] = (Convert.ToInt32(aux[0]));
+                    todasPecas[j, 1] += (Convert.ToInt32(aux[2]));
+                }
+            }
+
         }
     }
 }

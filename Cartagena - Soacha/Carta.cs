@@ -16,11 +16,11 @@ namespace Cartagena___Soacha
         //Cartas  
         //
         public string simbolo { get; set; }//Simbolo
-        public Jogo form2 { get; set; }//form
+        public Tela form2 { get; set; }//form
         public Panel newPanel = new Panel();//painel
 
 
-        public Carta(Jogo form,string simbolou)//construtor
+        public Carta(Tela form,string simbolou)//construtor
         {
             form2 = form;
             simbolo = simbolou;
@@ -29,7 +29,7 @@ namespace Cartagena___Soacha
         //
         //Aq Vai montar uma carta
         //
-        public void Montar(Jogo form, int x, int y, List<Image> list,int i)
+        public void Montar(Tela form, int x, int y, List<Image> list,int i)
         {
             //Caracteristicas/funções do painel
             newPanel = new Panel();
@@ -77,7 +77,7 @@ namespace Cartagena___Soacha
             form2.simbolo(simbolo);
         }
 
-        public void Desmontar(Jogo form)
+        public void Desmontar(Tela form)
         {
             this.newPanel.Click -= new System.EventHandler(this.SelecionarSimbolo);//tirar a função do painel
             form.Controls.Remove(newPanel);//Excluir painel do forms

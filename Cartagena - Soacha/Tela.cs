@@ -18,7 +18,7 @@ using CartagenaServer;
 
 namespace Cartagena___Soacha
 {
-    public partial class Jogo : Form
+    public partial class Tela : Form
     {
 
         public int idJogador { get; set; }//Variavel enviada do form principar
@@ -29,7 +29,7 @@ namespace Cartagena___Soacha
         //
 
 
-        public Jogo()
+        public Tela()
         {
             InitializeComponent();
         }

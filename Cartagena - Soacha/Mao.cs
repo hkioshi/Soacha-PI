@@ -19,7 +19,7 @@ namespace Cartagena___Soacha
         //
         //Gerar Cartas na mao
         //
-        public void GerarCartas(string retorno, List<Image> list, Jogo form)
+        public void GerarCartas(string retorno, List<Image> list, Tela form)
         {
             nCartas = 0;
             retorno = retorno.Replace("\r", "");
@@ -54,7 +54,7 @@ namespace Cartagena___Soacha
         //
         //Desmonta e remonta a mão
         //
-        public void Remontar(Jogo form, List<Image> list)
+        public void Remontar(Tela form, List<Image> list)
         {
             foreach(Carta carta in cartas)
             {

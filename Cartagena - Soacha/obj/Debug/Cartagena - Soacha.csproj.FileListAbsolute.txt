@@ -60,4 +60,4 @@ C:\Users\2hkio\source\repos\Soacha-PI\Cartagena - Soacha\obj\Debug\Cartagena___S
 C:\Users\2hkio\source\repos\Soacha-PI\Cartagena - Soacha\obj\Debug\Cartagena___Soacha.CadJogador.resources
 C:\Users\henrique.kyamauchi\source\repos\Soacha-PI\Cartagena - Soacha\obj\Debug\Cartagena___Soacha.CadJogador.resources
 C:\Users\2hkio\source\repos\Soacha-PI\Cartagena - Soacha\obj\Debug\Cartagena___Soacha.Inicio.resources
-C:\Users\2hkio\source\repos\Soacha-PI\Cartagena - Soacha\obj\Debug\Cartagena___Soacha.Jogo.resources
+C:\Users\2hkio\source\repos\Soacha-PI\Cartagena - Soacha\obj\Debug\Cartagena___Soacha.Tela.resources

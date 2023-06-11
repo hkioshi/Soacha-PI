@@ -17,12 +17,12 @@ namespace Cartagena___Soacha
         public string simbolo;
         public int numeroDePecas = 0;
         public Panel newButton = new Panel();
-        Jogo form;
+        Tela form;
         public List<Peca> pecas = new List<Peca>();
 
 
 
-        public Casa(int id, string simb, Jogo form)
+        public Casa(int id, string simb, Tela form)
         {
             //
             //Construtor
@@ -33,7 +33,7 @@ namespace Cartagena___Soacha
             this.form = form;
         }
 
-        public void Montar(Jogo form, int x, int y,int fixo, List<Image> list)
+        public void Montar(Tela form, int x, int y,int fixo, List<Image> list)
         {
             //
             //Aqui vai fazer o painel e colocar as imagens

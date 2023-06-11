@@ -230,7 +230,7 @@ namespace Cartagena___Soacha
             if (senha != null && idJogador != 0 && statusPartida == "J")
             {
                 //Mandar variaveis e abrir forms
-                Jogo f = new Jogo();
+                Tela f = new Tela();
                 f.idJogador = idJogador;
                 f.senha = senha;
                 f.idPartida = idPartida;

@@ -23,11 +23,11 @@ namespace Cartagena___Soacha
         public List<Jogador> jogadores = new List<Jogador>();
         int x = 90, y = 20, fixo = 90; // coordenadas do tabuleiro
         bool ir = true, desce = false;// coisas pra fazer o tabuleiro serpentiar
-        Jogo form;
+        Tela form;
         Mao mao = new Mao();
         int turno = 0;
 
-        public Tabuleiro(Jogo form)
+        public Tabuleiro(Tela form)
         {
             this.form = form;
         }
@@ -216,7 +216,7 @@ namespace Cartagena___Soacha
         public string AtualizarTabuleiro(int idPartida, Suporte suporte)
         {
             int ret;
-            string retorno = CartagenaServer.Jogo.ExibirHistorico(idPartida);
+            string retorno = Jogo.ExibirHistorico(idPartida);
             retorno = retorno.Replace("\r", "");
             string[] retorno1 = retorno.Split('\n');
 
