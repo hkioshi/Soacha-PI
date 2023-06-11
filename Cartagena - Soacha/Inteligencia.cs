@@ -28,6 +28,12 @@ namespace Cartagena___Soacha
             if (suporte.vez)
             {
                 Verificar();
+                if (suporte.pecasEmJogo <= 2 && suporte.mao.nCartas > 3)
+                {
+                    //nesse if ver quantas peças restam no tabuleiro
+                    suporte.Mover(Convert.ToInt32(suporte.pecas[0]), cartaComMaisCopias[0]);
+                    final = true;
+                }
                 if (suporte.mao.nCartas < 3 && !final)
                 {
                     tres = suporte.Compra();
@@ -75,7 +81,7 @@ namespace Cartagena___Soacha
             {
                 cartaComMaisCopias = suporte.CartaCmMaisCopias();
                 cartaComMenosCopias = suporte.CartaCmMenosCopias();
-                suporte.Verifica1p2();
+                
             }
         }
     }

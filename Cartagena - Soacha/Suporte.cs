@@ -105,6 +105,7 @@ namespace Cartagena___Soacha
                     turno++;
                 else
                     turno = 1;
+                DefCartas();
             }
 
         }
@@ -141,6 +142,8 @@ namespace Cartagena___Soacha
                     i++;
                 
             }
+
+
             Array.Sort(pecas);
             i = pecas.Length -1;
             bool ok = true;
@@ -253,6 +256,9 @@ namespace Cartagena___Soacha
 
         public bool Compra()
         {
+            string retorno = (Jogo.VerificarVez(PartidaID)).Replace("\r", "");
+            string[] retornos = retorno.Split('\n');
+            Verifica1p2(retornos);
             for(int i = 0; i< (todasPecas.Length/2)-1; i++)
             {
                 if (todasPecas[i, 1] > 1 && pecas.Contains(todasPecas[i + 1, 0]) && todasPecas[i, 0] != 0 && todasPecas[0,1] != 3)
