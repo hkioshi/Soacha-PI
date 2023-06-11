@@ -39,8 +39,11 @@
             // btnCadPart
             // 
             this.btnCadPart.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.btnCadPart.BackgroundImage = global::Cartagena___Soacha.Properties.Resources.madeira;
+            this.btnCadPart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCadPart.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCadPart.Location = new System.Drawing.Point(12, 172);
-            this.btnCadPart.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCadPart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCadPart.Name = "btnCadPart";
             this.btnCadPart.Size = new System.Drawing.Size(279, 54);
             this.btnCadPart.TabIndex = 0;
@@ -51,7 +54,7 @@
             // txtSenha
             // 
             this.txtSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.txtSenha.Location = new System.Drawing.Point(15, 114);
+            this.txtSenha.Location = new System.Drawing.Point(12, 122);
             this.txtSenha.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.Size = new System.Drawing.Size(208, 26);
@@ -69,20 +72,22 @@
             // lblNomePartida
             // 
             this.lblNomePartida.AutoSize = true;
-            this.lblNomePartida.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblNomePartida.Location = new System.Drawing.Point(13, 26);
+            this.lblNomePartida.BackColor = System.Drawing.Color.Transparent;
+            this.lblNomePartida.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNomePartida.Location = new System.Drawing.Point(8, 21);
             this.lblNomePartida.Name = "lblNomePartida";
-            this.lblNomePartida.Size = new System.Drawing.Size(132, 20);
+            this.lblNomePartida.Size = new System.Drawing.Size(127, 24);
             this.lblNomePartida.TabIndex = 12;
             this.lblNomePartida.Text = "Nome da partida";
             // 
             // lblSenhaPartida
             // 
             this.lblSenhaPartida.AutoSize = true;
-            this.lblSenhaPartida.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblSenhaPartida.Location = new System.Drawing.Point(16, 93);
+            this.lblSenhaPartida.BackColor = System.Drawing.Color.Transparent;
+            this.lblSenhaPartida.Font = new System.Drawing.Font("Monotype Corsiva", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSenhaPartida.Location = new System.Drawing.Point(7, 93);
             this.lblSenhaPartida.Name = "lblSenhaPartida";
-            this.lblSenhaPartida.Size = new System.Drawing.Size(135, 20);
+            this.lblSenhaPartida.Size = new System.Drawing.Size(152, 27);
             this.lblSenhaPartida.TabIndex = 13;
             this.lblSenhaPartida.Text = "Senha da partida";
             // 
@@ -90,6 +95,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(304, 239);
             this.Controls.Add(this.lblSenhaPartida);
             this.Controls.Add(this.lblNomePartida);
@@ -97,12 +104,11 @@
             this.Controls.Add(this.txtSenha);
             this.Controls.Add(this.btnCadPart);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CadPartida";
             this.Text = "CadPartida";
-            this.Load += new System.EventHandler(this.CadPartida_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

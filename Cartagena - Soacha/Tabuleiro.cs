@@ -10,6 +10,7 @@ using System.Security.Cryptography;
 using System.Runtime.ConstrainedExecution;
 using System.Security.Principal;
 using System.Runtime.InteropServices;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace Cartagena___Soacha
 {
@@ -22,11 +23,11 @@ namespace Cartagena___Soacha
         public List<Jogador> jogadores = new List<Jogador>();
         int x = 90, y = 20, fixo = 90; // coordenadas do tabuleiro
         bool ir = true, desce = false;// coisas pra fazer o tabuleiro serpentiar
-        Form2 form;
+        Tela form;
         Mao mao = new Mao();
         int turno = 0;
 
-        public Tabuleiro(Form2 form)
+        public Tabuleiro(Tela form)
         {
             this.form = form;
         }
@@ -71,6 +72,7 @@ namespace Cartagena___Soacha
             }
         }
 
+        //posiçãox
         public void DefX()
         {
             if (ir)
@@ -97,7 +99,7 @@ namespace Cartagena___Soacha
             }
 
         }
-
+        //posiçãoy
         public void DefY()
         {
             if (ir && !desce)
@@ -130,45 +132,42 @@ namespace Cartagena___Soacha
         }
     
 
-
+        //
         //gera as peças
+        //
         public void GerarPecas(List<Image> list, int idJogador, Suporte suporte)
         {
+            int j= 0;
             string cor;
             foreach (Jogador jogador in jogadores)
             {
+               
                 if (jogador.id == Convert.ToString(idJogador))
                 {
-                    for (int i = 0; i < 6; i++)
-                    {
-
-                        cor = jogador.cor;
-                        casas[0].pecas.Add(new Peca(form, cor));
-                        if (cor == jogador.cor)
-                            suporte.Jogador(jogador);
-                        casas[0].pecas[i].Montar(cor, list, form, fixo, 20);
-                        //cor, list, casas, njog, form,70,20
-                    }
-                    casas[0].numeroDePecas += 6;
+                    suporte.Jogador(jogador);
                 }
-                else
+                
+                for (int i = 0; i < 6; i++)
                 {
-                    for (int i = 0; i < 6; i++)
-                    {
-
-                        cor = jogador.cor;
-                        casas[0].pecas.Add(new Peca(form, cor));
-                        casas[0].pecas[i].Montar(cor, list, form, 70, 20);
-                        //cor, list, casas, njog, form,70,20
-                    }
+                    cor = jogador.cor;
+                    casas[0].pecas.Add(new Peca(form, cor));
+                    casas[0].pecas[i+6*j].Montar(cor, casas,list, form);
+                    //cor, list, casas, njog, form,70,20   
                 }
+                j++;
+                casas[0].numeroDePecas += 6;
+                for(int i = 0;i < 6;i++)
+                    casas[0].newButton.SendToBack();
 
             }
         }
 
+        //
+        // Aqui Onde Os Jogadores são listados
+        //
         public void ListarJogadores(int idPartida)
         {
-            string retorno = Jogo.ListarJogadores(idPartida);
+            string retorno = CartagenaServer.Jogo.ListarJogadores(idPartida);
             retorno = retorno.Replace("\r", "");
             string[] retornos2 = retorno.Split('\n');
             for (int i = 0; i < retornos2.Length - 1; i++)
@@ -178,11 +177,14 @@ namespace Cartagena___Soacha
             }
         }
 
+        //
+        //Ver de quem é a vez
+        //
         public string VerVez(int idPartida, int jogadorId, Suporte suporte)
         {
             string Tudo;
 
-            string retorno = Jogo.VerificarVez(idPartida);
+            string retorno = CartagenaServer.Jogo.VerificarVez(idPartida);
             retorno = retorno.Replace("\r", "");
             string[] retornos = retorno.Split('\n');
             retornos = retornos[0].Split(',');
@@ -208,6 +210,9 @@ namespace Cartagena___Soacha
 
         }
 
+        //
+        //Mover pecas no tabuleiro graficamente
+        //
         public string AtualizarTabuleiro(int idPartida, Suporte suporte)
         {
             int ret;
@@ -239,27 +244,6 @@ namespace Cartagena___Soacha
 
             }
             return "erro";
-
-            /*
-            string retorno = Jogo.VerificarVez(idPartida);
-            retorno = retorno.Replace("\r", "");
-            string[] retornos = retorno.Split('\n');
-
-            int a = 0;
-            foreach (Jogador jogador in jogadores)
-            {
-                string[] retorno1 = retornos.Where(nome => nome.Contains(jogador.id) && !nome.Contains("J")).ToArray();
-                for (int i = 0; i < retorno1.Length; i++)
-                {
-                    string[] retorno2 = retorno1[i].Split(',');
-                    for (int j = 0; j < Convert.ToInt32(retorno2[2]); j++)
-                    {
-                        jogador.pecas[a].Mover(jogador.cor, casas, Convert.ToInt32(retorno2[0]));
-                        a++;
-                    }
-                }
-                a = 0;
-            }*/
         }
     }
 }

@@ -16,11 +16,11 @@ namespace Cartagena___Soacha
         //Cartas  
         //
         public string simbolo { get; set; }//Simbolo
-        public Form2 form2 { get; set; }//form
+        public Tela form2 { get; set; }//form
         public Panel newPanel = new Panel();//painel
 
 
-        public Carta(Form2 form,string simbolou)//construtor
+        public Carta(Tela form,string simbolou)//construtor
         {
             form2 = form;
             simbolo = simbolou;
@@ -29,7 +29,7 @@ namespace Cartagena___Soacha
         //
         //Aq Vai montar uma carta
         //
-        public void Montar(Form2 form, int x, int y, List<Image> list,int i)
+        public void Montar(Tela form, int x, int y, List<Image> list,int i)
         {
             //Caracteristicas/funções do painel
             newPanel = new Panel();
@@ -44,27 +44,27 @@ namespace Cartagena___Soacha
             //fundo do painel
             switch(this.simbolo)
             {
-                case "F":
+                case "F"://Faca
                     newPanel.BackgroundImage = list[0];
                     newPanel.Size = new Size(50, 50);
                     break;
-                case "P":
+                case "P"://Pistola
                     newPanel.BackgroundImage = list[1];
                     newPanel.Size = new Size(50, 50);
                     break;
-                case "T":
+                case "T"://Chapéu 
                     newPanel.BackgroundImage = list[2];
                     newPanel.Size = new Size(50, 50);
                     break;
-                case "C":
+                case "C"://Chave
                     newPanel.BackgroundImage = list[3];
                     newPanel.Size = new Size(50, 50);
                     break;
-                case "G":
+                case "G"://Garrafa
                     newPanel.BackgroundImage = list[4];
                     newPanel.Size = new Size(50, 50);
                     break;
-                case "E":
+                case "E"://Esqueleto
                     newPanel.BackgroundImage = list[5];
                     newPanel.Size = new Size(50, 50);
                     break;
@@ -77,7 +77,7 @@ namespace Cartagena___Soacha
             form2.simbolo(simbolo);
         }
 
-        public void Desmontar(Form2 form)
+        public void Desmontar(Tela form)
         {
             this.newPanel.Click -= new System.EventHandler(this.SelecionarSimbolo);//tirar a função do painel
             form.Controls.Remove(newPanel);//Excluir painel do forms

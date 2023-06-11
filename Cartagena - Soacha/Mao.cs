@@ -15,7 +15,11 @@ namespace Cartagena___Soacha
     {
         public int nCartas = 0;//Numero total de cartas
         public List<Carta> cartas = new List<Carta>();
-        public void GerarCartas(string retorno, List<Image> list, Form2 form)
+
+        //
+        //Gerar Cartas na mao
+        //
+        public void GerarCartas(string retorno, List<Image> list, Tela form)
         {
             nCartas = 0;
             retorno = retorno.Replace("\r", "");
@@ -45,49 +49,19 @@ namespace Cartagena___Soacha
                     total++;
                 }
             }
-            /*string simb;
-            retorno = retorno.Replace("\r", "");
-            string[] cards = retorno.Split('\n');
-
-            int i = 0, tipo = 0, copias = 0;
-
-            for (int j = 0; j < cards.Length-1;j++)
-            {
-                string[] a = cards[tipo].Split(',');
-                copias += Convert.ToInt32(a[1]);
-                
-            }
-
-            while(i < 6) 
-            {
-                string[] a = cards[tipo].Split(',');
-                simb = a[0];
-
-                simb = simb.Replace("\r", "");
-                simb = simb.Replace("\n", "");
-                 copias = Convert.ToInt32(a[1]);
-                while(copias > 0)
-                {
-                    cartas.Add(new Carta(form, simb));
-                    cartas[i].Montar(form, 20, form.Size.Height - 110, list, i);
-                    copias--;
-                    i++;
-                }
-                tipo++;
-            }*/
         }
 
         //
         //Desmonta e remonta a mão
         //
-        public void Remontar(Form2 form, List<Image> list)
+        public void Remontar(Tela form, List<Image> list)
         {
             foreach(Carta carta in cartas)
             {
                 carta.Desmontar(form);
             }
-            cartas.Clear(); 
-            GerarCartas(Jogo.ConsultarMao(form.idJogador, form.senha), list, form);
+            cartas.Clear();
+            GerarCartas(CartagenaServer.Jogo.ConsultarMao(form.idJogador, form.senha), list, form);
 
         }
 

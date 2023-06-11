@@ -29,33 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadJogador));
-            this.lblSenhaPartida = new System.Windows.Forms.Label();
-            this.lblNomeJogador = new System.Windows.Forms.Label();
             this.txtNomeJogador = new System.Windows.Forms.TextBox();
             this.txtSenhaJogador = new System.Windows.Forms.TextBox();
             this.btnCad = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // lblSenhaPartida
-            // 
-            this.lblSenhaPartida.AutoSize = true;
-            this.lblSenhaPartida.Font = new System.Drawing.Font("Monotype Corsiva", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSenhaPartida.Location = new System.Drawing.Point(12, 98);
-            this.lblSenhaPartida.Name = "lblSenhaPartida";
-            this.lblSenhaPartida.Size = new System.Drawing.Size(155, 27);
-            this.lblSenhaPartida.TabIndex = 17;
-            this.lblSenhaPartida.Text = "Senha da Partida";
-            // 
-            // lblNomeJogador
-            // 
-            this.lblNomeJogador.AutoSize = true;
-            this.lblNomeJogador.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.lblNomeJogador.Font = new System.Drawing.Font("Monotype Corsiva", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNomeJogador.Location = new System.Drawing.Point(12, 9);
-            this.lblNomeJogador.Name = "lblNomeJogador";
-            this.lblNomeJogador.Size = new System.Drawing.Size(151, 27);
-            this.lblNomeJogador.TabIndex = 16;
-            this.lblNomeJogador.Text = "Nome do Jogador";
             // 
             // txtNomeJogador
             // 
@@ -78,7 +57,7 @@
             // btnCad
             // 
             this.btnCad.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCad.BackgroundImage")));
-            this.btnCad.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btnCad.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCad.Location = new System.Drawing.Point(208, 9);
             this.btnCad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCad.Name = "btnCad";
@@ -88,16 +67,38 @@
             this.btnCad.UseVisualStyleBackColor = true;
             this.btnCad.Click += new System.EventHandler(this.btnCad_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(6, 2);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(192, 34);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Nome Do Jogador";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(6, 91);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(186, 34);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "Senha do Jogador";
+            // 
             // CadJogador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(435, 176);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCad);
             this.Controls.Add(this.txtSenhaJogador);
-            this.Controls.Add(this.lblSenhaPartida);
-            this.Controls.Add(this.lblNomeJogador);
             this.Controls.Add(this.txtNomeJogador);
             this.Font = new System.Drawing.Font("Monotype Corsiva", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -109,10 +110,10 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label lblSenhaPartida;
-        private System.Windows.Forms.Label lblNomeJogador;
         private System.Windows.Forms.TextBox txtNomeJogador;
         private System.Windows.Forms.TextBox txtSenhaJogador;
         private System.Windows.Forms.Button btnCad;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

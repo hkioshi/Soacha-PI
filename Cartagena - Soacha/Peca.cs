@@ -17,10 +17,10 @@ namespace Cartagena___Soacha
         int fixo = 30;
         public string cor;
         public int casa;
-        public Panel newPanel =new Panel();
-        Form2 form;
+        public Panel newPanel = new Panel();
+        Tela form;
 
-        public Peca(Form2 form, string cor)
+        public Peca(Tela form, string cor)
         {
             this.form = form;
             this.cor = cor;
@@ -30,39 +30,50 @@ namespace Cartagena___Soacha
         //
         //Aqui vai montar as peças
         //
-        public void Montar(string cores, List<Image> list, Form2 form, int x, int y)
+        public void Montar(string cores, List<Casa> casas, List<Image> list, Tela form)
         {
-            
-            form.Controls.Add(newPanel);
+            int a, b;
+            a = casas[0].newButton.Location.X; b = casas[0].newButton.Location.Y;
+            this.newPanel.Location = new Point(a, b);//canto superior esquerdo
+
             newPanel.Size = new Size(fixo, fixo);
             newPanel.BackgroundImageLayout = ImageLayout.Stretch;
-            newPanel.BringToFront();
             newPanel.Click += new System.EventHandler(this.VerPos);
             newPanel.BackColor = System.Drawing.Color.Transparent;
 
             switch (cores)
             {
                 case "Vermelho":
+                    newPanel.Location = new Point(a, b);
                     newPanel.BackgroundImage = list[0];
-                    newPanel.Location = new Point(x, y);
                     
                     break;
                 case "Verde":
+                    newPanel.Location = new Point(a + fixo + 10, b);
                     newPanel.BackgroundImage = list[3];
-                    newPanel.Location = new Point(x + fixo +10 , y);
+                    
                     break;
                 case "Amarelo":
+                    newPanel.Location = new Point(a, b + fixo + 10);
                     newPanel.BackgroundImage = list[6];
-                    newPanel.Location = new Point(x, fixo + 10);
+                    
                     break;
                 case "Azul":
+                    newPanel.Location = new Point( a + fixo + 10,b+ fixo + 10);
                     newPanel.BackgroundImage = list[9];
-                    newPanel.Location = new Point(x+ fixo + 10, fixo + 10);
+                    
                     break;
                 case "Marrom":
+                    newPanel.Location = new Point(a + fixo / 2 + 10, b+ fixo / 2 + 10);
                     newPanel.BackgroundImage = list[12];
-                    newPanel.Location = new Point(x + fixo/2+10, fixo/2+10);
+                 
                     break;
+            }
+            form.Controls.Add(newPanel);
+            
+            foreach(Peca peca in casas[0].pecas)
+            {
+                casas[0].newButton.SendToBack();
             }
         }
         //
@@ -80,17 +91,33 @@ namespace Cartagena___Soacha
                         this.newPanel.Location = new Point(a, b);//canto superior esquerdo
                         casas[casa].numeroDePecas -= 1;
                         casas[casa].pecas.Remove(this);
-                        this.casa = pos;
+                        
 
+                        Peca[] pecs = casas[casa].pecas.Where(temp => temp.cor == "Vermelho").ToArray();
+                        if (pecs.Length == 1)
+                        {
+                            pecs[pecs.Length - 1].newPanel.BackgroundImage = PImage[0];
+
+                        }
+                        else if (pecs.Length == 2)
+                        {
+                            pecs[pecs.Length - 1].newPanel.BackgroundImage = PImage[1];
+                        }
+                        else if(pecs.Length == 1)
+                        {
+                            pecs[pecs.Length - 1].newPanel.BackgroundImage = PImage[2];
+                        }
+                        this.casa = pos;
                         //Muda Numero de peças na casa
                         casas[casa].numeroDePecas += 1;
                         casas[casa].pecas.Add(this);
                         newPanel.BringToFront();
 
-                        Peca[] pecs = casas[casa].pecas.Where(temp => temp.cor == "Vermelho").ToArray();
+                         pecs = casas[casa].pecas.Where(temp => temp.cor == "Vermelho").ToArray();
                         if(pecs.Length == 1) 
                         {
                             pecs[pecs.Length-1].newPanel.BackgroundImage = PImage[0];
+                            
                         }
                         else if(pecs.Length == 2) 
                         {
@@ -104,7 +131,7 @@ namespace Cartagena___Soacha
                         return casa;
                     case "Verde":
                         a = casas[pos].newButton.Location.X; b = casas[pos].newButton.Location.Y;
-                        this.newPanel.Location = new Point(a + 30, b);//canto superior direito
+                        this.newPanel.Location = new Point(a + fixo +10, b);//canto superior direito
                         casas[casa].numeroDePecas -= 1;
                         casas[casa].pecas.Remove(this);
                         this.casa = pos;
@@ -119,7 +146,7 @@ namespace Cartagena___Soacha
                         return casa;
                     case "Amarelo":
                         a = casas[pos].newButton.Location.X; b = casas[pos].newButton.Location.Y;
-                        this.newPanel.Location = new Point(a, b + 30);//canto inferior esquerdo
+                        this.newPanel.Location = new Point(a, b + fixo + 10);//canto inferior esquerdo
                         casas[casa].numeroDePecas -= 1;
                         casas[casa].pecas.Remove(this);
                         this.casa = pos;
@@ -133,7 +160,7 @@ namespace Cartagena___Soacha
                         return casa;
                     case "Azul": 
                         a = casas[pos].newButton.Location.X; b = casas[pos].newButton.Location.Y;
-                        this.newPanel.Location = new Point(a + 30, b + 30);//canto inferior direito
+                        this.newPanel.Location = new Point(a + fixo + 10, b + fixo + 10);//canto inferior direito
                         casas[casa].numeroDePecas -= 1;
                         casas[casa].pecas.Remove(this);
                         this.casa = pos;
@@ -148,7 +175,7 @@ namespace Cartagena___Soacha
 
                     case "Marrom":
                         a = casas[pos].newButton.Location.X; b = casas[pos].newButton.Location.Y;
-                        this.newPanel.Location = new Point(a + 15, b + 15);//meio
+                        this.newPanel.Location = new Point(a + fixo / 2 + 10, b + fixo / 2 + 10);//meio
                         casas[casa].numeroDePecas -= 1;
                         casas[casa].pecas.Remove(this);
                         this.casa = pos;
