@@ -73,8 +73,7 @@ namespace Cartagena___Soacha
             if (retorno.Contains("ERRO:"))
             {
 
-                MessageBox.Show($"{pos} e {simb}");
-                MessageBox.Show(retorno);
+                deuRuimNaIda = true;
             }
             else
             {
@@ -97,7 +96,6 @@ namespace Cartagena___Soacha
             String retorno = CartagenaServer.Jogo.Jogar(this.jogadorID, senha, pos);
             if (retorno.Contains("ERRO:"))
             {
-                MessageBox.Show($"{pos} ");
                 deuRuimNaVolta = true;             
             }
             else

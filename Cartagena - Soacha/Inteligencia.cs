@@ -62,7 +62,7 @@ namespace Cartagena___Soacha
                 }
                 else if(suporte.deuRuimNaIda)
                 {
-                    suporte.Mover();
+                    suporte.Mover(suporte.pecas.First());
                     
                 }
                 else if(suporte.deuRuimNaVolta)

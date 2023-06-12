@@ -175,9 +175,9 @@ namespace Cartagena___Soacha
         //
         public void End()
         {
-            //tmrJogo.Stop();//Para timer
-            //MessageBox.Show("Fim De jogo");
-            //this.Close();
+            tmrJogo.Stop();//Para timer 
+            MessageBox.Show("Fim De jogo");
+            this.Close();
         }
     }
 
