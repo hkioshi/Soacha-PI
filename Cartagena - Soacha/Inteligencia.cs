@@ -13,9 +13,9 @@ namespace Cartagena___Soacha
         Suporte suporte;
         
         string[] cartaComMaisCopias, cartaComMenosCopias;
-        bool final = false, tres; int umPraDois;
+        bool final = false, tres;
 
-        bool ex = false, ex1;
+        bool ex = false, ex1= false, ex2= true;
 
         public Inteligencia(Suporte suporte) 
         {
@@ -42,7 +42,7 @@ namespace Cartagena___Soacha
                     final = true;
                 }
                 
-                if (suporte.mao.nCartas < 3 && !final && !ex)
+                if (suporte.mao.nCartas < 3 && !final && !ex && !suporte.deuRuimNaIda && !suporte.deuRuimNaVolta)
                 {
                     tres = suporte.Compra();
                 }
@@ -61,7 +61,15 @@ namespace Cartagena___Soacha
                     if (suporte.pecas.Count() == 0)
                         suporte.form.End();
                     else
-                        suporte.Mover(Convert.ToInt32(suporte.pecas[0]), cartaComMaisCopias[0]);
+                         suporte.Mover(Convert.ToInt32(suporte.pecas[0]), cartaComMaisCopias[0]);
+                }
+                else if(suporte.deuRuimNaIda)
+                {
+                    suporte.form.End();
+                }
+                else if(suporte.deuRuimNaVolta)
+                {
+                    suporte.Mover(suporte.pecaMaisAfrente);
                 }
                 else if(!ex && !final)
                 {
@@ -72,10 +80,6 @@ namespace Cartagena___Soacha
                     }
                     else
                     {
-                        if (suporte.pecasEmJogo == 1 && final)
-                        {
-                          
-                        }
                         if (Convert.ToInt32(cartaComMaisCopias[1]) >= 3)
                         {
                             //cada if seria bom ter uma condição pra desconsiderar peças no barco como peça mais avançada
