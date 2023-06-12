@@ -103,9 +103,17 @@ namespace Cartagena___Soacha
                         {
                             pecs[pecs.Length - 1].newPanel.BackgroundImage = PImage[1];
                         }
-                        else if(pecs.Length == 1)
+                        else if(pecs.Length == 3)
                         {
                             pecs[pecs.Length - 1].newPanel.BackgroundImage = PImage[2];
+                        }
+                        else if (pecs.Length == 4)
+                        {
+                            pecs[pecs.Length - 1].newPanel.BackgroundImage = PImage[3];
+                        }
+                        else if (pecs.Length == 5)
+                        {
+                            pecs[pecs.Length - 1].newPanel.BackgroundImage = PImage[4];
                         }
                         this.casa = pos;
                         //Muda Numero de peças na casa
@@ -123,10 +131,19 @@ namespace Cartagena___Soacha
                         {
                             pecs[pecs.Length-1].newPanel.BackgroundImage = PImage[1];
                         }
-                        else
+                        else if(pecs.Length == 3)
                         {
                             pecs[pecs.Length-1].newPanel.BackgroundImage= PImage[2];
                         }
+                        else if (pecs.Length == 4)
+                        {
+                            pecs[pecs.Length - 1].newPanel.BackgroundImage = PImage[3];
+                        }
+                        else if (pecs.Length == 5)
+                        {
+                            pecs[pecs.Length - 1].newPanel.BackgroundImage = PImage[4];
+                        }
+
 
                         return casa;
                     case "Verde":
@@ -136,10 +153,56 @@ namespace Cartagena___Soacha
                         casas[casa].pecas.Remove(this);
                         this.casa = pos;
 
+                        pecs = casas[casa].pecas.Where(temp => temp.cor == "Verde").ToArray();
+                        if (pecs.Length == 1)
+                        {
+                            pecs[pecs.Length - 1].newPanel.BackgroundImage = PImage[5];
+
+                        }
+                        else if (pecs.Length == 2)
+                        {
+                            pecs[pecs.Length - 1].newPanel.BackgroundImage = PImage[6];
+                        }
+                        else if (pecs.Length == 3)
+                        {
+                            pecs[pecs.Length - 1].newPanel.BackgroundImage = PImage[7];
+                        }
+                        else if (pecs.Length == 4)
+                        {
+                            pecs[pecs.Length - 1].newPanel.BackgroundImage = PImage[8];
+                        }
+                        else if (pecs.Length == 5)
+                        {
+                            pecs[pecs.Length - 1].newPanel.BackgroundImage = PImage[9];
+                        }
+                        this.casa = pos;
                         //Muda Numero de peças na casa
                         casas[casa].numeroDePecas += 1;
                         casas[casa].pecas.Add(this);
                         newPanel.BringToFront();
+
+                        pecs = casas[casa].pecas.Where(temp => temp.cor == "Verde").ToArray();
+                        if (pecs.Length == 1)
+                        {
+                            pecs[pecs.Length - 1].newPanel.BackgroundImage = PImage[5];
+
+                        }
+                        else if (pecs.Length == 2)
+                        {
+                            pecs[pecs.Length - 1].newPanel.BackgroundImage = PImage[6];
+                        }
+                        else if (pecs.Length == 3)
+                        {
+                            pecs[pecs.Length - 1].newPanel.BackgroundImage = PImage[7];
+                        }
+                        else if (pecs.Length == 4)
+                        {
+                            pecs[pecs.Length - 1].newPanel.BackgroundImage = PImage[8];
+                        }
+                        else if (pecs.Length == 5)
+                        {
+                            pecs[pecs.Length - 1].newPanel.BackgroundImage = PImage[9];
+                        }
 
 
 
@@ -151,11 +214,56 @@ namespace Cartagena___Soacha
                         casas[casa].pecas.Remove(this);
                         this.casa = pos;
 
+                        pecs = casas[casa].pecas.Where(temp => temp.cor == "Amarelo").ToArray();
+                        if (pecs.Length == 1)
+                        {
+                            pecs[pecs.Length - 1].newPanel.BackgroundImage = PImage[10];
+
+                        }
+                        else if (pecs.Length == 2)
+                        {
+                            pecs[pecs.Length - 1].newPanel.BackgroundImage = PImage[11];
+                        }
+                        else if (pecs.Length == 3)
+                        {
+                            pecs[pecs.Length - 1].newPanel.BackgroundImage = PImage[12];
+                        }
+                        else if (pecs.Length == 4)
+                        {
+                            pecs[pecs.Length - 1].newPanel.BackgroundImage = PImage[13];
+                        }
+                        else if (pecs.Length == 5)
+                        {
+                            pecs[pecs.Length - 1].newPanel.BackgroundImage = PImage[14];
+                        }
+                        this.casa = pos;
                         //Muda Numero de peças na casa
                         casas[casa].numeroDePecas += 1;
                         casas[casa].pecas.Add(this);
                         newPanel.BringToFront();
 
+                        pecs = casas[casa].pecas.Where(temp => temp.cor == "Amarelo").ToArray();
+                        if (pecs.Length == 1)
+                        {
+                            pecs[pecs.Length - 1].newPanel.BackgroundImage = PImage[10];
+
+                        }
+                        else if (pecs.Length == 2)
+                        {
+                            pecs[pecs.Length - 1].newPanel.BackgroundImage = PImage[11];
+                        }
+                        else if (pecs.Length == 3)
+                        {
+                            pecs[pecs.Length - 1].newPanel.BackgroundImage = PImage[12];
+                        }
+                        else if (pecs.Length == 4)
+                        {
+                            pecs[pecs.Length - 1].newPanel.BackgroundImage = PImage[13];
+                        }
+                        else if (pecs.Length == 5)
+                        {
+                            pecs[pecs.Length - 1].newPanel.BackgroundImage = PImage[14];
+                        }
 
                         return casa;
                     case "Azul": 
@@ -166,11 +274,56 @@ namespace Cartagena___Soacha
                         this.casa = pos;
                         newPanel.BringToFront();
 
+                        pecs = casas[casa].pecas.Where(temp => temp.cor == "Azul").ToArray();
+                        if (pecs.Length == 1)
+                        {
+                            pecs[pecs.Length - 1].newPanel.BackgroundImage = PImage[15];
+
+                        }
+                        else if (pecs.Length == 2)
+                        {
+                            pecs[pecs.Length - 1].newPanel.BackgroundImage = PImage[16];
+                        }
+                        else if (pecs.Length == 3)
+                        {
+                            pecs[pecs.Length - 1].newPanel.BackgroundImage = PImage[17];
+                        }
+                        else if (pecs.Length == 4)
+                        {
+                            pecs[pecs.Length - 1].newPanel.BackgroundImage = PImage[18];
+                        }
+                        else if (pecs.Length == 5)
+                        {
+                            pecs[pecs.Length - 1].newPanel.BackgroundImage = PImage[19];
+                        }
+                        this.casa = pos;
                         //Muda Numero de peças na casa
                         casas[casa].numeroDePecas += 1;
                         casas[casa].pecas.Add(this);
                         newPanel.BringToFront();
 
+                        pecs = casas[casa].pecas.Where(temp => temp.cor == "Azul").ToArray();
+                        if (pecs.Length == 1)
+                        {
+                            pecs[pecs.Length - 1].newPanel.BackgroundImage = PImage[15];
+
+                        }
+                        else if (pecs.Length == 2)
+                        {
+                            pecs[pecs.Length - 1].newPanel.BackgroundImage = PImage[16];
+                        }
+                        else if (pecs.Length == 3)
+                        {
+                            pecs[pecs.Length - 1].newPanel.BackgroundImage = PImage[17];
+                        }
+                        else if (pecs.Length == 4)
+                        {
+                            pecs[pecs.Length - 1].newPanel.BackgroundImage = PImage[18];
+                        }
+                        else if (pecs.Length == 5)
+                        {
+                            pecs[pecs.Length - 1].newPanel.BackgroundImage = PImage[19];
+                        }
                         return casa;
 
                     case "Marrom":
@@ -180,12 +333,57 @@ namespace Cartagena___Soacha
                         casas[casa].pecas.Remove(this);
                         this.casa = pos;
 
+                        pecs = casas[casa].pecas.Where(temp => temp.cor == "Marrom").ToArray();
+                        if (pecs.Length == 1)
+                        {
+                            pecs[pecs.Length - 1].newPanel.BackgroundImage = PImage[20];
+
+                        }
+                        else if (pecs.Length == 2)
+                        {
+                            pecs[pecs.Length - 1].newPanel.BackgroundImage = PImage[21];
+                        }
+                        else if (pecs.Length == 3)
+                        {
+                            pecs[pecs.Length - 1].newPanel.BackgroundImage = PImage[22];
+                        }
+                        else if (pecs.Length == 4)
+                        {
+                            pecs[pecs.Length - 1].newPanel.BackgroundImage = PImage[23];
+                        }
+                        else if (pecs.Length == 5)
+                        {
+                            pecs[pecs.Length - 1].newPanel.BackgroundImage = PImage[24];
+                        }
+                        this.casa = pos;
                         //Muda Numero de peças na casa
                         casas[casa].numeroDePecas += 1;
                         casas[casa].pecas.Add(this);
                         newPanel.BringToFront();
-                        return casa;
 
+                        pecs = casas[casa].pecas.Where(temp => temp.cor == "Marrom").ToArray();
+                        if (pecs.Length == 1)
+                        {
+                            pecs[pecs.Length - 1].newPanel.BackgroundImage = PImage[20];
+
+                        }
+                        else if (pecs.Length == 2)
+                        {
+                            pecs[pecs.Length - 1].newPanel.BackgroundImage = PImage[21];
+                        }
+                        else if (pecs.Length == 3)
+                        {
+                            pecs[pecs.Length - 1].newPanel.BackgroundImage = PImage[22];
+                        }
+                        else if (pecs.Length == 4)
+                        {
+                            pecs[pecs.Length - 1].newPanel.BackgroundImage = PImage[23];
+                        }
+                        else if (pecs.Length == 5)
+                        {
+                            pecs[pecs.Length - 1].newPanel.BackgroundImage = PImage[24];
+                        }
+                        break;
                 }
             }
             else

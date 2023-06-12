@@ -102,7 +102,7 @@ namespace Cartagena___Soacha
         {
             //aq vai iniciar o outro forms
             string retorno1 = CartagenaServer.Jogo.IniciarPartida(idJogador, senha);//iniciar partida
-            if (!retorno1.Contains("ERRO:"))
+            if (!retorno1.Contains("ERRO:") || senha != "")
             {
                 string id = CartagenaServer.Jogo.IniciarPartida(idJogador, senha);//iniciar partida
 
