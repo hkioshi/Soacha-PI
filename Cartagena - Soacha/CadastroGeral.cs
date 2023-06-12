@@ -67,10 +67,10 @@ namespace Cartagena___Soacha
                     MessageBox.Show("Selecione uma partida valida");
                     ListarPartidas();
                 }
-                catch (Exception ex)//Esse tratamento deve ser consertado
+                catch (NullReferenceException ex)//Esse tratamento deve ser consertado
                 {
-                    MessageBox.Show("Erro: "+ ex);
-                    ListarPartidas();
+                    this.lstGeral.Text = "sem partidas abertas";
+                    
                 }
 
 

@@ -14,15 +14,12 @@ namespace Cartagena___Soacha
         
         string[] cartaComMaisCopias, cartaComMenosCopias;
         bool final = false, tres;
-
         bool ex = false, ex1= false, ex2= true;
 
         public Inteligencia(Suporte suporte) 
         {
             this.suporte = suporte;
         }
-
-
         public void Pensar()
         {
             if (suporte.vez)
@@ -65,11 +62,13 @@ namespace Cartagena___Soacha
                 }
                 else if(suporte.deuRuimNaIda)
                 {
-                    suporte.form.End();
+                    suporte.Mover();
+                    
                 }
                 else if(suporte.deuRuimNaVolta)
                 {
                     suporte.Mover(suporte.pecaMaisAfrente);
+                    suporte.deuRuimNaVolta = false;
                 }
                 else if(!ex && !final)
                 {
@@ -102,11 +101,9 @@ namespace Cartagena___Soacha
             {
                 cartaComMaisCopias = suporte.CartaCmMaisCopias();
                 cartaComMenosCopias = suporte.CartaCmMenosCopias();
-                
             }
         }
     }
-
 }
     
     

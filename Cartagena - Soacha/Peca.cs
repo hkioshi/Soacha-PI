@@ -50,22 +50,22 @@ namespace Cartagena___Soacha
                     break;
                 case "Verde":
                     newPanel.Location = new Point(a + fixo + 10, b);
-                    newPanel.BackgroundImage = list[3];
+                    newPanel.BackgroundImage = list[5];
                     
                     break;
                 case "Amarelo":
                     newPanel.Location = new Point(a, b + fixo + 10);
-                    newPanel.BackgroundImage = list[6];
+                    newPanel.BackgroundImage = list[10];
                     
                     break;
                 case "Azul":
                     newPanel.Location = new Point( a + fixo + 10,b+ fixo + 10);
-                    newPanel.BackgroundImage = list[9];
+                    newPanel.BackgroundImage = list[15];
                     
                     break;
                 case "Marrom":
                     newPanel.Location = new Point(a + fixo / 2 + 10, b+ fixo / 2 + 10);
-                    newPanel.BackgroundImage = list[12];
+                    newPanel.BackgroundImage = list[20];
                  
                     break;
             }

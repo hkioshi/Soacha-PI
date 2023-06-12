@@ -72,7 +72,9 @@ namespace Cartagena___Soacha
             String retorno = CartagenaServer.Jogo.Jogar(jogadorID, senha, pos, simb);
             if (retorno.Contains("ERRO:"))
             {
-                deuRuimNaIda = true;
+
+                MessageBox.Show($"{pos} e {simb}");
+                MessageBox.Show(retorno);
             }
             else
             {
@@ -95,6 +97,7 @@ namespace Cartagena___Soacha
             String retorno = CartagenaServer.Jogo.Jogar(this.jogadorID, senha, pos);
             if (retorno.Contains("ERRO:"))
             {
+                MessageBox.Show($"{pos} ");
                 deuRuimNaVolta = true;             
             }
             else
@@ -152,20 +155,27 @@ namespace Cartagena___Soacha
             bool ok = true;
             while (ok)
             {
-                if (pecas[i] != 37)
+                try
                 {
-                    pecaMaisAfrente = pecas.Last();
-                    ok = false;
+                    if (pecas[i] != 37)
+                    {
+                        pecaMaisAfrente = pecas.Last();
+                        ok = false;
+                    }
+                    else
+                    {
+                        var lista = pecas.ToList(); // cria um objeto do tipo List<string> a partir do vetor
+                        lista.RemoveAt(i); // remove o item na posição 1
+                        pecas = lista.ToArray(); // recria o vetor a partir da lista
+                        i--;
+                    }
                 }
-                else
+                catch (Exception e) 
                 {
-                    var lista = pecas.ToList(); // cria um objeto do tipo List<string> a partir do vetor
-                    lista.RemoveAt(i); // remove o item na posição 1
-                    pecas = lista.ToArray(); // recria o vetor a partir da lista
-                    i--;
-                }
-                if (i == -1)
                     form.End();
+                }
+                
+                   
 
             }
         }
