@@ -67,10 +67,10 @@ namespace Cartagena___Soacha
                     MessageBox.Show("Selecione uma partida valida");
                     ListarPartidas();
                 }
-                catch (Exception ex)//Esse tratamento deve ser consertado
+                catch (NullReferenceException ex)//Esse tratamento deve ser consertado
                 {
-                    MessageBox.Show("Erro: "+ ex);
-                    ListarPartidas();
+                    this.lstGeral.Text = "sem partidas abertas";
+                    
                 }
 
 
@@ -102,7 +102,7 @@ namespace Cartagena___Soacha
         {
             //aq vai iniciar o outro forms
             string retorno1 = CartagenaServer.Jogo.IniciarPartida(idJogador, senha);//iniciar partida
-            if (!retorno1.Contains("ERRO:"))
+            if (!retorno1.Contains("ERRO:") || senha != "")
             {
                 string id = CartagenaServer.Jogo.IniciarPartida(idJogador, senha);//iniciar partida
 

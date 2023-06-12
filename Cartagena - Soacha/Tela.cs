@@ -65,20 +65,33 @@ namespace Cartagena___Soacha
             listP.Add(Image.FromFile($"{path}\\pecas\\PAR1.png"));//Peça 1A
             listP.Add(Image.FromFile($"{path}\\pecas\\PAR2.png"));//Peça 1B
             listP.Add(Image.FromFile($"{path}\\pecas\\PAR3.png"));//Peça 1C
+            listP.Add(Image.FromFile($"{path}\\pecas\\PAR4.png"));//Peça 1D
+            listP.Add(Image.FromFile($"{path}\\pecas\\PAR5.png"));//Peça 1E
+
             listP.Add(Image.FromFile($"{path}\\pecas\\PBR1.png"));//Peça 2A
             listP.Add(Image.FromFile($"{path}\\pecas\\PBR2.png"));//Peça 2B
             listP.Add(Image.FromFile($"{path}\\pecas\\PBR3.png"));//Peça 2C
+            listP.Add(Image.FromFile($"{path}\\pecas\\PBR4.png"));//Peça 2D
+            listP.Add(Image.FromFile($"{path}\\pecas\\PBR5.png"));//Peça 2E  
+
             listP.Add(Image.FromFile($"{path}\\pecas\\PCR1.png"));//Peça 3A
             listP.Add(Image.FromFile($"{path}\\pecas\\PCR2.png"));//Peça 3B
             listP.Add(Image.FromFile($"{path}\\pecas\\PCR3.png"));//Peça 3C
+            listP.Add(Image.FromFile($"{path}\\pecas\\PCR4.png"));//Peça 3D
+            listP.Add(Image.FromFile($"{path}\\pecas\\PCR5.png"));//Peça 3E  
+
             listP.Add(Image.FromFile($"{path}\\pecas\\PDR1.png"));//Peça 4A
             listP.Add(Image.FromFile($"{path}\\pecas\\PDR2.png"));//Peça 4B
             listP.Add(Image.FromFile($"{path}\\pecas\\PDR3.png"));//Peça 4C
+            listP.Add(Image.FromFile($"{path}\\pecas\\PDR4.png"));//Peça 4D
+            listP.Add(Image.FromFile($"{path}\\pecas\\PDR5.png"));//Peça 4E  
+
             listP.Add(Image.FromFile($"{path}\\pecas\\PER1.png"));//Peça 5A  
             listP.Add(Image.FromFile($"{path}\\pecas\\PER2.png"));//Peça 5B
             listP.Add(Image.FromFile($"{path}\\pecas\\PER3.png"));//Peça 5C  
+            listP.Add(Image.FromFile($"{path}\\pecas\\PER4.png"));//Peça 5D
+            listP.Add(Image.FromFile($"{path}\\pecas\\PER5.png"));//Peça 5E  
 
-            
             tab = new Tabuleiro(this);//Cria tabuleiro
             tab.ListarJogadores(idPartida);//Cria Jogadores
             tab.GerarTabuleiro(CartagenaServer.Jogo.ExibirTabuleiro(idPartida), list);//Cria o Tabuleiro
@@ -162,7 +175,7 @@ namespace Cartagena___Soacha
         //
         public void End()
         {
-            tmrJogo.Stop();//Para timer
+            tmrJogo.Stop();//Para timer 
             MessageBox.Show("Fim De jogo");
             this.Close();
         }
