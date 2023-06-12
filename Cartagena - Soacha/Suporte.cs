@@ -279,9 +279,6 @@ namespace Cartagena___Soacha
 
                     pecaCom3 = todasPecas[i,0];
                      
-                    
-                        
-                    
                     return true;
                 }
                 
