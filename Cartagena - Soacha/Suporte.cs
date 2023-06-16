@@ -37,7 +37,6 @@ namespace Cartagena___Soacha
         public int pecasEmJogo = 6;
         public int[,] todasPecas;
         public int pecaCom3;
-        public bool deuRuimNaIda = false, deuRuimNaVolta = false;
 
         public Suporte(int partidaId,int jogadorID, Mao mao, Tabuleiro tabuleiro, string senha, List<Image> list, Tela form2)
         {
@@ -86,7 +85,6 @@ namespace Cartagena___Soacha
                 else
                     turno = 1;
                 DefCartas();
-                deuRuimNaIda = false;
             }
         }
         public void Mover(int pos)
@@ -97,7 +95,7 @@ namespace Cartagena___Soacha
             String retorno = CartagenaServer.Jogo.Jogar(this.jogadorID, senha, pos);
             if (retorno.Contains("ERRO:"))
             {
-                MessageBox.Show(retorno);
+                Mover(pecaMaisAfrente);
             }
             else
             {
@@ -109,8 +107,6 @@ namespace Cartagena___Soacha
                 else
                     turno = 1;
                 DefCartas();
-
-                deuRuimNaVolta = false;
             }
 
         }
@@ -169,7 +165,7 @@ namespace Cartagena___Soacha
                         i--;
                     }
                 }
-                catch (Exception e) 
+                catch (Exception ) 
                 {
                     form.End();
                 }

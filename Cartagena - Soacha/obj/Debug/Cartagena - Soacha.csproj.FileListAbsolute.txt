@@ -61,3 +61,21 @@ C:\Users\2hkio\source\repos\Soacha-PI\Cartagena - Soacha\obj\Debug\Cartagena___S
 C:\Users\henrique.kyamauchi\source\repos\Soacha-PI\Cartagena - Soacha\obj\Debug\Cartagena___Soacha.CadJogador.resources
 C:\Users\2hkio\source\repos\Soacha-PI\Cartagena - Soacha\obj\Debug\Cartagena___Soacha.Inicio.resources
 C:\Users\2hkio\source\repos\Soacha-PI\Cartagena - Soacha\obj\Debug\Cartagena___Soacha.Tela.resources
+C:\Users\hkios\source\repos\hkioshi\Soacha-PI\Cartagena - Soacha\bin\Debug\Cartagena - Soacha.exe.config
+C:\Users\hkios\source\repos\hkioshi\Soacha-PI\Cartagena - Soacha\bin\Debug\Cartagena - Soacha.exe
+C:\Users\hkios\source\repos\hkioshi\Soacha-PI\Cartagena - Soacha\bin\Debug\Cartagena - Soacha.pdb
+C:\Users\hkios\source\repos\hkioshi\Soacha-PI\Cartagena - Soacha\bin\Debug\CartagenaServer.dll
+C:\Users\hkios\source\repos\hkioshi\Soacha-PI\Cartagena - Soacha\bin\Debug\CartagenaServer.xml
+C:\Users\hkios\source\repos\hkioshi\Soacha-PI\Cartagena - Soacha\obj\Debug\Cartagena - Soacha.csproj.AssemblyReference.cache
+C:\Users\hkios\source\repos\hkioshi\Soacha-PI\Cartagena - Soacha\obj\Debug\Cartagena - Soacha.csproj.SuggestedBindingRedirects.cache
+C:\Users\hkios\source\repos\hkioshi\Soacha-PI\Cartagena - Soacha\obj\Debug\Cartagena___Soacha.CadJogador.resources
+C:\Users\hkios\source\repos\hkioshi\Soacha-PI\Cartagena - Soacha\obj\Debug\Cartagena___Soacha.CadPartida.resources
+C:\Users\hkios\source\repos\hkioshi\Soacha-PI\Cartagena - Soacha\obj\Debug\Cartagena___Soacha.formsSoacha.resources
+C:\Users\hkios\source\repos\hkioshi\Soacha-PI\Cartagena - Soacha\obj\Debug\Cartagena___Soacha.Tela.resources
+C:\Users\hkios\source\repos\hkioshi\Soacha-PI\Cartagena - Soacha\obj\Debug\Cartagena___Soacha.Inicio.resources
+C:\Users\hkios\source\repos\hkioshi\Soacha-PI\Cartagena - Soacha\obj\Debug\Cartagena___Soacha.Properties.Resources.resources
+C:\Users\hkios\source\repos\hkioshi\Soacha-PI\Cartagena - Soacha\obj\Debug\Cartagena - Soacha.csproj.GenerateResource.cache
+C:\Users\hkios\source\repos\hkioshi\Soacha-PI\Cartagena - Soacha\obj\Debug\Cartagena - Soacha.csproj.CoreCompileInputs.cache
+C:\Users\hkios\source\repos\hkioshi\Soacha-PI\Cartagena - Soacha\obj\Debug\Cartagena - Soacha.csproj.CopyComplete
+C:\Users\hkios\source\repos\hkioshi\Soacha-PI\Cartagena - Soacha\obj\Debug\Cartagena - Soacha.exe
+C:\Users\hkios\source\repos\hkioshi\Soacha-PI\Cartagena - Soacha\obj\Debug\Cartagena - Soacha.pdb
